@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>온비드 공매 알림</title>
+<meta name="robots" content="noindex">
+<style>
+  :root {
+    --bg: #f6f7f9; --card: #fff; --text: #1d2127; --muted: #6b7280; --line: #e5e7eb;
+    --accent: #2563eb; --new: #dc2626; --new-bg: #fef2f2; --ok: #16a34a; --warn-bg: #fff7ed; --warn: #c2410c;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #111418; --card: #1a1f25; --text: #e6e8eb; --muted: #9aa3ad; --line: #2a313a;
+      --accent: #60a5fa; --new: #f87171; --new-bg: #2a1616; --ok: #4ade80; --warn-bg: #2a1d12; --warn: #fb923c;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 15px/1.5 -apple-system, "Segoe UI", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 16px; }
+  header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; margin-bottom: 12px; }
+  h1 { font-size: 20px; margin: 0; }
+  .meta { color: var(--muted); font-size: 13px; }
+  .stats { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0 12px; }
+  .stat { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 8px 14px; }
+  .stat b { font-size: 18px; display: block; }
+  .stat span { color: var(--muted); font-size: 12px; }
+  .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+  .filters select, .filters input { font: inherit; padding: 7px 10px; border: 1px solid var(--line);
+         border-radius: 8px; background: var(--card); color: var(--text); min-width: 0; }
+  .filters input[type=search] { flex: 1 1 180px; }
+  .filters label { display: flex; align-items: center; gap: 6px; font-size: 14px; }
+  .list { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px;
+          display: flex; flex-direction: column; gap: 6px; }
+  .card.new { border-color: var(--new); }
+  .top { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; font-size: 12px; }
+  .tag { padding: 1px 8px; border-radius: 99px; background: var(--bg); color: var(--muted); }
+  .tag.new { background: var(--new-bg); color: var(--new); font-weight: 600; }
+  .name { font-weight: 600; word-break: keep-all; overflow-wrap: anywhere; }
+  .price { display: flex; gap: 12px; flex-wrap: wrap; align-items: baseline; }
+  .price .low { font-size: 17px; font-weight: 700; }
+  .price .rate { color: var(--accent); font-weight: 600; }
+  .sub { color: var(--muted); font-size: 13px; }
+  .mng { font-size: 12px; color: var(--muted); display: flex; gap: 6px; align-items: center; }
+  .mng button { font: inherit; font-size: 12px; border: 1px solid var(--line); background: none; color: var(--accent);
+                border-radius: 6px; padding: 0 6px; cursor: pointer; }
+  details { margin-top: 20px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; }
+  summary { cursor: pointer; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 8px; }
+  th, td { text-align: left; padding: 5px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  td.err { color: var(--warn); overflow-wrap: anywhere; }
+  .alert { background: var(--warn-bg); color: var(--warn); border-radius: 10px; padding: 10px 14px; margin-bottom: 12px; }
+  .empty { color: var(--muted); padding: 30px 0; text-align: center; }
+  .table-scroll { overflow-x: auto; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>온비드 공매 알림</h1>
+    <span class="meta" id="meta">불러오는 중…</span>
+  </header>
+  <div id="alert"></div>
+  <div class="stats" id="stats"></div>
+  <div class="filters">
+    <input type="search" id="q" placeholder="물건명·주소·관리번호 검색">
+    <select id="region"><option value="">전체 지역</option></select>
+    <select id="usage"><option value="">전체 용도</option></select>
+    <select id="sort">
+      <option value="seen">최근 등록순</option>
+      <option value="begin">입찰 빠른순</option>
+      <option value="low">최저가 낮은순</option>
+      <option value="rate">감정가 대비 낮은순</option>
+    </select>
+    <label><input type="checkbox" id="onlyNew"> 최근 7일 신규만</label>
+  </div>
+  <div class="list" id="list"></div>
+  <details id="runsBox">
+    <summary>실행 기록</summary>
+    <div class="table-scroll"><table><thead><tr><th>시각</th><th>방식</th><th>전체</th><th>신규</th><th>전송</th><th>오류</th></tr></thead>
+    <tbody id="runs"></tbody></table></div>
+  </details>
+</div>
+<script>
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const won = n => n == null ? null : n.toLocaleString("ko-KR") + "원";
+const eok = n => n == null ? "-" : n >= 1e8 ? (n / 1e8).toFixed(n >= 1e10 ? 0 : 2).replace(/\.?0+$/, "") + "억" : Math.round(n / 1e4).toLocaleString("ko-KR") + "만";
+const dt = s => s && s.length >= 12 ? `${s.slice(2,4)}.${s.slice(4,6)}.${s.slice(6,8)} ${s.slice(8,10)}:${s.slice(10,12)}` : (s || "-");
+let DATA = { items: [], runs: [] };
+
+function daysAgo(str) {
+  if (!str) return Infinity;
+  const t = new Date(str.replace(" ", "T") + ":00+09:00");
+  return (Date.now() - t) / 864e5;
+}
+
+function render() {
+  const q = $("q").value.trim().toLowerCase();
+  const region = $("region").value, usage = $("usage").value, onlyNew = $("onlyNew").checked;
+  let rows = DATA.items.filter(it =>
+    (!region || it.sgg === region) &&
+    (!usage || it.usage === usage) &&
+    (!onlyNew || (it.notified && daysAgo(it.firstSeen) <= 7)) &&
+    (!q || [it.name, it.mngNo, it.sido, it.sgg, it.emd, it.org].join(" ").toLowerCase().includes(q)));
+  const rate = it => it.lowest && it.apsl ? it.lowest / it.apsl : 9;
+  const sorters = {
+    seen: (a, b) => (b.firstSeen || "").localeCompare(a.firstSeen || "") || (a.begin || "").localeCompare(b.begin || ""),
+    begin: (a, b) => (a.begin || "9").localeCompare(b.begin || "9"),
+    low: (a, b) => (a.lowest ?? 9e15) - (b.lowest ?? 9e15),
+    rate: (a, b) => rate(a) - rate(b),
+  };
+  rows.sort(sorters[$("sort").value]);
+  $("list").innerHTML = rows.length ? rows.map(it => {
+    const isNew = it.notified && daysAgo(it.firstSeen) <= 7;
+    const r = it.lowest && it.apsl ? Math.round(it.lowest / it.apsl * 100) + "%" : "";
+    const area = [it.land ? `토지 ${it.land}㎡` : "", it.bld ? `건물 ${it.bld}㎡` : ""].filter(Boolean).join(" · ");
+    return `<div class="card${isNew ? " new" : ""}">
+      <div class="top">
+        ${isNew ? `<span class="tag new">신규 ${esc(it.firstSeen.slice(5))}</span>` : ""}
+        <span class="tag">${esc(it.usage || "-")}</span>
+        <span class="tag">${esc(it.prpt || "")}</span>
+        ${it.usbd ? `<span class="tag">유찰 ${esc(it.usbd)}회</span>` : ""}
+        ${it.share ? `<span class="tag">지분</span>` : ""}
+        ${it.status ? `<span class="tag">${esc(it.status)}</span>` : ""}
+      </div>
+      <div class="name">${esc(it.name)}</div>
+      <div class="price">
+        <span class="low">${esc(won(it.lowest) || it.lowestText || "-")}</span>
+        <span class="sub">감정 ${esc(eok(it.apsl))}</span>
+        ${r ? `<span class="rate">${r}</span>` : ""}
+      </div>
+      <div class="sub">입찰 ${esc(dt(it.begin))} ~ ${esc(dt(it.end))}</div>
+      ${area ? `<div class="sub">${esc(area)}</div>` : ""}
+      <div class="sub">${esc(it.org || "")}</div>
+      <div class="mng">관리번호 ${esc(it.mngNo)} <button data-copy="${esc(it.mngNo)}">복사</button></div>
+    </div>`;
+  }).join("") : `<div class="empty">조건에 맞는 물건이 없습니다.</div>`;
+}
+
+function fillSelect(el, values) {
+  [...new Set(values.filter(Boolean))].sort().forEach(v => el.insertAdjacentHTML("beforeend", `<option>${esc(v)}</option>`));
+}
+
+async function load() {
+  try {
+    const res = await fetch("data.json?t=" + Date.now(), { cache: "no-store" });
+    if (!res.ok) throw new Error(res.status);
+    DATA = await res.json();
+  } catch (e) {
+    $("meta").textContent = "데이터를 아직 불러올 수 없습니다 (첫 실행 전일 수 있음)";
+    return;
+  }
+  const items = DATA.items || [], runs = DATA.runs || [];
+  const newCnt = items.filter(it => it.notified && daysAgo(it.firstSeen) <= 7).length;
+  $("meta").textContent = `관심 지역: ${(DATA.regions || "").replace(/;/g, ", ").replace(/:/g, " ")} · 마지막 실행 ${DATA.updated || "-"}`;
+  $("stats").innerHTML = `
+    <div class="stat"><b>${items.length}</b><span>진행/예정 물건</span></div>
+    <div class="stat"><b>${newCnt}</b><span>최근 7일 신규</span></div>
+    <div class="stat"><b>${runs[0] ? (runs[0].error ? "오류" : "정상") : "-"}</b><span>마지막 실행</span></div>`;
+  if (runs[0] && runs[0].error) {
+    $("alert").innerHTML = `<div class="alert">마지막 실행 오류 (${esc(runs[0].at)}): ${esc(runs[0].error)}</div>`;
+  }
+  fillSelect($("region"), items.map(it => it.sgg));
+  fillSelect($("usage"), items.map(it => it.usage));
+  $("runs").innerHTML = runs.slice(0, 50).map(r => `<tr>
+    <td>${esc(r.at)}</td><td>${esc(r.mode)}</td><td>${esc(r.total ?? "")}</td>
+    <td>${esc(r.new ?? "")}</td><td>${esc(r.sent ?? "")}</td><td class="err">${esc(r.error || "")}</td></tr>`).join("");
+  render();
+}
+
+["q", "region", "usage", "sort", "onlyNew"].forEach(id => $(id).addEventListener("input", render));
+$("list").addEventListener("click", e => {
+  const v = e.target.dataset && e.target.dataset.copy;
+  if (!v) return;
+  navigator.clipboard.writeText(v).then(() => { e.target.textContent = "복사됨"; setTimeout(() => e.target.textContent = "복사", 1200); });
+});
+load();
+</script>
+</body>
+</html>

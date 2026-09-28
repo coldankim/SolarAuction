@@ -1,0 +1,9 @@
+# 키/토큰 파일은 절대 올리지 않음 (config.env만 예외: 조회 조건만 있음)
+*.env
+!config.env
+.env*
+new_refresh_token.txt
+*.log
+*.tmp
+__pycache__/
+.claude/
