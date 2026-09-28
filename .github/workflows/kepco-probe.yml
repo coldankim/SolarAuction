@@ -1,0 +1,13 @@
+name: kepco-probe
+on: workflow_dispatch
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 한전 API 접속 확인
+        env:
+          K: ${{ secrets.KEPCO_API_KEY }}
+        run: |
+          curl -s -o /tmp/r.json -w "HTTP %{http_code} / %{time_total}s\n" --max-time 60 \
+            "https://bigdata.kepco.co.kr/openapi/v1/dispersedGeneration.do?metroCd=41&cityCd=590&addrLidong=%EB%B9%84%EB%B4%89%EB%A9%B4&apiKey=$K&returnType=json" || echo "curl 실패 $?"
+          head -c 150 /tmp/r.json; echo
