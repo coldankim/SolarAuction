@@ -485,6 +485,9 @@ def run_alert(env, secret_path, mode):
     result = {"total": len(found), "new": new_cnt, "solar": len(solar),
               "pass": sum(1 for r in solar.values() if r["grade"] in SOLAR_PASS),
               "targets": len(targets), "sent": 0}
+    err = sum(1 for r in solar.values() if r["grade"] == "error")
+    if err:  # 실행은 계속하되 화면에 경고로 남김 (해당 물건은 이전 판정 유지, 다음 실행에 재시도)
+        result["error"] = f"한전 계통 조회 실패 {err}건 (이전 판정 유지)"
 
     # 첫 실행 / init: 알림 없이 기록만 (알림 폭탄 방지)
     if mode == "init" or first_time:
