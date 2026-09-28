@@ -8,12 +8,14 @@
 <style>
   :root {
     --bg: #f6f7f9; --card: #fff; --text: #1d2127; --muted: #6b7280; --line: #e5e7eb;
-    --accent: #2563eb; --new: #dc2626; --new-bg: #fef2f2; --ok: #16a34a; --warn-bg: #fff7ed; --warn: #c2410c;
+    --accent: #2563eb; --new: #dc2626; --new-bg: #fef2f2; --ok: #16a34a; --ok-bg: #f0fdf4; --warn-bg: #fff7ed; --warn: #c2410c;
+    --sun: #a16207; --sun-bg: #fefce8;
   }
   @media (prefers-color-scheme: dark) {
     :root {
       --bg: #111418; --card: #1a1f25; --text: #e6e8eb; --muted: #9aa3ad; --line: #2a313a;
-      --accent: #60a5fa; --new: #f87171; --new-bg: #2a1616; --ok: #4ade80; --warn-bg: #2a1d12; --warn: #fb923c;
+      --accent: #60a5fa; --new: #f87171; --new-bg: #2a1616; --ok: #4ade80; --ok-bg: #12261a; --warn-bg: #2a1d12; --warn: #fb923c;
+      --sun: #facc15; --sun-bg: #2a2710;
     }
   }
   * { box-sizing: border-box; }
@@ -39,6 +41,11 @@
   .top { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; font-size: 12px; }
   .tag { padding: 1px 8px; border-radius: 99px; background: var(--bg); color: var(--muted); }
   .tag.new { background: var(--new-bg); color: var(--new); font-weight: 600; }
+  .tag.sun { background: var(--sun-bg); color: var(--sun); font-weight: 600; }
+  .tag.good, .tag.ok { background: var(--ok-bg); color: var(--ok); font-weight: 600; }
+  .tag.fail { background: var(--warn-bg); color: var(--warn); }
+  .card.pass { border-left: 4px solid var(--ok); }
+  .solar { font-size: 13px; background: var(--bg); border-radius: 8px; padding: 6px 10px; }
   .name { font-weight: 600; word-break: keep-all; overflow-wrap: anywhere; }
   .price { display: flex; gap: 12px; flex-wrap: wrap; align-items: baseline; }
   .price .low { font-size: 17px; font-weight: 700; }
@@ -68,6 +75,11 @@
   <div class="filters">
     <input type="search" id="q" placeholder="물건명·주소·관리번호 검색">
     <select id="region"><option value="">전체 지역</option></select>
+    <select id="solar">
+      <option value="pass">태양광 계통 통과</option>
+      <option value="target">태양광 대상 전체</option>
+      <option value="">전체 물건</option>
+    </select>
     <select id="usage"><option value="">전체 용도</option></select>
     <select id="sort">
       <option value="seen">최근 등록순</option>
@@ -75,18 +87,19 @@
       <option value="low">최저가 낮은순</option>
       <option value="rate">감정가 대비 낮은순</option>
     </select>
-    <label><input type="checkbox" id="onlyNew"> 최근 7일 신규만</label>
+    <label><input type="checkbox" id="onlyNew"> 최근 7일 알림만</label>
   </div>
   <div class="list" id="list"></div>
   <details id="runsBox">
     <summary>실행 기록</summary>
-    <div class="table-scroll"><table><thead><tr><th>시각</th><th>방식</th><th>전체</th><th>신규</th><th>전송</th><th>오류</th></tr></thead>
+    <div class="table-scroll"><table><thead><tr><th>시각</th><th>방식</th><th>전체</th><th>신규</th><th>계통통과</th><th>전송</th><th>오류</th></tr></thead>
     <tbody id="runs"></tbody></table></div>
   </details>
 </div>
 <script>
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const isPass = it => !!it.solar && (it.solar.grade === "good" || it.solar.grade === "ok");
 const won = n => n == null ? null : n.toLocaleString("ko-KR") + "원";
 const eok = n => n == null ? "-" : n >= 1e8 ? (n / 1e8).toFixed(n >= 1e10 ? 0 : 2).replace(/\.?0+$/, "") + "억" : Math.round(n / 1e4).toLocaleString("ko-KR") + "만";
 const dt = s => s && s.length >= 12 ? `${s.slice(2,4)}.${s.slice(4,6)}.${s.slice(6,8)} ${s.slice(8,10)}:${s.slice(10,12)}` : (s || "-");
@@ -101,7 +114,9 @@ function daysAgo(str) {
 function render() {
   const q = $("q").value.trim().toLowerCase();
   const region = $("region").value, usage = $("usage").value, onlyNew = $("onlyNew").checked;
+  const solarF = $("solar").value;
   let rows = DATA.items.filter(it =>
+    (!solarF || (solarF === "target" ? !!it.solar : isPass(it))) &&
     (!region || it.sgg === region) &&
     (!usage || it.usage === usage) &&
     (!onlyNew || (it.notified && daysAgo(it.firstSeen) <= 7)) &&
@@ -115,12 +130,15 @@ function render() {
   };
   rows.sort(sorters[$("sort").value]);
   $("list").innerHTML = rows.length ? rows.map(it => {
-    const isNew = it.notified && daysAgo(it.firstSeen) <= 7;
+    const isNew = it.notified && daysAgo(it.notifiedAt || it.firstSeen) <= 7;
+    const sol = it.solar;
     const r = it.lowest && it.apsl ? Math.round(it.lowest / it.apsl * 100) + "%" : "";
     const area = [it.land ? `토지 ${it.land}㎡` : "", it.bld ? `건물 ${it.bld}㎡` : ""].filter(Boolean).join(" · ");
-    return `<div class="card${isNew ? " new" : ""}">
+    return `<div class="card${isNew ? " new" : ""}${isPass(it) ? " pass" : ""}">
       <div class="top">
-        ${isNew ? `<span class="tag new">신규 ${esc(it.firstSeen.slice(5))}</span>` : ""}
+        ${isNew ? `<span class="tag new">알림 ${esc((it.notifiedAt || it.firstSeen).slice(5))}</span>` : ""}
+        ${sol ? `<span class="tag sun">${esc(sol.type)}</span><span class="tag ${esc(sol.grade)}">${esc(sol.label)}</span>` : ""}
+        ${sol && sol.levelName ? `<span class="tag">${esc(sol.levelName)}</span>` : ""}
         <span class="tag">${esc(it.usage || "-")}</span>
         <span class="tag">${esc(it.prpt || "")}</span>
         ${it.usbd ? `<span class="tag">유찰 ${esc(it.usbd)}회</span>` : ""}
@@ -135,6 +153,8 @@ function render() {
       </div>
       <div class="sub">입찰 ${esc(dt(it.begin))} ~ ${esc(dt(it.end))}</div>
       ${area ? `<div class="sub">${esc(area)}</div>` : ""}
+      ${sol && sol.best != null ? `<div class="solar">계통 여유 최대 <b>${sol.best.toLocaleString("ko-KR")}kW</b>
+        (변전소 ${esc(sol.subst)} · DL ${esc(sol.dl)})${sol.lines > 1 ? ` · 선로 ${sol.lines}개 중 ${sol.okLines}개 통과` : ""}</div>` : ""}
       <div class="sub">${esc(it.org || "")}</div>
       <div class="mng">관리번호 ${esc(it.mngNo)} <button data-copy="${esc(it.mngNo)}">복사</button></div>
     </div>`;
@@ -155,11 +175,14 @@ async function load() {
     return;
   }
   const items = DATA.items || [], runs = DATA.runs || [];
-  const newCnt = items.filter(it => it.notified && daysAgo(it.firstSeen) <= 7).length;
-  $("meta").textContent = `관심 지역: ${(DATA.regions || "").replace(/;/g, ", ").replace(/:/g, " ")} · 마지막 실행 ${DATA.updated || "-"}`;
+  const newCnt = items.filter(it => it.notified && daysAgo(it.notifiedAt || it.firstSeen) <= 7).length;
+  const passCnt = items.filter(isPass).length, targetCnt = items.filter(it => it.solar).length;
+  $("meta").textContent = `관심 지역: ${(DATA.regions || "").replace(/;/g, ", ").replace(/:/g, " ")} · 계통 기준 ${DATA.solarMinKw || 100}kW 이상 · 마지막 실행 ${DATA.updated || "-"}`;
   $("stats").innerHTML = `
-    <div class="stat"><b>${items.length}</b><span>진행/예정 물건</span></div>
-    <div class="stat"><b>${newCnt}</b><span>최근 7일 신규</span></div>
+    <div class="stat"><b>${passCnt}</b><span>태양광 계통 통과</span></div>
+    <div class="stat"><b>${targetCnt}</b><span>태양광 대상</span></div>
+    <div class="stat"><b>${items.length}</b><span>전체 물건</span></div>
+    <div class="stat"><b>${newCnt}</b><span>최근 7일 알림</span></div>
     <div class="stat"><b>${runs[0] ? (runs[0].error ? "오류" : "정상") : "-"}</b><span>마지막 실행</span></div>`;
   if (runs[0] && runs[0].error) {
     $("alert").innerHTML = `<div class="alert">마지막 실행 오류 (${esc(runs[0].at)}): ${esc(runs[0].error)}</div>`;
@@ -168,11 +191,11 @@ async function load() {
   fillSelect($("usage"), items.map(it => it.usage));
   $("runs").innerHTML = runs.slice(0, 50).map(r => `<tr>
     <td>${esc(r.at)}</td><td>${esc(r.mode)}</td><td>${esc(r.total ?? "")}</td>
-    <td>${esc(r.new ?? "")}</td><td>${esc(r.sent ?? "")}</td><td class="err">${esc(r.error || "")}</td></tr>`).join("");
+    <td>${esc(r.new ?? "")}</td><td>${esc(r.pass ?? "")}</td><td>${esc(r.sent ?? "")}</td><td class="err">${esc(r.error || "")}</td></tr>`).join("");
   render();
 }
 
-["q", "region", "usage", "sort", "onlyNew"].forEach(id => $(id).addEventListener("input", render));
+["q", "solar", "region", "usage", "sort", "onlyNew"].forEach(id => $(id).addEventListener("input", render));
 $("list").addEventListener("click", e => {
   const v = e.target.dataset && e.target.dataset.copy;
   if (!v) return;

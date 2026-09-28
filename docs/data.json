@@ -1,6 +1,8 @@
 {
- "updated": "2026-09-29 02:24",
+ "updated": "2026-09-29 08:03",
  "regions": "경기도:화성시",
+ "solarMinKw": 100,
+ "solarGoodKw": 300,
  "items": [
   {
    "no": "2063887",
@@ -23,8 +25,10 @@
    "bld": 23.91,
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17099097&atchSn=1&hashCrpsNo=HHMFICOFDBDCMKKICBJGBLBLFBCMBGNKBEMEEOHAGELDOJOBNJADPHKKPNDPHBML&downloadImageKind=THNL_NM",
-   "firstSeen": "2026-09-29 02:25",
-   "notified": true
+   "firstSeen": "2026-09-29 08:03",
+   "notified": true,
+   "notifiedAt": "2026-09-29 02:25",
+   "solar": null
   },
   {
    "no": "2063888",
@@ -47,13 +51,15 @@
    "bld": 23.91,
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17098928&atchSn=1&hashCrpsNo=HHMFICOFDBDCMKKICBJGBLBLFBCMBGNKBEMEEOHAGELDOJOBNJADPHKKPNDPHBML&downloadImageKind=THNL_NM",
-   "firstSeen": "2026-09-29 02:25",
-   "notified": true
+   "firstSeen": "2026-09-29 08:03",
+   "notified": true,
+   "notifiedAt": "2026-09-29 02:25",
+   "solar": null
   },
   {
    "no": "1995627",
    "mngNo": "2026-02877-004",
-   "name": "경기도 화성시 효행구 비봉면 양노리 산65-2  ",
+   "name": "경기도 화성시 효행구 비봉면 양노리 산65-2",
    "usage": "임야",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -72,12 +78,31 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17092767&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 12245,
+    "worst": 10879,
+    "lines": 7,
+    "okLines": 7,
+    "subst": "장덕",
+    "dl": "중앙",
+    "vol": [
+     215074,
+     40227,
+     12245
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "2024668",
    "mngNo": "2026-07255-001",
-   "name": "경기도 화성시 병점구 진안동 629-8  ",
+   "name": "경기도 화성시 병점구 진안동 629-8",
    "usage": "답",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -96,12 +121,18 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17092769&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "none",
+    "label": "계통 조회불가",
+    "type": "토지"
+   }
   },
   {
    "no": "2026414",
    "mngNo": "2026-11778-001",
-   "name": "경기도 화성시 만세구 송산면 고포리 74-40  ",
+   "name": "경기도 화성시 만세구 송산면 고포리 74-40",
    "usage": "답",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -120,12 +151,31 @@
    "share": true,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17092770&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 9014,
+    "worst": 3884,
+    "lines": 4,
+    "okLines": 4,
+    "subst": "사강",
+    "dl": "신남",
+    "vol": [
+     63542,
+     9014,
+     10152
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "2026470",
    "mngNo": "2026-11778-002",
-   "name": "경기도 화성시 만세구 송산면 고포리 191-4  ",
+   "name": "경기도 화성시 만세구 송산면 고포리 191-4",
    "usage": "임야",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -144,7 +194,26 @@
    "share": true,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17092764&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 9014,
+    "worst": 3884,
+    "lines": 4,
+    "okLines": 4,
+    "subst": "사강",
+    "dl": "신남",
+    "vol": [
+     63542,
+     9014,
+     10152
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "2024728",
@@ -168,7 +237,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17092782&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2030482",
@@ -192,7 +263,9 @@
    "share": false,
    "thumb": null,
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2030493",
@@ -216,7 +289,9 @@
    "share": false,
    "thumb": null,
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2049926",
@@ -240,7 +315,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17096192&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2049927",
@@ -264,12 +341,14 @@
    "share": false,
    "thumb": null,
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2032405",
    "mngNo": "2026-14277-001",
-   "name": "경기도 화성시 만세구 장안면 독정리 597-3  ",
+   "name": "경기도 화성시 만세구 장안면 독정리 597-3",
    "usage": "답",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -288,12 +367,31 @@
    "share": true,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17096184&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 11804,
+    "worst": 0,
+    "lines": 11,
+    "okLines": 10,
+    "subst": "조암",
+    "dl": "사곡",
+    "vol": [
+     65621,
+     24657,
+     11804
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "2035783",
    "mngNo": "2026-15101-002",
-   "name": "경기도 화성시 만세구 우정읍 주곡리 737-9  ",
+   "name": "경기도 화성시 만세구 우정읍 주곡리 737-9",
    "usage": "임야",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -312,12 +410,31 @@
    "share": true,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17096189&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 11028,
+    "worst": 0,
+    "lines": 9,
+    "okLines": 7,
+    "subst": "조암",
+    "dl": "조석",
+    "vol": [
+     65621,
+     29822,
+     11028
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "2035749",
    "mngNo": "2026-15101-001",
-   "name": "경기도 화성시 만세구 우정읍 주곡리 557-2  ",
+   "name": "경기도 화성시 만세구 우정읍 주곡리 557-2",
    "usage": "답",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -336,7 +453,26 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17096193&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 11028,
+    "worst": 0,
+    "lines": 9,
+    "okLines": 7,
+    "subst": "조암",
+    "dl": "조석",
+    "vol": [
+     65621,
+     29822,
+     11028
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "1977747",
@@ -360,12 +496,31 @@
    "share": true,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17082209&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 9900,
+    "worst": 8103,
+    "lines": 4,
+    "okLines": 4,
+    "subst": "마도",
+    "dl": "매화",
+    "vol": [
+     152539,
+     37760,
+     9900
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "2004369",
    "mngNo": "2026-03038-001",
-   "name": "경기도 화성시 만세구 향남읍 도이리 145-1 ",
+   "name": "경기도 화성시 만세구 향남읍 도이리 145-1",
    "usage": "단독주택",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -384,7 +539,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17082253&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2031694",
@@ -408,12 +565,14 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17082211&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2046195",
    "mngNo": "2026-08101-001",
-   "name": "경기도 화성시 만세구 팔탄면 덕천리 산153-4  ",
+   "name": "경기도 화성시 만세구 팔탄면 덕천리 산153-4",
    "usage": "임야",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -432,12 +591,31 @@
    "share": true,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17082212&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 12808,
+    "worst": 9402,
+    "lines": 7,
+    "okLines": 7,
+    "subst": "화성",
+    "dl": "덕우",
+    "vol": [
+     165848,
+     45189,
+     12808
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "2025305",
    "mngNo": "2026-12024-001",
-   "name": "경기도 화성시 만세구 서신면 홍법리 629  ",
+   "name": "경기도 화성시 만세구 서신면 홍법리 629",
    "usage": "답",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -456,12 +634,31 @@
    "share": true,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17082225&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 9900,
+    "worst": 3450,
+    "lines": 3,
+    "okLines": 3,
+    "subst": "마도",
+    "dl": "매화",
+    "vol": [
+     152539,
+     37760,
+     9900
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "2043273",
    "mngNo": "2026-16177-001",
-   "name": "경기도 화성시 효행구 정남면 오일리 산19-5  ",
+   "name": "경기도 화성시 효행구 정남면 오일리 산19-5",
    "usage": "임야",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -480,12 +677,31 @@
    "share": true,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17082242&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 12505,
+    "worst": 11130,
+    "lines": 5,
+    "okLines": 5,
+    "subst": "향남",
+    "dl": "정산",
+    "vol": [
+     132470,
+     44681,
+     12505
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "2055170",
    "mngNo": "2026-18301-001",
-   "name": "경기도 화성시 만세구 남양읍 남양리 2227-7  ",
+   "name": "경기도 화성시 만세구 남양읍 남양리 2227-7",
    "usage": "대지",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -504,7 +720,13 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17096903&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "none",
+    "label": "계통 조회불가",
+    "type": "토지"
+   }
   },
   {
    "no": "1789551",
@@ -528,7 +750,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17082226&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1789536",
@@ -552,7 +776,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17082246&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1789457",
@@ -576,7 +802,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17082237&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1789533",
@@ -600,7 +828,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17082245&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1789561",
@@ -624,7 +854,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17082238&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2042905",
@@ -648,7 +880,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17082232&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1799797",
@@ -672,12 +906,31 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17075362&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 12220,
+    "worst": 11185,
+    "lines": 3,
+    "okLines": 3,
+    "subst": "일동",
+    "dl": "송봉",
+    "vol": [
+     195919,
+     47864,
+     12220
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "1875389",
    "mngNo": "2025-02895-001",
-   "name": "경기도 화성시 만세구 남양읍 문호리 산12-5  ",
+   "name": "경기도 화성시 만세구 남양읍 문호리 산12-5",
    "usage": "임야",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -696,7 +949,13 @@
    "share": true,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17075317&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "none",
+    "label": "계통 조회불가",
+    "type": "토지"
+   }
   },
   {
    "no": "2003355",
@@ -720,12 +979,14 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17075331&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2030732",
    "mngNo": "2026-13199-002",
-   "name": "경기도 화성시 효행구 봉담읍 분천리 산57-4  ",
+   "name": "경기도 화성시 효행구 봉담읍 분천리 산57-4",
    "usage": "임야",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -744,7 +1005,26 @@
    "share": true,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17087328&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 12775,
+    "worst": 11559,
+    "lines": 4,
+    "okLines": 4,
+    "subst": "봉담",
+    "dl": "봉삼",
+    "vol": [
+     145566,
+     48513,
+     12775
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "2040958",
@@ -768,7 +1048,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17075326&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2050201",
@@ -792,12 +1074,14 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17087341&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2041176",
    "mngNo": "2026-15348-001",
-   "name": "경기도 화성시 만세구 남양읍 송림리 215  ",
+   "name": "경기도 화성시 만세구 남양읍 송림리 215",
    "usage": "전",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -816,7 +1100,13 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17075348&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "none",
+    "label": "계통 조회불가",
+    "type": "토지"
+   }
   },
   {
    "no": "2046663",
@@ -840,7 +1130,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17087339&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1938447",
@@ -864,7 +1156,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17075321&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2063351",
@@ -888,12 +1182,18 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17097606&atchSn=1&hashCrpsNo=AGNMKLFIFHFHNNENNJEGOAGEPKKEPDFECBPFKFAKKCMOLEHOOBOBPHMONIABEMON&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "none",
+    "label": "계통 조회불가",
+    "type": "토지"
+   }
   },
   {
    "no": "1697445",
    "mngNo": "2023-10022-002",
-   "name": "경기도 화성시 만세구 송산면 고포리 233-24  ",
+   "name": "경기도 화성시 만세구 송산면 고포리 233-24",
    "usage": "목장용지",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -912,7 +1212,26 @@
    "share": true,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17078334&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 9014,
+    "worst": 3884,
+    "lines": 4,
+    "okLines": 4,
+    "subst": "사강",
+    "dl": "신남",
+    "vol": [
+     63542,
+     9014,
+     10152
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "1774105",
@@ -936,7 +1255,26 @@
    "share": true,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17063786&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 11939,
+    "worst": 9239,
+    "lines": 4,
+    "okLines": 4,
+    "subst": "사강",
+    "dl": "북양",
+    "vol": [
+     63542,
+     25448,
+     11939
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "1794229",
@@ -960,7 +1298,26 @@
    "share": true,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17063720&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 11939,
+    "worst": 9239,
+    "lines": 4,
+    "okLines": 4,
+    "subst": "사강",
+    "dl": "북양",
+    "vol": [
+     63542,
+     25448,
+     11939
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "1794330",
@@ -984,7 +1341,26 @@
    "share": true,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17063788&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 11939,
+    "worst": 9239,
+    "lines": 4,
+    "okLines": 4,
+    "subst": "사강",
+    "dl": "북양",
+    "vol": [
+     63542,
+     25448,
+     11939
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "2023449",
@@ -1008,12 +1384,31 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17063836&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 9900,
+    "worst": 8531,
+    "lines": 3,
+    "okLines": 3,
+    "subst": "마도",
+    "dl": "매화",
+    "vol": [
+     152539,
+     37760,
+     9900
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "2032543",
    "mngNo": "2026-04953-001",
-   "name": "경기도 화성시 만세구 향남읍 화리현리 산15-13  ",
+   "name": "경기도 화성시 만세구 향남읍 화리현리 산15-13",
    "usage": "임야",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -1032,7 +1427,26 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17063735&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 11902,
+    "worst": 8482,
+    "lines": 9,
+    "okLines": 9,
+    "subst": "발안",
+    "dl": "구문",
+    "vol": [
+     155499,
+     32542,
+     11902
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "2042398",
@@ -1056,7 +1470,26 @@
    "share": true,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17063805&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 12785,
+    "worst": 11841,
+    "lines": 4,
+    "okLines": 4,
+    "subst": "남수원SA",
+    "dl": "금복",
+    "vol": [
+     237231,
+     47990,
+     12785
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "2028605",
@@ -1080,12 +1513,14 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17063714&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2028547",
    "mngNo": "2026-12232-001",
-   "name": "경기도 화성시 만세구 향남읍 도이리 산74-2  ",
+   "name": "경기도 화성시 만세구 향남읍 도이리 산74-2",
    "usage": "임야",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -1104,7 +1539,26 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17063717&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 13000,
+    "worst": 7569,
+    "lines": 6,
+    "okLines": 6,
+    "subst": "발안",
+    "dl": "향일",
+    "vol": [
+     191345,
+     49564,
+     13000
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "2035449",
@@ -1128,12 +1582,14 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17063767&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1996518",
    "mngNo": "2026-00517-001",
-   "name": "경기도 화성시 만세구 송산면 칠곡리 산52  ",
+   "name": "경기도 화성시 만세구 송산면 칠곡리 산52",
    "usage": "임야",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -1152,12 +1608,31 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17069210&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 9014,
+    "worst": 0,
+    "lines": 4,
+    "okLines": 3,
+    "subst": "사강",
+    "dl": "전교",
+    "vol": [
+     63542,
+     9014,
+     10036
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "2009692",
    "mngNo": "2026-02650-001",
-   "name": "경기도 화성시 효행구 봉담읍 상기리 산31  ",
+   "name": "경기도 화성시 효행구 봉담읍 상기리 산31",
    "usage": "임야",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -1176,7 +1651,26 @@
    "share": true,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17052314&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 12775,
+    "worst": 10845,
+    "lines": 5,
+    "okLines": 5,
+    "subst": "봉담",
+    "dl": "봉삼",
+    "vol": [
+     145566,
+     48513,
+     12775
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "2030860",
@@ -1200,12 +1694,14 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17069205&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2039028",
    "mngNo": "2026-15630-001",
-   "name": "경기도 화성시 효행구 봉담읍 상리 117-3 ",
+   "name": "경기도 화성시 효행구 봉담읍 상리 117-3",
    "usage": "창고시설",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -1224,7 +1720,26 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17069225&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "jibun",
+    "levelName": "지번",
+    "best": 13000,
+    "worst": 13000,
+    "lines": 1,
+    "okLines": 1,
+    "subst": "호매실",
+    "dl": "당하",
+    "vol": [
+     148809,
+     49726,
+     13000
+    ],
+    "type": "지붕형"
+   }
   },
   {
    "no": "1930851",
@@ -1248,7 +1763,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17043296&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1995811",
@@ -1272,12 +1789,14 @@
    "share": true,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17058794&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1998714",
    "mngNo": "2026-04075-001",
-   "name": "경기도 화성시 만세구 장안면 노진리 547-1 ",
+   "name": "경기도 화성시 만세구 장안면 노진리 547-1",
    "usage": "대지",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -1296,12 +1815,31 @@
    "share": true,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17043233&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "ok",
+    "label": "계통 100kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 131,
+    "worst": 0,
+    "lines": 3,
+    "okLines": 2,
+    "subst": "조암",
+    "dl": "조우",
+    "vol": [
+     65621,
+     131,
+     7674
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "2009635",
    "mngNo": "2026-04774-001",
-   "name": "경기도 화성시 효행구 비봉면 쌍학리 산23-6  ",
+   "name": "경기도 화성시 효행구 비봉면 쌍학리 산23-6",
    "usage": "임야",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -1320,12 +1858,31 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17043289&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 12946,
+    "worst": 11185,
+    "lines": 3,
+    "okLines": 3,
+    "subst": "서수원",
+    "dl": "초평",
+    "vol": [
+     192584,
+     48041,
+     12946
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "2003863",
    "mngNo": "2026-06117-001",
-   "name": "경기도 화성시 만세구 서신면 제부리 산31-6  ",
+   "name": "경기도 화성시 만세구 서신면 제부리 산31-6",
    "usage": "임야",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -1344,7 +1901,26 @@
    "share": true,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17043292&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 9014,
+    "worst": 9014,
+    "lines": 1,
+    "okLines": 1,
+    "subst": "사강",
+    "dl": "서신",
+    "vol": [
+     63542,
+     9014,
+     9552
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "2021768",
@@ -1368,7 +1944,26 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17043257&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "jibun",
+    "levelName": "지번",
+    "best": 10990,
+    "worst": 10990,
+    "lines": 1,
+    "okLines": 1,
+    "subst": "화성",
+    "dl": "구장",
+    "vol": [
+     165848,
+     32123,
+     10990
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "2022532",
@@ -1392,7 +1987,26 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17034278&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 9014,
+    "worst": 3884,
+    "lines": 4,
+    "okLines": 4,
+    "subst": "사강",
+    "dl": "신남",
+    "vol": [
+     63542,
+     9014,
+     10152
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "1981126",
@@ -1416,7 +2030,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17034291&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1981132",
@@ -1440,7 +2056,9 @@
    "share": false,
    "thumb": null,
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1981137",
@@ -1464,7 +2082,9 @@
    "share": false,
    "thumb": null,
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1981140",
@@ -1488,7 +2108,9 @@
    "share": false,
    "thumb": null,
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1981142",
@@ -1512,7 +2134,9 @@
    "share": false,
    "thumb": null,
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1981251",
@@ -1536,7 +2160,9 @@
    "share": false,
    "thumb": null,
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1981254",
@@ -1560,7 +2186,9 @@
    "share": false,
    "thumb": null,
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1981257",
@@ -1584,7 +2212,9 @@
    "share": false,
    "thumb": null,
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1981263",
@@ -1608,7 +2238,9 @@
    "share": false,
    "thumb": null,
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1981268",
@@ -1632,7 +2264,9 @@
    "share": false,
    "thumb": null,
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1981292",
@@ -1656,12 +2290,14 @@
    "share": false,
    "thumb": null,
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1981295",
    "mngNo": "2025-18322-012",
-   "name": "경기도 화성시 만세구 장안면 어은리 714-1 외 1필지 제2동 제2층 제202호 ",
+   "name": "경기도 화성시 만세구 장안면 어은리 714-1 외 1필지 제2동 제2층 제202호",
    "usage": "다세대주택",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -1680,7 +2316,9 @@
    "share": false,
    "thumb": null,
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1981327",
@@ -1704,7 +2342,9 @@
    "share": false,
    "thumb": null,
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1981331",
@@ -1728,7 +2368,9 @@
    "share": false,
    "thumb": null,
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1981345",
@@ -1752,7 +2394,9 @@
    "share": false,
    "thumb": null,
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1981379",
@@ -1776,7 +2420,9 @@
    "share": false,
    "thumb": null,
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1981413",
@@ -1800,7 +2446,9 @@
    "share": false,
    "thumb": null,
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1981420",
@@ -1824,7 +2472,9 @@
    "share": false,
    "thumb": null,
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1981425",
@@ -1848,7 +2498,9 @@
    "share": false,
    "thumb": null,
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1981427",
@@ -1872,7 +2524,9 @@
    "share": false,
    "thumb": null,
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1981429",
@@ -1896,7 +2550,9 @@
    "share": false,
    "thumb": null,
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1981432",
@@ -1920,7 +2576,9 @@
    "share": false,
    "thumb": null,
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1981435",
@@ -1944,7 +2602,9 @@
    "share": false,
    "thumb": null,
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1981436",
@@ -1968,12 +2628,14 @@
    "share": false,
    "thumb": null,
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2003341",
    "mngNo": "2026-01784-001",
-   "name": "경기도 화성시 효행구 봉담읍 상리 687-2  ",
+   "name": "경기도 화성시 효행구 봉담읍 상리 687-2",
    "usage": "대지",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -1992,12 +2654,31 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17034297&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 13000,
+    "worst": 10845,
+    "lines": 11,
+    "okLines": 11,
+    "subst": "호매실",
+    "dl": "당하",
+    "vol": [
+     148809,
+     49726,
+     13000
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "2000291",
    "mngNo": "2026-04949-001",
-   "name": "경기도 화성시 효행구 봉담읍 덕우리 46-5  ",
+   "name": "경기도 화성시 효행구 봉담읍 덕우리 46-5",
    "usage": "답",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -2016,7 +2697,26 @@
    "share": true,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17034261&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 11944,
+    "worst": 7569,
+    "lines": 5,
+    "okLines": 5,
+    "subst": "화성",
+    "dl": "독정",
+    "vol": [
+     165848,
+     32123,
+     11944
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "2022290",
@@ -2040,12 +2740,14 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17063825&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2003210",
    "mngNo": "2026-01919-001",
-   "name": "경기도 화성시 병점구 진안동 939-7  ",
+   "name": "경기도 화성시 병점구 진안동 939-7",
    "usage": "대지",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -2064,12 +2766,18 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17078359&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "none",
+    "label": "계통 조회불가",
+    "type": "토지"
+   }
   },
   {
    "no": "2017265",
    "mngNo": "2026-01919-002",
-   "name": "경기도 화성시 병점구 진안동 939-11  ",
+   "name": "경기도 화성시 병점구 진안동 939-11",
    "usage": "대지",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -2088,12 +2796,18 @@
    "share": false,
    "thumb": null,
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "none",
+    "label": "계통 조회불가",
+    "type": "토지"
+   }
   },
   {
    "no": "2017269",
    "mngNo": "2026-01919-003",
-   "name": "경기도 화성시 병점구 진안동 939-9  ",
+   "name": "경기도 화성시 병점구 진안동 939-9",
    "usage": "대지",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -2112,12 +2826,18 @@
    "share": false,
    "thumb": null,
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "none",
+    "label": "계통 조회불가",
+    "type": "토지"
+   }
   },
   {
    "no": "2017271",
    "mngNo": "2026-01919-004",
-   "name": "경기도 화성시 병점구 진안동 939-8  ",
+   "name": "경기도 화성시 병점구 진안동 939-8",
    "usage": "대지",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -2136,12 +2856,18 @@
    "share": false,
    "thumb": null,
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "none",
+    "label": "계통 조회불가",
+    "type": "토지"
+   }
   },
   {
    "no": "2017274",
    "mngNo": "2026-01919-005",
-   "name": "경기도 화성시 병점구 진안동 939-12  ",
+   "name": "경기도 화성시 병점구 진안동 939-12",
    "usage": "대지",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -2160,7 +2886,13 @@
    "share": false,
    "thumb": null,
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "none",
+    "label": "계통 조회불가",
+    "type": "토지"
+   }
   },
   {
    "no": "1794102",
@@ -2184,12 +2916,31 @@
    "share": true,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17063787&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 11038,
+    "worst": 4307,
+    "lines": 3,
+    "okLines": 3,
+    "subst": "사강",
+    "dl": "천등",
+    "vol": [
+     63542,
+     25448,
+     11038
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "1894069",
    "mngNo": "2024-11650-010",
-   "name": "경기도 화성시 송산면 독지리 산18-17  ",
+   "name": "경기도 화성시 송산면 독지리 산18-17",
    "usage": "임야",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -2208,12 +2959,31 @@
    "share": true,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17024613&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 4381,
+    "worst": 4307,
+    "lines": 2,
+    "okLines": 2,
+    "subst": "사강",
+    "dl": "송산",
+    "vol": [
+     63542,
+     9014,
+     4381
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "1996402",
    "mngNo": "2024-18441-013",
-   "name": "경기도 화성시 효행구 비봉면 구포리 798-3 ",
+   "name": "경기도 화성시 효행구 비봉면 구포리 798-3",
    "usage": "전",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -2232,12 +3002,31 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17024579&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 12946,
+    "worst": 11185,
+    "lines": 6,
+    "okLines": 6,
+    "subst": "서수원",
+    "dl": "초평",
+    "vol": [
+     192584,
+     48041,
+     12946
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "2009490",
    "mngNo": "2024-18441-033",
-   "name": "경기도 화성시 효행구 비봉면 구포리 590-6 ",
+   "name": "경기도 화성시 효행구 비봉면 구포리 590-6",
    "usage": "전",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -2256,12 +3045,31 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17024580&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 12946,
+    "worst": 11185,
+    "lines": 6,
+    "okLines": 6,
+    "subst": "서수원",
+    "dl": "초평",
+    "vol": [
+     192584,
+     48041,
+     12946
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "1996695",
    "mngNo": "2025-16864-001",
-   "name": "경기도 화성시 만세구 남양읍 신남리 142-3  ",
+   "name": "경기도 화성시 만세구 남양읍 신남리 142-3",
    "usage": "전",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -2280,12 +3088,18 @@
    "share": true,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17024548&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "none",
+    "label": "계통 조회불가",
+    "type": "토지"
+   }
   },
   {
    "no": "1999074",
    "mngNo": "2026-00185-001",
-   "name": "경기도 화성시 만세구 장안면 사곡리 375-16  ",
+   "name": "경기도 화성시 만세구 장안면 사곡리 375-16",
    "usage": "임야",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -2304,12 +3118,31 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17024667&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 8416,
+    "worst": 0,
+    "lines": 6,
+    "okLines": 3,
+    "subst": "조암",
+    "dl": "호곡",
+    "vol": [
+     65621,
+     29822,
+     8416
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "2003814",
    "mngNo": "2026-01745-001",
-   "name": "경기도 화성시 만세구 장안면 사랑리 136-4  ",
+   "name": "경기도 화성시 만세구 장안면 사랑리 136-4",
    "usage": "임야",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -2328,12 +3161,31 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17024557&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 12636,
+    "worst": 0,
+    "lines": 13,
+    "okLines": 11,
+    "subst": "조암",
+    "dl": "조수",
+    "vol": [
+     65621,
+     29822,
+     12636
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "2003850",
    "mngNo": "2026-01783-001",
-   "name": "경기도 화성시 만세구 남양읍 남양리 2321-2  ",
+   "name": "경기도 화성시 만세구 남양읍 남양리 2321-2",
    "usage": "대지",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -2352,12 +3204,18 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17024624&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "none",
+    "label": "계통 조회불가",
+    "type": "토지"
+   }
   },
   {
    "no": "2006199",
    "mngNo": "2026-02168-001",
-   "name": "경기도 화성시 만세구 양감면 대양리 645-5  ",
+   "name": "경기도 화성시 만세구 양감면 대양리 645-5",
    "usage": "대지",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -2376,7 +3234,26 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17024592&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 11902,
+    "worst": 8482,
+    "lines": 7,
+    "okLines": 7,
+    "subst": "발안",
+    "dl": "구문",
+    "vol": [
+     155499,
+     32542,
+     11902
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "2000904",
@@ -2400,7 +3277,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17024611&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2004826",
@@ -2424,7 +3303,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17043255&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2024658",
@@ -2448,12 +3329,14 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17063716&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1905465",
    "mngNo": "2025-08558-001",
-   "name": "경기도 화성시 남양읍 문호리 940-5  ",
+   "name": "경기도 화성시 남양읍 문호리 940-5",
    "usage": "답",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -2472,12 +3355,18 @@
    "share": true,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17014472&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "none",
+    "label": "계통 조회불가",
+    "type": "토지"
+   }
   },
   {
    "no": "1980334",
    "mngNo": "2026-01798-001",
-   "name": "경기도 화성시 효행구 매송면 송라리 산25-23  ",
+   "name": "경기도 화성시 효행구 매송면 송라리 산25-23",
    "usage": "임야",
    "prpt": "압류재산",
    "sido": "경기도",
@@ -2496,7 +3385,26 @@
    "share": true,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17029059&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 12220,
+    "worst": 11185,
+    "lines": 3,
+    "okLines": 3,
+    "subst": "일동",
+    "dl": "송봉",
+    "vol": [
+     195919,
+     47864,
+     12220
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "2063171",
@@ -2520,7 +3428,26 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17097282&atchSn=1&hashCrpsNo=JDEBHIPAJJEIOFGKJBHGOBOCJHAFPALIJBKMKEOPGPLMOFLHAFINBFKBMMBFEPDA&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 12808,
+    "worst": 4945,
+    "lines": 14,
+    "okLines": 14,
+    "subst": "화성",
+    "dl": "덕우",
+    "vol": [
+     165848,
+     45189,
+     12808
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "1968530",
@@ -2544,7 +3471,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=16803980&atchSn=1&hashCrpsNo=LFEDHMEAIMPBEHHBAPJOLDBMJABDLCNBCKOJEAHONJCCAHBLKAJCMLLGACMKOGFE&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1968531",
@@ -2568,7 +3497,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=16803978&atchSn=1&hashCrpsNo=LFEDHMEAIMPBEHHBAPJOLDBMJABDLCNBCKOJEAHONJCCAHBLKAJCMLLGACMKOGFE&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1968532",
@@ -2592,7 +3523,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=16803977&atchSn=1&hashCrpsNo=LFEDHMEAIMPBEHHBAPJOLDBMJABDLCNBCKOJEAHONJCCAHBLKAJCMLLGACMKOGFE&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1910398",
@@ -2616,7 +3549,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=16271273&atchSn=1&hashCrpsNo=DACGOCLGPCBDEHLEOIPCFAGGCINMKBLNOIHKPAPCOJKCDKGDELKHCFNFKAHPKIGC&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2003799",
@@ -2640,7 +3575,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=16994994&atchSn=1&hashCrpsNo=LEJIDONBPBMANIFCDFIIJJPPIOKNNGCDPGAGHKAFDCJAMJNCCDCPJJDNCNBFHANJ&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2003800",
@@ -2664,7 +3601,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=16994993&atchSn=1&hashCrpsNo=LEJIDONBPBMANIFCDFIIJJPPIOKNNGCDPGAGHKAFDCJAMJNCCDCPJJDNCNBFHANJ&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2003801",
@@ -2688,7 +3627,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=16994992&atchSn=1&hashCrpsNo=LEJIDONBPBMANIFCDFIIJJPPIOKNNGCDPGAGHKAFDCJAMJNCCDCPJJDNCNBFHANJ&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2003802",
@@ -2712,7 +3653,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=16994991&atchSn=1&hashCrpsNo=LEJIDONBPBMANIFCDFIIJJPPIOKNNGCDPGAGHKAFDCJAMJNCCDCPJJDNCNBFHANJ&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2003803",
@@ -2736,7 +3679,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=16994990&atchSn=1&hashCrpsNo=LEJIDONBPBMANIFCDFIIJJPPIOKNNGCDPGAGHKAFDCJAMJNCCDCPJJDNCNBFHANJ&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2044933",
@@ -2760,7 +3705,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17062016&atchSn=1&hashCrpsNo=GKDMDIAFFMKOMPILCJMJOKNNPIPKOOEKEHCEGIEODMFJJLJJIOPOCAEFKOMPFFIH&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2044937",
@@ -2784,7 +3731,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17062030&atchSn=1&hashCrpsNo=GKDMDIAFFMKOMPILCJMJOKNNPIPKOOEKEHCEGIEODMFJJLJJIOPOCAEFKOMPFFIH&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2044942",
@@ -2808,7 +3757,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17062035&atchSn=1&hashCrpsNo=GKDMDIAFFMKOMPILCJMJOKNNPIPKOOEKEHCEGIEODMFJJLJJIOPOCAEFKOMPFFIH&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2044948",
@@ -2832,7 +3783,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17062053&atchSn=1&hashCrpsNo=GKDMDIAFFMKOMPILCJMJOKNNPIPKOOEKEHCEGIEODMFJJLJJIOPOCAEFKOMPFFIH&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2044955",
@@ -2856,7 +3809,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17062056&atchSn=1&hashCrpsNo=GKDMDIAFFMKOMPILCJMJOKNNPIPKOOEKEHCEGIEODMFJJLJJIOPOCAEFKOMPFFIH&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2044957",
@@ -2880,7 +3835,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17062068&atchSn=1&hashCrpsNo=GKDMDIAFFMKOMPILCJMJOKNNPIPKOOEKEHCEGIEODMFJJLJJIOPOCAEFKOMPFFIH&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2061665",
@@ -2904,7 +3861,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17094713&atchSn=1&hashCrpsNo=CLCPFDNCJDNNEOPEKHHAPMBLNIFMMEPPEEOOMKIAOABINJLDHEDEPPMGNMLPLKCC&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2039936",
@@ -2928,7 +3887,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17054429&atchSn=1&hashCrpsNo=CLCPFDNCJDNNEOPEKHHAPMBLNIFMMEPPEEOOMKIAOABINJLDHEDEPPMGNMLPLKCC&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1996962",
@@ -2952,7 +3913,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=16984109&atchSn=1&hashCrpsNo=GNNHDCAFJFNOCCFNPJCGHIANLGCFBPBHANLJBLNOIIAOPNICEMMGKJKOPFEJMLCK&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1511339",
@@ -2976,7 +3939,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=11561273&atchSn=1&hashCrpsNo=HFCEFKGIEOGCGKCDOEHDDMJDGALPNNMMDGFEGNDNLNDBBIKGCGMBEAOMPPOCEAHB&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1511340",
@@ -3000,7 +3965,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=11561270&atchSn=1&hashCrpsNo=HFCEFKGIEOGCGKCDOEHDDMJDGALPNNMMDGFEGNDNLNDBBIKGCGMBEAOMPPOCEAHB&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1511341",
@@ -3024,7 +3991,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=11561268&atchSn=1&hashCrpsNo=HFCEFKGIEOGCGKCDOEHDDMJDGALPNNMMDGFEGNDNLNDBBIKGCGMBEAOMPPOCEAHB&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1511342",
@@ -3048,7 +4017,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=11561266&atchSn=1&hashCrpsNo=HFCEFKGIEOGCGKCDOEHDDMJDGALPNNMMDGFEGNDNLNDBBIKGCGMBEAOMPPOCEAHB&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1511343",
@@ -3072,7 +4043,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=11561263&atchSn=1&hashCrpsNo=HFCEFKGIEOGCGKCDOEHDDMJDGALPNNMMDGFEGNDNLNDBBIKGCGMBEAOMPPOCEAHB&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1511344",
@@ -3096,7 +4069,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=11561259&atchSn=1&hashCrpsNo=HFCEFKGIEOGCGKCDOEHDDMJDGALPNNMMDGFEGNDNLNDBBIKGCGMBEAOMPPOCEAHB&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2056656",
@@ -3120,7 +4095,26 @@
    "share": true,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17087056&atchSn=3&hashCrpsNo=CLGDAHAMOBKGEDILFLNOBEKDDFMFLIINDNEGAFBJHEECMOHEGONBCOCNLLKODKDL&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 11961,
+    "worst": 7569,
+    "lines": 7,
+    "okLines": 7,
+    "subst": "발안",
+    "dl": "산호",
+    "vol": [
+     155499,
+     32542,
+     11961
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "2043959",
@@ -3144,7 +4138,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17060542&atchSn=1&hashCrpsNo=NDGFBCEJOADPMFPOLALHPOMOPEMIGKOFLDOLOGLGLAHIJIEGDFGNNFEJANIBMNGO&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2058003",
@@ -3168,7 +4164,13 @@
    "share": true,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17088874&atchSn=1&hashCrpsNo=JOOONJMMEKONJGFDELHHFDDEMGABJNJLNDLJKKMADGLNODKMAEJGILFNIEHDEDHC&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "none",
+    "label": "계통 조회불가",
+    "type": "토지"
+   }
   },
   {
    "no": "2062577",
@@ -3192,7 +4194,13 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17095977&atchSn=1&hashCrpsNo=MCHGJPDIBBMOIBMGGCLHFGIAHOJHEJFIMAJNKGEILHONKOEGDPPFLABJADIGPEBP&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "none",
+    "label": "계통 조회불가",
+    "type": "토지"
+   }
   },
   {
    "no": "2050892",
@@ -3216,7 +4224,13 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17076747&atchSn=1&hashCrpsNo=FOOJCBDCAHKCIEAEGOFGJIJEPBBJLOEKKADPPIEJHMAJIFCPGMFDKEFBGGPINPEL&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "none",
+    "label": "계통 조회불가",
+    "type": "지붕형"
+   }
   },
   {
    "no": "2050894",
@@ -3240,7 +4254,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17076751&atchSn=1&hashCrpsNo=FOOJCBDCAHKCIEAEGOFGJIJEPBBJLOEKKADPPIEJHMAJIFCPGMFDKEFBGGPINPEL&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2050895",
@@ -3264,7 +4280,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17076234&atchSn=1&hashCrpsNo=FOOJCBDCAHKCIEAEGOFGJIJEPBBJLOEKKADPPIEJHMAJIFCPGMFDKEFBGGPINPEL&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2050896",
@@ -3288,7 +4306,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17076236&atchSn=1&hashCrpsNo=FOOJCBDCAHKCIEAEGOFGJIJEPBBJLOEKKADPPIEJHMAJIFCPGMFDKEFBGGPINPEL&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2050897",
@@ -3312,7 +4332,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17076753&atchSn=1&hashCrpsNo=FOOJCBDCAHKCIEAEGOFGJIJEPBBJLOEKKADPPIEJHMAJIFCPGMFDKEFBGGPINPEL&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2050898",
@@ -3336,7 +4358,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17076237&atchSn=1&hashCrpsNo=FOOJCBDCAHKCIEAEGOFGJIJEPBBJLOEKKADPPIEJHMAJIFCPGMFDKEFBGGPINPEL&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2050899",
@@ -3360,7 +4384,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17076241&atchSn=1&hashCrpsNo=FOOJCBDCAHKCIEAEGOFGJIJEPBBJLOEKKADPPIEJHMAJIFCPGMFDKEFBGGPINPEL&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2050900",
@@ -3384,7 +4410,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17076754&atchSn=1&hashCrpsNo=FOOJCBDCAHKCIEAEGOFGJIJEPBBJLOEKKADPPIEJHMAJIFCPGMFDKEFBGGPINPEL&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2050902",
@@ -3408,7 +4436,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17076243&atchSn=1&hashCrpsNo=FOOJCBDCAHKCIEAEGOFGJIJEPBBJLOEKKADPPIEJHMAJIFCPGMFDKEFBGGPINPEL&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2050903",
@@ -3432,7 +4462,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17076244&atchSn=1&hashCrpsNo=FOOJCBDCAHKCIEAEGOFGJIJEPBBJLOEKKADPPIEJHMAJIFCPGMFDKEFBGGPINPEL&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2038361",
@@ -3456,7 +4488,26 @@
    "share": true,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17049972&atchSn=3&hashCrpsNo=NGEKHHDECHEOCOBKMOBOOAHBKLKGOJKBAEDOEFJLOGOANCPNIJEHKOAFPDCHEPFJ&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 10134,
+    "worst": 9014,
+    "lines": 2,
+    "okLines": 2,
+    "subst": "사강",
+    "dl": "산업",
+    "vol": [
+     63542,
+     25448,
+     10134
+    ],
+    "type": "토지"
+   }
   },
   {
    "no": "2048154",
@@ -3472,7 +4523,7 @@
    "apsl": 388000000,
    "begin": "202609290900",
    "end": "202610062359",
-   "usbd": 5,
+   "usbd": 6,
    "status": "입찰준비중",
    "org": "군인공제회",
    "land": 43.6225,
@@ -3480,7 +4531,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17069936&atchSn=1&hashCrpsNo=CJHIIKAGJFJDOFDBLJJJOPGEEBMPJAFCGEDHOHFDHNLLHGBGOGMONKKKGMIKLMIK&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2049896",
@@ -3504,7 +4557,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17072985&atchSn=1&hashCrpsNo=LAJMOGDIBOCHMEGDECLAHJEAFAKNLIPIDMKDNICDJLCPJAAHNMGDIDCJPGDJLKLF&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "1997702",
@@ -3528,7 +4583,9 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17043212&atchSn=2&hashCrpsNo=APJAONJNCNOIBNOKBHAJOOGOFIBJHGFBLDFCINIKIFNAOCEPJJPBNHFOIINCDDGN&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2061367",
@@ -3552,7 +4609,13 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17094545&atchSn=1&hashCrpsNo=CMGCPJJGJHGBCLBDJHDLICBPPNKNPKCOPCHEMPGGABJMCEHCBAHKNACMLPOBLKFI&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "none",
+    "label": "계통 조회불가",
+    "type": "토지"
+   }
   },
   {
    "no": "1995516",
@@ -3576,10 +4639,22 @@
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=16981286&atchSn=1&hashCrpsNo=GFOLMBONGHDPLEHCDFCBOJKECMFKCFBDECCAFOBANAIEJCMCNIAFHHNDDNJOLPCE&downloadImageKind=THNL_NM",
    "firstSeen": "2026-09-28 16:49",
-   "notified": false
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   }
  ],
  "runs": [
+  {
+   "at": "2026-09-29 08:03",
+   "mode": "run",
+   "total": 149,
+   "new": 2,
+   "solar": 58,
+   "pass": 41,
+   "targets": 0,
+   "sent": 0
+  },
   {
    "at": "2026-09-29 02:24",
    "mode": "run",

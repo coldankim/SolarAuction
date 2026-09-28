@@ -20,6 +20,8 @@ import urllib.parse
 import urllib.request
 from datetime import datetime, timedelta, timezone
 
+import kepco
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CONFIG_FILE = os.path.join(BASE_DIR, "config.env")
 SEEN_FILE = os.path.join(BASE_DIR, "seen_items.json")
@@ -36,7 +38,7 @@ ALL_PRPT = "0007,0010,0005,0002,0003,0006,0008,0011,0013"
 ENV_KEYS = [
     "KAKAO_REST_API_KEY", "KAKAO_CLIENT_SECRET", "KAKAO_REFRESH_TOKEN", "ONBID_SERVICE_KEY",
     "REGIONS", "PVCT_TRGT_YN", "DSPS_MTHOD_CD", "PRPT_DIV_CD", "MAX_NOTIFY", "LINK_URL",
-    "KAKAO_REDIRECT_URI",
+    "KAKAO_REDIRECT_URI", "KEPCO_API_KEY", "SOLAR_MIN_KW", "SOLAR_GOOD_KW",
 ]
 KST = timezone(timedelta(hours=9))
 IN_ACTIONS = os.environ.get("GITHUB_ACTIONS") == "true"
@@ -93,7 +95,7 @@ def load_settings():
     for k in ENV_KEYS:
         if os.environ.get(k):
             env[k] = os.environ[k]
-    missing = [k for k in ENV_KEYS[:4] if not env.get(k)]
+    missing = [k for k in ENV_KEYS[:4] + ["KEPCO_API_KEY"] if not env.get(k)]
     if missing:
         raise AlertError(f"키가 없습니다: {', '.join(missing)} (로컬은 API_key.env, Actions는 Secrets 확인)")
     return env, secret_path
@@ -296,16 +298,81 @@ def dt(s):
     return f"{s[:4]}-{s[4:6]}-{s[6:8]} {s[8:10]}:{s[10:12]}" if len(s) >= 12 else s
 
 
-def format_item(it):
-    loc = " ".join(x for x in (it.get("lctnSdnm"), it.get("lctnSggnm"), it.get("lctnEmdNm")) if x)
-    return (
-        f"[온비드 신규] {it.get('cltrUsgSclsCtgrNm') or ''}\n"
-        f"{it.get('onbidCltrNm', '')}\n"
-        f"최저 {won(it.get('lowstBidPrcIndctCont'))} / 감정 {won(it.get('apslEvlAmt'))}\n"
-        f"입찰 {dt(it.get('cltrBidBgngDt'))} ~ {dt(it.get('cltrBidEndDt'))}\n"
-        f"{it.get('prptDivNm') or ''} · 유찰 {it.get('usbdNft') or 0}회 · {loc}\n"
-        f"관리번호 {it.get('cltrMngNo')}"
-    )
+def format_item(it, solar=None, title="온비드 신규"):
+    name = (it.get("onbidCltrNm") or "").strip()
+    if len(name) > 45:
+        name = name[:44] + "…"
+    lines = [
+        f"[{title}] {it.get('cltrUsgSclsCtgrNm') or ''}",
+        name,
+        f"최저 {won(it.get('lowstBidPrcIndctCont'))} / 감정 {won(it.get('apslEvlAmt'))}",
+        f"입찰 {dt(it.get('cltrBidBgngDt'))[2:]} ~ {dt(it.get('cltrBidEndDt'))[2:]}",
+    ]
+    if solar and solar.get("best") is not None:
+        lines.append(f"{solar['type']} · {solar['label']} (여유 {solar['best']:,}kW, {solar['levelName']})")
+    lines.append(f"관리번호 {it.get('cltrMngNo')}")
+    return "\n".join(lines)
+
+
+# ---------------------------------------------------------------- 태양광 판정
+
+SOLAR_PASS = ("good", "ok")
+
+
+def solar_type(it):
+    """태양광 대상 여부: 토지 / 지붕형(공장·창고). 대상 아니면 None."""
+    if it.get("cltrUsgMclsCtgrNm") == "토지":
+        return "토지"
+    scls = it.get("cltrUsgSclsCtgrNm") or ""
+    if "공장" in scls or "창고" in scls:
+        return "지붕형"
+    return None
+
+
+def evaluate_solar(env, kp, it):
+    """대상 물건의 한전 계통 여유용량 판정. 대상 아니면 None, 한전 오류면 grade='error'."""
+    typ = solar_type(it)
+    if not typ:
+        return None
+    min_kw = int(env.get("SOLAR_MIN_KW") or 100)
+    good_kw = int(env.get("SOLAR_GOOD_KW") or 300)
+    pnu = str(it.get("ltnoPnu") or "")
+    if len(pnu) >= 5 and pnu[:5].isdigit():
+        codes = (pnu[:2], pnu[2:5])
+    else:
+        codes = kp.city_code(it.get("lctnSdnm"), it.get("lctnSggnm"))
+    emd, li, jibun = kepco.parse_address(it.get("onbidCltrNm"), it.get("lctnEmdNm"))
+    if not codes or not emd:
+        res = {"grade": "none", "label": "계통 조회불가"}
+    else:
+        level, rows = kp.lookup(codes[0], codes[1], emd, li, jibun)
+        res = kepco.summarize(level, rows, min_kw, good_kw)
+    res["type"] = typ
+    return res
+
+
+def evaluate_all(env, found):
+    """대상 물건 전체 판정 → {물건번호: 결과}. 한전이 계속 실패하면 나머지는 error로 두고 다음 실행에 재시도."""
+    kp = kepco.Kepco(env["KEPCO_API_KEY"])
+    out, fails = {}, 0
+    for no, it in found.items():
+        if not solar_type(it):
+            continue
+        if fails >= 3:
+            out[no] = {"grade": "error", "label": "계통 조회실패", "type": solar_type(it)}
+            continue
+        try:
+            out[no] = evaluate_solar(env, kp, it)
+            fails = 0
+        except kepco.KepcoError as e:
+            fails += 1
+            log(f"한전 조회 실패: {e}")
+            out[no] = {"grade": "error", "label": "계통 조회실패", "type": solar_type(it)}
+    kp.save()
+    from collections import Counter
+    log(f"태양광 대상 {len(out)}건 판정 (한전 호출 {kp.calls}회): "
+        + ", ".join(f"{k} {v}" for k, v in Counter(r["label"] for r in out.values()).items()))
+    return out
 
 
 # ---------------------------------------------------------------- 기록 / 대시보드
@@ -325,6 +392,10 @@ def write_json(path, obj, indent=1):
     os.replace(tmp, path)
 
 
+def is_notified(s):
+    return bool(s.get("notified"))
+
+
 def write_dashboard(env, found, seen, run):
     """docs/data.json: 현재 물건 목록 + 최근 실행 기록 (GitHub Pages 화면이 읽음)."""
     prev = read_json(DATA_FILE, {})
@@ -337,7 +408,7 @@ def write_dashboard(env, found, seen, run):
             items.append({
                 "no": no,
                 "mngNo": it.get("cltrMngNo"),
-                "name": it.get("onbidCltrNm"),
+                "name": (it.get("onbidCltrNm") or "").strip(),
                 "usage": it.get("cltrUsgSclsCtgrNm") or it.get("cltrUsgMclsCtgrNm"),
                 "prpt": it.get("prptDivNm"),
                 "sido": it.get("lctnSdnm"), "sgg": it.get("lctnSggnm"), "emd": it.get("lctnEmdNm"),
@@ -352,12 +423,16 @@ def write_dashboard(env, found, seen, run):
                 "share": it.get("alcYn") == "Y",
                 "thumb": it.get("thnlImgUrlAdr"),
                 "firstSeen": s.get("at"),
-                "notified": bool(s) and not s.get("init"),
+                "notified": is_notified(s),
+                "notifiedAt": s.get("notifiedAt"),
+                "solar": s.get("solar"),
             })
         items.sort(key=lambda x: (x.get("firstSeen") or "", x.get("begin") or ""), reverse=True)
     write_json(DATA_FILE, {
         "updated": run["at"],
         "regions": env.get("REGIONS", ""),
+        "solarMinKw": int(env.get("SOLAR_MIN_KW") or 100),
+        "solarGoodKw": int(env.get("SOLAR_GOOD_KW") or 300),
         "items": items,
         "runs": runs,
     })
@@ -365,44 +440,80 @@ def write_dashboard(env, found, seen, run):
 
 # ---------------------------------------------------------------- 실행
 
+def pick_targets(found, seen, solar):
+    """알림 대상 결정.
+    - 처음 보는 물건: 태양광 대상 + 계통 통과면 알림
+    - 이미 본 물건: 알림 보낸 적 없고, 지난번엔 부족/조회불가였는데 이번에 통과로 바뀌면 알림 (여유용량 생김)
+    """
+    out = []
+    for no, it in found.items():
+        sol = solar.get(no)
+        if not sol or sol["grade"] not in SOLAR_PASS:
+            continue
+        s = seen.get(no)
+        if s is None:
+            out.append((no, it, "온비드 신규"))
+        elif not is_notified(s) and (s.get("solar") or {}).get("grade") in ("fail", "none"):
+            out.append((no, it, "계통 여유 생김"))
+    return out
+
+
+def record(seen, found, solar, stamp, init=False):
+    """처음 본 물건 기록 + 태양광 판정 결과 갱신 (한전 오류면 이전 판정 유지)."""
+    for no, it in found.items():
+        s = seen.get(no)
+        if s is None:
+            s = seen[no] = {"name": (it.get("onbidCltrNm") or "").strip(), "at": stamp}
+            if init:
+                s["init"] = True
+        sol = solar.get(no)
+        if sol and sol["grade"] != "error":
+            s["solar"] = sol
+
+
 def run_alert(env, secret_path, mode):
-    """mode: run / init. 결과 요약 dict 반환."""
+    """mode: run / init. (found, seen, result) 반환."""
     found = collect(env)
     seen = read_json(SEEN_FILE, None)
     first_time = seen is None
     seen = seen or {}
-    new = [(no, it) for no, it in found.items() if no not in seen]
-    log(f"전체 {len(found)}건 / 신규 {len(new)}건")
+    solar = evaluate_all(env, found)
+    new_cnt = sum(1 for no in found if no not in seen)
     stamp = now_kst().strftime("%Y-%m-%d %H:%M")
-    result = {"total": len(found), "new": len(new), "sent": 0}
+    targets = [] if (mode == "init" or first_time) else pick_targets(found, seen, solar)
+    log(f"전체 {len(found)}건 / 신규 {new_cnt}건 / 알림 대상(태양광 통과) {len(targets)}건")
+    result = {"total": len(found), "new": new_cnt, "solar": len(solar),
+              "pass": sum(1 for r in solar.values() if r["grade"] in SOLAR_PASS),
+              "targets": len(targets), "sent": 0}
 
-    # 기록 파일이 아예 없는 첫 실행은 알림 폭탄을 막기 위해 자동으로 init 처리
+    # 첫 실행 / init: 알림 없이 기록만 (알림 폭탄 방지)
     if mode == "init" or first_time:
-        for no, it in new:
-            seen[no] = {"name": it.get("onbidCltrNm"), "at": stamp, "init": True}
+        record(seen, found, solar, stamp, init=True)
         write_json(SEEN_FILE, seen)
-        log(f"초기화: {len(new)}건을 알림 없이 기록")
+        log(f"초기화: {new_cnt}건을 알림 없이 기록")
         result["mode"] = "init"
-        if first_time and mode != "init":
-            token = kakao_refresh(env, secret_path)
-            kakao_send(token, f"[온비드 알림 시작] 현재 물건 {len(new)}건을 기록했습니다. "
-                              "이후 새로 올라오는 물건만 알려드립니다.", env.get("LINK_URL"))
         return found, seen, result
 
-    if new:
-        token = kakao_refresh(env, secret_path)
-        link = env.get("LINK_URL") or "https://www.onbid.co.kr"
-        limit = int(env.get("MAX_NOTIFY") or 20)
-        try:
-            for no, it in new[:limit]:
-                kakao_send(token, format_item(it), link)
-                seen[no] = {"name": it.get("onbidCltrNm"), "at": stamp}
+    try:
+        if targets:
+            token = kakao_refresh(env, secret_path)
+            link = env.get("LINK_URL") or "https://www.onbid.co.kr"
+            limit = int(env.get("MAX_NOTIFY") or 20)
+            for no, it, title in targets[:limit]:
+                kakao_send(token, format_item(it, solar[no], title), link)
+                seen.setdefault(no, {"name": (it.get("onbidCltrNm") or "").strip(), "at": stamp})
+                seen[no].update(notified=True, notifiedAt=stamp)
+                seen[no].pop("init", None)
                 result["sent"] += 1
-        finally:
-            write_json(SEEN_FILE, seen)  # 전송 실패분은 기록 안 됨 → 다음 실행 때 재시도
-        rest = len(new) - result["sent"]
-        if rest > 0:
-            kakao_send(token, f"[온비드] 신규 물건이 {rest}건 더 있습니다. 다음 실행 때 이어서 보냅니다.", link)
+            rest = len(targets) - result["sent"]
+            if rest > 0:
+                kakao_send(token, f"[온비드] 태양광 조건 통과 물건이 {rest}건 더 있습니다. "
+                                  "다음 실행 때 이어서 보냅니다.", link)
+    finally:
+        # 알림 못 보낸 통과 물건은 '처음 보는 물건'으로 남겨 다음 실행 때 재시도
+        pending = {no for no, _, _ in targets if not is_notified(seen.get(no, {}))}
+        record(seen, {no: it for no, it in found.items() if no not in pending}, solar, stamp)
+        write_json(SEEN_FILE, seen)
     log(f"카톡 전송 {result['sent']}건")
     return found, seen, result
 
@@ -430,13 +541,12 @@ def main():
         if args.dry_run:
             found = collect(env)
             seen = read_json(SEEN_FILE, {})
-            new = [it for no, it in found.items() if no not in seen]
-            log(f"전체 {len(found)}건 / 신규 {len(new)}건")
-            for it in new[:30]:
+            solar = evaluate_all(env, found)
+            targets = pick_targets(found, seen, solar)
+            log(f"전체 {len(found)}건 / 알림 대상 {len(targets)}건")
+            for no, it, title in targets[:30]:
                 print("-" * 40)
-                print(format_item(it))
-            if len(new) > 30:
-                print(f"... 외 {len(new) - 30}건")
+                print(format_item(it, solar[no], title))
             return
     except AlertError as e:
         sys.exit(str(e))

@@ -22,7 +22,7 @@ concurrency:
 jobs:
   alert:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
 
@@ -36,6 +36,7 @@ jobs:
           KAKAO_CLIENT_SECRET: ${{ secrets.KAKAO_CLIENT_SECRET }}
           KAKAO_REFRESH_TOKEN: ${{ secrets.KAKAO_REFRESH_TOKEN }}
           ONBID_SERVICE_KEY: ${{ secrets.ONBID_SERVICE_KEY }}
+          KEPCO_API_KEY: ${{ secrets.KEPCO_API_KEY }}
           MODE: ${{ inputs.mode || 'run' }}
           HAS_PAT: ${{ secrets.GH_PAT != '' }}
         run: |
@@ -63,7 +64,7 @@ jobs:
           rm -f new_refresh_token.txt
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          for f in docs/data.json seen_items.json; do [ -f "$f" ] && git add "$f"; done
+          for f in docs/data.json seen_items.json kepco_cache.json; do [ -f "$f" ] && git add "$f"; done
           if git diff --cached --quiet; then echo "변경 없음"; exit 0; fi
           git commit -m "data: $(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M')"
           git push
