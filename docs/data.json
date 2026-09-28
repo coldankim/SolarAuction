@@ -1,7 +1,55 @@
 {
- "updated": "2026-09-28 16:49",
+ "updated": "2026-09-29 02:24",
  "regions": "경기도:화성시",
  "items": [
+  {
+   "no": "2063887",
+   "mngNo": "2026-0900-053198",
+   "name": "경기도 화성시 만세구 향남읍 하길리 1472-3, 902호 [숙박시설]",
+   "usage": "숙박시설",
+   "prpt": "기타일반재산",
+   "sido": "경기도",
+   "sgg": "화성시 만세구",
+   "emd": "향남읍",
+   "lowest": 166200000,
+   "lowestText": "166200000",
+   "apsl": null,
+   "begin": "202610081000",
+   "end": "202610081600",
+   "usbd": 0,
+   "status": "입찰준비중",
+   "org": "주식회사 무궁화신탁",
+   "land": null,
+   "bld": 23.91,
+   "share": false,
+   "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17099097&atchSn=1&hashCrpsNo=HHMFICOFDBDCMKKICBJGBLBLFBCMBGNKBEMEEOHAGELDOJOBNJADPHKKPNDPHBML&downloadImageKind=THNL_NM",
+   "firstSeen": "2026-09-29 02:25",
+   "notified": true
+  },
+  {
+   "no": "2063888",
+   "mngNo": "2026-0900-053199",
+   "name": "경기도 화성시 만세구 향남읍 하길리 1472-3, 1004호 [숙박시설]",
+   "usage": "숙박시설",
+   "prpt": "기타일반재산",
+   "sido": "경기도",
+   "sgg": "화성시 만세구",
+   "emd": "향남읍",
+   "lowest": 166200000,
+   "lowestText": "166200000",
+   "apsl": null,
+   "begin": "202610081000",
+   "end": "202610081600",
+   "usbd": 0,
+   "status": "입찰준비중",
+   "org": "주식회사 무궁화신탁",
+   "land": null,
+   "bld": 23.91,
+   "share": false,
+   "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17098928&atchSn=1&hashCrpsNo=HHMFICOFDBDCMKKICBJGBLBLFBCMBGNKBEMEEOHAGELDOJOBNJADPHKKPNDPHBML&downloadImageKind=THNL_NM",
+   "firstSeen": "2026-09-29 02:25",
+   "notified": true
+  },
   {
    "no": "1995627",
    "mngNo": "2026-02877-004",
@@ -3532,6 +3580,13 @@
   }
  ],
  "runs": [
+  {
+   "at": "2026-09-29 02:24",
+   "mode": "run",
+   "total": 149,
+   "new": 2,
+   "sent": 2
+  },
   {
    "at": "2026-09-28 16:49",
    "mode": "init",
