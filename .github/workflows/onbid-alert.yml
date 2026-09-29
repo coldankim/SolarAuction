@@ -47,10 +47,10 @@ jobs:
           # 토큰 교체를 저장할 수단이 없으면 카카오 토큰을 갱신하기 전에 멈춘다 (새 토큰 유실 방지)
           if [ "$HAS_PAT" != "true" ]; then echo "::error::GH_PAT Secret이 없습니다"; exit 1; fi
           case "$MODE" in
-            init)       python onbid_alert.py --init ;;
-            test-kakao) python onbid_alert.py --test-kakao ;;
-            dry-run)    python onbid_alert.py --dry-run ;;
-            *)          python onbid_alert.py ;;
+            init)       python -u onbid_alert.py --init ;;
+            test-kakao) python -u onbid_alert.py --test-kakao ;;
+            dry-run)    python -u onbid_alert.py --dry-run ;;
+            *)          python -u onbid_alert.py ;;
           esac
 
       # 카카오가 새 refresh_token을 주면 Secret을 교체 (GH_PAT: 이 저장소 Secrets 쓰기 권한만 가진 토큰)

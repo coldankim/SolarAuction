@@ -45,7 +45,7 @@ ENV_KEYS = [
     "REGIONS", "PVCT_TRGT_YN", "DSPS_MTHOD_CD", "PRPT_DIV_CD", "MAX_NOTIFY", "LINK_URL",
     "KAKAO_REDIRECT_URI", "KEPCO_API_KEY", "SOLAR_MIN_KW", "SOLAR_GOOD_KW",
     "VWORLD_API_KEY", "VWORLD_DOMAIN", "VWORLD_PROXY_URL", "VWORLD_PROXY_TOKEN",
-    "COURT_ENABLED", "COURT_REFRESH_HOURS", "TELEGRAM_BOT_TOKEN", "TELEGRAM_CHAT_ID", "KAKAO_ENABLED",
+    "COURT_ENABLED", "COURT_REFRESH_HOURS", "SOLAR_TIME_BUDGET_MIN", "TELEGRAM_BOT_TOKEN", "TELEGRAM_CHAT_ID", "KAKAO_ENABLED",
 ]
 KST = timezone(timedelta(hours=9))
 IN_ACTIONS = os.environ.get("GITHUB_ACTIONS") == "true"
@@ -479,10 +479,19 @@ def evaluate_all(env, found):
                          proxy, env.get("VWORLD_PROXY_TOKEN")) if env.get("VWORLD_API_KEY") else None
     lu_fails = 0
     out, fails = {}, 0
+    # 한 실행에서 조회에 쓰는 시간 상한 (GitHub Actions 제한시간 안에 끝내기 위해). 남은 건 다음 실행에서 이어서
+    deadline = time.time() + float(env.get("SOLAR_TIME_BUDGET_MIN") or 12) * 60
+    done = 0
     for no, it in found.items():
         if not solar_type(it):
             continue
-        if fails >= 3:  # 한전이 계속 실패하면 나머지는 이번에 호출하지 않고 다음 실행에서 이어서
+        done += 1
+        if done % 15 == 0:  # 중간 저장: 중간에 끊겨도 조회한 만큼은 남도록
+            kp.save()
+            if lu:
+                lu.save()
+        over = time.time() > deadline
+        if fails >= 3 or over:  # 한전이 계속 실패하거나 시간이 다 되면 나머지는 다음 실행에서 이어서
             out[no] = {"grade": "error", "label": "계통 조회 대기", "type": solar_type(it)}
         else:
             try:
@@ -495,7 +504,7 @@ def evaluate_all(env, found):
         # 토지만 용도지역 1차 스크리닝 (지붕형은 기존 건물 위라 해당 없음)
         if out[no]["type"] != "토지":
             out[no]["landuse"] = {"grade": "skip", "label": "", "zones": []}
-        elif not lu or lu_fails >= 3:
+        elif not lu or lu_fails >= 3 or over:
             out[no]["landuse"] = {"grade": "error", "label": "용도 조회 대기", "zones": []}
         else:
             try:

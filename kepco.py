@@ -73,7 +73,8 @@ class Kepco:
     def _get(self, path, params):
         # 한전은 연속 호출이 빠르면 401이나 연결 끊김으로 응답한다 → 호출 간격을 두고, 쉬었다가 재시도
         url = self._url(path, params)
-        req = urllib.request.Request(url, headers={"Accept": "application/json", "User-Agent": "SolarAuction/1.0"})
+        # 한전은 Accept: application/json 이면 406, 중계 호스팅은 Accept 없으면 403 → */*
+        req = urllib.request.Request(url, headers={"Accept": "*/*", "User-Agent": "SolarAuction/1.0"})
         last = ""
         for wait in (0, 5, 15, 30):
             if wait:
