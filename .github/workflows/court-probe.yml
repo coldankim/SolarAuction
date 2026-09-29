@@ -1,0 +1,22 @@
+name: court-probe
+on: workflow_dispatch
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 법원경매 접속 확인
+        run: |
+          cat > p.py <<'PY'
+          import json,urllib.request,sys
+          BASE="https://www.courtauction.go.kr/pgj"
+          H={"Content-Type":"application/json;charset=UTF-8","Accept":"application/json","User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140 Safari/537.36","Referer":"https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ151F00.xml","SC-Pgm-Id":"PGJ151M01"}
+          keys="rletDspslSpcCondCd bidDvsCd mvprpRletDvsCd cortAuctnSrchCondCd rprsAdongSdCd rprsAdongSggCd rprsAdongEmdCd rdnmSdCd rdnmSggCd rdnmNo mvprpDspslPlcAdongSdCd mvprpDspslPlcAdongSggCd mvprpDspslPlcAdongEmdCd rdDspslPlcAdongSdCd rdDspslPlcAdongSggCd rdDspslPlcAdongEmdCd cortOfcCd jdbnCd execrOfcDvsCd lclDspslGdsLstUsgCd mclDspslGdsLstUsgCd sclDspslGdsLstUsgCd cortAuctnMbrsId aeeEvlAmtMin aeeEvlAmtMax lwsDspslPrcRateMin lwsDspslPrcRateMax flbdNcntMin flbdNcntMax objctArDtsMin objctArDtsMax mvprpArtclKndCd mvprpArtclNm mvprpAtchmPlcTypCd notifyLoc lafjOrderBy pgmId csNo cortStDvs statNum bidBgngYmd bidEndYmd dspslDxdyYmd fstDspslHm scndDspslHm thrdDspslHm fothDspslHm dspslPlcNm lwsDspslPrcMin lwsDspslPrcMax grbxTypCd gdsVendNm fuelKndCd carMdyrMax carMdyrMin carMdlNm sideDvsCd".split()
+          info={k:"" for k in keys}; info.update(mvprpRletDvsCd="00031R",cortAuctnSrchCondCd="0004601",rprsAdongSdCd="41",rprsAdongSggCd="590",pgmId="PGJ151M01",cortStDvs="2")
+          body={"dma_pageInfo":{"pageNo":1,"pageSize":50,"bfPageNo":"","startRowNo":1,"totalCnt":"","totalYn":"Y","groupTotalCount":""},"dma_srchGdsDtlSrchInfo":info}
+          r=urllib.request.urlopen(urllib.request.Request(BASE+"/pgjsearch/searchControllerMain.on",data=json.dumps(body).encode(),headers=H),timeout=30)
+          d=json.loads(r.read()); data=d.get('data') or {}
+          rows=data.get('dlt_srchResult') or []
+          print('status',d.get('status'),'msg',d.get('message'),'ipcheck',data.get('ipcheck'),'page',data.get('dma_pageInfo'),'rows',len(rows))
+          if rows:
+          PY
+          python p.py || echo "실패 $?"
