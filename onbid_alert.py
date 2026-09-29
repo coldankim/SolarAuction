@@ -24,6 +24,7 @@ from datetime import datetime, timedelta, timezone
 import courtauction
 import kepco
 import landuse
+import setback
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CONFIG_FILE = os.path.join(BASE_DIR, "config.env")
@@ -419,6 +420,9 @@ def format_item(it, solar=None, title=None):
         if lu.get("grade") in ("pass", "cond", "none", "error"):
             why = ", ".join((lu.get("reasons") or lu.get("favorable") or [])[:2])
             lines.append(f"용도 {lu['label']}" + (f": {why}" if why else ""))
+        sb = solar.get("setback") or {}
+        if sb.get("grade") in ("ok", "violate"):
+            lines.append(f"{sb['label']}: {sb.get('why', '')}")
     lines.append(f"{'사건번호' if it.get('source') == 'court' else '관리번호'} {it.get('cltrMngNo')}")
     return "\n".join(lines)
 
@@ -477,6 +481,7 @@ def evaluate_all(env, found):
     kp = kepco.Kepco(env["KEPCO_API_KEY"], proxy, env.get("VWORLD_PROXY_TOKEN"))
     lu = landuse.Landuse(env["VWORLD_API_KEY"], env.get("VWORLD_DOMAIN") or "coldankim.github.io",
                          proxy, env.get("VWORLD_PROXY_TOKEN")) if env.get("VWORLD_API_KEY") else None
+    sb = setback.Setback(lu) if lu else None
     lu_fails = 0
     out, fails = {}, 0
     # 한 실행에서 조회에 쓰는 시간 상한 (GitHub Actions 제한시간 안에 끝내기 위해). 남은 건 다음 실행에서 이어서
@@ -490,6 +495,7 @@ def evaluate_all(env, found):
             kp.save()
             if lu:
                 lu.save()
+                sb.save()
         over = time.time() > deadline
         if fails >= 3 or over:  # 한전이 계속 실패하거나 시간이 다 되면 나머지는 다음 실행에서 이어서
             out[no] = {"grade": "error", "label": "계통 조회 대기", "type": solar_type(it)}
@@ -510,26 +516,54 @@ def evaluate_all(env, found):
             try:
                 pnu = landuse.resolve_pnu(lu, it.get("ltnoPnu"), it.get("onbidCltrNm"))
                 out[no]["landuse"] = landuse.screen(lu.zones(pnu)) if pnu else                     {"grade": "none", "label": "용도 조회불가", "zones": []}
+                out[no]["landuse"]["pnu"] = pnu
                 lu_fails = 0
             except landuse.LanduseError as e:
                 lu_fails += 1
                 log(f"브이월드 조회 실패: {e}")
                 out[no]["landuse"] = {"grade": "error", "label": "용도 조회실패", "zones": []}
+        out[no]["setback"] = check_setback(sb, it, out[no], over or lu_fails >= 3)
     kp.save()
     if lu:
         lu.save()
+        sb.save()
     from collections import Counter
     log(f"태양광 대상 {len(out)}건 판정 (한전 호출 {kp.calls}회, 브이월드 호출 {lu.calls if lu else 0}회): "
         + ", ".join(f"{k} {v}" for k, v in Counter(r["label"] for r in out.values()).items())
         + " / 용도: " + ", ".join(f"{k or '지붕형'} {v}" for k, v in
-                                 Counter(r["landuse"]["label"] for r in out.values()).items()))
+                                 Counter(r["landuse"]["label"] for r in out.values()).items())
+        + " / 이격: " + ", ".join(f"{k} {v}" for k, v in
+                                 Counter((r.get("setback") or {}).get("label", "-") for r in out.values()).items()))
     return out
+
+
+def check_setback(sb, it, sol, skip):
+    """이격거리(주거지) 추정. 지붕형은 면제, 계통·용도에서 이미 탈락한 물건은 측정 생략."""
+    if sol.get("type") != "토지":
+        return {"grade": "exempt", "label": "이격 면제(지붕형)"}
+    if not solar_ok(sol):
+        return None
+    rule = setback.rule_for(sb.rules if sb else setback.load_rules(), it.get("lctnSdnm"), it.get("lctnSggnm"))
+    if not rule["limit"]:
+        return {"grade": "norule", "label": "이격 기준 없음", "basis": rule["basis"]}
+    pnu = (sol.get("landuse") or {}).get("pnu")
+    if not sb or skip:
+        return {"grade": "error", "label": "이격 확인 대기"}
+    if not pnu:
+        return {"grade": "none", "label": "이격 측정불가", "why": "필지 번호 없음"}
+    try:
+        return sb.measure(pnu, rule)
+    except setback.SetbackError as e:
+        log(f"이격 측정 실패: {e}")
+        return {"grade": "error", "label": "이격 확인 대기"}
 
 
 def keep_previous(solar, seen):
     """이번에 조회 실패한 부분은 지난번 판정으로 채운다."""
     for no, sol in solar.items():
         prev = (seen.get(no) or {}).get("solar") or {}
+        if (sol.get("setback") or {}).get("grade") == "error" and (prev.get("setback") or {}).get("grade") not in (None, "error"):
+            sol["setback"] = prev["setback"]
         if sol["landuse"]["grade"] == "error" and prev.get("landuse", {}).get("grade") not in (None, "error"):
             sol["landuse"] = prev["landuse"]
 

@@ -1,0 +1,27 @@
+{
+  "_시행령": {
+    "note": "2026.9.18 시행 신재생에너지법 시행령: 태양광은 주거지(주택 5호 이상)로부터 최대 200m까지만, 도로 이격은 정할 수 없음. 지붕형·자가소비·주민참여형 제외. 이보다 엄격한 조례는 완화해야 함",
+    "source": "https://mcee.go.kr/home/web/board/read.do?menuId=10598&boardId=1883230&boardMasterId=939"
+  },
+  "경기도 화성시": {
+    "residence_m": 0,
+    "min_houses": null,
+    "status": "화성시 도시계획 조례(2025.11.3 시행) 본문에 태양광 이격 조항 없음",
+    "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2087389",
+    "checked": "2026-09-29"
+  },
+  "경상북도 예천군": {
+    "residence_m": 500,
+    "min_houses": 10,
+    "status": "조례 태양광 조항: 10호 이상 주거지 500m, 10호 미만 300m, 도로 500m, 하천 300~500m, 철도 300m, 경사도 15도 → 시행령으로 도로·10호 미만 기준은 무효, 주거지는 200m로 완화 대상",
+    "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2096259",
+    "checked": "2026-09-29"
+  },
+  "경상북도 안동시": {
+    "residence_m": null,
+    "min_houses": null,
+    "status": "발전시설 허가기준이 조례 별표 28에 있으나 원문 미확인 → 시행령 상한(5호 이상 200m) 보수 적용",
+    "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2103263",
+    "checked": "2026-09-29"
+  }
+}
