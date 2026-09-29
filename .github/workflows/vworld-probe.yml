@@ -1,0 +1,13 @@
+name: vworld-probe
+on: workflow_dispatch
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 브이월드 접속 확인
+        env:
+          K: ${{ secrets.VWORLD_API_KEY }}
+        run: |
+          curl -s -o /tmp/r.json -w "HTTP %{http_code} / %{time_total}s\n" --max-time 60 \
+            "https://api.vworld.kr/ned/data/getLandUseAttr?pnu=4159132031100740040&format=json&numOfRows=5&pageNo=1&key=$K&domain=https://coldankim.github.io" || echo "curl 실패 $?"
+          head -c 200 /tmp/r.json; echo

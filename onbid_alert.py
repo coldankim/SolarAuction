@@ -21,6 +21,7 @@ import urllib.request
 from datetime import datetime, timedelta, timezone
 
 import kepco
+import landuse
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CONFIG_FILE = os.path.join(BASE_DIR, "config.env")
@@ -39,6 +40,7 @@ ENV_KEYS = [
     "KAKAO_REST_API_KEY", "KAKAO_CLIENT_SECRET", "KAKAO_REFRESH_TOKEN", "ONBID_SERVICE_KEY",
     "REGIONS", "PVCT_TRGT_YN", "DSPS_MTHOD_CD", "PRPT_DIV_CD", "MAX_NOTIFY", "LINK_URL",
     "KAKAO_REDIRECT_URI", "KEPCO_API_KEY", "SOLAR_MIN_KW", "SOLAR_GOOD_KW",
+    "VWORLD_API_KEY", "VWORLD_DOMAIN",
 ]
 KST = timezone(timedelta(hours=9))
 IN_ACTIONS = os.environ.get("GITHUB_ACTIONS") == "true"
@@ -310,6 +312,10 @@ def format_item(it, solar=None, title="온비드 신규"):
     ]
     if solar and solar.get("best") is not None:
         lines.append(f"{solar['type']} · {solar['label']} (여유 {solar['best']:,}kW, {solar['levelName']})")
+        lu = solar.get("landuse") or {}
+        if lu.get("grade") in ("pass", "cond", "none", "error"):
+            why = ", ".join((lu.get("reasons") or lu.get("favorable") or [])[:2])
+            lines.append(f"용도 {lu['label']}" + (f": {why}" if why else ""))
     lines.append(f"관리번호 {it.get('cltrMngNo')}")
     return "\n".join(lines)
 
@@ -317,6 +323,11 @@ def format_item(it, solar=None, title="온비드 신규"):
 # ---------------------------------------------------------------- 태양광 판정
 
 SOLAR_PASS = ("good", "ok")
+
+
+def solar_ok(sol):
+    """알림/화면 '통과' 기준: 계통 여유 통과 + 용도지역 1차 제외 아님."""
+    return bool(sol) and sol.get("grade") in SOLAR_PASS and (sol.get("landuse") or {}).get("grade") != "exclude"
 
 
 def solar_type(it):
@@ -354,25 +365,53 @@ def evaluate_solar(env, kp, it):
 def evaluate_all(env, found):
     """대상 물건 전체 판정 → {물건번호: 결과}. 한전이 계속 실패하면 나머지는 error로 두고 다음 실행에 재시도."""
     kp = kepco.Kepco(env["KEPCO_API_KEY"])
+    lu = landuse.Landuse(env["VWORLD_API_KEY"], env.get("VWORLD_DOMAIN") or "https://coldankim.github.io")         if env.get("VWORLD_API_KEY") else None
+    lu_fails = 0
     out, fails = {}, 0
     for no, it in found.items():
         if not solar_type(it):
             continue
-        if fails >= 3:
+        if fails >= 3:  # 한전이 계속 실패하면 나머지는 호출하지 않음
             out[no] = {"grade": "error", "label": "계통 조회실패", "type": solar_type(it)}
-            continue
-        try:
-            out[no] = evaluate_solar(env, kp, it)
-            fails = 0
-        except kepco.KepcoError as e:
-            fails += 1
-            log(f"한전 조회 실패: {e}")
-            out[no] = {"grade": "error", "label": "계통 조회실패", "type": solar_type(it)}
+        else:
+            try:
+                out[no] = evaluate_solar(env, kp, it)
+                fails = 0
+            except kepco.KepcoError as e:
+                fails += 1
+                log(f"한전 조회 실패: {e}")
+                out[no] = {"grade": "error", "label": "계통 조회실패", "type": solar_type(it)}
+        # 토지만 용도지역 1차 스크리닝 (지붕형은 기존 건물 위라 해당 없음)
+        if out[no]["type"] != "토지":
+            out[no]["landuse"] = {"grade": "skip", "label": "", "zones": []}
+        elif not lu or lu_fails >= 3:
+            out[no]["landuse"] = {"grade": "error", "label": "용도 조회실패", "zones": []}
+        else:
+            try:
+                pnu = landuse.resolve_pnu(lu, it.get("ltnoPnu"), it.get("onbidCltrNm"))
+                out[no]["landuse"] = landuse.screen(lu.zones(pnu)) if pnu else                     {"grade": "none", "label": "용도 조회불가", "zones": []}
+                lu_fails = 0
+            except landuse.LanduseError as e:
+                lu_fails += 1
+                log(f"브이월드 조회 실패: {e}")
+                out[no]["landuse"] = {"grade": "error", "label": "용도 조회실패", "zones": []}
     kp.save()
+    if lu:
+        lu.save()
     from collections import Counter
-    log(f"태양광 대상 {len(out)}건 판정 (한전 호출 {kp.calls}회): "
-        + ", ".join(f"{k} {v}" for k, v in Counter(r["label"] for r in out.values()).items()))
+    log(f"태양광 대상 {len(out)}건 판정 (한전 호출 {kp.calls}회, 브이월드 호출 {lu.calls if lu else 0}회): "
+        + ", ".join(f"{k} {v}" for k, v in Counter(r["label"] for r in out.values()).items())
+        + " / 용도: " + ", ".join(f"{k or '지붕형'} {v}" for k, v in
+                                 Counter(r["landuse"]["label"] for r in out.values()).items()))
     return out
+
+
+def keep_previous(solar, seen):
+    """이번에 조회 실패한 부분은 지난번 판정으로 채운다."""
+    for no, sol in solar.items():
+        prev = (seen.get(no) or {}).get("solar") or {}
+        if sol["landuse"]["grade"] == "error" and prev.get("landuse", {}).get("grade") not in (None, "error"):
+            sol["landuse"] = prev["landuse"]
 
 
 # ---------------------------------------------------------------- 기록 / 대시보드
@@ -448,7 +487,7 @@ def pick_targets(found, seen, solar):
     out = []
     for no, it in found.items():
         sol = solar.get(no)
-        if not sol or sol["grade"] not in SOLAR_PASS:
+        if not solar_ok(sol):
             continue
         s = seen.get(no)
         if s is None:
@@ -478,16 +517,19 @@ def run_alert(env, secret_path, mode):
     first_time = seen is None
     seen = seen or {}
     solar = evaluate_all(env, found)
+    keep_previous(solar, seen)
     new_cnt = sum(1 for no in found if no not in seen)
     stamp = now_kst().strftime("%Y-%m-%d %H:%M")
     targets = [] if (mode == "init" or first_time) else pick_targets(found, seen, solar)
     log(f"전체 {len(found)}건 / 신규 {new_cnt}건 / 알림 대상(태양광 통과) {len(targets)}건")
     result = {"total": len(found), "new": new_cnt, "solar": len(solar),
-              "pass": sum(1 for r in solar.values() if r["grade"] in SOLAR_PASS),
+              "pass": sum(1 for r in solar.values() if solar_ok(r)),
               "targets": len(targets), "sent": 0}
     err = sum(1 for r in solar.values() if r["grade"] == "error")
-    if err:  # 실행은 계속하되 화면에 경고로 남김 (해당 물건은 이전 판정 유지, 다음 실행에 재시도)
-        result["error"] = f"한전 계통 조회 실패 {err}건 (이전 판정 유지)"
+    lu_err = sum(1 for r in solar.values() if r["landuse"]["grade"] == "error")
+    if err or lu_err:  # 실행은 계속하되 화면에 경고로 남김 (해당 물건은 이전 판정 유지, 다음 실행에 재시도)
+        result["error"] = " / ".join(x for x in (f"한전 계통 조회 실패 {err}건" if err else "",
+                                                  f"브이월드 용도 조회 실패 {lu_err}건" if lu_err else "") if x)
 
     # 첫 실행 / init: 알림 없이 기록만 (알림 폭탄 방지)
     if mode == "init" or first_time:
@@ -545,6 +587,7 @@ def main():
             found = collect(env)
             seen = read_json(SEEN_FILE, {})
             solar = evaluate_all(env, found)
+            keep_previous(solar, seen)
             targets = pick_targets(found, seen, solar)
             log(f"전체 {len(found)}건 / 알림 대상 {len(targets)}건")
             for no, it, title in targets[:30]:

@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-29 08:03",
+ "updated": "2026-09-29 10:14",
  "regions": "경기도:화성시",
  "solarMinKw": 100,
  "solarGoodKw": 300,
@@ -25,7 +25,7 @@
    "bld": 23.91,
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17099097&atchSn=1&hashCrpsNo=HHMFICOFDBDCMKKICBJGBLBLFBCMBGNKBEMEEOHAGELDOJOBNJADPHKKPNDPHBML&downloadImageKind=THNL_NM",
-   "firstSeen": "2026-09-29 08:03",
+   "firstSeen": "2026-09-29 02:25",
    "notified": true,
    "notifiedAt": "2026-09-29 02:25",
    "solar": null
@@ -51,7 +51,7 @@
    "bld": 23.91,
    "share": false,
    "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17098928&atchSn=1&hashCrpsNo=HHMFICOFDBDCMKKICBJGBLBLFBCMBGNKBEMEEOHAGELDOJOBNJADPHKKPNDPHBML&downloadImageKind=THNL_NM",
-   "firstSeen": "2026-09-29 08:03",
+   "firstSeen": "2026-09-29 02:25",
    "notified": true,
    "notifiedAt": "2026-09-29 02:25",
    "solar": null
@@ -96,7 +96,25 @@
      40227,
      12245
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "exclude",
+     "label": "1차 제외",
+     "reasons": [
+      "개발제한구역",
+      "공익용산지"
+     ],
+     "favorable": [],
+     "zones": [
+      "성장관리권역",
+      "가축사육제한구역",
+      "도시지역",
+      "개발제한구역",
+      "자연녹지지역",
+      "공익용산지",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -126,7 +144,24 @@
    "solar": {
     "grade": "none",
     "label": "계통 조회불가",
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "비행안전제2구역(전술)",
+      "자연녹지지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "비행안전제2구역(전술)",
+      "성장관리권역",
+      "자연녹지지역",
+      "가축사육제한구역",
+      "도시지역",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -169,7 +204,23 @@
      9014,
      10152
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "exclude",
+     "label": "1차 제외",
+     "reasons": [
+      "농업진흥구역"
+     ],
+     "favorable": [],
+     "zones": [
+      "성장관리권역",
+      "농업진흥구역",
+      "농림지역",
+      "가축사육제한구역",
+      "특화경관지구",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -212,7 +263,22 @@
      9014,
      10152
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "성장관리권역",
+      "가축사육제한구역",
+      "계획관리지역",
+      "성장관리계획구역",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -385,7 +451,26 @@
      24657,
      11804
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "비행안전제3구역(전술)"
+     ],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "비행안전제3구역(전술)",
+      "성장관리권역",
+      "가축사육제한구역",
+      "소하천예정지",
+      "성장관리계획구역",
+      "계획관리지역",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -428,7 +513,22 @@
      29822,
      11028
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "가축사육제한구역",
+      "계획관리지역",
+      "성장관리권역",
+      "성장관리계획구역",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -471,7 +571,22 @@
      29822,
      11028
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "exclude",
+     "label": "1차 제외",
+     "reasons": [
+      "농업진흥구역"
+     ],
+     "favorable": [],
+     "zones": [
+      "농림지역",
+      "가축사육제한구역",
+      "성장관리권역",
+      "토지거래계약에관한허가구역",
+      "농업진흥구역"
+     ]
+    }
    }
   },
   {
@@ -514,7 +629,22 @@
      37760,
      9900
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "생산관리지역"
+     ],
+     "zones": [
+      "성장관리권역",
+      "가축사육제한구역",
+      "생산관리지역",
+      "성장관리계획구역",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -609,7 +739,23 @@
      45189,
      12808
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "임업용산지",
+      "농림지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "임업용산지",
+      "농림지역",
+      "가축사육제한구역",
+      "성장관리권역",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -652,7 +798,23 @@
      37760,
      9900
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "exclude",
+     "label": "1차 제외",
+     "reasons": [
+      "농업진흥구역"
+     ],
+     "favorable": [],
+     "zones": [
+      "성장관리권역",
+      "가축사육제한구역",
+      "농림지역",
+      "토지거래계약에관한허가구역",
+      "농업진흥구역",
+      "역사문화환경보존지역"
+     ]
+    }
    }
   },
   {
@@ -695,7 +857,23 @@
      44681,
      12505
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "exclude",
+     "label": "1차 제외",
+     "reasons": [
+      "공익용산지"
+     ],
+     "favorable": [],
+     "zones": [
+      "성장관리권역",
+      "가축사육제한구역",
+      "도시지역",
+      "공익용산지",
+      "토지거래계약에관한허가구역",
+      "보전녹지지역"
+     ]
+    }
    }
   },
   {
@@ -725,7 +903,23 @@
    "solar": {
     "grade": "none",
     "label": "계통 조회불가",
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "일반상업지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "성장관리권역",
+      "일반상업지역",
+      "지구단위계획구역",
+      "가축사육제한구역",
+      "도시지역",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -924,7 +1118,27 @@
      47864,
      12220
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "exclude",
+     "label": "1차 제외",
+     "reasons": [
+      "개발제한구역",
+      "공익용산지"
+     ],
+     "favorable": [],
+     "zones": [
+      "성장관리권역",
+      "철도보호지구",
+      "도시지역",
+      "개발제한구역",
+      "가축사육제한구역",
+      "자연녹지지역",
+      "공익용산지",
+      "고속철도",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -954,7 +1168,25 @@
    "solar": {
     "grade": "none",
     "label": "계통 조회불가",
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "exclude",
+     "label": "1차 제외",
+     "reasons": [
+      "개발제한구역",
+      "공익용산지"
+     ],
+     "favorable": [],
+     "zones": [
+      "성장관리권역",
+      "개발제한구역",
+      "가축사육제한구역",
+      "도시지역",
+      "자연녹지지역",
+      "공익용산지",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -1023,7 +1255,23 @@
      48513,
      12775
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "exclude",
+     "label": "1차 제외",
+     "reasons": [
+      "공익용산지"
+     ],
+     "favorable": [],
+     "zones": [
+      "공익용산지",
+      "성장관리권역",
+      "가축사육제한구역",
+      "도시지역",
+      "토지거래계약에관한허가구역",
+      "보전녹지지역"
+     ]
+    }
    }
   },
   {
@@ -1105,7 +1353,24 @@
    "solar": {
     "grade": "none",
     "label": "계통 조회불가",
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "자연녹지지역",
+      "역사문화환경보존지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "성장관리권역",
+      "가축사육제한구역",
+      "도시지역",
+      "자연녹지지역",
+      "토지거래계약에관한허가구역",
+      "역사문화환경보존지역"
+     ]
+    }
    }
   },
   {
@@ -1187,7 +1452,27 @@
    "solar": {
     "grade": "none",
     "label": "계통 조회불가",
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "제1종전용주거지역",
+      "택지개발지구"
+     ],
+     "favorable": [],
+     "zones": [
+      "절대보호구역",
+      "상대보호구역",
+      "성장관리권역",
+      "제1종전용주거지역",
+      "택지개발지구",
+      "지구단위계획구역",
+      "가축사육제한구역",
+      "도시지역",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -1230,7 +1515,22 @@
      9014,
      10152
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "성장관리권역",
+      "가축사육제한구역",
+      "계획관리지역",
+      "성장관리계획구역",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -1273,7 +1573,22 @@
      25448,
      11939
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "생산관리지역"
+     ],
+     "zones": [
+      "성장관리권역",
+      "가축사육제한구역",
+      "성장관리계획구역",
+      "토지거래계약에관한허가구역",
+      "생산관리지역"
+     ]
+    }
    }
   },
   {
@@ -1316,7 +1631,22 @@
      25448,
      11939
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "생산관리지역"
+     ],
+     "zones": [
+      "성장관리권역",
+      "가축사육제한구역",
+      "성장관리계획구역",
+      "토지거래계약에관한허가구역",
+      "생산관리지역"
+     ]
+    }
    }
   },
   {
@@ -1359,7 +1689,25 @@
      25448,
      11939
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "보전관리지역"
+     ],
+     "favorable": [
+      "생산관리지역"
+     ],
+     "zones": [
+      "성장관리권역",
+      "가축사육제한구역",
+      "생산관리지역",
+      "보전관리지역",
+      "성장관리계획구역",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -1402,7 +1750,22 @@
      37760,
      9900
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "생산관리지역"
+     ],
+     "zones": [
+      "가축사육제한구역",
+      "성장관리권역",
+      "성장관리계획구역",
+      "토지거래계약에관한허가구역",
+      "생산관리지역"
+     ]
+    }
    }
   },
   {
@@ -1445,7 +1808,22 @@
      32542,
      11902
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "성장관리권역",
+      "가축사육제한구역",
+      "성장관리계획구역",
+      "토지거래계약에관한허가구역",
+      "계획관리지역"
+     ]
+    }
    }
   },
   {
@@ -1488,7 +1866,23 @@
      47990,
      12785
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "자연녹지지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "성장관리권역",
+      "가축사육제한구역",
+      "자연취락지구",
+      "자연녹지지역",
+      "도시지역",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -1557,7 +1951,24 @@
      49564,
      13000
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "상대보호구역",
+      "성장관리권역",
+      "가축사육제한구역",
+      "성장관리계획구역",
+      "중로3류(폭 12m~15m)",
+      "토지거래계약에관한허가구역",
+      "계획관리지역"
+     ]
+    }
    }
   },
   {
@@ -1626,7 +2037,29 @@
      9014,
      10036
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "임업용산지",
+      "보전관리지역",
+      "경관지구",
+      "토석채취제한지역",
+      "농림지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "임업용산지",
+      "성장관리권역",
+      "보전관리지역",
+      "경관지구",
+      "토석채취제한지역",
+      "가축사육제한구역",
+      "농림지역",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -1669,7 +2102,25 @@
      48513,
      12775
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "exclude",
+     "label": "1차 제외",
+     "reasons": [
+      "개발제한구역",
+      "공익용산지"
+     ],
+     "favorable": [],
+     "zones": [
+      "성장관리권역",
+      "가축사육제한구역",
+      "개발제한구역",
+      "자연녹지지역",
+      "도시지역",
+      "공익용산지",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -1738,7 +2189,12 @@
      49726,
      13000
     ],
-    "type": "지붕형"
+    "type": "지붕형",
+    "landuse": {
+     "grade": "skip",
+     "label": "",
+     "zones": []
+    }
    }
   },
   {
@@ -1833,7 +2289,22 @@
      131,
      7674
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "생산관리지역"
+     ],
+     "zones": [
+      "성장관리권역",
+      "가축사육제한구역",
+      "생산관리지역",
+      "성장관리계획구역",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -1876,7 +2347,25 @@
      48041,
      12946
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "exclude",
+     "label": "1차 제외",
+     "reasons": [
+      "개발제한구역",
+      "공익용산지"
+     ],
+     "favorable": [],
+     "zones": [
+      "성장관리권역",
+      "가축사육제한구역",
+      "도시지역",
+      "개발제한구역",
+      "자연녹지지역",
+      "공익용산지",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -1919,7 +2408,27 @@
      9014,
      9552
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "exclude",
+     "label": "1차 제외",
+     "reasons": [
+      "공익용산지",
+      "자연환경보전지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "공익용산지",
+      "성장관리권역",
+      "자연환경보전지역",
+      "가축사육제한구역",
+      "연안육역",
+      "경관녹지",
+      "관광ㆍ휴양개발진흥지구",
+      "지구단위계획구역",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -1962,7 +2471,22 @@
      32123,
      10990
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "가축사육제한구역",
+      "성장관리계획구역",
+      "성장관리권역",
+      "계획관리지역",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -2005,7 +2529,22 @@
      9014,
      10152
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "성장관리권역",
+      "가축사육제한구역",
+      "성장관리계획구역",
+      "토지거래계약에관한허가구역",
+      "계획관리지역"
+     ]
+    }
    }
   },
   {
@@ -2672,7 +3211,25 @@
      49726,
      13000
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "공공주택지구",
+      "일반상업지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "성장관리권역",
+      "공공주택지구",
+      "일반상업지역",
+      "지구단위계획구역",
+      "가축사육제한구역",
+      "도시지역",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -2715,7 +3272,22 @@
      32123,
      11944
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "exclude",
+     "label": "1차 제외",
+     "reasons": [
+      "농업진흥구역"
+     ],
+     "favorable": [],
+     "zones": [
+      "성장관리권역",
+      "가축사육제한구역",
+      "농림지역",
+      "토지거래계약에관한허가구역",
+      "농업진흥구역"
+     ]
+    }
    }
   },
   {
@@ -2771,7 +3343,27 @@
    "solar": {
     "grade": "none",
     "label": "계통 조회불가",
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "비행안전제2구역(전술)",
+      "도시개발구역",
+      "일반상업지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "비행안전제2구역(전술)",
+      "성장관리권역",
+      "도시개발구역",
+      "일반상업지역",
+      "가축사육제한구역",
+      "도시지역",
+      "지구단위계획구역",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -2801,7 +3393,27 @@
    "solar": {
     "grade": "none",
     "label": "계통 조회불가",
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "비행안전제2구역(전술)",
+      "도시개발구역",
+      "일반상업지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "비행안전제2구역(전술)",
+      "성장관리권역",
+      "도시개발구역",
+      "일반상업지역",
+      "가축사육제한구역",
+      "도시지역",
+      "지구단위계획구역",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -2831,7 +3443,27 @@
    "solar": {
     "grade": "none",
     "label": "계통 조회불가",
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "비행안전제2구역(전술)",
+      "도시개발구역",
+      "일반상업지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "비행안전제2구역(전술)",
+      "성장관리권역",
+      "도시개발구역",
+      "일반상업지역",
+      "가축사육제한구역",
+      "도시지역",
+      "지구단위계획구역",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -2861,7 +3493,27 @@
    "solar": {
     "grade": "none",
     "label": "계통 조회불가",
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "비행안전제2구역(전술)",
+      "도시개발구역",
+      "일반상업지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "비행안전제2구역(전술)",
+      "성장관리권역",
+      "도시개발구역",
+      "일반상업지역",
+      "가축사육제한구역",
+      "도시지역",
+      "지구단위계획구역",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -2891,7 +3543,27 @@
    "solar": {
     "grade": "none",
     "label": "계통 조회불가",
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "비행안전제2구역(전술)",
+      "도시개발구역",
+      "일반상업지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "비행안전제2구역(전술)",
+      "성장관리권역",
+      "도시개발구역",
+      "일반상업지역",
+      "가축사육제한구역",
+      "도시지역",
+      "지구단위계획구역",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -2934,7 +3606,22 @@
      25448,
      11038
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "성장관리권역",
+      "가축사육제한구역",
+      "계획관리지역",
+      "성장관리계획구역",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -2977,7 +3664,21 @@
      9014,
      4381
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "보전관리지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "성장관리권역",
+      "가축사육제한구역",
+      "토지거래계약에관한허가구역",
+      "보전관리지역"
+     ]
+    }
    }
   },
   {
@@ -3020,7 +3721,22 @@
      48041,
      12946
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "제1종일반주거지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "성장관리권역",
+      "가축사육제한구역",
+      "제1종일반주거지역",
+      "도시지역",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -3063,7 +3779,22 @@
      48041,
      12946
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "제1종일반주거지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "성장관리권역",
+      "가축사육제한구역",
+      "제1종일반주거지역",
+      "도시지역",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -3093,7 +3824,23 @@
    "solar": {
     "grade": "none",
     "label": "계통 조회불가",
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "exclude",
+     "label": "1차 제외",
+     "reasons": [
+      "농업진흥구역"
+     ],
+     "favorable": [],
+     "zones": [
+      "성장관리권역",
+      "농림지역",
+      "개발행위허가제한지역",
+      "가축사육제한구역",
+      "토지거래계약에관한허가구역",
+      "농업진흥구역"
+     ]
+    }
    }
   },
   {
@@ -3136,7 +3883,22 @@
      29822,
      8416
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "성장관리권역",
+      "가축사육제한구역",
+      "계획관리지역",
+      "성장관리계획구역",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -3179,7 +3941,25 @@
      29822,
      12636
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "보전관리지역"
+     ],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "성장관리권역",
+      "가축사육제한구역",
+      "계획관리지역",
+      "보전관리지역",
+      "성장관리계획구역",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -3209,7 +3989,25 @@
    "solar": {
     "grade": "none",
     "label": "계통 조회불가",
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "준주거지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "성장관리권역",
+      "준주거지역",
+      "지구단위계획구역",
+      "가축사육제한구역",
+      "도시지역",
+      "토지거래계약에관한허가구역",
+      "절대보호구역",
+      "상대보호구역"
+     ]
+    }
    }
   },
   {
@@ -3252,7 +4050,25 @@
      32542,
      11902
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "비행안전제2구역(전술)"
+     ],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "비행안전제2구역(전술)",
+      "성장관리권역",
+      "가축사육제한구역",
+      "성장관리계획구역",
+      "토지거래계약에관한허가구역",
+      "계획관리지역"
+     ]
+    }
    }
   },
   {
@@ -3360,7 +4176,23 @@
    "solar": {
     "grade": "none",
     "label": "계통 조회불가",
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "exclude",
+     "label": "1차 제외",
+     "reasons": [
+      "개발제한구역"
+     ],
+     "favorable": [],
+     "zones": [
+      "성장관리권역",
+      "개발제한구역",
+      "가축사육제한구역",
+      "도시지역",
+      "자연녹지지역",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -3403,8 +4235,52 @@
      47864,
      12220
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "exclude",
+     "label": "1차 제외",
+     "reasons": [
+      "개발제한구역",
+      "공익용산지"
+     ],
+     "favorable": [],
+     "zones": [
+      "성장관리권역",
+      "도시지역",
+      "개발제한구역",
+      "가축사육제한구역",
+      "자연녹지지역",
+      "공익용산지",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
+  },
+  {
+   "no": "2043959",
+   "mngNo": "2026-0700-041840",
+   "name": "경기도 화성시 만세구 향남읍 행정리 508-2 1동 201호 외 66개 호실 일괄매각 오피스텔",
+   "usage": "오피스텔",
+   "prpt": "기타일반재산",
+   "sido": "경기도",
+   "sgg": "화성시 만세구",
+   "emd": "향남읍",
+   "lowest": 13008600000,
+   "lowestText": "13008600000",
+   "apsl": 12045000000,
+   "begin": "202610061000",
+   "end": "202610061700",
+   "usbd": 0,
+   "status": "입찰준비중",
+   "org": "교보자산신탁(주)",
+   "land": 1021.9707,
+   "bld": 2075.67,
+   "share": false,
+   "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17060542&atchSn=1&hashCrpsNo=NDGFBCEJOADPMFPOLALHPOMOPEMIGKOFLDOLOGLGLAHIJIEGDFGNNFEJANIBMNGO&downloadImageKind=THNL_NM",
+   "firstSeen": "2026-09-28 16:49",
+   "notified": false,
+   "notifiedAt": null,
+   "solar": null
   },
   {
    "no": "2063171",
@@ -3446,7 +4322,66 @@
      45189,
      12808
     ],
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "보전관리지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "성장관리권역",
+      "가축사육제한구역",
+      "토지거래계약에관한허가구역",
+      "보전관리지역"
+     ]
+    }
+   }
+  },
+  {
+   "no": "2058003",
+   "mngNo": "2026-0900-049264",
+   "name": "경기도 화성시 만세구 남양읍 장덕리 711 임야",
+   "usage": "임야",
+   "prpt": "파산자산",
+   "sido": "경기도",
+   "sgg": "화성시 만세구",
+   "emd": "남양읍",
+   "lowest": 15000000,
+   "lowestText": "15000000",
+   "apsl": 0,
+   "begin": "202610061000",
+   "end": "202610061700",
+   "usbd": 2,
+   "status": "입찰준비중",
+   "org": "파산재단(수원회생법원관할) ",
+   "land": 73,
+   "bld": null,
+   "share": true,
+   "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17088874&atchSn=1&hashCrpsNo=JOOONJMMEKONJGFDELHHFDDEMGABJNJLNDLJKKMADGLNODKMAEJGILFNIEHDEDHC&downloadImageKind=THNL_NM",
+   "firstSeen": "2026-09-28 16:49",
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "none",
+    "label": "계통 조회불가",
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "성장관리권역",
+      "가축사육제한구역",
+      "자연취락지구",
+      "계획관리지역",
+      "토지거래계약에관한허가구역"
+     ]
+    }
    }
   },
   {
@@ -3682,6 +4617,68 @@
    "notified": false,
    "notifiedAt": null,
    "solar": null
+  },
+  {
+   "no": "2038361",
+   "mngNo": "2026-0700-038435",
+   "name": "경기도 화성시 만세구 서신면 송교리 431 대지",
+   "usage": "대지",
+   "prpt": "기타일반재산",
+   "sido": "경기도",
+   "sgg": "화성시 만세구",
+   "emd": "서신면",
+   "lowest": 4253114020,
+   "lowestText": "4253114020",
+   "apsl": 5496535000,
+   "begin": "202610060900",
+   "end": "202610061700",
+   "usbd": 4,
+   "status": "입찰준비중",
+   "org": "부흥신용협동조합",
+   "land": 7205,
+   "bld": null,
+   "share": true,
+   "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17049972&atchSn=3&hashCrpsNo=NGEKHHDECHEOCOBKMOBOOAHBKLKGOJKBAEDOEFJLOGOANCPNIJEHKOAFPDCHEPFJ&downloadImageKind=THNL_NM",
+   "firstSeen": "2026-09-28 16:49",
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 10134,
+    "worst": 9014,
+    "lines": 2,
+    "okLines": 2,
+    "subst": "사강",
+    "dl": "산업",
+    "vol": [
+     63542,
+     25448,
+     10134
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "특화경관지구"
+     ],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "성장관리권역",
+      "가축사육제한구역",
+      "연안육역",
+      "특화경관지구",
+      "계획관리지역",
+      "토지거래계약에관한허가구역",
+      "접도구역"
+     ]
+    }
+   }
   },
   {
    "no": "2044933",
@@ -4074,6 +5071,51 @@
    "solar": null
   },
   {
+   "no": "2062577",
+   "mngNo": "2026-0900-052429",
+   "name": "경기도 화성시 만세구 남양읍 활초리 196 대지",
+   "usage": "대지",
+   "prpt": "기타일반재산",
+   "sido": "경기도",
+   "sgg": "화성시 만세구",
+   "emd": "남양읍",
+   "lowest": 10296300000,
+   "lowestText": "10296300000",
+   "apsl": 12056137340,
+   "begin": "202609301000",
+   "end": "202609301600",
+   "usbd": 1,
+   "status": "입찰준비중",
+   "org": "코리아신탁주식회사",
+   "land": 6947,
+   "bld": null,
+   "share": false,
+   "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17095977&atchSn=1&hashCrpsNo=MCHGJPDIBBMOIBMGGCLHFGIAHOJHEJFIMAJNKGEILHONKOEGDPPFLABJADIGPEBP&downloadImageKind=THNL_NM",
+   "firstSeen": "2026-09-28 16:49",
+   "notified": false,
+   "notifiedAt": null,
+   "solar": {
+    "grade": "none",
+    "label": "계통 조회불가",
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "가축사육제한구역",
+      "성장관리권역",
+      "계획관리지역",
+      "성장관리계획구역",
+      "토지거래계약에관한허가구역"
+     ]
+    }
+   }
+  },
+  {
    "no": "2056656",
    "mngNo": "2026-0900-048662",
    "name": "경기도 화성시 만세구 팔탄면 가재리 산 21 임야 지분 8331분의 100",
@@ -4113,93 +5155,24 @@
      32542,
      11961
     ],
-    "type": "토지"
-   }
-  },
-  {
-   "no": "2043959",
-   "mngNo": "2026-0700-041840",
-   "name": "경기도 화성시 만세구 향남읍 행정리 508-2 1동 201호 외 66개 호실 일괄매각 오피스텔",
-   "usage": "오피스텔",
-   "prpt": "기타일반재산",
-   "sido": "경기도",
-   "sgg": "화성시 만세구",
-   "emd": "향남읍",
-   "lowest": 14454000000,
-   "lowestText": "14454000000",
-   "apsl": 12045000000,
-   "begin": "202609291000",
-   "end": "202609291700",
-   "usbd": 0,
-   "status": "입찰준비중",
-   "org": "교보자산신탁(주)",
-   "land": 1021.9707,
-   "bld": 2075.67,
-   "share": false,
-   "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17060542&atchSn=1&hashCrpsNo=NDGFBCEJOADPMFPOLALHPOMOPEMIGKOFLDOLOGLGLAHIJIEGDFGNNFEJANIBMNGO&downloadImageKind=THNL_NM",
-   "firstSeen": "2026-09-28 16:49",
-   "notified": false,
-   "notifiedAt": null,
-   "solar": null
-  },
-  {
-   "no": "2058003",
-   "mngNo": "2026-0900-049264",
-   "name": "경기도 화성시 만세구 남양읍 장덕리 711 임야",
-   "usage": "임야",
-   "prpt": "파산자산",
-   "sido": "경기도",
-   "sgg": "화성시 만세구",
-   "emd": "남양읍",
-   "lowest": 28000000,
-   "lowestText": "28000000",
-   "apsl": 0,
-   "begin": "202609291000",
-   "end": "202609291700",
-   "usbd": 2,
-   "status": "입찰준비중",
-   "org": "파산재단(수원회생법원관할) ",
-   "land": 73,
-   "bld": null,
-   "share": true,
-   "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17088874&atchSn=1&hashCrpsNo=JOOONJMMEKONJGFDELHHFDDEMGABJNJLNDLJKKMADGLNODKMAEJGILFNIEHDEDHC&downloadImageKind=THNL_NM",
-   "firstSeen": "2026-09-28 16:49",
-   "notified": false,
-   "notifiedAt": null,
-   "solar": {
-    "grade": "none",
-    "label": "계통 조회불가",
-    "type": "토지"
-   }
-  },
-  {
-   "no": "2062577",
-   "mngNo": "2026-0900-052429",
-   "name": "경기도 화성시 만세구 남양읍 활초리 196 대지",
-   "usage": "대지",
-   "prpt": "기타일반재산",
-   "sido": "경기도",
-   "sgg": "화성시 만세구",
-   "emd": "남양읍",
-   "lowest": 11440100000,
-   "lowestText": "11440100000",
-   "apsl": 12056137340,
-   "begin": "202609291000",
-   "end": "202609291600",
-   "usbd": 0,
-   "status": "입찰준비중",
-   "org": "코리아신탁주식회사",
-   "land": 6947,
-   "bld": null,
-   "share": false,
-   "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17095977&atchSn=1&hashCrpsNo=MCHGJPDIBBMOIBMGGCLHFGIAHOJHEJFIMAJNKGEILHONKOEGDPPFLABJADIGPEBP&downloadImageKind=THNL_NM",
-   "firstSeen": "2026-09-28 16:49",
-   "notified": false,
-   "notifiedAt": null,
-   "solar": {
-    "grade": "none",
-    "label": "계통 조회불가",
-    "type": "토지"
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "자연녹지지역",
+      "보전관리지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "가축사육제한구역",
+      "자연녹지지역",
+      "도시지역",
+      "성장관리권역",
+      "토지거래계약에관한허가구역",
+      "보전관리지역"
+     ]
+    }
    }
   },
   {
@@ -4217,7 +5190,7 @@
    "begin": "202609291000",
    "end": "202609291700",
    "usbd": 8,
-   "status": "입찰준비중",
+   "status": "입찰진행중",
    "org": "대신자산신탁 주식회사",
    "land": 15.95,
    "bld": 47.63,
@@ -4229,7 +5202,12 @@
    "solar": {
     "grade": "none",
     "label": "계통 조회불가",
-    "type": "지붕형"
+    "type": "지붕형",
+    "landuse": {
+     "grade": "skip",
+     "label": "",
+     "zones": []
+    }
    }
   },
   {
@@ -4247,7 +5225,7 @@
    "begin": "202609291000",
    "end": "202609291700",
    "usbd": 8,
-   "status": "입찰준비중",
+   "status": "입찰진행중",
    "org": "대신자산신탁 주식회사",
    "land": 18.18,
    "bld": 54.3,
@@ -4273,7 +5251,7 @@
    "begin": "202609291000",
    "end": "202609291700",
    "usbd": 8,
-   "status": "입찰준비중",
+   "status": "입찰진행중",
    "org": "대신자산신탁 주식회사",
    "land": 27.0413,
    "bld": 80.77,
@@ -4299,7 +5277,7 @@
    "begin": "202609291000",
    "end": "202609291700",
    "usbd": 8,
-   "status": "입찰준비중",
+   "status": "입찰진행중",
    "org": "대신자산신탁 주식회사",
    "land": 7.1,
    "bld": 21.2,
@@ -4325,7 +5303,7 @@
    "begin": "202609291000",
    "end": "202609291700",
    "usbd": 8,
-   "status": "입찰준비중",
+   "status": "입찰진행중",
    "org": "대신자산신탁 주식회사",
    "land": 7.1,
    "bld": 21.2,
@@ -4351,7 +5329,7 @@
    "begin": "202609291000",
    "end": "202609291700",
    "usbd": 8,
-   "status": "입찰준비중",
+   "status": "입찰진행중",
    "org": "대신자산신탁 주식회사",
    "land": 15.47,
    "bld": 46.2,
@@ -4377,7 +5355,7 @@
    "begin": "202609291000",
    "end": "202609291700",
    "usbd": 8,
-   "status": "입찰준비중",
+   "status": "입찰진행중",
    "org": "대신자산신탁 주식회사",
    "land": 14.58,
    "bld": 43.56,
@@ -4403,7 +5381,7 @@
    "begin": "202609291000",
    "end": "202609291700",
    "usbd": 8,
-   "status": "입찰준비중",
+   "status": "입찰진행중",
    "org": "대신자산신탁 주식회사",
    "land": 6.03,
    "bld": 18,
@@ -4429,7 +5407,7 @@
    "begin": "202609291000",
    "end": "202609291700",
    "usbd": 8,
-   "status": "입찰준비중",
+   "status": "입찰진행중",
    "org": "대신자산신탁 주식회사",
    "land": 6.03,
    "bld": 18,
@@ -4455,7 +5433,7 @@
    "begin": "202609291000",
    "end": "202609291700",
    "usbd": 8,
-   "status": "입찰준비중",
+   "status": "입찰진행중",
    "org": "대신자산신탁 주식회사",
    "land": 18.21,
    "bld": 54.4,
@@ -4465,49 +5443,6 @@
    "notified": false,
    "notifiedAt": null,
    "solar": null
-  },
-  {
-   "no": "2038361",
-   "mngNo": "2026-0700-038435",
-   "name": "경기도 화성시 만세구 서신면 송교리 431 대지",
-   "usage": "대지",
-   "prpt": "기타일반재산",
-   "sido": "경기도",
-   "sgg": "화성시 만세구",
-   "emd": "서신면",
-   "lowest": 4476962120,
-   "lowestText": "4476962120",
-   "apsl": 5496535000,
-   "begin": "202609290900",
-   "end": "202609291700",
-   "usbd": 4,
-   "status": "입찰준비중",
-   "org": "부흥신용협동조합",
-   "land": 7205,
-   "bld": null,
-   "share": true,
-   "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17049972&atchSn=3&hashCrpsNo=NGEKHHDECHEOCOBKMOBOOAHBKLKGOJKBAEDOEFJLOGOANCPNIJEHKOAFPDCHEPFJ&downloadImageKind=THNL_NM",
-   "firstSeen": "2026-09-28 16:49",
-   "notified": false,
-   "notifiedAt": null,
-   "solar": {
-    "grade": "good",
-    "label": "계통 300kW+",
-    "level": "li",
-    "levelName": "리 단위",
-    "best": 10134,
-    "worst": 9014,
-    "lines": 2,
-    "okLines": 2,
-    "subst": "사강",
-    "dl": "산업",
-    "vol": [
-     63542,
-     25448,
-     10134
-    ],
-    "type": "토지"
-   }
   },
   {
    "no": "2048154",
@@ -4524,7 +5459,7 @@
    "begin": "202609290900",
    "end": "202610062359",
    "usbd": 6,
-   "status": "입찰준비중",
+   "status": "입찰진행중",
    "org": "군인공제회",
    "land": 43.6225,
    "bld": 70.6979,
@@ -4550,7 +5485,7 @@
    "begin": "202609290900",
    "end": "202609291700",
    "usbd": 5,
-   "status": "입찰준비중",
+   "status": "입찰진행중",
    "org": "주식회사 코람코자산신탁",
    "land": null,
    "bld": 1579.6523,
@@ -4586,65 +5521,19 @@
    "notified": false,
    "notifiedAt": null,
    "solar": null
-  },
-  {
-   "no": "2061367",
-   "mngNo": "2026-0900-051734",
-   "name": "경기도 화성시 병점구 송산동 119-25 답",
-   "usage": "답",
-   "prpt": "공유재산",
-   "sido": "경기도",
-   "sgg": "화성시 병점구",
-   "emd": "송산동",
-   "lowest": 66783350,
-   "lowestText": "66783350",
-   "apsl": null,
-   "begin": "202609181000",
-   "end": "202609281600",
-   "usbd": 0,
-   "status": "입찰마감",
-   "org": "화성시청",
-   "land": 96,
-   "bld": null,
-   "share": false,
-   "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=17094545&atchSn=1&hashCrpsNo=CMGCPJJGJHGBCLBDJHDLICBPPNKNPKCOPCHEMPGGABJMCEHCBAHKNACMLPOBLKFI&downloadImageKind=THNL_NM",
-   "firstSeen": "2026-09-28 16:49",
-   "notified": false,
-   "notifiedAt": null,
-   "solar": {
-    "grade": "none",
-    "label": "계통 조회불가",
-    "type": "토지"
-   }
-  },
-  {
-   "no": "1995516",
-   "mngNo": "2026-0400-017901",
-   "name": "경기도 화성시 팔탄면 구장리 530-8 근린생활시설",
-   "usage": "근린생활시설",
-   "prpt": "기타일반재산",
-   "sido": "경기도",
-   "sgg": "화성시 만세구",
-   "emd": "팔탄면",
-   "lowest": 935000000,
-   "lowestText": "935000000",
-   "apsl": 1806329510,
-   "begin": "202609071000",
-   "end": "202609281600",
-   "usbd": 5,
-   "status": "입찰마감",
-   "org": "팔탄농업협동조합",
-   "land": 920,
-   "bld": 965.48,
-   "share": false,
-   "thumb": "https://www.onbid.co.kr/op/cm/syc/filemng/filemngprcs/FileMngPrcsController/dnldFile.do?atchFileLstNo=16981286&atchSn=1&hashCrpsNo=GFOLMBONGHDPLEHCDFCBOJKECMFKCFBDECCAFOBANAIEJCMCNIAFHHNDDNJOLPCE&downloadImageKind=THNL_NM",
-   "firstSeen": "2026-09-28 16:49",
-   "notified": false,
-   "notifiedAt": null,
-   "solar": null
   }
  ],
  "runs": [
+  {
+   "at": "2026-09-29 10:14",
+   "mode": "run",
+   "total": 147,
+   "new": 0,
+   "solar": 57,
+   "pass": 29,
+   "targets": 0,
+   "sent": 0
+  },
   {
    "at": "2026-09-29 08:03",
    "mode": "run",
