@@ -77,15 +77,26 @@ class Landuse:
             path = url.split("api.vworld.kr/", 1)[1]
             params = {"path": path, "token": self.proxy_token, **params}
             url = self.proxy_url
-        self.calls += 1
-        try:
-            # 호스팅 보안 필터가 Accept 헤더 없는 요청을 막으므로 명시한다
-            req = urllib.request.Request(f"{url}?{urllib.parse.urlencode(params)}",
-                                         headers={"Accept": "application/json", "User-Agent": "SolarAuction/1.0"})
-            with urllib.request.urlopen(req, timeout=30) as r:
-                return json.loads(r.read().decode("utf-8"))
-        except (urllib.error.URLError, TimeoutError, ValueError) as e:
-            raise LanduseError(f"브이월드 접속 실패: {e}")
+        # 호스팅 보안 필터가 Accept 헤더 없는 요청을 막으므로 명시한다
+        req = urllib.request.Request(f"{url}?{urllib.parse.urlencode(params)}",
+                                     headers={"Accept": "application/json", "User-Agent": "SolarAuction/1.0"})
+        last = ""
+        for wait in (0, 5, 15):  # 연결 거부·끊김은 잠시 뒤 재시도
+            if wait:
+                time.sleep(wait)
+            self.calls += 1
+            try:
+                with urllib.request.urlopen(req, timeout=30) as r:
+                    return json.loads(r.read().decode("utf-8"))
+            except urllib.error.HTTPError as e:
+                if e.code not in (429, 502, 503, 504):
+                    raise LanduseError(f"브이월드 오류 HTTP {e.code}")
+                last = f"HTTP {e.code}"
+            except (urllib.error.URLError, TimeoutError, ConnectionError, OSError) as e:
+                last = str(e)
+            except ValueError as e:
+                raise LanduseError(f"브이월드 응답 해석 실패: {e}")
+        raise LanduseError(f"브이월드 접속 실패 (재시도 3회): {last}")
 
     def zones(self, pnu):
         """표준 PNU → [{name, code, rel}] (rel: 포함/저촉/접함)."""

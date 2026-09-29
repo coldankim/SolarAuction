@@ -71,4 +71,9 @@ jobs:
           for f in docs/data.json seen_items.json kepco_cache.json landuse_cache.json court_cache.json state.json; do [ -f "$f" ] && git add "$f"; done
           if git diff --cached --quiet; then echo "변경 없음"; exit 0; fi
           git commit -m "data: $(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M')"
-          git push
+          # 실행 중에 화면에서 설정을 저장하는 등 원격이 바뀌었으면 받아서 합친 뒤 올린다 (결과 파일은 이번 실행 것 우선)
+          for i in 1 2 3; do
+            git pull --rebase -X theirs origin main && git push && exit 0
+            sleep 5
+          done
+          exit 1

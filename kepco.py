@@ -13,7 +13,9 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
-DGEN_URL = "https://bigdata.kepco.co.kr/openapi/v1/dispersedGeneration.do"
+KEPCO_BASE = "https://bigdata.kepco.co.kr/"
+DGEN_PATH = "openapi/v1/dispersedGeneration.do"
+CODE_PATH = "openapi/v1/commonCode.do"
 CACHE_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "kepco_cache.json")
 CACHE_TTL = 20 * 3600  # 같은 주소는 하루 한 번만 조회
 MIN_INTERVAL = 1.0  # 초. 한전 API 연속 호출 제한 대응
@@ -26,8 +28,11 @@ class KepcoError(Exception):
 
 
 class Kepco:
-    def __init__(self, api_key):
+    def __init__(self, api_key, proxy_url=None, proxy_token=None):
         self.api_key = api_key
+        # GitHub Actions(해외)에서는 한전이 연속 호출을 끊어서 국내 중계(relay)를 거친다
+        self.proxy_url = proxy_url
+        self.proxy_token = proxy_token
         self.cache = {}
         if os.path.exists(CACHE_FILE):
             with open(CACHE_FILE, encoding="utf-8") as f:
@@ -55,13 +60,21 @@ class Kepco:
             params["addrLi"] = li
         if jibun:
             params["addrJibun"] = jibun
-        url = f"{DGEN_URL}?{urllib.parse.urlencode(params)}"
-        rows = self._get(url)
+        rows = self._get(DGEN_PATH, params)
         self.cache[key] = {"t": time.time(), "rows": rows}
         return rows
 
-    def _get(self, url):
-        # 한전은 연속 호출이 빠르면 401을 돌려준다 → 호출 간격을 두고, 401이면 쉬었다가 재시도
+    def _url(self, path, params):
+        if self.proxy_url:
+            q = {"host": "kepco", "path": path, "token": self.proxy_token, **params}
+            return f"{self.proxy_url}?{urllib.parse.urlencode(q)}"
+        return f"{KEPCO_BASE}{path}?{urllib.parse.urlencode(params)}"
+
+    def _get(self, path, params):
+        # 한전은 연속 호출이 빠르면 401이나 연결 끊김으로 응답한다 → 호출 간격을 두고, 쉬었다가 재시도
+        url = self._url(path, params)
+        req = urllib.request.Request(url, headers={"Accept": "application/json", "User-Agent": "SolarAuction/1.0"})
+        last = ""
         for wait in (0, 5, 15, 30):
             if wait:
                 time.sleep(wait)
@@ -71,16 +84,19 @@ class Kepco:
             self._last = time.time()
             self.calls += 1
             try:
-                with urllib.request.urlopen(url, timeout=60) as r:
+                with urllib.request.urlopen(req, timeout=60) as r:
                     return json.loads(r.read().decode("utf-8")).get("data") or []
             except urllib.error.HTTPError as e:
                 if e.code == 404:  # 해당 주소 데이터 없음
                     return []
-                if e.code != 401:
+                if e.code not in (401, 429, 502, 503, 504):
                     raise KepcoError(f"한전 API 오류 {e.code}: {e.read()[:200]!r}")
-            except (urllib.error.URLError, TimeoutError, ValueError) as e:
-                raise KepcoError(f"한전 API 접속 실패: {e}")
-        raise KepcoError("한전 API 401 반복 (호출 제한 또는 인증키 확인 필요)")
+                last = f"HTTP {e.code}"
+            except (urllib.error.URLError, TimeoutError, ConnectionError, OSError) as e:
+                last = str(e)  # 연결 끊김·시간 초과 → 재시도
+            except ValueError as e:
+                raise KepcoError(f"한전 API 응답 해석 실패: {e}")
+        raise KepcoError(f"한전 API 접속 실패 (재시도 4회): {last}")
 
     def lookup(self, metro, city, emd, li=None, jibun=None):
         """지번 → 리 → 읍면동 순서로 조회. 반환: (level, rows) 또는 (None, [])"""
@@ -106,11 +122,9 @@ class Kepco:
         """PNU가 없는 물건용: 시도명/시군구명 → 법정동 (시도코드, 시군구코드). 못 찾으면 None."""
         codes = self.cache.get("__codes__")
         if not codes or time.time() - codes["t"] > 30 * 86400:
-            base = "https://bigdata.kepco.co.kr/openapi/v1/commonCode.do"
             rows = {}
             for ty in ("lglDngMetroCd", "lglDngCityCd"):
-                q = urllib.parse.urlencode({"codeTy": ty, "apiKey": self.api_key, "returnType": "json"})
-                rows[ty] = self._get(f"{base}?{q}")
+                rows[ty] = self._get(CODE_PATH, {"codeTy": ty, "apiKey": self.api_key, "returnType": "json"})
             codes = {"t": time.time(), "rows": rows}
             self.cache["__codes__"] = codes
         metro = next((r["code"] for r in codes["rows"]["lglDngMetroCd"] if r.get("codeNm") == sido), None)

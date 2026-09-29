@@ -15,6 +15,7 @@ import argparse
 import json
 import os
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -147,11 +148,17 @@ def save_refresh_token(secret_path, new_rt):
 def http(url, data=None, headers=None, timeout=30):
     body = urllib.parse.urlencode(data).encode() if data is not None else None
     req = urllib.request.Request(url, data=body, headers=headers or {})
-    try:
-        with urllib.request.urlopen(req, timeout=timeout) as r:
-            return r.status, r.read().decode("utf-8", "replace")
-    except urllib.error.HTTPError as e:
-        return e.code, e.read().decode("utf-8", "replace")
+    for wait in (0, 5, 15):  # 시간 초과·연결 끊김은 잠시 뒤 재시도 (HTTP 응답은 그대로 돌려줌)
+        if wait:
+            time.sleep(wait)
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                return r.status, r.read().decode("utf-8", "replace")
+        except urllib.error.HTTPError as e:
+            return e.code, e.read().decode("utf-8", "replace")
+        except (urllib.error.URLError, TimeoutError, ConnectionError, OSError) as e:
+            err = e
+    raise AlertError(f"접속 실패: {url.split('?')[0]} ({err})")
 
 
 FORM = {"Content-Type": "application/x-www-form-urlencoded;charset=utf-8"}
@@ -465,9 +472,9 @@ def evaluate_solar(env, kp, it):
 
 def evaluate_all(env, found):
     """대상 물건 전체 판정 → {물건번호: 결과}. 한전이 계속 실패하면 나머지는 error로 두고 다음 실행에 재시도."""
-    kp = kepco.Kepco(env["KEPCO_API_KEY"])
-    # 중계 서버는 GitHub Actions에서만 사용 (국내 PC에서는 브이월드 직접 호출)
+    # 중계 서버는 GitHub Actions에서만 사용 (국내 PC에서는 한전·브이월드 직접 호출)
     proxy = env.get("VWORLD_PROXY_URL") if IN_ACTIONS and env.get("VWORLD_PROXY_TOKEN") else None
+    kp = kepco.Kepco(env["KEPCO_API_KEY"], proxy, env.get("VWORLD_PROXY_TOKEN"))
     lu = landuse.Landuse(env["VWORLD_API_KEY"], env.get("VWORLD_DOMAIN") or "coldankim.github.io",
                          proxy, env.get("VWORLD_PROXY_TOKEN")) if env.get("VWORLD_API_KEY") else None
     lu_fails = 0
@@ -475,8 +482,8 @@ def evaluate_all(env, found):
     for no, it in found.items():
         if not solar_type(it):
             continue
-        if fails >= 3:  # 한전이 계속 실패하면 나머지는 호출하지 않음
-            out[no] = {"grade": "error", "label": "계통 조회실패", "type": solar_type(it)}
+        if fails >= 3:  # 한전이 계속 실패하면 나머지는 이번에 호출하지 않고 다음 실행에서 이어서
+            out[no] = {"grade": "error", "label": "계통 조회 대기", "type": solar_type(it)}
         else:
             try:
                 out[no] = evaluate_solar(env, kp, it)
@@ -489,7 +496,7 @@ def evaluate_all(env, found):
         if out[no]["type"] != "토지":
             out[no]["landuse"] = {"grade": "skip", "label": "", "zones": []}
         elif not lu or lu_fails >= 3:
-            out[no]["landuse"] = {"grade": "error", "label": "용도 조회실패", "zones": []}
+            out[no]["landuse"] = {"grade": "error", "label": "용도 조회 대기", "zones": []}
         else:
             try:
                 pnu = landuse.resolve_pnu(lu, it.get("ltnoPnu"), it.get("onbidCltrNm"))
@@ -662,8 +669,9 @@ def run_alert(env, secret_path, mode):
     lu_err = sum(1 for r in solar.values() if r["landuse"]["grade"] == "error")
     if err or lu_err:  # 실행은 계속하되 화면에 경고로 남김 (해당 물건은 이전 판정 유지, 다음 실행에 재시도)
         result["error"] = " / ".join(x for x in (result.get("error", ""),
-                                                  f"한전 계통 조회 실패 {err}건" if err else "",
-                                                  f"브이월드 용도 조회 실패 {lu_err}건" if lu_err else "") if x)
+                                                  f"한전 계통 조회 못함 {err}건" if err else "",
+                                                  f"브이월드 용도 조회 못함 {lu_err}건" if lu_err else "") if x)
+        result["error"] += " (지난 판정 유지, 다음 실행에서 자동 재시도)"
 
     # 첫 실행 / init: 알림 없이 기록만 (알림 폭탄 방지)
     if mode == "init" or first_time:
