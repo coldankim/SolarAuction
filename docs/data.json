@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-29 16:35",
+ "updated": "2026-09-29 17:01",
  "regions": "경상북도:예천군;경상북도:안동시",
  "settings": {
   "REGIONS": "경상북도:예천군;경상북도:안동시",
@@ -3883,6 +3883,11 @@
   }
  ],
  "runs": [
+  {
+   "at": "2026-09-29 17:01",
+   "mode": "run",
+   "error": "접속 실패: https://apis.data.go.kr/B010003/OnbidRlstListSrvc2/getRlstCltrList2 (<urlopen error timed out>)"
+  },
   {
    "at": "2026-09-29 16:35",
    "mode": "run",
