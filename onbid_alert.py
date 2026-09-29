@@ -20,6 +20,7 @@ import urllib.parse
 import urllib.request
 from datetime import datetime, timedelta, timezone
 
+import courtauction
 import kepco
 import landuse
 
@@ -41,6 +42,7 @@ ENV_KEYS = [
     "REGIONS", "PVCT_TRGT_YN", "DSPS_MTHOD_CD", "PRPT_DIV_CD", "MAX_NOTIFY", "LINK_URL",
     "KAKAO_REDIRECT_URI", "KEPCO_API_KEY", "SOLAR_MIN_KW", "SOLAR_GOOD_KW",
     "VWORLD_API_KEY", "VWORLD_DOMAIN", "VWORLD_PROXY_URL", "VWORLD_PROXY_TOKEN",
+    "COURT_ENABLED", "COURT_REFRESH_HOURS",
 ]
 KST = timezone(timedelta(hours=9))
 IN_ACTIONS = os.environ.get("GITHUB_ACTIONS") == "true"
@@ -52,6 +54,9 @@ if hasattr(sys.stdout, "reconfigure"):
 
 class AlertError(Exception):
     pass
+
+
+WARNINGS = []  # 실행은 계속되지만 화면에 남길 경고 (예: 법원경매 접속 실패)
 
 
 def now_kst():
@@ -280,6 +285,12 @@ def collect(env):
             no = str(it.get("onbidCltrno"))
             if no not in found or round_key(it) < round_key(found[no]):
                 found[no] = it
+    if (env.get("COURT_ENABLED") or "Y").upper() != "N":
+        try:
+            found.update(courtauction.fetch_regions(regions, float(env.get("COURT_REFRESH_HOURS") or 10), log))
+        except courtauction.CourtError as e:  # 법원경매가 막혀도 온비드 알림은 계속
+            log(str(e))
+            WARNINGS.append(str(e))
     return found
 
 
@@ -300,7 +311,12 @@ def dt(s):
     return f"{s[:4]}-{s[4:6]}-{s[6:8]} {s[8:10]}:{s[10:12]}" if len(s) >= 12 else s
 
 
-def format_item(it, solar=None, title="온비드 신규"):
+def source_name(it):
+    return "법원경매" if it.get("source") == "court" else "온비드"
+
+
+def format_item(it, solar=None, title=None):
+    title = title or f"{source_name(it)} 신규"
     name = (it.get("onbidCltrNm") or "").strip()
     if len(name) > 45:
         name = name[:44] + "…"
@@ -316,7 +332,7 @@ def format_item(it, solar=None, title="온비드 신규"):
         if lu.get("grade") in ("pass", "cond", "none", "error"):
             why = ", ".join((lu.get("reasons") or lu.get("favorable") or [])[:2])
             lines.append(f"용도 {lu['label']}" + (f": {why}" if why else ""))
-    lines.append(f"관리번호 {it.get('cltrMngNo')}")
+    lines.append(f"{'사건번호' if it.get('source') == 'court' else '관리번호'} {it.get('cltrMngNo')}")
     return "\n".join(lines)
 
 
@@ -330,9 +346,14 @@ def solar_ok(sol):
     return bool(sol) and sol.get("grade") in SOLAR_PASS and (sol.get("landuse") or {}).get("grade") != "exclude"
 
 
+NON_SOLAR_JIMOK = ("도로", "구거", "하천", "유지", "제방", "묘지", "철도용지", "수도용지", "공원", "학교용지")
+
+
 def solar_type(it):
     """태양광 대상 여부: 토지 / 지붕형(공장·창고). 대상 아니면 None."""
     if it.get("cltrUsgMclsCtgrNm") == "토지":
+        if (it.get("cltrUsgSclsCtgrNm") or "") in NON_SOLAR_JIMOK:
+            return None
         return "토지"
     scls = it.get("cltrUsgSclsCtgrNm") or ""
     if "공장" in scls or "창고" in scls:
@@ -468,6 +489,8 @@ def write_dashboard(env, found, seen, run):
                 "notified": is_notified(s),
                 "notifiedAt": s.get("notifiedAt"),
                 "solar": s.get("solar"),
+                "source": it.get("source") or "onbid",
+                "note": it.get("note"),
             })
         items.sort(key=lambda x: (x.get("firstSeen") or "", x.get("begin") or ""), reverse=True)
     write_json(DATA_FILE, {
@@ -494,9 +517,9 @@ def pick_targets(found, seen, solar):
             continue
         s = seen.get(no)
         if s is None:
-            out.append((no, it, "온비드 신규"))
+            out.append((no, it, None))
         elif not is_notified(s) and (s.get("solar") or {}).get("grade") in ("fail", "none"):
-            out.append((no, it, "계통 여유 생김"))
+            out.append((no, it, f"{source_name(it)} 계통 여유 생김"))
     return out
 
 
@@ -528,10 +551,13 @@ def run_alert(env, secret_path, mode):
     result = {"total": len(found), "new": new_cnt, "solar": len(solar),
               "pass": sum(1 for r in solar.values() if solar_ok(r)),
               "targets": len(targets), "sent": 0}
+    if WARNINGS:
+        result["error"] = " / ".join(WARNINGS)
     err = sum(1 for r in solar.values() if r["grade"] == "error")
     lu_err = sum(1 for r in solar.values() if r["landuse"]["grade"] == "error")
     if err or lu_err:  # 실행은 계속하되 화면에 경고로 남김 (해당 물건은 이전 판정 유지, 다음 실행에 재시도)
-        result["error"] = " / ".join(x for x in (f"한전 계통 조회 실패 {err}건" if err else "",
+        result["error"] = " / ".join(x for x in (result.get("error", ""),
+                                                  f"한전 계통 조회 실패 {err}건" if err else "",
                                                   f"브이월드 용도 조회 실패 {lu_err}건" if lu_err else "") if x)
 
     # 첫 실행 / init: 알림 없이 기록만 (알림 폭탄 방지)
