@@ -1,6 +1,14 @@
 {
- "updated": "2026-09-29 16:01",
+ "updated": "2026-09-29 16:03",
  "regions": "경기도:화성시",
+ "settings": {
+  "REGIONS": "경기도:화성시",
+  "PVCT_TRGT_YN": "N",
+  "DSPS_MTHOD_CD": "0001",
+  "PRPT_DIV_CD": "",
+  "SOLAR_MIN_KW": "100",
+  "SOLAR_GOOD_KW": "300"
+ },
  "solarMinKw": 100,
  "solarGoodKw": 300,
  "items": [
@@ -30,7 +38,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "대항력 있는 임차인의 보증금이 배당에서 전액 변제되지 않을 경우 잔액을 매수인이 인수하므로 입찰시 주의필요"
+   "note": "대항력 있는 임차인의 보증금이 배당에서 전액 변제되지 않을 경우 잔액을 매수인이 인수하므로 입찰시 주의필요",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130086279-1",
@@ -58,7 +68,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "대항력있는 임차인의 보증금이 전액되지 않을 경우 잔액을 매수인이 인수하므로 입찰시 주의필요."
+   "note": "대항력있는 임차인의 보증금이 전액되지 않을 경우 잔액을 매수인이 인수하므로 입찰시 주의필요.",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130095389-1",
@@ -86,7 +98,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "매수인에게 대항할 수 있는 임차인 있음, 배당에서 보증금이 전액 변제되지 아니하면 잔액을 매수인이 인수함."
+   "note": "매수인에게 대항할 수 있는 임차인 있음, 배당에서 보증금이 전액 변제되지 아니하면 잔액을 매수인이 인수함.",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130099626-1",
@@ -114,7 +128,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "주택도시보증공사(양도전:주택임차권자 이승환)로부터  '임차보증금에 대하여 우선변제권만 주장하고 대항력은 포기하며, 전액을 변제받지 못하더라도 임"
+   "note": "주택도시보증공사(양도전:주택임차권자 이승환)로부터  '임차보증금에 대하여 우선변제권만 주장하고 대항력은 포기하며, 전액을 변제받지 못하더라도 임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130054397-1",
@@ -142,7 +158,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055363-1",
@@ -202,7 +220,9 @@
     }
    },
    "source": "court",
-   "note": "농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음)\n지분매각임. 공유자 우선매수권 행사 1회로 제한함(공유자 우선매수신"
+   "note": "농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음)\n지분매각임. 공유자 우선매수권 행사 1회로 제한함(공유자 우선매수신",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055671-1",
@@ -230,7 +250,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "일괄매각, 본건 목록 1~3은 현황 하나의 용도(유흥주점)로 이용중이나 건축물현황도상의 상호경계(벽체유지)를 하고 있음\n재매각임. 매수보증금은 "
+   "note": "일괄매각, 본건 목록 1~3은 현황 하나의 용도(유흥주점)로 이용중이나 건축물현황도상의 상호경계(벽체유지)를 하고 있음\n재매각임. 매수보증금은 ",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055748-1",
@@ -290,7 +312,9 @@
     }
    },
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056217-1",
@@ -337,7 +361,9 @@
     }
    },
    "source": "court",
-   "note": "지상에 분묘 소재함(3기), 현황 자연림 및 묘지등으로 이용중임, 맹지임"
+   "note": "지상에 분묘 소재함(3기), 현황 자연림 및 묘지등으로 이용중임, 맹지임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056217-2",
@@ -384,7 +410,9 @@
     }
    },
    "source": "court",
-   "note": "현황 묵전(휴경지상태)임,  농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음), 맹지임"
+   "note": "현황 묵전(휴경지상태)임,  농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음), 맹지임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056217-3",
@@ -431,7 +459,9 @@
     }
    },
    "source": "court",
-   "note": "농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음), 남서측으로 지적도상 도로가 있으나 사용하지 못하고 있는 상태(페도"
+   "note": "농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음), 남서측으로 지적도상 도로가 있으나 사용하지 못하고 있는 상태(페도",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056402-1",
@@ -459,7 +489,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "물건 1,2.3(136호, 135호, 134호)은 벽체구분 없이 일체로 제2종근린생활시설(일반음식점)으로 이용중임(현황 공실)"
+   "note": "물건 1,2.3(136호, 135호, 134호)은 벽체구분 없이 일체로 제2종근린생활시설(일반음식점)으로 이용중임(현황 공실)",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056402-2",
@@ -487,7 +519,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "물건 1,2.3(136호, 135호, 134호)은 벽체구분 없이 일체로 제2종근린생활시설(일반음식점)으로 이용중임(현황 공실)."
+   "note": "물건 1,2.3(136호, 135호, 134호)은 벽체구분 없이 일체로 제2종근린생활시설(일반음식점)으로 이용중임(현황 공실).",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056402-3",
@@ -515,7 +549,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "물건 1,2.3(136호, 135호, 134호)은 벽체구분 없이 일체로 제2종근린생활시설(일반음식점)으로 이용중임(현황 공실), 주식회사 미래티"
+   "note": "물건 1,2.3(136호, 135호, 134호)은 벽체구분 없이 일체로 제2종근린생활시설(일반음식점)으로 이용중임(현황 공실), 주식회사 미래티",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056461-1",
@@ -543,7 +579,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056837-1",
@@ -571,7 +609,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "일괄매각. 제시외 물건포함"
+   "note": "일괄매각. 제시외 물건포함",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056939-1",
@@ -599,7 +639,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130057041-1",
@@ -627,7 +669,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130057160-1",
@@ -655,7 +699,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130057160-2",
@@ -683,7 +729,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130057160-3",
@@ -711,7 +759,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130057399-1",
@@ -739,7 +789,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020220130076117-1",
@@ -800,7 +852,9 @@
     }
    },
    "source": "court",
-   "note": "1. 지분매각임. 공유자 우선매수신고 제한 있음(공유자 우선매수신청을 한 공유자는 당해 매각기일 종결전까지 보증금을 제공하여야 하며, 매수 신청"
+   "note": "1. 지분매각임. 공유자 우선매수신고 제한 있음(공유자 우선매수신청을 한 공유자는 당해 매각기일 종결전까지 보증금을 제공하여야 하며, 매수 신청",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130011794-1",
@@ -828,7 +882,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "1. 일괄매각. \n2. 목록 4. 지상 위 제시외 물건(컨테이너, 간이화장실)이 소재하나 이동이 용이하므로 매각에서 제외\n3. 목록 9,10. "
+   "note": "1. 일괄매각. \n2. 목록 4. 지상 위 제시외 물건(컨테이너, 간이화장실)이 소재하나 이동이 용이하므로 매각에서 제외\n3. 목록 9,10. ",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130013820-2",
@@ -856,7 +912,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "공장(지식산업센터)임"
+   "note": "공장(지식산업센터)임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130014014-1",
@@ -919,7 +977,9 @@
     }
    },
    "source": "court",
-   "note": "농지취득자격증명 요함(미제출시 보증금 미반환)"
+   "note": "농지취득자격증명 요함(미제출시 보증금 미반환)",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130061812-1",
@@ -947,7 +1007,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130074337-1",
@@ -1007,7 +1069,9 @@
     }
    },
    "source": "court",
-   "note": "1. 농지취득자격증명 요함(미제출시 보증금 미반환)\n2. 지분매각. 공유자 우선매수신고 제한 있음(우선매수신청을 한 공유자는 당해 매각기일 종결"
+   "note": "1. 농지취득자격증명 요함(미제출시 보증금 미반환)\n2. 지분매각. 공유자 우선매수신고 제한 있음(우선매수신청을 한 공유자는 당해 매각기일 종결",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130079783-1",
@@ -1035,7 +1099,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "대항력 있는 임차인이 보증금 전액을 배당받지 못할 경우 잔액을 매수인이 인수할 수 있으므로 주의 요함"
+   "note": "대항력 있는 임차인이 보증금 전액을 배당받지 못할 경우 잔액을 매수인이 인수할 수 있으므로 주의 요함",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130082369-1",
@@ -1063,7 +1129,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "상가(상호:미래공인중개사사무소)로 이용중임"
+   "note": "상가(상호:미래공인중개사사무소)로 이용중임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130090339-1",
@@ -1091,7 +1159,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "신청채권자로부터 2026.6.1.자에 '임차보증금에 대하여 우선변제권만 주장하고 대항력은 포기하며, 전액을 변제받지 못하더라도 임차권등기를 말소"
+   "note": "신청채권자로부터 2026.6.1.자에 '임차보증금에 대하여 우선변제권만 주장하고 대항력은 포기하며, 전액을 변제받지 못하더라도 임차권등기를 말소",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130092083-1",
@@ -1119,7 +1189,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "대항력 있는 임차인이 보증금 전액을 배당받지 못할 경우 잔액을 매수인이 인수할 수 있으므로 주의 요함"
+   "note": "대항력 있는 임차인이 보증금 전액을 배당받지 못할 경우 잔액을 매수인이 인수할 수 있으므로 주의 요함",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130094492-1",
@@ -1147,7 +1219,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "1. 대지권 미등기이며 대지권 유무는 알 수 없음. 최저매가각격에는 대지권 가격이 포함됨\n2. 대상이 속한 건물(104동)은 지1층 32.841"
+   "note": "1. 대지권 미등기이며 대지권 유무는 알 수 없음. 최저매가각격에는 대지권 가격이 포함됨\n2. 대상이 속한 건물(104동)은 지1층 32.841",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130094782-1",
@@ -1175,7 +1249,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "신청채권자로부터 2026.8.7.자에 '임차보증금에 대하여 우선변제권만 주장하고 대항력은 포기하며, 전액을 변제받지 못하더라도 임차권등기를 말소"
+   "note": "신청채권자로부터 2026.8.7.자에 '임차보증금에 대하여 우선변제권만 주장하고 대항력은 포기하며, 전액을 변제받지 못하더라도 임차권등기를 말소",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130097293-1",
@@ -1238,7 +1314,9 @@
     }
    },
    "source": "court",
-   "note": "1. 일괄매각\n2. 목록 1,4는 농지취득자격증명 요함(미제출시 보증금 미반환)\n3. 목록 1,4,7은 인접필지와 대체로 등고 평탄한 부정형의 "
+   "note": "1. 일괄매각\n2. 목록 1,4는 농지취득자격증명 요함(미제출시 보증금 미반환)\n3. 목록 1,4,7은 인접필지와 대체로 등고 평탄한 부정형의 ",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130103679-1",
@@ -1298,7 +1376,9 @@
     }
    },
    "source": "court",
-   "note": "농지취득자격증명 요함(미제출시 보증금 미반환)"
+   "note": "농지취득자격증명 요함(미제출시 보증금 미반환)",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130001374-1",
@@ -1326,7 +1406,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130001456-1",
@@ -1354,7 +1436,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "20LINE 다이어트(117호와 일단으로 이용중이며, 집합건축물대장상 용도는 일반음식점임)로 이용중임"
+   "note": "20LINE 다이어트(117호와 일단으로 이용중이며, 집합건축물대장상 용도는 일반음식점임)로 이용중임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130001456-2",
@@ -1382,7 +1466,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "공실임(집합건축물대장상 용도는 휴게음식점임)"
+   "note": "공실임(집합건축물대장상 용도는 휴게음식점임)",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130001456-3",
@@ -1410,7 +1496,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "공실임(집합건축물대장상 용도는 소매점임)"
+   "note": "공실임(집합건축물대장상 용도는 소매점임)",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130054954-1",
@@ -1470,7 +1558,9 @@
     }
    },
    "source": "court",
-   "note": "1. 일괄매각\n2. 목록1.은 주거나지 상태이며 일부 현황 도로로 이용중임\n3. 목록2.는 지목 및 현황 도로로 이용중임"
+   "note": "1. 일괄매각\n2. 목록1.은 주거나지 상태이며 일부 현황 도로로 이용중임\n3. 목록2.는 지목 및 현황 도로로 이용중임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055310-1",
@@ -1530,7 +1620,9 @@
     }
    },
    "source": "court",
-   "note": "농지취득자격증명 요함(미제출시 보증금 미반환)"
+   "note": "농지취득자격증명 요함(미제출시 보증금 미반환)",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055310-2",
@@ -1590,7 +1682,9 @@
     }
    },
    "source": "court",
-   "note": "1. 농지취득자격증명 요함(미제출시 보증금 미반환)\n2. 맹지임\n3. 밭이나 논과 수로 사이 있으며, 접근이 어렵고, 방치되어 밭으로 경작되지 "
+   "note": "1. 농지취득자격증명 요함(미제출시 보증금 미반환)\n2. 맹지임\n3. 밭이나 논과 수로 사이 있으며, 접근이 어렵고, 방치되어 밭으로 경작되지 ",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055698-1",
@@ -1655,7 +1749,9 @@
     }
    },
    "source": "court",
-   "note": "1. 농지취득자격증명 요함(미제출시 보증금 미반환)\n2. 맹지임"
+   "note": "1. 농지취득자격증명 요함(미제출시 보증금 미반환)\n2. 맹지임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055778-1",
@@ -1715,7 +1811,9 @@
     }
    },
    "source": "court",
-   "note": "1. 농지취득자격증명 요함(미제출시 보증금 미반환)\n2. 지적도상 맹지임"
+   "note": "1. 농지취득자격증명 요함(미제출시 보증금 미반환)\n2. 지적도상 맹지임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055817-1",
@@ -1743,7 +1841,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "제2종 근린생활시설(일반음식점)이나 현황 사무실로 이용중임"
+   "note": "제2종 근린생활시설(일반음식점)이나 현황 사무실로 이용중임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055817-2",
@@ -1771,7 +1871,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "제2종 근린생활시설(일반음식점)이나 현황 인접호수(109호)와 경계구분없이 음식점(상호:강깍집)으로 이용중임"
+   "note": "제2종 근린생활시설(일반음식점)이나 현황 인접호수(109호)와 경계구분없이 음식점(상호:강깍집)으로 이용중임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055817-3",
@@ -1799,7 +1901,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "제1종 근린생활시설(의원)이나 현황 영업중지중임"
+   "note": "제1종 근린생활시설(의원)이나 현황 영업중지중임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055817-4",
@@ -1827,7 +1931,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "제1종 근린생활시설(의원)이나 현황 영업중지중임"
+   "note": "제1종 근린생활시설(의원)이나 현황 영업중지중임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056099-1",
@@ -1855,7 +1961,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "지분매각, 공유자 우선매수신고 제한있음(우선매수신청을 한 공유자는 당해 매각기일 종결 전까지 보증금을 제공하여야 하며, 매수신청권리를 행사하지 "
+   "note": "지분매각, 공유자 우선매수신고 제한있음(우선매수신청을 한 공유자는 당해 매각기일 종결 전까지 보증금을 제공하여야 하며, 매수신청권리를 행사하지 ",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056345-1",
@@ -1883,7 +1991,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "1. 일괄매각\n2. 목록2. 농지취득자격증명 요함(미제출시 보증금 미반환)\n3. 목록2. 묵전임"
+   "note": "1. 일괄매각\n2. 목록2. 농지취득자격증명 요함(미제출시 보증금 미반환)\n3. 목록2. 묵전임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056345-2",
@@ -1946,7 +2056,9 @@
     }
    },
    "source": "court",
-   "note": "1. 농지취득자격증명 요함(미제출시 보증금 미반환)\n2. 묵전임"
+   "note": "1. 농지취득자격증명 요함(미제출시 보증금 미반환)\n2. 묵전임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056459-1",
@@ -1974,7 +2086,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "본건에 대한 집합건축물대장상 전유부에 포함된 전유부 도면은 옆호실의 도면인 것으로 판단되어, 층도면에 표시된 내부구조를 이용하여 건물개황도를 작"
+   "note": "본건에 대한 집합건축물대장상 전유부에 포함된 전유부 도면은 옆호실의 도면인 것으로 판단되어, 층도면에 표시된 내부구조를 이용하여 건물개황도를 작",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056963-1",
@@ -2037,7 +2151,9 @@
     }
    },
    "source": "court",
-   "note": "1. 일괄매각\n2. 목록1.은 지분매각이며, 현황 '도로'로 이용중임\n3. 목록2.는 건축신고를 득하였으나 낙찰 시 지위승계(수허가자변경) 가능"
+   "note": "1. 일괄매각\n2. 목록1.은 지분매각이며, 현황 '도로'로 이용중임\n3. 목록2.는 건축신고를 득하였으나 낙찰 시 지위승계(수허가자변경) 가능",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130057034-1",
@@ -2065,7 +2181,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130006822-1",
@@ -2125,7 +2243,9 @@
     }
    },
    "source": "court",
-   "note": "1. 일괄매각(목록3,4,6~10은 지분매각임)\n2. 목록 2. 건물의 공부상 소재지번은 '보통리 293-1, 293-10'이나 '보통리 293"
+   "note": "1. 일괄매각(목록3,4,6~10은 지분매각임)\n2. 목록 2. 건물의 공부상 소재지번은 '보통리 293-1, 293-10'이나 '보통리 293",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130010425-1",
@@ -2153,7 +2273,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "현황 공실임"
+   "note": "현황 공실임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130010630-1",
@@ -2181,7 +2303,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "신청채권자 겸 임차인보다 법정기일이 빠른 조세가 있으므로 확인 요함(배당요구종기 기준 총 약 8,395,711원이고, 조세안분적용 등 변동이 있"
+   "note": "신청채권자 겸 임차인보다 법정기일이 빠른 조세가 있으므로 확인 요함(배당요구종기 기준 총 약 8,395,711원이고, 조세안분적용 등 변동이 있",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130010692-1",
@@ -2243,7 +2367,9 @@
     }
    },
    "source": "court",
-   "note": "1. 일괄매각. 제시외 건물 포함\n2. 목록2.건물은 '주향남교회'의 교회당 건물로 지하층 및 1층,2층, 3층의 주요 부분은 주향남교회에서 사"
+   "note": "1. 일괄매각. 제시외 건물 포함\n2. 목록2.건물은 '주향남교회'의 교회당 건물로 지하층 및 1층,2층, 3층의 주요 부분은 주향남교회에서 사",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130062396-1",
@@ -2271,7 +2397,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130067490-10",
@@ -2318,7 +2446,9 @@
     }
    },
    "source": "court",
-   "note": "일괄매각"
+   "note": "일괄매각",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130067490-1",
@@ -2365,7 +2495,9 @@
     }
    },
    "source": "court",
-   "note": "1. 지상에 제시외건물로 단독주택 1동이 소재(등기사항전부증명서 및 일반건축물대장 존재함)하나 매각에서 제외함(2024타경67490 감정평가서의"
+   "note": "1. 지상에 제시외건물로 단독주택 1동이 소재(등기사항전부증명서 및 일반건축물대장 존재함)하나 매각에서 제외함(2024타경67490 감정평가서의",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130067490-11",
@@ -2393,7 +2525,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130067490-12",
@@ -2440,7 +2574,9 @@
     }
    },
    "source": "court",
-   "note": "1. 지상에 제시외건물로 단독주택 3동이 소재하나 매각에서 제외함(2024타경67490 감정평가서의 감정평가명세표 ㉡, ㉢, ㉣ 참조). ㉢(2"
+   "note": "1. 지상에 제시외건물로 단독주택 3동이 소재하나 매각에서 제외함(2024타경67490 감정평가서의 감정평가명세표 ㉡, ㉢, ㉣ 참조). ㉢(2",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130067490-2",
@@ -2468,7 +2604,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "1. 일괄매각\n2. 목록16.건물의 도로명주소는 공부상 '137-47'로 기재되어 있으나, 현황 '137-45'임(화성시청에 확인하였다고 감정평"
+   "note": "1. 일괄매각\n2. 목록16.건물의 도로명주소는 공부상 '137-47'로 기재되어 있으나, 현황 '137-45'임(화성시청에 확인하였다고 감정평",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130067490-3",
@@ -2496,7 +2634,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "1. 일괄매각\n2. 목록13.건물의 도로명주소는 공부상 '137-47'로 기재되어 있으나, 현황 '137-43'임(화성시청에 확인하였다고 감정평"
+   "note": "1. 일괄매각\n2. 목록13.건물의 도로명주소는 공부상 '137-47'로 기재되어 있으나, 현황 '137-43'임(화성시청에 확인하였다고 감정평",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130067490-4",
@@ -2543,7 +2683,9 @@
     }
    },
    "source": "court",
-   "note": "현황 나대지 상태임"
+   "note": "현황 나대지 상태임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130067490-5",
@@ -2590,7 +2732,9 @@
     }
    },
    "source": "court",
-   "note": "현황 나대지 상태임"
+   "note": "현황 나대지 상태임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130067490-6",
@@ -2618,7 +2762,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "1. 일괄매각. 제시외 건물 포함\n2. 목록15.건물의 도로명주소는 공부상 '137-47'로 기재되어 있으나, 현황 '137-41'임(화성시청에"
+   "note": "1. 일괄매각. 제시외 건물 포함\n2. 목록15.건물의 도로명주소는 공부상 '137-47'로 기재되어 있으나, 현황 '137-41'임(화성시청에",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130067490-7",
@@ -2665,7 +2811,9 @@
     }
    },
    "source": "court",
-   "note": "현황 나대지 상태임"
+   "note": "현황 나대지 상태임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130067490-8",
@@ -2712,7 +2860,9 @@
     }
    },
    "source": "court",
-   "note": "현황 나대지 상태임"
+   "note": "현황 나대지 상태임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130067490-9",
@@ -2740,7 +2890,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130075156-1",
@@ -2768,7 +2920,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "1. 일괄매각\n2. 목록2,4는 농지취득자격증명 요함(미제출시 보증금 미반환)\n3. 목록1,3은 마을 진입로로 이용하는 도로로 지분매각임\n4. "
+   "note": "1. 일괄매각\n2. 목록2,4는 농지취득자격증명 요함(미제출시 보증금 미반환)\n3. 목록1,3은 마을 진입로로 이용하는 도로로 지분매각임\n4. ",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130076654-1",
@@ -2796,7 +2950,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "세대출입문에 호수 표시가 없음"
+   "note": "세대출입문에 호수 표시가 없음",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130085665-1",
@@ -2824,7 +2980,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "1. 재매각임. 매수신청보증금 20%\n2. '라스키트'상호의 상가로 현재 공실임"
+   "note": "1. 재매각임. 매수신청보증금 20%\n2. '라스키트'상호의 상가로 현재 공실임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130094546-1",
@@ -2885,7 +3043,9 @@
     }
    },
    "source": "court",
-   "note": "임야기타 상태임. 맹지이나 북측으로 약 15~20미터 내외의 도로(확 포장 공사중)와 접하나 등고차로 인해 접근은 어려움"
+   "note": "임야기타 상태임. 맹지이나 북측으로 약 15~20미터 내외의 도로(확 포장 공사중)와 접하나 등고차로 인해 접근은 어려움",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130094546-2",
@@ -2946,7 +3106,9 @@
     }
    },
    "source": "court",
-   "note": "1. 맹지이나 북측으로 약 15~20미터 내외의 도로(확 포장 공사중)와 접하나 등고차로 인해 접근은 어려움\n2. 분묘 약 10기(부동산현황조사"
+   "note": "1. 맹지이나 북측으로 약 15~20미터 내외의 도로(확 포장 공사중)와 접하나 등고차로 인해 접근은 어려움\n2. 분묘 약 10기(부동산현황조사",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130095679-1",
@@ -2992,7 +3154,9 @@
     }
    },
    "source": "court",
-   "note": "1. 일괄매각(목록3. 지분매각임)\n2. 목록1.토지와 2.토지의 경계부분에 설치된 옹벽은 토지에 포함하여 평가함(대지화 과정에 있었던 것으로 "
+   "note": "1. 일괄매각(목록3. 지분매각임)\n2. 목록1.토지와 2.토지의 경계부분에 설치된 옹벽은 토지에 포함하여 평가함(대지화 과정에 있었던 것으로 ",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130099268-1",
@@ -3020,7 +3184,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130000867-1",
@@ -3048,7 +3214,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130001062-1",
@@ -3076,7 +3244,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "1. 본 건물은 비전호텔리아로 명칭 사용 중임\n2. 공부상 용도는 일반음식점이고, 현황은 공실상태임"
+   "note": "1. 본 건물은 비전호텔리아로 명칭 사용 중임\n2. 공부상 용도는 일반음식점이고, 현황은 공실상태임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130001124-1",
@@ -3104,7 +3274,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130001192-1",
@@ -3132,7 +3304,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "대지권 미등기이나 매각목적물 및 평가에 포함됨(공급계약서에 따르면 대지면적이 포함된 것으로 보이므로 확인 요함)"
+   "note": "대지권 미등기이나 매각목적물 및 평가에 포함됨(공급계약서에 따르면 대지면적이 포함된 것으로 보이므로 확인 요함)",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130054306-1",
@@ -3192,7 +3366,9 @@
     }
    },
    "source": "court",
-   "note": "1. 부동산 표시의 제시외 건물(1-1~1-4 포함)\n2. 본건 지상에 소유자 미상의 미등기 건물이 소재하나 매각에서 제외함[감정평가서의 토지 "
+   "note": "1. 부동산 표시의 제시외 건물(1-1~1-4 포함)\n2. 본건 지상에 소유자 미상의 미등기 건물이 소재하나 매각에서 제외함[감정평가서의 토지 ",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130054445-1",
@@ -3239,7 +3415,9 @@
     }
    },
    "source": "court",
-   "note": "1. 지분매각, 공유자 우선매수신고 제한있음(우선매수신청을 한 공유자는 당해 매각기일 종결 전까지 보증금을 제공하여야 하며, 매수신청권리를 행사"
+   "note": "1. 지분매각, 공유자 우선매수신고 제한있음(우선매수신청을 한 공유자는 당해 매각기일 종결 전까지 보증금을 제공하여야 하며, 매수신청권리를 행사",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055493-1",
@@ -3299,7 +3477,9 @@
     }
    },
    "source": "court",
-   "note": "1. 농지취득자격증명 요함(미제출시 보증금 미반환)\n2. 공부 및 현황 '맹지' 상태임\n3. 다른 필지(칠곡리 315)와 합필하여 성토작업중임("
+   "note": "1. 농지취득자격증명 요함(미제출시 보증금 미반환)\n2. 공부 및 현황 '맹지' 상태임\n3. 다른 필지(칠곡리 315)와 합필하여 성토작업중임(",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055523-1",
@@ -3327,7 +3507,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055650-1",
@@ -3355,7 +3537,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055731-1",
@@ -3383,7 +3567,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "근린생활시설(상호 : 신의주 찹쌀순대 순대와 쭈꾸미)로 이용중임"
+   "note": "근린생활시설(상호 : 신의주 찹쌀순대 순대와 쭈꾸미)로 이용중임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056064-1",
@@ -3411,7 +3597,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056104-1",
@@ -3439,7 +3627,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "오피스텔로 이용중임"
+   "note": "오피스텔로 이용중임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056209-1",
@@ -3467,7 +3657,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "통칭 '유원아파트'이고, 건축법상 사용승인을 받지 않은 건물로 집합건축물대장이 존재하지 아니함(감정평가서 참조)"
+   "note": "통칭 '유원아파트'이고, 건축법상 사용승인을 받지 않은 건물로 집합건축물대장이 존재하지 아니함(감정평가서 참조)",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056829-1",
@@ -3528,7 +3720,9 @@
     }
    },
    "source": "court",
-   "note": "1. 일괄매각\n2. 목록 3,5.토지는 농지취득자격증명 요함(미제출시 보증금 미반환, 사실조회회신 참조)\n3. 본건 토지들은 일단의 개발행위허가"
+   "note": "1. 일괄매각\n2. 목록 3,5.토지는 농지취득자격증명 요함(미제출시 보증금 미반환, 사실조회회신 참조)\n3. 본건 토지들은 일단의 개발행위허가",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130058407-1",
@@ -3556,7 +3750,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "신청채권과 임차권등기 채권은 동일함. 신청채권자가 우선변제권만 주장하고 대항력은 포기한다는 인수조건변경 확약서가 제출됨에 따라 신청채권자가 배당"
+   "note": "신청채권과 임차권등기 채권은 동일함. 신청채권자가 우선변제권만 주장하고 대항력은 포기한다는 인수조건변경 확약서가 제출됨에 따라 신청채권자가 배당",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130059681-1",
@@ -3584,7 +3780,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "신청채권과 임차권등기 채권은 동일함. 신청채권자가 우선변제권만 주장하고 대항력은 포기한다는 인수조건변경 확약서가 제출됨에 따라 신청채권자가 배당"
+   "note": "신청채권과 임차권등기 채권은 동일함. 신청채권자가 우선변제권만 주장하고 대항력은 포기한다는 인수조건변경 확약서가 제출됨에 따라 신청채권자가 배당",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130009388-1",
@@ -3612,7 +3810,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "1. 4층 4061호부터 4076호까지를 하나의 상가로 합체하여, '샤일리안과'상호의 병원으로 운영하고 있음. 해당 호실인 4069호는 외부는 "
+   "note": "1. 4층 4061호부터 4076호까지를 하나의 상가로 합체하여, '샤일리안과'상호의 병원으로 운영하고 있음. 해당 호실인 4069호는 외부는 ",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130011787-1",
@@ -3640,7 +3840,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "대지권 미등기이나 매각목적물 및 평가에 포함. 화성시 동탄구청으로부터 토지+건물에 대한 취득세(등록면허세)가 납부되었다는 사실조회 회신 있음(2"
+   "note": "대지권 미등기이나 매각목적물 및 평가에 포함. 화성시 동탄구청으로부터 토지+건물에 대한 취득세(등록면허세)가 납부되었다는 사실조회 회신 있음(2",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130099619-1",
@@ -3668,7 +3870,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "주택도시보증공사(양도전:임차인 정다인)로부터 2026. 6. 9.자에 '임차보증금에 대하여 우선변제권만 주장하고 대항력은 포기하며, 전액을 변제"
+   "note": "주택도시보증공사(양도전:임차인 정다인)로부터 2026. 6. 9.자에 '임차보증금에 대하여 우선변제권만 주장하고 대항력은 포기하며, 전액을 변제",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130000926-1",
@@ -3696,7 +3900,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130001167-1",
@@ -3724,7 +3930,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130001264-1",
@@ -3752,7 +3960,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130001308-1",
@@ -3780,7 +3990,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "일괄매각"
+   "note": "일괄매각",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130050277-1",
@@ -3808,7 +4020,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130054461-1",
@@ -3855,7 +4069,9 @@
     }
    },
    "source": "court",
-   "note": "1.일괄매각. 공장및광업재단저당법 제6조 기계기구 9점(그 중 5점은 소재불명), 제시외 건물 포함. 단 기계기구 중 감정평가서상 기계기구 목록"
+   "note": "1.일괄매각. 공장및광업재단저당법 제6조 기계기구 9점(그 중 5점은 소재불명), 제시외 건물 포함. 단 기계기구 중 감정평가서상 기계기구 목록",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055309-1",
@@ -3918,7 +4134,9 @@
     }
    },
    "source": "court",
-   "note": "1.타인 소유 토지상 묘지와 경계를 이루고 있고, 경계선상 토목작업을 하고 있어 전문적인 측량이 필요함(현황조사보고서 참조).\n2.2개의 용도지"
+   "note": "1.타인 소유 토지상 묘지와 경계를 이루고 있고, 경계선상 토목작업을 하고 있어 전문적인 측량이 필요함(현황조사보고서 참조).\n2.2개의 용도지",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055569-1",
@@ -3946,7 +4164,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055607-1",
@@ -4011,7 +4231,9 @@
     }
    },
    "source": "court",
-   "note": "1.일괄매각.\n2.목록1 지상을 제시외 건물이 침범함.\n3.목록4 지상 분묘에 대한 분묘기지권 성립여부 불분명."
+   "note": "1.일괄매각.\n2.목록1 지상을 제시외 건물이 침범함.\n3.목록4 지상 분묘에 대한 분묘기지권 성립여부 불분명.",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055657-1",
@@ -4061,7 +4283,9 @@
     }
    },
    "source": "court",
-   "note": "나대지로, 텃밭 용도로 이용중임(현황조사보고서 참조)."
+   "note": "나대지로, 텃밭 용도로 이용중임(현황조사보고서 참조).",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055777-1",
@@ -4121,7 +4345,9 @@
     }
    },
    "source": "court",
-   "note": "농지취득자격증명 요함(미제출시 보증금 미반환)"
+   "note": "농지취득자격증명 요함(미제출시 보증금 미반환)",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055816-1",
@@ -4181,7 +4407,9 @@
     }
    },
    "source": "court",
-   "note": "농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음)."
+   "note": "농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음).",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130012896-1",
@@ -4209,7 +4437,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "- 'QUEEN'S BODY'상호의 점포로, 인접 호수(702호)와 일괄하여 근린생활시설로 이용중임."
+   "note": "- 'QUEEN'S BODY'상호의 점포로, 인접 호수(702호)와 일괄하여 근린생활시설로 이용중임.",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130013394-1",
@@ -4237,7 +4467,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ". - 제시외 물건 포함"
+   "note": ". - 제시외 물건 포함",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130064552-1",
@@ -4265,7 +4497,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "1. 일괄매각. 제시외 건물 포함\n2. 주식회사 금화종합건축이 2024. 6. 3. 유치권신고(공사대금: 320,968,500원)를 하였으나 그"
+   "note": "1. 일괄매각. 제시외 건물 포함\n2. 주식회사 금화종합건축이 2024. 6. 3. 유치권신고(공사대금: 320,968,500원)를 하였으나 그",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130086439-1",
@@ -4293,7 +4527,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130094973-1",
@@ -4321,7 +4557,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "신청채권자로부터 2026. 8. 7.자에 '임차보증금에 대하여 우선변제권만 주장하고 대항력은 포기하며, 전액 변제받지 못하더라도 임차권등기를 말"
+   "note": "신청채권자로부터 2026. 8. 7.자에 '임차보증금에 대하여 우선변제권만 주장하고 대항력은 포기하며, 전액 변제받지 못하더라도 임차권등기를 말",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130095426-1",
@@ -4349,7 +4587,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130096092-1",
@@ -4377,7 +4617,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "경매신청채권자인 주택도시보증공사(양도전: 임차권자 홍석전)로부터 2026. 6. 9.자에 '임차보증금에 대하여 우선변제권만 주장하고 대항력은 포"
+   "note": "경매신청채권자인 주택도시보증공사(양도전: 임차권자 홍석전)로부터 2026. 6. 9.자에 '임차보증금에 대하여 우선변제권만 주장하고 대항력은 포",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130101734-2",
@@ -4405,7 +4647,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "- 일괄매각\n- 집합건축물대장상 제2종근린생활시설(일반음식점)이며, 목록2,3이 벽체를 터서  '강남교 \n  자'상호로 1개의 영업장으로 이용중"
+   "note": "- 일괄매각\n- 집합건축물대장상 제2종근린생활시설(일반음식점)이며, 목록2,3이 벽체를 터서  '강남교 \n  자'상호로 1개의 영업장으로 이용중",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130000159-10",
@@ -4433,7 +4677,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130000159-1",
@@ -4461,7 +4707,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130000159-11",
@@ -4489,7 +4737,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130000159-12",
@@ -4517,7 +4767,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130000159-13",
@@ -4545,7 +4797,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130000159-14",
@@ -4573,7 +4827,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130000159-2",
@@ -4601,7 +4857,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130000159-3",
@@ -4629,7 +4887,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130000159-4",
@@ -4657,7 +4917,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130000159-5",
@@ -4685,7 +4947,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130000159-6",
@@ -4713,7 +4977,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130000159-7",
@@ -4741,7 +5007,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130000159-8",
@@ -4769,7 +5037,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130000159-9",
@@ -4797,7 +5067,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130001268-1",
@@ -4857,7 +5129,9 @@
     }
    },
    "source": "court",
-   "note": "-일괄매각\n-농지취득자격증명 제출 요함(미제출시 보증금 미반환), 향남읍의 사실조회 회신에 의하면 전용허가가 있었으나 원상회복명령이 발하여질 가"
+   "note": "-일괄매각\n-농지취득자격증명 제출 요함(미제출시 보증금 미반환), 향남읍의 사실조회 회신에 의하면 전용허가가 있었으나 원상회복명령이 발하여질 가",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055017-1",
@@ -4885,7 +5159,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "- 일괄매각\n- 목록 3.은 지목은 대지이나 목록 2.의 편익을 위한 도로로 사용중.\n- 목록 2.는 농지취득자격증명 제출 요함.(미제출시 보증"
+   "note": "- 일괄매각\n- 목록 3.은 지목은 대지이나 목록 2.의 편익을 위한 도로로 사용중.\n- 목록 2.는 농지취득자격증명 제출 요함.(미제출시 보증",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055064-1",
@@ -4913,7 +5189,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055121-1",
@@ -4941,7 +5219,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "경매신청채권자인 주택도시보증공사(양도전: 임차권자 변미연)로부터 2026. 6. 9.자에 '임차보증금에 대하여 우선변제권만 주장하고 대항력은 포"
+   "note": "경매신청채권자인 주택도시보증공사(양도전: 임차권자 변미연)로부터 2026. 6. 9.자에 '임차보증금에 대하여 우선변제권만 주장하고 대항력은 포",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056121-1",
@@ -5001,7 +5281,9 @@
     }
    },
    "source": "court",
-   "note": "- 일괄매각. 제시외 건물 포함\n- 목록3,4는 도로로 지분매각임"
+   "note": "- 일괄매각. 제시외 건물 포함\n- 목록3,4는 도로로 지분매각임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056220-1",
@@ -5029,7 +5311,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056327-1",
@@ -5057,7 +5341,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056455-1",
@@ -5085,7 +5371,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056468-1",
@@ -5145,7 +5433,9 @@
     }
    },
    "source": "court",
-   "note": "농지취득자격증명 제출 요함(미제출시 보증금 미반환)"
+   "note": "농지취득자격증명 제출 요함(미제출시 보증금 미반환)",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056468-2",
@@ -5205,7 +5495,9 @@
     }
    },
    "source": "court",
-   "note": "농지취득자격증명 제출 요함(미제출시 보증금 미반환)"
+   "note": "농지취득자격증명 제출 요함(미제출시 보증금 미반환)",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056680-1",
@@ -5233,7 +5525,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056751-1",
@@ -5261,7 +5555,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "대지권의 목적인 토지 중 대양리 1161-1은 공부상 지목은 전이나 현황 공동주택 건부지로 이용중임"
+   "note": "대지권의 목적인 토지 중 대양리 1161-1은 공부상 지목은 전이나 현황 공동주택 건부지로 이용중임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056940-1",
@@ -5289,7 +5585,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "공장(지식산업센터)으로 이용중"
+   "note": "공장(지식산업센터)으로 이용중",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130057046-1",
@@ -5317,7 +5615,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "미등기 대지권 있으나 대지금액 포함된 분양계약서 제출되어 최저매각가격에 대지권가격이 포함됨"
+   "note": "미등기 대지권 있으나 대지금액 포함된 분양계약서 제출되어 최저매각가격에 대지권가격이 포함됨",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130057046-2",
@@ -5345,7 +5645,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "미등기 대지권 있으나 대지금액 포함된 분양계약서 제출되어 최저매각가격에 대지권가격이 포함됨"
+   "note": "미등기 대지권 있으나 대지금액 포함된 분양계약서 제출되어 최저매각가격에 대지권가격이 포함됨",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130057573-1",
@@ -5373,7 +5675,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130058755-1",
@@ -5401,7 +5705,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "주택도시보증공사(양도인:이동환)로부터 2026. 6. 10.자에 '임차보증금에 대하여 우선변제권만 주장하고 대항력은 포기하며, 전액 변제받지 못"
+   "note": "주택도시보증공사(양도인:이동환)로부터 2026. 6. 10.자에 '임차보증금에 대하여 우선변제권만 주장하고 대항력은 포기하며, 전액 변제받지 못",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020230130080304-1",
@@ -5461,7 +5767,9 @@
     }
    },
    "source": "court",
-   "note": "1. 농지취득자격증명 요함(미제출시 매수신청보증금 미반환)\n2. 맹지임"
+   "note": "1. 농지취득자격증명 요함(미제출시 매수신청보증금 미반환)\n2. 맹지임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130006617-1",
@@ -5524,7 +5832,9 @@
     }
    },
    "source": "court",
-   "note": "일괄매각. 목록2의 제시외 건물(2-1, 2-2) 매각에 포함."
+   "note": "일괄매각. 목록2의 제시외 건물(2-1, 2-2) 매각에 포함.",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130012124-1",
@@ -5552,7 +5862,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130094522-1",
@@ -5580,7 +5892,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130094898-1",
@@ -5608,7 +5922,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "1. 주택도시보증공사 : 경매신청채권자로 임차인 선혜빈의 임차보증금반환채권 양수인임\n2. 주택도시보증공사(양도전:임차인 선혜빈)로부터 2026."
+   "note": "1. 주택도시보증공사 : 경매신청채권자로 임차인 선혜빈의 임차보증금반환채권 양수인임\n2. 주택도시보증공사(양도전:임차인 선혜빈)로부터 2026.",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130096771-1",
@@ -5636,7 +5952,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "토지에 관하여 별도등기 있음"
+   "note": "토지에 관하여 별도등기 있음",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130097149-1",
@@ -5664,7 +5982,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130097149-2",
@@ -5692,7 +6012,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130100656-1",
@@ -5720,7 +6042,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "토지에 별도등기 있으므로 확인 요함(금지사항등기)"
+   "note": "토지에 별도등기 있으므로 확인 요함(금지사항등기)",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130103952-1",
@@ -5780,7 +6104,9 @@
     }
    },
    "source": "court",
-   "note": "일괄매각. 제시외 수목(감정평가서상 ㉠) 매각에 포함\n목록3 지분매각임"
+   "note": "일괄매각. 제시외 수목(감정평가서상 ㉠) 매각에 포함\n목록3 지분매각임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130104108-1",
@@ -5830,7 +6156,9 @@
     }
    },
    "source": "court",
-   "note": "1. 지분매각\n2. 공유자의 우선매수신고는 1회에 한하여 행사할 수 있음(공유자가 우선매수권 신고 후 매각기일까지 매수보증금을 미납하여 실효되는"
+   "note": "1. 지분매각\n2. 공유자의 우선매수신고는 1회에 한하여 행사할 수 있음(공유자가 우선매수권 신고 후 매각기일까지 매수보증금을 미납하여 실효되는",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130000630-1",
@@ -5858,7 +6186,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130000928-2",
@@ -5886,7 +6216,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "토지 별도등기 있음"
+   "note": "토지 별도등기 있음",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130000957-1",
@@ -5914,7 +6246,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130000957-2",
@@ -5942,7 +6276,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130000960-1",
@@ -5992,7 +6328,9 @@
     }
    },
    "source": "court",
-   "note": "일괄매각\n공부상 목록 1,3 및 10 지상에 건물이 소재하나 현황 멸실된 상태임"
+   "note": "일괄매각\n공부상 목록 1,3 및 10 지상에 건물이 소재하나 현황 멸실된 상태임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130001089-1",
@@ -6020,7 +6358,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "집합건축물대장 전유부 상 도로명주소 '화성시 정남면 만년로 590-30'이나 현황 '화성시 정남면 만년로 590-28'임"
+   "note": "집합건축물대장 전유부 상 도로명주소 '화성시 정남면 만년로 590-30'이나 현황 '화성시 정남면 만년로 590-28'임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130001109-1",
@@ -6080,7 +6420,9 @@
     }
    },
    "source": "court",
-   "note": "1.일괄매각\n2.목록3 인접지 485-2 건물의 건축물대장 상 관련지번으로 기재되어 있음\n3.목록1,2,3,5,6,7 농지취득자격증명 제출 필요"
+   "note": "1.일괄매각\n2.목록3 인접지 485-2 건물의 건축물대장 상 관련지번으로 기재되어 있음\n3.목록1,2,3,5,6,7 농지취득자격증명 제출 필요",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130001109-2",
@@ -6140,7 +6482,9 @@
     }
    },
    "source": "court",
-   "note": "1.농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음), 원상회복명령이 발하여질 가능성 있음\n2.공부상 '전'이나 현황"
+   "note": "1.농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음), 원상회복명령이 발하여질 가능성 있음\n2.공부상 '전'이나 현황",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130001109-3",
@@ -6200,7 +6544,9 @@
     }
    },
    "source": "court",
-   "note": "1.일괄매각\n2.농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음), 원상회복명령이 발하여질 가능성 있음\n3.공부상 '"
+   "note": "1.일괄매각\n2.농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음), 원상회복명령이 발하여질 가능성 있음\n3.공부상 '",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130001117-1",
@@ -6248,7 +6594,9 @@
     }
    },
    "source": "court",
-   "note": "일괄매각. \n제시외 건물(감정평가서상  ㉠~㉧) 매각에 포함"
+   "note": "일괄매각. \n제시외 건물(감정평가서상  ㉠~㉧) 매각에 포함",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130001204-1",
@@ -6276,7 +6624,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130001204-2",
@@ -6304,7 +6654,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130001204-3",
@@ -6332,7 +6684,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130001303-1",
@@ -6360,7 +6714,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130001319-1",
@@ -6388,7 +6744,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "1.일괄매각\n2.제시외 건물(감정평가서상 ㉠~㉣) 매각에 포함\n3.제시외 물건(감정평가서상 ㉤), 목록2 옥상 이동통신 안테나 각 매각에서 제외"
+   "note": "1.일괄매각\n2.제시외 건물(감정평가서상 ㉠~㉣) 매각에 포함\n3.제시외 물건(감정평가서상 ㉤), 목록2 옥상 이동통신 안테나 각 매각에서 제외",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130054301-1",
@@ -6416,7 +6774,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130054308-1",
@@ -6444,7 +6804,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "1.일괄매각. 목록3 지분매각임\n2.목록4 농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음), 원상회복명령이 발하여질"
+   "note": "1.일괄매각. 목록3 지분매각임\n2.목록4 농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음), 원상회복명령이 발하여질",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130054389-1",
@@ -6507,7 +6869,9 @@
     }
    },
    "source": "court",
-   "note": "지분매각\n공유자의 우선매수신고는 1회에 한하여 행사할 수 있음(공유자가 우선매수권 신고 후 매각기일까지 매수보증금을 미납하여 실효되는 경우에는 "
+   "note": "지분매각\n공유자의 우선매수신고는 1회에 한하여 행사할 수 있음(공유자가 우선매수권 신고 후 매각기일까지 매수보증금을 미납하여 실효되는 경우에는 ",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130054443-1",
@@ -6554,7 +6918,9 @@
     }
    },
    "source": "court",
-   "note": "농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음)"
+   "note": "농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음)",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130054443-2",
@@ -6601,7 +6967,9 @@
     }
    },
    "source": "court",
-   "note": "농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음)"
+   "note": "농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음)",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130054443-3",
@@ -6648,7 +7016,9 @@
     }
    },
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130054443-4",
@@ -6695,7 +7065,9 @@
     }
    },
    "source": "court",
-   "note": "농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음)"
+   "note": "농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음)",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130054443-5",
@@ -6742,7 +7114,9 @@
     }
    },
    "source": "court",
-   "note": "농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음)"
+   "note": "농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음)",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130054443-6",
@@ -6789,7 +7163,9 @@
     }
    },
    "source": "court",
-   "note": "농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음)"
+   "note": "농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음)",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130054446-1",
@@ -6817,7 +7193,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055084-1",
@@ -6877,7 +7255,9 @@
     }
    },
    "source": "court",
-   "note": "일괄매각\n목록1,2 농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음), 원상회복명령이 발하여질 가능성 있음"
+   "note": "일괄매각\n목록1,2 농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음), 원상회복명령이 발하여질 가능성 있음",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055230-1",
@@ -6905,7 +7285,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055494-1",
@@ -6965,7 +7347,9 @@
     }
    },
    "source": "court",
-   "note": "농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음)"
+   "note": "농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음)",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055520-1",
@@ -7012,7 +7396,9 @@
     }
    },
    "source": "court",
-   "note": "농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음)"
+   "note": "농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음)",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055702-1",
@@ -7073,7 +7459,9 @@
     }
    },
    "source": "court",
-   "note": "농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음)"
+   "note": "농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음)",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055702-2",
@@ -7134,7 +7522,9 @@
     }
    },
    "source": "court",
-   "note": "1. 공부상 지목은 '답'이나 현황은 '전'임\n2. 농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음)\n3. 지상에 소"
+   "note": "1. 공부상 지목은 '답'이나 현황은 '전'임\n2. 농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음)\n3. 지상에 소",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055702-3",
@@ -7195,7 +7585,9 @@
     }
    },
    "source": "court",
-   "note": "1. 공부상 지목은 '답'이나 현황은 '전'임\n2. 농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음)\n3. 지상에 소"
+   "note": "1. 공부상 지목은 '답'이나 현황은 '전'임\n2. 농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음)\n3. 지상에 소",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055770-1",
@@ -7245,7 +7637,9 @@
     }
    },
    "source": "court",
-   "note": "1.일괄매각\n2.목록2.3. 일부는 자연림, 일부는 묵전 상태임\n3.행정구역 명칭이 '화성시 서신면 사곳리'에서 '화성시 서신면 사곶리'로 변경"
+   "note": "1.일괄매각\n2.목록2.3. 일부는 자연림, 일부는 묵전 상태임\n3.행정구역 명칭이 '화성시 서신면 사곳리'에서 '화성시 서신면 사곶리'로 변경",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055806-1",
@@ -7295,7 +7689,9 @@
     }
    },
    "source": "court",
-   "note": "1.일괄매각\n2.제시외 건물(감정평가서상 ㉠~㉣) 매각에 포함\n3.목록3 1층 공부상 '단독주택(차고)'이나 현황 '단독주택'으로 이용 중이고,"
+   "note": "1.일괄매각\n2.제시외 건물(감정평가서상 ㉠~㉣) 매각에 포함\n3.목록3 1층 공부상 '단독주택(차고)'이나 현황 '단독주택'으로 이용 중이고,",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055835-1",
@@ -7323,7 +7719,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "토지에 관하여 별도등기 있음"
+   "note": "토지에 관하여 별도등기 있음",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055835-2",
@@ -7351,7 +7749,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "토지에 관하여 별도등기 있음"
+   "note": "토지에 관하여 별도등기 있음",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055835-3",
@@ -7379,7 +7779,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "토지에 관하여 별도등기 있음"
+   "note": "토지에 관하여 별도등기 있음",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055835-4",
@@ -7407,7 +7809,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "토지에 관하여 별도등기 있음"
+   "note": "토지에 관하여 별도등기 있음",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056258-1",
@@ -7435,7 +7839,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056274-1",
@@ -7463,7 +7869,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "2026. 6. 1.자 주택도시보증공사로부터 '임차보증금에 대하여 우선변제권만 주장하고, 대항력은 포기하며, 임대차보증금반환채권을 전액 변제받지"
+   "note": "2026. 6. 1.자 주택도시보증공사로부터 '임차보증금에 대하여 우선변제권만 주장하고, 대항력은 포기하며, 임대차보증금반환채권을 전액 변제받지",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056411-1",
@@ -7491,7 +7899,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056527-1",
@@ -7519,7 +7929,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "1.대지권 미등기이며 대지권 유무는 알 수 없음. 최저매각가격에는 대지권 가격이 포함됨\n2.부동산소유자가 사실상 대지권을 취득하였다는 취지의 서"
+   "note": "1.대지권 미등기이며 대지권 유무는 알 수 없음. 최저매각가격에는 대지권 가격이 포함됨\n2.부동산소유자가 사실상 대지권을 취득하였다는 취지의 서",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056599-1",
@@ -7579,7 +7991,9 @@
     }
    },
    "source": "court",
-   "note": "1.지분매각\n2.농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음)\n3.공유자의 우선매수신고는 1회에 한하여 행사할 수"
+   "note": "1.지분매각\n2.농지취득자격증명 제출 필요(매각결정기일까지 미제출시 보증금은 반환하지 않음)\n3.공유자의 우선매수신고는 1회에 한하여 행사할 수",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056601-1",
@@ -7639,7 +8053,9 @@
     }
    },
    "source": "court",
-   "note": "일괄매각"
+   "note": "일괄매각",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056603-1",
@@ -7667,7 +8083,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "1.일괄매각\n2.제시외 건물(감정평가서상 ㉠) 매각에 포함\n3.목록1~5 지분매각임"
+   "note": "1.일괄매각\n2.제시외 건물(감정평가서상 ㉠) 매각에 포함\n3.목록1~5 지분매각임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056637-1",
@@ -7695,7 +8113,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056712-1",
@@ -7744,7 +8164,9 @@
     }
    },
    "source": "court",
-   "note": "일괄매각"
+   "note": "일괄매각",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056738-1",
@@ -7772,7 +8194,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056738-2",
@@ -7800,7 +8224,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056774-1",
@@ -7828,7 +8254,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056819-10",
@@ -7856,7 +8284,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056819-1",
@@ -7884,7 +8314,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "공부상 업무시설(오피스텔)로 기재되어 있으나 주택임차권등기 등을 고려할때 주거용으로 추정됨"
+   "note": "공부상 업무시설(오피스텔)로 기재되어 있으나 주택임차권등기 등을 고려할때 주거용으로 추정됨",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056819-11",
@@ -7912,7 +8344,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056819-12",
@@ -7940,7 +8374,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056819-13",
@@ -7968,7 +8404,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056819-14",
@@ -7996,7 +8434,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056819-2",
@@ -8024,7 +8464,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "공부상 업무시설(오피스텔)로 기재되어 있으나 주택임차권등기 등을 고려할때 주거용으로 추정됨"
+   "note": "공부상 업무시설(오피스텔)로 기재되어 있으나 주택임차권등기 등을 고려할때 주거용으로 추정됨",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056819-3",
@@ -8052,7 +8494,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "공부상 업무시설(오피스텔)로 기재되어 있으나 주택임차권등기 등을 고려할때 주거용으로 추정됨"
+   "note": "공부상 업무시설(오피스텔)로 기재되어 있으나 주택임차권등기 등을 고려할때 주거용으로 추정됨",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056819-4",
@@ -8080,7 +8524,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "공부상 업무시설(오피스텔)로 기재되어 있으나 주택임차권등기 등을 고려할때 주거용으로 추정됨"
+   "note": "공부상 업무시설(오피스텔)로 기재되어 있으나 주택임차권등기 등을 고려할때 주거용으로 추정됨",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056819-5",
@@ -8108,7 +8554,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056819-6",
@@ -8136,7 +8584,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056819-7",
@@ -8164,7 +8614,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056819-8",
@@ -8192,7 +8644,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056819-9",
@@ -8220,7 +8674,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056826-1",
@@ -8248,7 +8704,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056826-2",
@@ -8276,7 +8734,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056962-1",
@@ -8304,7 +8764,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "일괄매각\n목록1~3 통합하여 이용중으로 현황 공실상태임"
+   "note": "일괄매각\n목록1~3 통합하여 이용중으로 현황 공실상태임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056991-1",
@@ -8364,7 +8826,9 @@
     }
    },
    "source": "court",
-   "note": "일괄매각\n공부상 '대'이나 현황 '묵전'상태임"
+   "note": "일괄매각\n공부상 '대'이나 현황 '묵전'상태임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130057009-1",
@@ -8392,7 +8856,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "임차인의 권리신고 및 배당요구신청서(2025.8.13.자)에 의하면 '접수일 현재 제공할 정보가 없어 상가건물임대차현황서 발급이 불가하다'는 접"
+   "note": "임차인의 권리신고 및 배당요구신청서(2025.8.13.자)에 의하면 '접수일 현재 제공할 정보가 없어 상가건물임대차현황서 발급이 불가하다'는 접",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130057094-1",
@@ -8420,7 +8886,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130057104-1",
@@ -8448,7 +8916,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130057147-1",
@@ -8476,7 +8946,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "공장(지식산업센터)임"
+   "note": "공장(지식산업센터)임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130057147-2",
@@ -8504,7 +8976,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "공장(지식산업센터)임"
+   "note": "공장(지식산업센터)임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130058347-1",
@@ -8532,7 +9006,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "주택도시보증공사(양도인:임차인 유석청)로부터 2026.09.07.자에 '임차보증금에 대하여 우선변제권만 주장하고 대항력은 포기하며, 전액을 변제"
+   "note": "주택도시보증공사(양도인:임차인 유석청)로부터 2026.09.07.자에 '임차보증금에 대하여 우선변제권만 주장하고 대항력은 포기하며, 전액을 변제",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020240130099091-5",
@@ -8560,7 +9036,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "재매각임. 매수신청보증금 20%"
+   "note": "재매각임. 매수신청보증금 20%",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130001191-1",
@@ -8588,7 +9066,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130001215-1",
@@ -8616,7 +9096,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130001312-1",
@@ -8644,7 +9126,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "대지권 미등기이나 매각목적물 및 평가에 포함됨(분양계약서 사본 및 분양금 입금확인서 사본 각 제출됨)"
+   "note": "대지권 미등기이나 매각목적물 및 평가에 포함됨(분양계약서 사본 및 분양금 입금확인서 사본 각 제출됨)",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130001312-2",
@@ -8672,7 +9156,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "대지권 미등기이나 매각목적물 및 평가에 포함됨(분양계약서 사본 및 분양금 입금확인서 사본 각 제출됨)"
+   "note": "대지권 미등기이나 매각목적물 및 평가에 포함됨(분양계약서 사본 및 분양금 입금확인서 사본 각 제출됨)",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130001506-1",
@@ -8700,7 +9186,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "일괄매각. 경계벽이 없는 상태임"
+   "note": "일괄매각. 경계벽이 없는 상태임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130001684-1",
@@ -8728,7 +9216,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "일괄매각. 7층 전체를 학원으로 이용중임"
+   "note": "일괄매각. 7층 전체를 학원으로 이용중임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130001829-1",
@@ -8797,7 +9287,9 @@
     }
    },
    "source": "court",
-   "note": "지분매각임. 공유자 우선매수신고 제한 있음(공유자우선매수신청을 한 공유자는 매각기일 종결 전까지 보증금을 제공하여야 하며, 매수신청권리를 행사하"
+   "note": "지분매각임. 공유자 우선매수신고 제한 있음(공유자우선매수신청을 한 공유자는 매각기일 종결 전까지 보증금을 제공하여야 하며, 매수신청권리를 행사하",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130001860-1",
@@ -8825,7 +9317,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "현관에 건물 전체에 대한 출입게이트 설치되어 있고, 일반인의 출입 통제 관측됨(감정평가서 참조)"
+   "note": "현관에 건물 전체에 대한 출입게이트 설치되어 있고, 일반인의 출입 통제 관측됨(감정평가서 참조)",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130002013-1",
@@ -8853,7 +9347,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130002038-1",
@@ -8881,7 +9377,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130002078-1",
@@ -8909,7 +9407,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "3층 306호와 벽을 없애고 사무실로 사용하고 있음"
+   "note": "3층 306호와 벽을 없애고 사무실로 사용하고 있음",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130054836-1",
@@ -8937,7 +9437,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "1. 재매각임. 매수신청보증금 20%\n2. 신청채권자 및 임차권자 이남주로부터 우선변제권은 유지하되, 대항력 포기 및 임차권등기 말소에 동의한다"
+   "note": "1. 재매각임. 매수신청보증금 20%\n2. 신청채권자 및 임차권자 이남주로부터 우선변제권은 유지하되, 대항력 포기 및 임차권등기 말소에 동의한다",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055458-1",
@@ -8997,7 +9499,9 @@
     }
    },
    "source": "court",
-   "note": "1. 일괄매각\n2. 목록 4는 건축법 제2조 제1항 제11호 나목에 따른 도로로 지정, 목록 6은 현황 도로로 이용중\n3. 화성시청에 문의시 3"
+   "note": "1. 일괄매각\n2. 목록 4는 건축법 제2조 제1항 제11호 나목에 따른 도로로 지정, 목록 6은 현황 도로로 이용중\n3. 화성시청에 문의시 3",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130055487-1",
@@ -9057,7 +9561,9 @@
     }
    },
    "source": "court",
-   "note": "1. 재매각임. 매수신청보증금 20%\n2. 농지취득자격증명 제출요함(미제출시 보증금 미반환)\n3. 맹지임"
+   "note": "1. 재매각임. 매수신청보증금 20%\n2. 농지취득자격증명 제출요함(미제출시 보증금 미반환)\n3. 맹지임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056162-1",
@@ -9085,7 +9591,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "1. 재매각임. 매수신청보증금 20%\n2. 미납 관리비 관련 배당요구신청 있음(2025.08.07.자, 배당신청금액 2,827,420원)"
+   "note": "1. 재매각임. 매수신청보증금 20%\n2. 미납 관리비 관련 배당요구신청 있음(2025.08.07.자, 배당신청금액 2,827,420원)",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056885-1",
@@ -9145,7 +9653,9 @@
     }
    },
    "source": "court",
-   "note": "1. 일괄매각\n2. 대상토지(526-4 일부, 산170-3, 산170-4) 중 일부면적(약4,900㎡로 조사됨)은 공장설립승인을 득하고 일부 토"
+   "note": "1. 일괄매각\n2. 대상토지(526-4 일부, 산170-3, 산170-4) 중 일부면적(약4,900㎡로 조사됨)은 공장설립승인을 득하고 일부 토",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056899-1",
@@ -9173,7 +9683,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "대항력과 우선변제권 있는 임차인 있음. 매각대금으로 임차인의 임차보증금 전액 변제되지 않으면 매수인이 임차보증금 잔액을 인수함"
+   "note": "대항력과 우선변제권 있는 임차인 있음. 매각대금으로 임차인의 임차보증금 전액 변제되지 않으면 매수인이 임차보증금 잔액을 인수함",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056964-1",
@@ -9201,7 +9713,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130056964-2",
@@ -9229,7 +9743,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130057018-1",
@@ -9257,7 +9773,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "일괄매각. 벽체 구분없이 하나의 근린생활시설로 이용중임"
+   "note": "일괄매각. 벽체 구분없이 하나의 근린생활시설로 이용중임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130057468-1",
@@ -9285,7 +9803,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "1. 일괄매각. 제시외 건물 포함\n2. 목록 7 남동측 경계부분에 지하수이용시설이 소재하고 있는 것으로 조사되었으나, 화장실 등에 급수가 되지 "
+   "note": "1. 일괄매각. 제시외 건물 포함\n2. 목록 7 남동측 경계부분에 지하수이용시설이 소재하고 있는 것으로 조사되었으나, 화장실 등에 급수가 되지 ",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130057627-1",
@@ -9348,7 +9868,9 @@
     }
    },
    "source": "court",
-   "note": "1. 일괄매각\n2. 목록 2에 대하여 농지취득자격증명 제출요함(미제출시 보증금 미반환)\n3. 분묘 2기 소재함(감정평가서 참조). 분묘기지권이 "
+   "note": "1. 일괄매각\n2. 목록 2에 대하여 농지취득자격증명 제출요함(미제출시 보증금 미반환)\n3. 분묘 2기 소재함(감정평가서 참조). 분묘기지권이 ",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130058220-1",
@@ -9376,7 +9898,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "배당금으로 보증금 전액을 변제받지 못하더라도 매수인에 대한 잔존 임대차보증금 반환청구권을 포기하고 임차권등기를 말소하는 것에 동의한다는 신청채권"
+   "note": "배당금으로 보증금 전액을 변제받지 못하더라도 매수인에 대한 잔존 임대차보증금 반환청구권을 포기하고 임차권등기를 말소하는 것에 동의한다는 신청채권",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130058327-1",
@@ -9404,7 +9928,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130058387-1",
@@ -9432,7 +9958,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "1. 일괄매각\n2. 2026. 1. 15. 탄원인 이석규는 본건 부동산의 양도담보권자로서 김창근이 실질 채무자임이 명백함에도 허위 임대차계약서를"
+   "note": "1. 일괄매각\n2. 2026. 1. 15. 탄원인 이석규는 본건 부동산의 양도담보권자로서 김창근이 실질 채무자임이 명백함에도 허위 임대차계약서를",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130058491-1",
@@ -9460,7 +9988,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130058790-1",
@@ -9488,7 +10018,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130058917-1",
@@ -9516,7 +10048,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "대지권 미등기이며 대지권 유무는 알 수 없음. 최저매각가격에 대지권가격이 포함됨"
+   "note": "대지권 미등기이며 대지권 유무는 알 수 없음. 최저매각가격에 대지권가격이 포함됨",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130058970-1",
@@ -9580,7 +10114,9 @@
     }
    },
    "source": "court",
-   "note": "공부상 지목 '잡종지'이나 현황 휴경지 등의 상태임"
+   "note": "공부상 지목 '잡종지'이나 현황 휴경지 등의 상태임",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130059300-1",
@@ -9642,7 +10178,9 @@
     }
    },
    "source": "court",
-   "note": "1. 농지취득자격증명 제출요함(미제출시 보증금 미반환)\n2. 본건 토지 남서측 부분에 송전탑이 소재함"
+   "note": "1. 농지취득자격증명 제출요함(미제출시 보증금 미반환)\n2. 본건 토지 남서측 부분에 송전탑이 소재함",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130059496-1",
@@ -9670,7 +10208,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130059595-1",
@@ -9698,7 +10238,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130059680-1",
@@ -9726,7 +10268,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "1. 배당금으로 보증금 전액을 변제받지 못하더라도 매수인에 대한 잔존 임대차보증금 반환청구권을 포기하고 임차권등기를 말소하는 것에 동의한다는 신"
+   "note": "1. 배당금으로 보증금 전액을 변제받지 못하더라도 매수인에 대한 잔존 임대차보증금 반환청구권을 포기하고 임차권등기를 말소하는 것에 동의한다는 신",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020250130059683-1",
@@ -9754,7 +10298,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": ""
+   "note": "",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "CB00025020260130052066-1",
@@ -9782,7 +10328,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "court",
-   "note": "배당금으로 보증금 전액을 변제받지 못하더라도 매수인에 대한 잔존 임대차보증금 반환청구권을 포기하고 임차권등기를 말소하는 것에 동의한다는 신청채권"
+   "note": "배당금으로 보증금 전액을 변제받지 못하더라도 매수인에 대한 잔존 임대차보증금 반환청구권을 포기하고 임차권등기를 말소하는 것에 동의한다는 신청채권",
+   "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
+   "court": "수원지방법원"
   },
   {
    "no": "2063887",
@@ -9810,7 +10358,9 @@
    "notifiedAt": "2026-09-29 02:25",
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=2063887&onbidPbancNo=907025&pbctNo=10104263&pbctCdtnNo=6220227",
+   "court": null
   },
   {
    "no": "2063888",
@@ -9838,7 +10388,9 @@
    "notifiedAt": "2026-09-29 02:25",
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=2063888&onbidPbancNo=907025&pbctNo=10104263&pbctCdtnNo=6220226",
+   "court": null
   },
   {
    "no": "1995627",
@@ -9901,7 +10453,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1995627&onbidPbancNo=905806&pbctNo=10078745&pbctCdtnNo=6145982",
+   "court": null
   },
   {
    "no": "2024668",
@@ -9950,7 +10504,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2024668&onbidPbancNo=905806&pbctNo=10078745&pbctCdtnNo=6203023",
+   "court": null
   },
   {
    "no": "2026414",
@@ -10011,7 +10567,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2026414&onbidPbancNo=905806&pbctNo=10078745&pbctCdtnNo=6203036",
+   "court": null
   },
   {
    "no": "2026470",
@@ -10071,7 +10629,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2026470&onbidPbancNo=905806&pbctNo=10078745&pbctCdtnNo=6203037",
+   "court": null
   },
   {
    "no": "2024728",
@@ -10099,7 +10659,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2024728&onbidPbancNo=905806&pbctNo=10078745&pbctCdtnNo=6203035",
+   "court": null
   },
   {
    "no": "2030482",
@@ -10127,7 +10689,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2030482&onbidPbancNo=906373&pbctNo=10074233&pbctCdtnNo=6214140",
+   "court": null
   },
   {
    "no": "2030493",
@@ -10155,7 +10719,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2030493&onbidPbancNo=906373&pbctNo=10074233&pbctCdtnNo=6214141",
+   "court": null
   },
   {
    "no": "2049926",
@@ -10183,7 +10749,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2049926&onbidPbancNo=906373&pbctNo=10074233&pbctCdtnNo=6214136",
+   "court": null
   },
   {
    "no": "2049927",
@@ -10211,7 +10779,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2049927&onbidPbancNo=906373&pbctNo=10074233&pbctCdtnNo=6214142",
+   "court": null
   },
   {
    "no": "2032405",
@@ -10275,7 +10845,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2032405&onbidPbancNo=906373&pbctNo=10074233&pbctCdtnNo=6145967",
+   "court": null
   },
   {
    "no": "2035783",
@@ -10335,7 +10907,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2035783&onbidPbancNo=906373&pbctNo=10074233&pbctCdtnNo=6214146",
+   "court": null
   },
   {
    "no": "2035749",
@@ -10395,7 +10969,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2035749&onbidPbancNo=906373&pbctNo=10074233&pbctCdtnNo=6214145",
+   "court": null
   },
   {
    "no": "1977747",
@@ -10455,7 +11031,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1977747&onbidPbancNo=903752&pbctNo=10074232&pbctCdtnNo=6179795",
+   "court": null
   },
   {
    "no": "2004369",
@@ -10483,7 +11061,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2004369&onbidPbancNo=903752&pbctNo=10074232&pbctCdtnNo=6079174",
+   "court": null
   },
   {
    "no": "2031694",
@@ -10511,7 +11091,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2031694&onbidPbancNo=903752&pbctNo=10074232&pbctCdtnNo=6179817",
+   "court": null
   },
   {
    "no": "2046195",
@@ -10572,7 +11154,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2046195&onbidPbancNo=903752&pbctNo=10074232&pbctCdtnNo=6179818",
+   "court": null
   },
   {
    "no": "2025305",
@@ -10633,7 +11217,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2025305&onbidPbancNo=903752&pbctNo=10074232&pbctCdtnNo=6179823",
+   "court": null
   },
   {
    "no": "2043273",
@@ -10694,7 +11280,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2043273&onbidPbancNo=903752&pbctNo=10074232&pbctCdtnNo=6179826",
+   "court": null
   },
   {
    "no": "2055170",
@@ -10742,7 +11330,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2055170&onbidPbancNo=906532&pbctNo=10074232&pbctCdtnNo=6216487",
+   "court": null
   },
   {
    "no": "1789551",
@@ -10770,7 +11360,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1789551&onbidPbancNo=903752&pbctNo=10074232&pbctCdtnNo=6179778",
+   "court": null
   },
   {
    "no": "1789536",
@@ -10798,7 +11390,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1789536&onbidPbancNo=903752&pbctNo=10074232&pbctCdtnNo=6179777",
+   "court": null
   },
   {
    "no": "1789457",
@@ -10826,7 +11420,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1789457&onbidPbancNo=903752&pbctNo=10074232&pbctCdtnNo=6179775",
+   "court": null
   },
   {
    "no": "1789533",
@@ -10854,7 +11450,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1789533&onbidPbancNo=903752&pbctNo=10074232&pbctCdtnNo=6179776",
+   "court": null
   },
   {
    "no": "1789561",
@@ -10882,7 +11480,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1789561&onbidPbancNo=903752&pbctNo=10074232&pbctCdtnNo=6179779",
+   "court": null
   },
   {
    "no": "2042905",
@@ -10910,7 +11510,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2042905&onbidPbancNo=903752&pbctNo=10074232&pbctCdtnNo=6179825",
+   "court": null
   },
   {
    "no": "1799797",
@@ -10975,7 +11577,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1799797&onbidPbancNo=902207&pbctNo=10069133&pbctCdtnNo=6052609",
+   "court": null
   },
   {
    "no": "1875389",
@@ -11025,7 +11629,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1875389&onbidPbancNo=902207&pbctNo=10069133&pbctCdtnNo=6157616",
+   "court": null
   },
   {
    "no": "2003355",
@@ -11053,7 +11659,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2003355&onbidPbancNo=902207&pbctNo=10069133&pbctCdtnNo=6052675",
+   "court": null
   },
   {
    "no": "2030732",
@@ -11114,7 +11722,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2030732&onbidPbancNo=904849&pbctNo=10069133&pbctCdtnNo=6194183",
+   "court": null
   },
   {
    "no": "2040958",
@@ -11142,7 +11752,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2040958&onbidPbancNo=902207&pbctNo=10069133&pbctCdtnNo=6157647",
+   "court": null
   },
   {
    "no": "2050201",
@@ -11170,7 +11782,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2050201&onbidPbancNo=904849&pbctNo=10069133&pbctCdtnNo=6194187",
+   "court": null
   },
   {
    "no": "2041176",
@@ -11219,7 +11833,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2041176&onbidPbancNo=902207&pbctNo=10069133&pbctCdtnNo=6157645",
+   "court": null
   },
   {
    "no": "2046663",
@@ -11247,7 +11863,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2046663&onbidPbancNo=904849&pbctNo=10069133&pbctCdtnNo=6194176",
+   "court": null
   },
   {
    "no": "1938447",
@@ -11275,7 +11893,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1938447&onbidPbancNo=902207&pbctNo=10069133&pbctCdtnNo=6157669",
+   "court": null
   },
   {
    "no": "2063351",
@@ -11327,7 +11947,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=2063351&onbidPbancNo=906694&pbctNo=10103602&pbctCdtnNo=6218346",
+   "court": null
   },
   {
    "no": "1697445",
@@ -11387,7 +12009,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1697445&onbidPbancNo=902773&pbctNo=10064638&pbctCdtnNo=6100198",
+   "court": null
   },
   {
    "no": "1774105",
@@ -11447,7 +12071,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1774105&onbidPbancNo=899587&pbctNo=10064638&pbctCdtnNo=6129724",
+   "court": null
   },
   {
    "no": "1794229",
@@ -11507,7 +12133,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1794229&onbidPbancNo=899587&pbctNo=10064638&pbctCdtnNo=6129726",
+   "court": null
   },
   {
    "no": "1794330",
@@ -11570,7 +12198,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1794330&onbidPbancNo=899587&pbctNo=10064638&pbctCdtnNo=6129727",
+   "court": null
   },
   {
    "no": "2023449",
@@ -11630,7 +12260,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2023449&onbidPbancNo=899587&pbctNo=10064638&pbctCdtnNo=6100219",
+   "court": null
   },
   {
    "no": "2032543",
@@ -11690,7 +12322,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2032543&onbidPbancNo=899587&pbctNo=10064638&pbctCdtnNo=6129767",
+   "court": null
   },
   {
    "no": "2042398",
@@ -11751,7 +12385,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2042398&onbidPbancNo=899587&pbctNo=10064638&pbctCdtnNo=6129788",
+   "court": null
   },
   {
    "no": "2028605",
@@ -11779,7 +12415,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2028605&onbidPbancNo=899587&pbctNo=10064638&pbctCdtnNo=6129799",
+   "court": null
   },
   {
    "no": "2028547",
@@ -11841,7 +12479,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2028547&onbidPbancNo=899587&pbctNo=10064638&pbctCdtnNo=6129804",
+   "court": null
   },
   {
    "no": "2035449",
@@ -11869,7 +12509,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2035449&onbidPbancNo=899587&pbctNo=10064638&pbctCdtnNo=6100276",
+   "court": null
   },
   {
    "no": "1996518",
@@ -11936,7 +12578,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1996518&onbidPbancNo=900771&pbctNo=10064638&pbctCdtnNo=6026519",
+   "court": null
   },
   {
    "no": "2009692",
@@ -11999,7 +12643,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2009692&onbidPbancNo=897323&pbctNo=10064638&pbctCdtnNo=6100233",
+   "court": null
   },
   {
    "no": "2030860",
@@ -12027,7 +12673,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2030860&onbidPbancNo=900771&pbctNo=10064638&pbctCdtnNo=6145861",
+   "court": null
   },
   {
    "no": "2039028",
@@ -12077,7 +12725,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2039028&onbidPbancNo=900771&pbctNo=10064638&pbctCdtnNo=6145871",
+   "court": null
   },
   {
    "no": "1930851",
@@ -12105,7 +12755,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1930851&onbidPbancNo=895313&pbctNo=10064638&pbctCdtnNo=6078692",
+   "court": null
   },
   {
    "no": "1995811",
@@ -12133,7 +12785,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1995811&onbidPbancNo=898453&pbctNo=10064638&pbctCdtnNo=6068414",
+   "court": null
   },
   {
    "no": "1998714",
@@ -12193,7 +12847,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1998714&onbidPbancNo=895313&pbctNo=10064638&pbctCdtnNo=6078764",
+   "court": null
   },
   {
    "no": "2009635",
@@ -12256,7 +12912,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2009635&onbidPbancNo=895313&pbctNo=10064638&pbctCdtnNo=6078769",
+   "court": null
   },
   {
    "no": "2003863",
@@ -12321,7 +12979,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2003863&onbidPbancNo=895313&pbctNo=10064638&pbctCdtnNo=6078785",
+   "court": null
   },
   {
    "no": "2021768",
@@ -12381,7 +13041,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2021768&onbidPbancNo=895313&pbctNo=10064638&pbctCdtnNo=6078796",
+   "court": null
   },
   {
    "no": "2022532",
@@ -12441,7 +13103,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2022532&onbidPbancNo=893344&pbctNo=10064638&pbctCdtnNo=6052547",
+   "court": null
   },
   {
    "no": "1981126",
@@ -12469,7 +13133,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1981126&onbidPbancNo=893344&pbctNo=10064638&pbctCdtnNo=6052554",
+   "court": null
   },
   {
    "no": "1981132",
@@ -12497,7 +13163,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1981132&onbidPbancNo=893344&pbctNo=10064638&pbctCdtnNo=6052555",
+   "court": null
   },
   {
    "no": "1981137",
@@ -12525,7 +13193,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1981137&onbidPbancNo=893344&pbctNo=10064638&pbctCdtnNo=6052556",
+   "court": null
   },
   {
    "no": "1981140",
@@ -12553,7 +13223,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1981140&onbidPbancNo=893344&pbctNo=10064638&pbctCdtnNo=6052557",
+   "court": null
   },
   {
    "no": "1981142",
@@ -12581,7 +13253,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1981142&onbidPbancNo=893344&pbctNo=10064638&pbctCdtnNo=6052558",
+   "court": null
   },
   {
    "no": "1981251",
@@ -12609,7 +13283,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1981251&onbidPbancNo=893344&pbctNo=10064638&pbctCdtnNo=6052559",
+   "court": null
   },
   {
    "no": "1981254",
@@ -12637,7 +13313,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1981254&onbidPbancNo=893344&pbctNo=10064638&pbctCdtnNo=6052560",
+   "court": null
   },
   {
    "no": "1981257",
@@ -12665,7 +13343,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1981257&onbidPbancNo=893344&pbctNo=10064638&pbctCdtnNo=6052561",
+   "court": null
   },
   {
    "no": "1981263",
@@ -12693,7 +13373,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1981263&onbidPbancNo=893344&pbctNo=10064638&pbctCdtnNo=6052562",
+   "court": null
   },
   {
    "no": "1981268",
@@ -12721,7 +13403,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1981268&onbidPbancNo=893344&pbctNo=10064638&pbctCdtnNo=6052563",
+   "court": null
   },
   {
    "no": "1981292",
@@ -12749,7 +13433,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1981292&onbidPbancNo=893344&pbctNo=10064638&pbctCdtnNo=6052564",
+   "court": null
   },
   {
    "no": "1981295",
@@ -12777,7 +13463,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1981295&onbidPbancNo=893344&pbctNo=10064638&pbctCdtnNo=6052565",
+   "court": null
   },
   {
    "no": "1981327",
@@ -12805,7 +13493,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1981327&onbidPbancNo=893344&pbctNo=10064638&pbctCdtnNo=6052566",
+   "court": null
   },
   {
    "no": "1981331",
@@ -12833,7 +13523,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1981331&onbidPbancNo=893344&pbctNo=10064638&pbctCdtnNo=6052567",
+   "court": null
   },
   {
    "no": "1981345",
@@ -12861,7 +13553,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1981345&onbidPbancNo=893344&pbctNo=10064638&pbctCdtnNo=6052568",
+   "court": null
   },
   {
    "no": "1981379",
@@ -12889,7 +13583,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1981379&onbidPbancNo=893344&pbctNo=10064638&pbctCdtnNo=6052569",
+   "court": null
   },
   {
    "no": "1981413",
@@ -12917,7 +13613,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1981413&onbidPbancNo=893344&pbctNo=10064638&pbctCdtnNo=6052570",
+   "court": null
   },
   {
    "no": "1981420",
@@ -12945,7 +13643,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1981420&onbidPbancNo=893344&pbctNo=10064638&pbctCdtnNo=6052571",
+   "court": null
   },
   {
    "no": "1981425",
@@ -12973,7 +13673,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1981425&onbidPbancNo=893344&pbctNo=10064638&pbctCdtnNo=6052572",
+   "court": null
   },
   {
    "no": "1981427",
@@ -13001,7 +13703,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1981427&onbidPbancNo=893344&pbctNo=10064638&pbctCdtnNo=6052573",
+   "court": null
   },
   {
    "no": "1981429",
@@ -13029,7 +13733,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1981429&onbidPbancNo=893344&pbctNo=10064638&pbctCdtnNo=6052574",
+   "court": null
   },
   {
    "no": "1981432",
@@ -13057,7 +13763,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1981432&onbidPbancNo=893344&pbctNo=10064638&pbctCdtnNo=6052575",
+   "court": null
   },
   {
    "no": "1981435",
@@ -13085,7 +13793,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1981435&onbidPbancNo=893344&pbctNo=10064638&pbctCdtnNo=6052576",
+   "court": null
   },
   {
    "no": "1981436",
@@ -13113,7 +13823,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1981436&onbidPbancNo=893344&pbctNo=10064638&pbctCdtnNo=6052577",
+   "court": null
   },
   {
    "no": "2003341",
@@ -13176,7 +13888,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2003341&onbidPbancNo=893344&pbctNo=10064638&pbctCdtnNo=6052583",
+   "court": null
   },
   {
    "no": "2000291",
@@ -13236,7 +13950,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2000291&onbidPbancNo=893344&pbctNo=10064638&pbctCdtnNo=6052596",
+   "court": null
   },
   {
    "no": "2022290",
@@ -13264,7 +13980,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2022290&onbidPbancNo=899587&pbctNo=10064638&pbctCdtnNo=6100267",
+   "court": null
   },
   {
    "no": "2003210",
@@ -13316,7 +14034,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2003210&onbidPbancNo=902773&pbctNo=10064638&pbctCdtnNo=6078746",
+   "court": null
   },
   {
    "no": "2017265",
@@ -13368,7 +14088,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2017265&onbidPbancNo=902773&pbctNo=10064638&pbctCdtnNo=6078747",
+   "court": null
   },
   {
    "no": "2017269",
@@ -13420,7 +14142,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2017269&onbidPbancNo=902773&pbctNo=10064638&pbctCdtnNo=6078748",
+   "court": null
   },
   {
    "no": "2017271",
@@ -13472,7 +14196,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2017271&onbidPbancNo=902773&pbctNo=10064638&pbctCdtnNo=6078749",
+   "court": null
   },
   {
    "no": "2017274",
@@ -13524,7 +14250,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2017274&onbidPbancNo=902773&pbctNo=10064638&pbctCdtnNo=6078750",
+   "court": null
   },
   {
    "no": "1794102",
@@ -13584,7 +14312,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1794102&onbidPbancNo=899587&pbctNo=10064638&pbctCdtnNo=6129725",
+   "court": null
   },
   {
    "no": "1894069",
@@ -13643,7 +14373,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1894069&onbidPbancNo=891153&pbctNo=10064638&pbctCdtnNo=6026452",
+   "court": null
   },
   {
    "no": "1996402",
@@ -13703,7 +14435,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1996402&onbidPbancNo=891153&pbctNo=10064638&pbctCdtnNo=6026454",
+   "court": null
   },
   {
    "no": "2009490",
@@ -13763,7 +14497,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2009490&onbidPbancNo=891153&pbctNo=10064638&pbctCdtnNo=6026455",
+   "court": null
   },
   {
    "no": "1996695",
@@ -13811,7 +14547,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1996695&onbidPbancNo=891153&pbctNo=10064638&pbctCdtnNo=6026478",
+   "court": null
   },
   {
    "no": "1999074",
@@ -13871,7 +14609,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1999074&onbidPbancNo=891153&pbctNo=10064638&pbctCdtnNo=6026516",
+   "court": null
   },
   {
    "no": "2003814",
@@ -13934,7 +14674,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2003814&onbidPbancNo=891153&pbctNo=10064638&pbctCdtnNo=6026537",
+   "court": null
   },
   {
    "no": "2003850",
@@ -13984,7 +14726,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2003850&onbidPbancNo=891153&pbctNo=10064638&pbctCdtnNo=6026539",
+   "court": null
   },
   {
    "no": "2006199",
@@ -14047,7 +14791,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2006199&onbidPbancNo=891153&pbctNo=10064638&pbctCdtnNo=6026541",
+   "court": null
   },
   {
    "no": "2000904",
@@ -14075,7 +14821,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2000904&onbidPbancNo=891153&pbctNo=10064638&pbctCdtnNo=6026562",
+   "court": null
   },
   {
    "no": "2004826",
@@ -14103,7 +14851,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2004826&onbidPbancNo=895313&pbctNo=10064638&pbctCdtnNo=6078789",
+   "court": null
   },
   {
    "no": "2024658",
@@ -14131,7 +14881,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2024658&onbidPbancNo=899587&pbctNo=10064638&pbctCdtnNo=6129802",
+   "court": null
   },
   {
    "no": "1905465",
@@ -14179,7 +14931,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1905465&onbidPbancNo=889056&pbctNo=10064638&pbctCdtnNo=6001679",
+   "court": null
   },
   {
    "no": "1980334",
@@ -14242,7 +14996,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1980334&onbidPbancNo=892214&pbctNo=10064638&pbctCdtnNo=6040992",
+   "court": null
   },
   {
    "no": "2043959",
@@ -14270,7 +15026,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=2043959&onbidPbancNo=906207&pbctNo=10102363&pbctCdtnNo=6212310",
+   "court": null
   },
   {
    "no": "2063171",
@@ -14329,7 +15087,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=2063171&onbidPbancNo=906628&pbctNo=10103438&pbctCdtnNo=6217996",
+   "court": null
   },
   {
    "no": "2058003",
@@ -14376,7 +15136,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0013&onbidCltrno=2058003&onbidPbancNo=905293&pbctNo=10100099&pbctCdtnNo=6198539",
+   "court": null
   },
   {
    "no": "1968530",
@@ -14404,7 +15166,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=1968530&onbidPbancNo=906534&pbctNo=10103215&pbctCdtnNo=6216667",
+   "court": null
   },
   {
    "no": "1968531",
@@ -14432,7 +15196,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=1968531&onbidPbancNo=906534&pbctNo=10103215&pbctCdtnNo=6216666",
+   "court": null
   },
   {
    "no": "1968532",
@@ -14460,7 +15226,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=1968532&onbidPbancNo=906534&pbctNo=10103215&pbctCdtnNo=6216618",
+   "court": null
   },
   {
    "no": "1910398",
@@ -14488,7 +15256,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=1910398&onbidPbancNo=899496&pbctNo=10087628&pbctCdtnNo=6126383",
+   "court": null
   },
   {
    "no": "2003799",
@@ -14516,7 +15286,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=2003799&onbidPbancNo=884292&pbctNo=10054218&pbctCdtnNo=5947827",
+   "court": null
   },
   {
    "no": "2003800",
@@ -14544,7 +15316,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=2003800&onbidPbancNo=884292&pbctNo=10054218&pbctCdtnNo=5947828",
+   "court": null
   },
   {
    "no": "2003801",
@@ -14572,7 +15346,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=2003801&onbidPbancNo=884292&pbctNo=10054218&pbctCdtnNo=5947829",
+   "court": null
   },
   {
    "no": "2003802",
@@ -14600,7 +15376,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=2003802&onbidPbancNo=884292&pbctNo=10054218&pbctCdtnNo=5947830",
+   "court": null
   },
   {
    "no": "2003803",
@@ -14628,7 +15406,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=2003803&onbidPbancNo=884292&pbctNo=10054218&pbctCdtnNo=5947831",
+   "court": null
   },
   {
    "no": "2038361",
@@ -14692,7 +15472,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=2038361&onbidPbancNo=897707&pbctNo=10089558&pbctCdtnNo=6142936",
+   "court": null
   },
   {
    "no": "2044933",
@@ -14720,7 +15502,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=2044933&onbidPbancNo=899827&pbctNo=10088355&pbctCdtnNo=6138475",
+   "court": null
   },
   {
    "no": "2044937",
@@ -14748,7 +15532,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=2044937&onbidPbancNo=899828&pbctNo=10088394&pbctCdtnNo=6138547",
+   "court": null
   },
   {
    "no": "2044942",
@@ -14776,7 +15562,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=2044942&onbidPbancNo=899831&pbctNo=10088424&pbctCdtnNo=6139766",
+   "court": null
   },
   {
    "no": "2044948",
@@ -14804,7 +15592,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=2044948&onbidPbancNo=899852&pbctNo=10088466&pbctCdtnNo=6139895",
+   "court": null
   },
   {
    "no": "2044955",
@@ -14832,7 +15622,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=2044955&onbidPbancNo=899841&pbctNo=10088478&pbctCdtnNo=6139912",
+   "court": null
   },
   {
    "no": "2044957",
@@ -14860,7 +15652,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=2044957&onbidPbancNo=899854&pbctNo=10088490&pbctCdtnNo=6139924",
+   "court": null
   },
   {
    "no": "2061665",
@@ -14888,7 +15682,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=2061665&onbidPbancNo=905940&pbctNo=10101758&pbctCdtnNo=6209736",
+   "court": null
   },
   {
    "no": "2039936",
@@ -14916,7 +15712,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=2039936&onbidPbancNo=897373&pbctNo=10083306&pbctCdtnNo=6108972",
+   "court": null
   },
   {
    "no": "1996962",
@@ -14944,7 +15742,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=1996962&onbidPbancNo=906291&pbctNo=10102645&pbctCdtnNo=6212938",
+   "court": null
   },
   {
    "no": "1511339",
@@ -14972,7 +15772,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=1511339&onbidPbancNo=905868&pbctNo=10101540&pbctCdtnNo=6208503",
+   "court": null
   },
   {
    "no": "1511340",
@@ -15000,7 +15802,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=1511340&onbidPbancNo=905868&pbctNo=10101540&pbctCdtnNo=6208504",
+   "court": null
   },
   {
    "no": "1511341",
@@ -15028,7 +15832,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=1511341&onbidPbancNo=905868&pbctNo=10101540&pbctCdtnNo=6208505",
+   "court": null
   },
   {
    "no": "1511342",
@@ -15056,7 +15862,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=1511342&onbidPbancNo=905868&pbctNo=10101540&pbctCdtnNo=6208506",
+   "court": null
   },
   {
    "no": "1511343",
@@ -15084,7 +15892,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=1511343&onbidPbancNo=905868&pbctNo=10101540&pbctCdtnNo=6208507",
+   "court": null
   },
   {
    "no": "1511344",
@@ -15112,7 +15922,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=1511344&onbidPbancNo=905868&pbctNo=10101540&pbctCdtnNo=6208508",
+   "court": null
   },
   {
    "no": "2062577",
@@ -15159,7 +15971,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=2062577&onbidPbancNo=906275&pbctNo=10102671&pbctCdtnNo=6213931",
+   "court": null
   },
   {
    "no": "2056656",
@@ -15221,7 +16035,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0013&onbidCltrno=2056656&onbidPbancNo=904799&pbctNo=10098892&pbctCdtnNo=6193604",
+   "court": null
   },
   {
    "no": "2050892",
@@ -15258,7 +16074,9 @@
     }
    },
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=2050892&onbidPbancNo=902260&pbctNo=10093426&pbctCdtnNo=6164458",
+   "court": null
   },
   {
    "no": "2050894",
@@ -15286,7 +16104,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=2050894&onbidPbancNo=902260&pbctNo=10093426&pbctCdtnNo=6164531",
+   "court": null
   },
   {
    "no": "2050895",
@@ -15314,7 +16134,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=2050895&onbidPbancNo=902260&pbctNo=10093426&pbctCdtnNo=6164532",
+   "court": null
   },
   {
    "no": "2050896",
@@ -15342,7 +16164,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=2050896&onbidPbancNo=902260&pbctNo=10093426&pbctCdtnNo=6164533",
+   "court": null
   },
   {
    "no": "2050897",
@@ -15370,7 +16194,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=2050897&onbidPbancNo=902260&pbctNo=10093426&pbctCdtnNo=6164534",
+   "court": null
   },
   {
    "no": "2050898",
@@ -15398,7 +16224,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=2050898&onbidPbancNo=902260&pbctNo=10093426&pbctCdtnNo=6164535",
+   "court": null
   },
   {
    "no": "2050899",
@@ -15426,7 +16254,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=2050899&onbidPbancNo=902260&pbctNo=10093426&pbctCdtnNo=6164536",
+   "court": null
   },
   {
    "no": "2050900",
@@ -15454,7 +16284,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=2050900&onbidPbancNo=902260&pbctNo=10093426&pbctCdtnNo=6164537",
+   "court": null
   },
   {
    "no": "2050902",
@@ -15482,7 +16314,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=2050902&onbidPbancNo=902260&pbctNo=10093426&pbctCdtnNo=6164538",
+   "court": null
   },
   {
    "no": "2050903",
@@ -15510,7 +16344,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=2050903&onbidPbancNo=902260&pbctNo=10093426&pbctCdtnNo=6164385",
+   "court": null
   },
   {
    "no": "2048154",
@@ -15538,7 +16374,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=2048154&onbidPbancNo=901010&pbctNo=10090898&pbctCdtnNo=6147834",
+   "court": null
   },
   {
    "no": "2049896",
@@ -15566,7 +16404,9 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=2049896&onbidPbancNo=906104&pbctNo=10102056&pbctCdtnNo=6211925",
+   "court": null
   },
   {
    "no": "1997702",
@@ -15594,12 +16434,14 @@
    "notifiedAt": null,
    "solar": null,
    "source": "onbid",
-   "note": null
+   "note": null,
+   "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1997702&onbidPbancNo=895313&pbctNo=10064637&pbctCdtnNo=6078616",
+   "court": null
   }
  ],
  "runs": [
   {
-   "at": "2026-09-29 16:01",
+   "at": "2026-09-29 16:03",
    "mode": "run",
    "total": 417,
    "new": 0,

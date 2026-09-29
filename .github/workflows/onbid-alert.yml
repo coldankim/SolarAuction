@@ -39,6 +39,8 @@ jobs:
           KEPCO_API_KEY: ${{ secrets.KEPCO_API_KEY }}
           VWORLD_API_KEY: ${{ secrets.VWORLD_API_KEY }}
           VWORLD_PROXY_TOKEN: ${{ secrets.VWORLD_PROXY_TOKEN }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           MODE: ${{ inputs.mode || 'run' }}
           HAS_PAT: ${{ secrets.GH_PAT != '' }}
         run: |
@@ -66,7 +68,7 @@ jobs:
           rm -f new_refresh_token.txt
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          for f in docs/data.json seen_items.json kepco_cache.json landuse_cache.json court_cache.json; do [ -f "$f" ] && git add "$f"; done
+          for f in docs/data.json seen_items.json kepco_cache.json landuse_cache.json court_cache.json state.json; do [ -f "$f" ] && git add "$f"; done
           if git diff --cached --quiet; then echo "변경 없음"; exit 0; fi
           git commit -m "data: $(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M')"
           git push

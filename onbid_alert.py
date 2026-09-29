@@ -26,6 +26,8 @@ import landuse
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CONFIG_FILE = os.path.join(BASE_DIR, "config.env")
+SETTINGS_FILE = os.path.join(BASE_DIR, "settings.json")  # 조회 지역·태양광 기준 (화면에서 수정)
+STATE_FILE = os.path.join(BASE_DIR, "state.json")        # 지난 실행의 조회 지역 (지역 추가 감지용)
 SEEN_FILE = os.path.join(BASE_DIR, "seen_items.json")
 DATA_FILE = os.path.join(BASE_DIR, "docs", "data.json")
 LOG_FILE = os.path.join(BASE_DIR, "onbid_alert.log")
@@ -42,7 +44,7 @@ ENV_KEYS = [
     "REGIONS", "PVCT_TRGT_YN", "DSPS_MTHOD_CD", "PRPT_DIV_CD", "MAX_NOTIFY", "LINK_URL",
     "KAKAO_REDIRECT_URI", "KEPCO_API_KEY", "SOLAR_MIN_KW", "SOLAR_GOOD_KW",
     "VWORLD_API_KEY", "VWORLD_DOMAIN", "VWORLD_PROXY_URL", "VWORLD_PROXY_TOKEN",
-    "COURT_ENABLED", "COURT_REFRESH_HOURS",
+    "COURT_ENABLED", "COURT_REFRESH_HOURS", "TELEGRAM_BOT_TOKEN", "TELEGRAM_CHAT_ID", "KAKAO_ENABLED",
 ]
 KST = timezone(timedelta(hours=9))
 IN_ACTIONS = os.environ.get("GITHUB_ACTIONS") == "true"
@@ -98,6 +100,9 @@ def read_env_file(path):
 def load_settings():
     secret_path = find_secret_file()
     env = read_env_file(CONFIG_FILE)
+    if os.path.exists(SETTINGS_FILE):
+        with open(SETTINGS_FILE, encoding="utf-8") as f:
+            env.update({k: str(v) for k, v in json.load(f).items() if v is not None})
     env.update(read_env_file(secret_path))
     for k in ENV_KEYS:
         if os.environ.get(k):
@@ -206,6 +211,66 @@ def kakao_send(access_token, text, link_url):
         raise AlertError(f"카카오 전송 실패 ({status}): {body[:200]}")
 
 
+# ---------------------------------------------------------------- 텔레그램
+
+def telegram_send(env, text, link_url, detail_url=None, detail_label="상세 보기"):
+    """텔레그램 봇으로 전송 (버튼: 원문 상세 + 목록). 실패하면 AlertError."""
+    url = f"https://api.telegram.org/bot{env['TELEGRAM_BOT_TOKEN']}/sendMessage"
+    payload = {"chat_id": env["TELEGRAM_CHAT_ID"], "text": text, "disable_web_page_preview": "true"}
+    buttons = [{"text": detail_label, "url": detail_url}] if detail_url else []
+    if link_url:
+        buttons.append({"text": "목록 보기", "url": link_url})
+    if buttons:
+        payload["reply_markup"] = json.dumps({"inline_keyboard": [buttons]})
+    status, body = http(url, payload)
+    if status != 200:
+        raise AlertError(f"텔레그램 전송 실패 ({status}): {body[:200]}")
+
+
+class Notifier:
+    """설정된 채널(카카오, 텔레그램) 모두로 보낸다. 한 곳이라도 성공하면 성공으로 본다."""
+
+    def __init__(self, env, secret_path):
+        self.env, self.secret_path = env, secret_path
+        self.link = env.get("LINK_URL") or "https://www.onbid.co.kr"
+        self.kakao_on = (env.get("KAKAO_ENABLED") or "Y").upper() != "N"
+        self.tg_on = bool(env.get("TELEGRAM_BOT_TOKEN") and env.get("TELEGRAM_CHAT_ID"))
+        self._kakao_token = None
+        self.errors = []
+        if not (self.kakao_on or self.tg_on):
+            raise AlertError("알림 채널이 없습니다 (카카오/텔레그램 설정 확인)")
+
+    def send(self, text, it=None):
+        ok = False
+        if self.kakao_on:
+            try:
+                if self._kakao_token is None:
+                    try:
+                        self._kakao_token = kakao_refresh(self.env, self.secret_path)
+                    except AlertError:
+                        self.kakao_on = False  # 토큰 갱신 실패 → 이번 실행은 텔레그램만
+                        raise
+                kakao_send(self._kakao_token, text, self.link)
+                ok = True
+            except AlertError as e:
+                self._fail(str(e))
+        if self.tg_on:
+            try:
+                d = detail_link(it) if it else None
+                label = "사건검색 열기" if it and it.get("source") == "court" else "상세 보기"
+                telegram_send(self.env, text, self.link, d, label)
+                ok = True
+            except AlertError as e:
+                self._fail(str(e))
+        if not ok:
+            raise AlertError(" / ".join(self.errors[-2:]) or "알림 전송 실패")
+
+    def _fail(self, msg):
+        log(msg)
+        if msg not in self.errors:
+            self.errors.append(msg)
+
+
 # ---------------------------------------------------------------- 온비드
 
 def parse_regions(s):
@@ -309,6 +374,21 @@ def won(v):
 def dt(s):
     s = str(s or "")
     return f"{s[:4]}-{s[4:6]}-{s[6:8]} {s[8:10]}:{s[10:12]}" if len(s) >= 12 else s
+
+
+ONBID_DTL = "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do"
+COURT_CASE_SRCH = "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml"
+
+
+def detail_link(it):
+    """물건 원문 링크. 온비드는 상세화면 직접, 법원경매는 상세 직접 링크가 없어 경매사건검색 화면."""
+    if it.get("source") == "court":
+        return COURT_CASE_SRCH
+    q = {"cltrPrptDivCd": it.get("prptDivCd"), "onbidCltrno": it.get("onbidCltrno"),
+         "onbidPbancNo": it.get("onbidPbancNo"), "pbctNo": it.get("pbctNo"), "pbctCdtnNo": it.get("pbctCdtnNo")}
+    if not all(q.values()):
+        return None
+    return f"{ONBID_DTL}?{urllib.parse.urlencode(q)}"
 
 
 def source_name(it):
@@ -491,11 +571,14 @@ def write_dashboard(env, found, seen, run):
                 "solar": s.get("solar"),
                 "source": it.get("source") or "onbid",
                 "note": it.get("note"),
+                "link": detail_link(it),
+                "court": (it.get("orgNm") or "").split(" ")[0] if it.get("source") == "court" else None,
             })
         items.sort(key=lambda x: (x.get("firstSeen") or "", x.get("begin") or ""), reverse=True)
     write_json(DATA_FILE, {
         "updated": run["at"],
         "regions": env.get("REGIONS", ""),
+        "settings": read_json(SETTINGS_FILE, {}),
         "solarMinKw": int(env.get("SOLAR_MIN_KW") or 100),
         "solarGoodKw": int(env.get("SOLAR_GOOD_KW") or 300),
         "items": items,
@@ -504,6 +587,25 @@ def write_dashboard(env, found, seen, run):
 
 
 # ---------------------------------------------------------------- 실행
+
+def in_region(it, region):
+    sido, sgg = region
+    return it.get("lctnSdnm") == sido and (not sgg or (it.get("lctnSggnm") or "").startswith(sgg))
+
+
+def silent_new_region_items(env, found, seen):
+    """설정에서 새로 추가된 지역의 기존 물건은 알림 없이 기록 (지역 추가 때 알림 폭탄 방지)."""
+    cur = parse_regions(env.get("REGIONS", ""))
+    prev = [tuple(r) for r in read_json(STATE_FILE, {}).get("regions", [])]
+    write_json(STATE_FILE, {"regions": cur})
+    added = [r for r in cur if r not in prev] if prev else []
+    if not added:
+        return set()
+    silent = {no for no, it in found.items() if no not in seen
+              and any(in_region(it, r) for r in added) and not any(in_region(it, r) for r in prev)}
+    log(f"새로 추가된 지역 {added}: 기존 물건 {len(silent)}건은 알림 없이 기록")
+    return silent
+
 
 def pick_targets(found, seen, solar):
     """알림 대상 결정.
@@ -546,6 +648,9 @@ def run_alert(env, secret_path, mode):
     keep_previous(solar, seen)
     new_cnt = sum(1 for no in found if no not in seen)
     stamp = now_kst().strftime("%Y-%m-%d %H:%M")
+    silent = silent_new_region_items(env, found, seen)
+    if silent:
+        record(seen, {no: found[no] for no in silent}, solar, stamp, init=True)
     targets = [] if (mode == "init" or first_time) else pick_targets(found, seen, solar)
     log(f"전체 {len(found)}건 / 신규 {new_cnt}건 / 알림 대상(태양광 통과) {len(targets)}건")
     result = {"total": len(found), "new": new_cnt, "solar": len(solar),
@@ -570,26 +675,42 @@ def run_alert(env, secret_path, mode):
 
     try:
         if targets:
-            token = kakao_refresh(env, secret_path)
-            link = env.get("LINK_URL") or "https://www.onbid.co.kr"
+            nt = Notifier(env, secret_path)
             limit = int(env.get("MAX_NOTIFY") or 20)
             for no, it, title in targets[:limit]:
-                kakao_send(token, format_item(it, solar[no], title), link)
+                nt.send(format_item(it, solar[no], title), it)
                 seen.setdefault(no, {"name": (it.get("onbidCltrNm") or "").strip(), "at": stamp})
                 seen[no].update(notified=True, notifiedAt=stamp)
                 seen[no].pop("init", None)
                 result["sent"] += 1
             rest = len(targets) - result["sent"]
             if rest > 0:
-                kakao_send(token, f"[온비드] 태양광 조건 통과 물건이 {rest}건 더 있습니다. "
-                                  "다음 실행 때 이어서 보냅니다.", link)
+                nt.send(f"[공매 알림] 태양광 조건 통과 물건이 {rest}건 더 있습니다. 다음 실행 때 이어서 보냅니다.")
+            if nt.errors:  # 한쪽 채널만 실패한 경우 화면에 경고로 남김
+                WARNINGS.extend(nt.errors)
     finally:
         # 알림 못 보낸 통과 물건은 '처음 보는 물건'으로 남겨 다음 실행 때 재시도
         pending = {no for no, _, _ in targets if not is_notified(seen.get(no, {}))}
         record(seen, {no: it for no, it in found.items() if no not in pending}, solar, stamp)
         write_json(SEEN_FILE, seen)
-    log(f"카톡 전송 {result['sent']}건")
+    log(f"알림 전송 {result['sent']}건")
     return found, seen, result
+
+
+def print_telegram_chats(env):
+    tok = env.get("TELEGRAM_BOT_TOKEN")
+    if not tok:
+        raise AlertError("TELEGRAM_BOT_TOKEN이 없습니다")
+    status, body = http(f"https://api.telegram.org/bot{tok}/getUpdates")
+    chats = {}
+    for u in (json.loads(body).get("result") or []) if status == 200 else []:
+        c = (u.get("message") or u.get("my_chat_member") or {}).get("chat") or {}
+        if c.get("id"):
+            chats[c["id"]] = c.get("title") or c.get("first_name") or c.get("username")
+    if not chats:
+        raise AlertError(f"봇에게 온 메시지가 없습니다. 텔레그램에서 봇에게 아무 메시지나 보낸 뒤 다시 실행하세요. ({status})")
+    for cid, name in chats.items():
+        print(f"TELEGRAM_CHAT_ID={cid}   ({name})")
 
 
 def main():
@@ -598,6 +719,7 @@ def main():
     ap.add_argument("--init", action="store_true", help="현재 물건을 알림 없이 기록만")
     ap.add_argument("--test-kakao", action="store_true", help="카카오 테스트 메시지 전송")
     ap.add_argument("--auth", metavar="CODE", help="카카오 인가코드로 refresh_token 재발급")
+    ap.add_argument("--telegram-chat-id", action="store_true", help="봇에게 온 메시지로 텔레그램 chat_id 확인")
     args = ap.parse_args()
 
     try:
@@ -608,10 +730,12 @@ def main():
     try:
         if args.auth:
             return kakao_auth_code(env, secret_path, args.auth)
-        if args.test_kakao:
-            token = kakao_refresh(env, secret_path)
-            kakao_send(token, "온비드 알림 테스트 메시지입니다.", env.get("LINK_URL") or "https://www.onbid.co.kr")
-            return log("카카오 테스트 메시지 전송 완료")
+        if args.test_kakao:  # 이름은 유지, 설정된 모든 채널(카카오·텔레그램)로 테스트
+            nt = Notifier(env, secret_path)
+            nt.send("공매 알림 테스트 메시지입니다.")
+            return log("테스트 메시지 전송 완료" + (f" (일부 실패: {' / '.join(nt.errors)})" if nt.errors else ""))
+        if args.telegram_chat_id:
+            return print_telegram_chats(env)
         if args.dry_run:
             found = collect(env)
             seen = read_json(SEEN_FILE, {})
