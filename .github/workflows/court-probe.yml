@@ -17,6 +17,5 @@ jobs:
           d=json.loads(r.read()); data=d.get('data') or {}
           rows=data.get('dlt_srchResult') or []
           print('status',d.get('status'),'msg',d.get('message'),'ipcheck',data.get('ipcheck'),'page',data.get('dma_pageInfo'),'rows',len(rows))
-          if rows:
           PY
           python p.py || echo "실패 $?"
