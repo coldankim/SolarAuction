@@ -1,8 +1,8 @@
 {
- "updated": "2026-09-29 16:03",
- "regions": "경기도:화성시",
+ "updated": "2026-09-29 16:26",
+ "regions": "경상북도:예천군;경상북도:안동시",
  "settings": {
-  "REGIONS": "경기도:화성시",
+  "REGIONS": "경상북도:예천군;경상북도:안동시",
   "PVCT_TRGT_YN": "N",
   "DSPS_MTHOD_CD": "0001",
   "PRPT_DIV_CD": "",
@@ -16440,6 +16440,11 @@
   }
  ],
  "runs": [
+  {
+   "at": "2026-09-29 16:26",
+   "mode": "run",
+   "error": "URLError: <urlopen error timed out>"
+  },
   {
    "at": "2026-09-29 16:03",
    "mode": "run",
