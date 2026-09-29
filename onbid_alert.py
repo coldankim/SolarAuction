@@ -148,7 +148,7 @@ def save_refresh_token(secret_path, new_rt):
 def http(url, data=None, headers=None, timeout=30):
     body = urllib.parse.urlencode(data).encode() if data is not None else None
     req = urllib.request.Request(url, data=body, headers=headers or {})
-    for wait in (0, 5, 15):  # 시간 초과·연결 끊김은 잠시 뒤 재시도 (HTTP 응답은 그대로 돌려줌)
+    for wait in (0, 10, 30):  # 시간 초과·연결 끊김은 잠시 뒤 재시도 (HTTP 응답은 그대로 돌려줌)
         if wait:
             time.sleep(wait)
         try:
@@ -313,7 +313,7 @@ def onbid_fetch(env, sido, sgg):
             if env.get("DSPS_MTHOD_CD"):
                 params["dspsMthodCd"] = env["DSPS_MTHOD_CD"]
             url = f"{ONBID_URL}?serviceKey={key_q}&{urllib.parse.urlencode(params)}"
-            status, text = http(url)
+            status, text = http(url, timeout=60)  # 공공데이터포털이 가끔 수십 초씩 느려짐
             try:
                 data = json.loads(text)
             except ValueError:
