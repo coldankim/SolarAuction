@@ -40,7 +40,7 @@ ENV_KEYS = [
     "KAKAO_REST_API_KEY", "KAKAO_CLIENT_SECRET", "KAKAO_REFRESH_TOKEN", "ONBID_SERVICE_KEY",
     "REGIONS", "PVCT_TRGT_YN", "DSPS_MTHOD_CD", "PRPT_DIV_CD", "MAX_NOTIFY", "LINK_URL",
     "KAKAO_REDIRECT_URI", "KEPCO_API_KEY", "SOLAR_MIN_KW", "SOLAR_GOOD_KW",
-    "VWORLD_API_KEY", "VWORLD_DOMAIN",
+    "VWORLD_API_KEY", "VWORLD_DOMAIN", "VWORLD_PROXY_URL", "VWORLD_PROXY_TOKEN",
 ]
 KST = timezone(timedelta(hours=9))
 IN_ACTIONS = os.environ.get("GITHUB_ACTIONS") == "true"
@@ -365,7 +365,10 @@ def evaluate_solar(env, kp, it):
 def evaluate_all(env, found):
     """대상 물건 전체 판정 → {물건번호: 결과}. 한전이 계속 실패하면 나머지는 error로 두고 다음 실행에 재시도."""
     kp = kepco.Kepco(env["KEPCO_API_KEY"])
-    lu = landuse.Landuse(env["VWORLD_API_KEY"], env.get("VWORLD_DOMAIN") or "https://coldankim.github.io")         if env.get("VWORLD_API_KEY") else None
+    # 중계 서버는 GitHub Actions에서만 사용 (국내 PC에서는 브이월드 직접 호출)
+    proxy = env.get("VWORLD_PROXY_URL") if IN_ACTIONS and env.get("VWORLD_PROXY_TOKEN") else None
+    lu = landuse.Landuse(env["VWORLD_API_KEY"], env.get("VWORLD_DOMAIN") or "coldankim.github.io",
+                         proxy, env.get("VWORLD_PROXY_TOKEN")) if env.get("VWORLD_API_KEY") else None
     lu_fails = 0
     out, fails = {}, 0
     for no, it in found.items():

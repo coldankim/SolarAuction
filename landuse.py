@@ -51,9 +51,12 @@ def to_std_pnu(pnu):
 
 
 class Landuse:
-    def __init__(self, api_key, domain):
+    def __init__(self, api_key, domain, proxy_url=None, proxy_token=None):
         self.key = api_key
         self.domain = domain
+        # 해외 서버(GitHub Actions)는 브이월드가 막혀 있어 국내 호스팅의 중계 파일(relay/vworld.php)을 거친다
+        self.proxy_url = proxy_url
+        self.proxy_token = proxy_token
         self.cache = {}
         if os.path.exists(CACHE_FILE):
             with open(CACHE_FILE, encoding="utf-8") as f:
@@ -70,9 +73,16 @@ class Landuse:
 
     def _get(self, url, params):
         params = {**params, "key": self.key, "domain": self.domain}
+        if self.proxy_url:
+            path = url.split("api.vworld.kr/", 1)[1]
+            params = {"path": path, "token": self.proxy_token, **params}
+            url = self.proxy_url
         self.calls += 1
         try:
-            with urllib.request.urlopen(f"{url}?{urllib.parse.urlencode(params)}", timeout=15) as r:
+            # 호스팅 보안 필터가 Accept 헤더 없는 요청을 막으므로 명시한다
+            req = urllib.request.Request(f"{url}?{urllib.parse.urlencode(params)}",
+                                         headers={"Accept": "application/json", "User-Agent": "SolarAuction/1.0"})
+            with urllib.request.urlopen(req, timeout=30) as r:
                 return json.loads(r.read().decode("utf-8"))
         except (urllib.error.URLError, TimeoutError, ValueError) as e:
             raise LanduseError(f"브이월드 접속 실패: {e}")

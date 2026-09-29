@@ -38,6 +38,7 @@ jobs:
           ONBID_SERVICE_KEY: ${{ secrets.ONBID_SERVICE_KEY }}
           KEPCO_API_KEY: ${{ secrets.KEPCO_API_KEY }}
           VWORLD_API_KEY: ${{ secrets.VWORLD_API_KEY }}
+          VWORLD_PROXY_TOKEN: ${{ secrets.VWORLD_PROXY_TOKEN }}
           MODE: ${{ inputs.mode || 'run' }}
           HAS_PAT: ${{ secrets.GH_PAT != '' }}
         run: |
