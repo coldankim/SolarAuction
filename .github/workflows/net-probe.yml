@@ -1,0 +1,16 @@
+name: net-probe
+on: workflow_dispatch
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 온비드 조회 시간 측정
+        env:
+          K: ${{ secrets.ONBID_SERVICE_KEY }}
+        run: |
+          Q="pageNo=1&numOfRows=100&resultType=json&prptDivCd=0007,0010,0005,0002,0003,0006,0008,0011,0013&pvctTrgtYn=N&lctnSdnm=%EA%B2%BD%EC%83%81%EB%B6%81%EB%8F%84&lctnSggnm=%EC%95%88%EB%8F%99%EC%8B%9C&dspsMthodCd=0001"
+          for i in 1 2 3 4; do
+            echo -n "ONBID $i: "; curl -s -o /tmp/o.json -m 60 -w "%{http_code} %{time_connect}s connect / %{time_total}s total\n" "https://apis.data.go.kr/B010003/OnbidRlstListSrvc2/getRlstCltrList2?serviceKey=$K&$Q" || echo "curl err $?"
+            head -c 80 /tmp/o.json; echo
+            sleep 3
+          done
