@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-29 17:01",
+ "updated": "2026-09-29 17:36",
  "regions": "경상북도:예천군;경상북도:안동시",
  "settings": {
   "REGIONS": "경상북도:예천군;경상북도:안동시",
@@ -159,7 +159,38 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 1,
+    "okLines": 0,
+    "subst": "예천",
+    "dl": "예양",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "보전관리지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "공장설립제한지역",
+      "영농여건불리농지",
+      "가축사육제한구역",
+      "보전관리지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2038475&onbidPbancNo=905855&pbctNo=10078958&pbctCdtnNo=6209088",
@@ -189,7 +220,40 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 2,
+    "okLines": 0,
+    "subst": "예천",
+    "dl": "효자",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "보전관리지역"
+     ],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "영농여건불리농지",
+      "가축사육제한구역",
+      "계획관리지역",
+      "보전관리지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2042994&onbidPbancNo=905855&pbctNo=10078958&pbctCdtnNo=6209089",
@@ -374,7 +438,36 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 1,
+    "okLines": 0,
+    "subst": "동안동",
+    "dl": "일직",
+    "vol": [
+     36573,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "가축사육제한구역",
+      "계획관리지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1889852&onbidPbancNo=906809&pbctNo=10074328&pbctCdtnNo=6088602",
@@ -404,7 +497,40 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "emd",
+    "levelName": "읍면동 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 4,
+    "okLines": 0,
+    "subst": "안동",
+    "dl": "예안",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "제2종일반주거지역",
+      "역사문화환경보존지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "상대보호구역",
+      "지구단위계획구역",
+      "제2종일반주거지역",
+      "가축사육제한구역",
+      "역사문화환경보존지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1925443&onbidPbancNo=906809&pbctNo=10074328&pbctCdtnNo=6167115",
@@ -464,7 +590,37 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "emd",
+    "levelName": "읍면동 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 4,
+    "okLines": 0,
+    "subst": "안동",
+    "dl": "길주",
+    "vol": [
+     0,
+     0,
+     11906
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "제2종일반주거지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "상대보호구역",
+      "제2종일반주거지역",
+      "가축사육제한구역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1984988&onbidPbancNo=906595&pbctNo=10074328&pbctCdtnNo=6217487",
@@ -494,7 +650,29 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 1,
+    "okLines": 0,
+    "subst": "풍산",
+    "dl": "풍천",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "지붕형",
+    "landuse": {
+     "grade": "skip",
+     "label": "",
+     "zones": []
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2026468&onbidPbancNo=906431&pbctNo=10074328&pbctCdtnNo=6215447",
@@ -524,7 +702,38 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 3,
+    "okLines": 0,
+    "subst": "안동",
+    "dl": "예안",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "exclude",
+     "label": "1차 제외",
+     "reasons": [
+      "자연환경보전지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "영농여건불리농지",
+      "가축사육제한구역",
+      "역사문화환경보존지역",
+      "자연환경보전지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2038886&onbidPbancNo=906809&pbctNo=10074328&pbctCdtnNo=6144368",
@@ -554,7 +763,39 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 1,
+    "okLines": 0,
+    "subst": "동안동",
+    "dl": "일직",
+    "vol": [
+     36573,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "농업보호구역",
+      "농림지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "접도구역",
+      "가축사육제한구역",
+      "농업보호구역",
+      "농림지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1897847&onbidPbancNo=906431&pbctNo=10074328&pbctCdtnNo=6109891",
@@ -584,7 +825,38 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 1,
+    "okLines": 0,
+    "subst": "동안동",
+    "dl": "일직",
+    "vol": [
+     36573,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "농업보호구역",
+      "농림지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "가축사육제한구역",
+      "농업보호구역",
+      "농림지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1897852&onbidPbancNo=906431&pbctNo=10074328&pbctCdtnNo=6119489",
@@ -614,7 +886,37 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 2,
+    "okLines": 0,
+    "subst": "안동",
+    "dl": "유교",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "영농여건불리농지",
+      "가축사육제한구역",
+      "계획관리지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2017944&onbidPbancNo=906809&pbctNo=10074328&pbctCdtnNo=6173947",
@@ -644,7 +946,37 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "jibun",
+    "levelName": "지번",
+    "best": 0,
+    "worst": 0,
+    "lines": 1,
+    "okLines": 0,
+    "subst": "동안동",
+    "dl": "오대",
+    "vol": [
+     36573,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "공장설립승인지역",
+      "가축사육제한구역",
+      "계획관리지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2002896&onbidPbancNo=906809&pbctNo=10074328&pbctCdtnNo=6219330",
@@ -674,7 +1006,39 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 2,
+    "okLines": 0,
+    "subst": "풍산",
+    "dl": "풍호",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "제1종일반주거지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "상대보호구역",
+      "가축사육제한구역",
+      "도청이전신도시 개발예정지구",
+      "제1종일반주거지역",
+      "지구단위계획구역"
+     ]
+    }
+   },
    "source": "court",
    "note": "일괄매각. 제시외 건물 포함. 목적물 2 공부상 슬라브지붕이나, 현황 징크판넬지붕이며 1층 16.53㎡는 2022. 10. 4. 증축으로 현황 ",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -704,7 +1068,39 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 12,
+    "okLines": 0,
+    "subst": "예천",
+    "dl": "예양",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "제1종일반주거지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "도시지역",
+      "지구단위계획구역",
+      "제1종일반주거지역",
+      "소로2류(폭 8m~10m)",
+      "가축사육제한구역"
+     ]
+    }
+   },
    "source": "court",
    "note": "일괄매각. 목록 3, 6 지상 소재 제시외건물은 매각 제외.",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -734,7 +1130,40 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 3,
+    "okLines": 0,
+    "subst": "예천",
+    "dl": "미호",
+    "vol": [
+     0,
+     0,
+     363
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "exclude",
+     "label": "1차 제외",
+     "reasons": [
+      "농업진흥구역"
+     ],
+     "favorable": [],
+     "zones": [
+      "비행안전제3구역(전술)",
+      "도로구역",
+      "소로1류(폭 10m~12m)",
+      "가축사육제한구역",
+      "농림지역",
+      "농업진흥구역"
+     ]
+    }
+   },
    "source": "court",
    "note": "일괄매각. 제시외 건물 포함. 농지법상 제출해야 하는 농지취득자격증명 미제출시 매수보증금 미반환(목록 1). 목록 1 공부상 지목이 답이나 현황",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -764,7 +1193,40 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 5,
+    "okLines": 0,
+    "subst": "예천",
+    "dl": "노상",
+    "vol": [
+     0,
+     0,
+     12706
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "비행안전제2구역(전술)",
+      "자연녹지지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "비행안전제2구역(전술)",
+      "준보전산지",
+      "도시지역",
+      "자연녹지지역",
+      "가축사육제한구역"
+     ]
+    }
+   },
    "source": "court",
    "note": "",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -794,7 +1256,36 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "jibun",
+    "levelName": "지번",
+    "best": 0,
+    "worst": 0,
+    "lines": 1,
+    "okLines": 0,
+    "subst": "풍산",
+    "dl": "풍호",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "보전관리지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "가축사육제한구역",
+      "보전관리지역"
+     ]
+    }
+   },
    "source": "court",
    "note": "공부상 전이나 현재 전기타(휴경지) 및 일부 도로 상태임. 농지법상 제출해야 하는 농지취득자격증명 미제출시 매수보증금 미반환.\n특별매각조건 매수",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -914,7 +1405,46 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 3,
+    "okLines": 0,
+    "subst": "예천",
+    "dl": "효자",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "임업용산지",
+      "농림지역"
+     ],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "준보전산지",
+      "임업용산지",
+      "공장설립제한지역",
+      "공장설립승인지역",
+      "가축사육제한구역",
+      "가축사육제한구역기타",
+      "접도구역",
+      "계획관리지역",
+      "농림지역"
+     ]
+    }
+   },
    "source": "court",
    "note": "일괄매각. 연고자 미상의 분묘 소재하며, 이를 위한 분묘기지권 성립 여지 있음. 목록 1 지상 소재 제시외건물은 매각 제외.",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -944,7 +1474,43 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 3,
+    "okLines": 0,
+    "subst": "예천",
+    "dl": "풍양",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "임업용산지",
+      "농림지역"
+     ],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "임업용산지",
+      "준보전산지",
+      "가축사육제한구역",
+      "가축사육제한구역기타",
+      "계획관리지역",
+      "농림지역"
+     ]
+    }
+   },
    "source": "court",
    "note": "지분매각, 공유자의 우선매수권(민사집행법 제140조) 행사에 따른 매수신고가 매수보증금의 미납으로 실효되는 경우, 그 공유자는 해당 부동산의 다",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -1034,7 +1600,37 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 12,
+    "okLines": 0,
+    "subst": "예천",
+    "dl": "예양",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "제2종일반주거지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "도시지역",
+      "제2종일반주거지역",
+      "가축사육제한구역"
+     ]
+    }
+   },
    "source": "court",
    "note": "",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -1064,7 +1660,39 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 2,
+    "okLines": 0,
+    "subst": "풍산",
+    "dl": "풍호",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "제1종일반주거지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "상대보호구역",
+      "가축사육제한구역",
+      "도청이전신도시 개발예정지구",
+      "제1종일반주거지역",
+      "지구단위계획구역"
+     ]
+    }
+   },
    "source": "court",
    "note": "",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -1094,7 +1722,39 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 3,
+    "okLines": 0,
+    "subst": "신영주",
+    "dl": "감영",
+    "vol": [
+     30752,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "기타용지",
+      "농공단지",
+      "지구단위계획구역",
+      "가축사육제한구역",
+      "계획관리지역"
+     ]
+    }
+   },
    "source": "court",
    "note": "일괄매각, 제시외 건물 포함, 기계기구 목록을 포함한 평가금액, 목록2. 공부상 창고이나 실제는 저온창고임",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -1124,7 +1784,39 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "good",
+    "label": "계통 300kW+",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 2922,
+    "worst": 0,
+    "lines": 5,
+    "okLines": 2,
+    "subst": "점촌",
+    "dl": "공군",
+    "vol": [
+     3557,
+     6432,
+     2922
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "비행안전제5구역(전술)",
+      "농림지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "비행안전제5구역(전술)",
+      "공장설립승인지역",
+      "가축사육제한구역",
+      "농림지역"
+     ]
+    }
+   },
    "source": "court",
    "note": "농지법상 제출해야 하는 농지취득자격증명 미제출시 매수보증금 미반환. 지상에 철골조 비닐하우스 3동은 매각대상에서 제외.",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -1154,7 +1846,36 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 4,
+    "okLines": 0,
+    "subst": "예천",
+    "dl": "풍양",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "가축사육제한구역",
+      "계획관리지역"
+     ]
+    }
+   },
    "source": "court",
    "note": "농지법상 제출해야 하는 농지취득자격증명 미제출시 매수보증금 미반환. 지적도상 맹지.  정확한 지적 경계는 향후 지적측량을 요함.",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -1243,7 +1964,41 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 3,
+    "okLines": 0,
+    "subst": "신영주",
+    "dl": "감영",
+    "vol": [
+     30752,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "자연녹지지역"
+     ],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "준보전산지",
+      "도시지역",
+      "자연녹지지역",
+      "가축사육제한구역",
+      "계획관리지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1928002&onbidPbancNo=905312&pbctNo=10069348&pbctCdtnNo=6066182",
@@ -1273,7 +2028,45 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 2,
+    "okLines": 0,
+    "subst": "안동",
+    "dl": "유교",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "exclude",
+     "label": "1차 제외",
+     "reasons": [
+      "공익용산지",
+      "자연환경보전지역"
+     ],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "임업용산지",
+      "공익용산지",
+      "준보전산지",
+      "가축사육제한구역",
+      "계획관리지역",
+      "보전관리지역",
+      "농림지역",
+      "자연환경보전지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2017428&onbidPbancNo=905312&pbctNo=10069348&pbctCdtnNo=6088433",
@@ -1303,7 +2096,37 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 2,
+    "okLines": 0,
+    "subst": "동안동",
+    "dl": "오대",
+    "vol": [
+     36573,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "생산관리지역"
+     ],
+     "zones": [
+      "준보전산지",
+      "가축사육제한구역",
+      "생산관리지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2019427&onbidPbancNo=904885&pbctNo=10069348&pbctCdtnNo=6059063",
@@ -1333,7 +2156,36 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 2,
+    "okLines": 0,
+    "subst": "안동",
+    "dl": "유교",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "생산관리지역"
+     ],
+     "zones": [
+      "가축사육제한구역",
+      "생산관리지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2010349&onbidPbancNo=905312&pbctNo=10069348&pbctCdtnNo=6199748",
@@ -1363,7 +2215,37 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 2,
+    "okLines": 0,
+    "subst": "동안동",
+    "dl": "오대",
+    "vol": [
+     36573,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "생산관리지역"
+     ],
+     "zones": [
+      "영농여건불리농지",
+      "가축사육제한구역",
+      "생산관리지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2019433&onbidPbancNo=904885&pbctNo=10069348&pbctCdtnNo=6059064",
@@ -1393,7 +2275,38 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 2,
+    "okLines": 0,
+    "subst": "동안동",
+    "dl": "오대",
+    "vol": [
+     36573,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "임업용산지",
+      "농림지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "임업용산지",
+      "가축사육제한구역",
+      "농림지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2019459&onbidPbancNo=904885&pbctNo=10069348&pbctCdtnNo=6059065",
@@ -1423,7 +2336,37 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 5,
+    "okLines": 0,
+    "subst": "풍산",
+    "dl": "명동",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "영농여건불리농지",
+      "가축사육제한구역",
+      "계획관리지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=1952657&onbidPbancNo=905312&pbctNo=10069348&pbctCdtnNo=6059024",
@@ -1453,7 +2396,38 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 2,
+    "okLines": 0,
+    "subst": "동안동",
+    "dl": "오대",
+    "vol": [
+     36573,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "임업용산지",
+      "농림지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "임업용산지",
+      "가축사육제한구역",
+      "농림지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2019416&onbidPbancNo=904885&pbctNo=10069348&pbctCdtnNo=6059062",
@@ -1483,7 +2457,37 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 2,
+    "okLines": 0,
+    "subst": "안동",
+    "dl": "유교",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "보전관리지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "준보전산지",
+      "가축사육제한구역",
+      "보전관리지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2028143&onbidPbancNo=905312&pbctNo=10069348&pbctCdtnNo=6088469",
@@ -1513,7 +2517,37 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 2,
+    "okLines": 0,
+    "subst": "동안동",
+    "dl": "일직",
+    "vol": [
+     36573,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "exclude",
+     "label": "1차 제외",
+     "reasons": [
+      "농업진흥구역"
+     ],
+     "favorable": [],
+     "zones": [
+      "가축사육제한구역",
+      "농림지역",
+      "농업진흥구역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2033812&onbidPbancNo=905312&pbctNo=10069348&pbctCdtnNo=6149054",
@@ -1543,7 +2577,39 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 1,
+    "okLines": 0,
+    "subst": "풍산",
+    "dl": "공일",
+    "vol": [
+     0,
+     0,
+     96
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "비행안전구역"
+     ],
+     "favorable": [
+      "생산관리지역"
+     ],
+     "zones": [
+      "비행안전구역",
+      "가축사육제한구역",
+      "생산관리지역"
+     ]
+    }
+   },
    "source": "court",
    "note": "지분매각. 공유자 우선매수 제한조건 있음. 농지취득자격증명 요함(미제출시 매수신청보증금 미반환).",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -1573,7 +2639,37 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 2,
+    "okLines": 0,
+    "subst": "풍산",
+    "dl": "공일",
+    "vol": [
+     0,
+     0,
+     96
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "생산관리지역"
+     ],
+     "zones": [
+      "준보전산지",
+      "가축사육제한구역",
+      "생산관리지역"
+     ]
+    }
+   },
    "source": "court",
    "note": "재매각. 특별매각조건 매수신청보증금 최저매각가격의 20%. 일괄매각. 목록1,3-입목 포함. 임야의 특성상 분묘가 소재할 가능성 있고, 분묘가 ",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -1603,7 +2699,40 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 1,
+    "okLines": 0,
+    "subst": "풍산",
+    "dl": "풍천",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "역사문화환경보존지역"
+     ],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "가축사육제한구역",
+      "역사문화환경보존지역",
+      "계획관리지역",
+      "자연취락지구"
+     ]
+    }
+   },
    "source": "court",
    "note": "지분매각.공유자우선매수제한조건있음.제시외건물매각제외.현황은일부건부지임.제시외건물감안시평가금액임.",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -1633,7 +2762,36 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 3,
+    "okLines": 0,
+    "subst": "안동",
+    "dl": "송하",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "가축사육제한구역",
+      "계획관리지역"
+     ]
+    }
+   },
    "source": "court",
    "note": "일괄매각. 목록1 : 현황 공장용지, 2021.9.23. 일부면적(2,400㎡) 전용허가, 농지취득자격증명 요함(미제출시 매수신청보증금 미반환)",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -1663,7 +2821,40 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 2,
+    "okLines": 0,
+    "subst": "풍산",
+    "dl": "괴정",
+    "vol": [
+     0,
+     0,
+     8250
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "역사문화환경보존지역"
+     ],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "영농여건불리농지",
+      "가축사육제한구역",
+      "역사문화환경보존지역",
+      "계획관리지역"
+     ]
+    }
+   },
    "source": "court",
    "note": "일괄매각. 지적도상 맹지. 목록 1,2,3,5 - 농지취득자격증명 미제출시 보증금 몰수. 목록3 - 타인소유의 과수목 및 건물 매각제외. 매각제",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -1693,7 +2884,36 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 10,
+    "okLines": 0,
+    "subst": "풍산",
+    "dl": "명동",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "자연녹지지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "가축사육제한구역",
+      "자연녹지지역"
+     ]
+    }
+   },
    "source": "court",
    "note": "일괄매각. 지분매각, 공유자 우선매수 제한 조건 있음. 농지취득자격증명 요함(미제출시 매수신청보증금 미반환). 목록 3,4는 선하지 저촉(감안 ",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -1963,7 +3183,36 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 8,
+    "okLines": 0,
+    "subst": "안동",
+    "dl": "영가",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "생산관리지역"
+     ],
+     "zones": [
+      "가축사육제한구역",
+      "생산관리지역"
+     ]
+    }
+   },
    "source": "court",
    "note": "현황:묵전으로 임야화됨. 수목포함. 분묘가 소재할 가능성 있고, 분묘가 소재할 경우 분묘기지권 성립여지 있음. 농지취득자격증명 미제출시 보증금 ",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -1993,7 +3242,37 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 8,
+    "okLines": 0,
+    "subst": "안동",
+    "dl": "영가",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "생산관리지역"
+     ],
+     "zones": [
+      "영농여건불리농지",
+      "가축사육제한구역",
+      "생산관리지역"
+     ]
+    }
+   },
    "source": "court",
    "note": "현황:묵전으로 임야화됨. 수목포함. 분묘가 소재할 가능성 있고, 분묘가 소재할 경우 분묘기지권 성립여지 있음. 농지취득자격증명 미제출시 보증금 ",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -2053,7 +3332,39 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "jibun",
+    "levelName": "지번",
+    "best": 0,
+    "worst": 0,
+    "lines": 1,
+    "okLines": 0,
+    "subst": "풍산",
+    "dl": "풍천",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "역사문화환경보존지역"
+     ],
+     "favorable": [
+      "생산관리지역"
+     ],
+     "zones": [
+      "가축사육제한구역",
+      "역사문화환경보존지역",
+      "생산관리지역"
+     ]
+    }
+   },
    "source": "court",
    "note": "농지취득자격증명 요함(미제출시 매수신청보증금 미반환). 현황 : 답.",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -2143,7 +3454,39 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 3,
+    "okLines": 0,
+    "subst": "풍산",
+    "dl": "명동",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "준보전산지",
+      "접도구역",
+      "도로구역",
+      "가축사육제한구역",
+      "계획관리지역"
+     ]
+    }
+   },
    "source": "court",
    "note": "분묘 소재, 분묘기지권 성립 여지 있음. 접도구역의 저촉 및 분묘 소재 감안 평가.",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -2203,7 +3546,38 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "jibun",
+    "levelName": "지번",
+    "best": 0,
+    "worst": 0,
+    "lines": 1,
+    "okLines": 0,
+    "subst": "진보SA",
+    "dl": "청양",
+    "vol": [
+     0,
+     0,
+     5858
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "(낙동강)수변구역",
+      "보전관리지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "(낙동강)수변구역",
+      "가축사육제한구역",
+      "보전관리지역"
+     ]
+    }
+   },
    "source": "court",
    "note": "농지취득자격증명 미제출시 보증금 몰수. 과수목 매각제외. 현황 전 및 과수원, 일부도로. 일부 수변구역 저촉.",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -2233,7 +3607,37 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "emd",
+    "levelName": "읍면동 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 5,
+    "okLines": 0,
+    "subst": "안동",
+    "dl": "예안",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "제2종일반주거지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "제2종일반주거지역",
+      "중점경관관리구역",
+      "가축사육제한구역"
+     ]
+    }
+   },
    "source": "court",
    "note": "나지로 이용중.",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -2263,7 +3667,38 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "emd",
+    "levelName": "읍면동 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 5,
+    "okLines": 0,
+    "subst": "안동",
+    "dl": "예안",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "제2종일반주거지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "준보전산지",
+      "제2종일반주거지역",
+      "중점경관관리구역",
+      "가축사육제한구역"
+     ]
+    }
+   },
    "source": "court",
    "note": "일괄매각. 목록 2, 3 : 현황 잡종지, 지상 제시외 건물 매각 제외(감안평가), 제시외 건물을 위한 법정지상권 성립 여부 불명. 목록 2 :",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -2293,7 +3728,37 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 2,
+    "okLines": 0,
+    "subst": "동안동",
+    "dl": "오대",
+    "vol": [
+     36573,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "exclude",
+     "label": "1차 제외",
+     "reasons": [
+      "농업진흥구역"
+     ],
+     "favorable": [],
+     "zones": [
+      "생산녹지지역",
+      "가축사육제한구역",
+      "농업진흥구역"
+     ]
+    }
+   },
    "source": "court",
    "note": "농지취득자격증명 미제출시 보증금 몰수.",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -2323,7 +3788,38 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 1,
+    "okLines": 0,
+    "subst": "동안동",
+    "dl": "길안",
+    "vol": [
+     36573,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "임업용산지",
+      "농림지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "임업용산지",
+      "가축사육제한구역",
+      "농림지역"
+     ]
+    }
+   },
    "source": "court",
    "note": "입목포함. 임야의 특성상 분묘가 소재할 가능성 있고, 분묘가 소재할 경우 분묘기지권 성립여지 있음. 임야도상 맹지.",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -2353,7 +3849,36 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 7,
+    "okLines": 0,
+    "subst": "동안동",
+    "dl": "길안",
+    "vol": [
+     36573,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "자연녹지지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "자연녹지지역",
+      "가축사육제한구역"
+     ]
+    }
+   },
    "source": "court",
    "note": "지상 제시외 건물 매각 제외(감안), 지상건물을 위한 법정지상권 성립 여부는 불분명.",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -2383,7 +3908,37 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 7,
+    "okLines": 0,
+    "subst": "동안동",
+    "dl": "길안",
+    "vol": [
+     36573,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "임업용산지",
+      "농림지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "임업용산지",
+      "농림지역"
+     ]
+    }
+   },
    "source": "court",
    "note": "입목포함. 임야의 특성상 분묘가 소재할 가능성 있고, 분묘가 소재할 경우 분묘기지권 성립여지 있음. 임야도상 맹지.",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -2413,7 +3968,41 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 2,
+    "okLines": 0,
+    "subst": "풍산",
+    "dl": "도화",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "임업용산지",
+      "농림지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "임업용산지",
+      "접도구역",
+      "가축사육제한구역",
+      "도로구역",
+      "소로2류(폭 8m~10m)",
+      "농림지역"
+     ]
+    }
+   },
    "source": "court",
    "note": "접도구역 저촉(감안 평가).",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -2443,7 +4032,36 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 1,
+    "okLines": 0,
+    "subst": "풍산",
+    "dl": "풍천",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "가축사육제한구역",
+      "계획관리지역"
+     ]
+    }
+   },
    "source": "court",
    "note": "일괄매각. 농지취득자격증명 요함(미제출시 매수신청보증금 미반환). 목록 2, 3 : 분묘 소재(감안평가), 분묘기지권 성립 여지 있음.",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -2473,7 +4091,38 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 3,
+    "okLines": 0,
+    "subst": "풍산",
+    "dl": "명동",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "상대보호구역",
+      "온천원보호지구",
+      "가축사육제한구역",
+      "계획관리지역"
+     ]
+    }
+   },
    "source": "court",
    "note": "일괄매각. 농지취득자격증명 요함(미제출시 매수신청보증금 미반환). 수목 포함.",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -2503,7 +4152,38 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 2,
+    "okLines": 0,
+    "subst": "풍산",
+    "dl": "괴정",
+    "vol": [
+     0,
+     0,
+     8250
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "exclude",
+     "label": "1차 제외",
+     "reasons": [
+      "농업진흥구역"
+     ],
+     "favorable": [],
+     "zones": [
+      "가축사육제한구역",
+      "역사문화환경보존지역",
+      "농업진흥구역",
+      "농림지역"
+     ]
+    }
+   },
    "source": "court",
    "note": "현황 전. 농지취득자격증명 미제출시 보증금 몰수. 북측 일부 성토 감안(콘크리트블록 등 이용)",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -2533,7 +4213,36 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 1,
+    "okLines": 0,
+    "subst": "풍산",
+    "dl": "공일",
+    "vol": [
+     0,
+     0,
+     96
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "가축사육제한구역",
+      "계획관리지역"
+     ]
+    }
+   },
    "source": "court",
    "note": "지분매각, 공유자 우선매수 제한 조건 있음. 농지취득자격증명 요함(미제출시 매수신청보증금 미반환). 수목 및 비닐하우스 매각 제외. 지적도상 맹",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -2563,7 +4272,37 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "jibun",
+    "levelName": "지번",
+    "best": 0,
+    "worst": 0,
+    "lines": 1,
+    "okLines": 0,
+    "subst": "안동",
+    "dl": "송하",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "제2종일반주거지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "상대보호구역",
+      "제2종일반주거지역",
+      "가축사육제한구역"
+     ]
+    }
+   },
    "source": "court",
    "note": "현황 잡종시. 수목포함.",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -2593,7 +4332,36 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 4,
+    "okLines": 0,
+    "subst": "풍산",
+    "dl": "풍호",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "가축사육제한구역",
+      "계획관리지역"
+     ]
+    }
+   },
    "source": "court",
    "note": "현황 일부 유지. 지적도상 맹지. 농지취득자격증명 미제출시 보증금 몰수.",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -2623,7 +4391,36 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "emd",
+    "levelName": "읍면동 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 4,
+    "okLines": 0,
+    "subst": "안동",
+    "dl": "길주",
+    "vol": [
+     0,
+     0,
+     11906
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "제2종일반주거지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "제2종일반주거지역",
+      "가축사육제한구역"
+     ]
+    }
+   },
    "source": "court",
    "note": "지분매각, 공유자 우선매수 제한 조건 있음. 지상 제시외 건물 매각 제외(감안평가), 제시외 건물을 위한 법정지상권 성립 여부 불명.",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -2653,7 +4450,36 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "emd",
+    "levelName": "읍면동 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 4,
+    "okLines": 0,
+    "subst": "안동",
+    "dl": "길주",
+    "vol": [
+     0,
+     0,
+     11906
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "자연녹지지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "자연녹지지역",
+      "가축사육제한구역"
+     ]
+    }
+   },
    "source": "court",
    "note": "일괄매각. 지분매각, 공유자 우선매수 제한 조건 있음. 농지취득자격증명 요함(미제출시 매수신청보증금 미반환). 분묘 소재, 분묘기지권 성립 여지",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -2683,7 +4509,39 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 2,
+    "okLines": 0,
+    "subst": "풍산",
+    "dl": "괴정",
+    "vol": [
+     0,
+     0,
+     8250
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "역사문화환경보존지역"
+     ],
+     "favorable": [
+      "생산관리지역"
+     ],
+     "zones": [
+      "가축사육제한구역",
+      "역사문화환경보존지역",
+      "생산관리지역"
+     ]
+    }
+   },
    "source": "court",
    "note": "일괄매각. 농지취득자격증명 요함(미제출시 매수신청보증금 미반환, 향후 원상회복명령이 발하여질 수 있음). 목록 1 : 지상에 허가 득한 제시외 ",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -2713,7 +4571,38 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "emd",
+    "levelName": "읍면동 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 5,
+    "okLines": 0,
+    "subst": "안동",
+    "dl": "예안",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "일반상업지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "상대보호구역",
+      "중점경관관리구역",
+      "가축사육제한구역",
+      "일반상업지역"
+     ]
+    }
+   },
    "source": "court",
    "note": "일괄매각. 제시외 건물 포함. 1층은 실제 여관으로 이용중.",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -2743,7 +4632,40 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "emd",
+    "levelName": "읍면동 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 17,
+    "okLines": 0,
+    "subst": "안동",
+    "dl": "예안",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "역사문화환경보존지역"
+     ],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "철도보호지구",
+      "가축사육제한구역",
+      "역사문화환경보존지역",
+      "계획관리지역"
+     ]
+    }
+   },
    "source": "court",
    "note": "농지취득자격증명 요함(미제출시 매수신청보증금 미반환). 입목 포함. 묵전으로 임야화가 진행중임. 지적도상 맹지.",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -2803,7 +4725,38 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 3,
+    "okLines": 0,
+    "subst": "풍산",
+    "dl": "명동",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "준보전산지",
+      "접도구역",
+      "가축사육제한구역",
+      "계획관리지역"
+     ]
+    }
+   },
    "source": "court",
    "note": "접도구역 저촉(감안평가). 입목 포함. 분묘 소재, 분묘기지권 성립 여지 있음.",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -2833,7 +4786,38 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 3,
+    "okLines": 0,
+    "subst": "풍산",
+    "dl": "명동",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "역사문화환경보존지역",
+      "제2종일반주거지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "역사문화환경보존지역",
+      "가축사육제한구역",
+      "제2종일반주거지역"
+     ]
+    }
+   },
    "source": "court",
    "note": "지분매각, 공유자 우선매수 제한 조건 있음.",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -2863,7 +4847,37 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 2,
+    "okLines": 0,
+    "subst": "안동",
+    "dl": "유교",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "영농여건불리농지",
+      "가축사육제한구역",
+      "계획관리지역"
+     ]
+    }
+   },
    "source": "court",
    "note": "일괄매각. 목록 1, 2 : 농지취득자격증명 요함(미제출시 매수신청보증금 미반환). 목록 1 : 입목포함, 지상 제시외 건물(컨테이너, 창고 등",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -2893,7 +4907,36 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 3,
+    "okLines": 0,
+    "subst": "안동",
+    "dl": "유교",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "가축사육제한구역",
+      "계획관리지역"
+     ]
+    }
+   },
    "source": "court",
    "note": "지분매각, 공유자 우선매수 제한 조건 있음. 농지취득자격증명 요함(미제출시 매수신청보증금 미반환). 제시외 건물 매각 제외, 제시외 건물을 위한",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -2923,7 +4966,37 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "emd",
+    "levelName": "읍면동 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 5,
+    "okLines": 0,
+    "subst": "안동",
+    "dl": "예안",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "제2종일반주거지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "제2종일반주거지역",
+      "중점경관관리구역",
+      "가축사육제한구역"
+     ]
+    }
+   },
    "source": "court",
    "note": "일괄매각. 제시외 건물 포함. 지분매각, 공유자 우선매수 제한 조건 있음.",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -2953,7 +5026,36 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 1,
+    "okLines": 0,
+    "subst": "안동",
+    "dl": "도산",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "가축사육제한구역",
+      "계획관리지역"
+     ]
+    }
+   },
    "source": "court",
    "note": "일괄매각. 비닐하우스 매각 제외.",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -2983,7 +5085,37 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 2,
+    "okLines": 0,
+    "subst": "안동",
+    "dl": "옹천",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "준보전산지",
+      "가축사육제한구역",
+      "계획관리지역"
+     ]
+    }
+   },
    "source": "court",
    "note": "입목포함. 지적도상 맹지.",
    "link": "https://www.courtauction.go.kr/pgj/index.on?w2xPath=/pgj/ui/pgj100/PGJ159M00.xml",
@@ -3013,7 +5145,36 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 1,
+    "okLines": 0,
+    "subst": "풍산",
+    "dl": "도화",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "생산관리지역"
+     ],
+     "zones": [
+      "가축사육제한구역",
+      "생산관리지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2016562&onbidPbancNo=901246&pbctNo=10064909&pbctCdtnNo=6149015",
@@ -3061,9 +5222,18 @@
     ],
     "type": "토지",
     "landuse": {
-     "grade": "error",
-     "label": "용도 조회실패",
-     "zones": []
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "준보전산지",
+      "소로1류(폭 10m~12m)",
+      "가축사육제한구역기타",
+      "계획관리지역"
+     ]
     }
    },
    "source": "onbid",
@@ -3125,7 +5295,39 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 3,
+    "okLines": 0,
+    "subst": "예천",
+    "dl": "미호",
+    "vol": [
+     0,
+     0,
+     363
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "비행안전제3구역(전술)"
+     ],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "비행안전제3구역(전술)",
+      "가축사육제한구역",
+      "계획관리지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2016701&onbidPbancNo=893384&pbctNo=10064909&pbctCdtnNo=6058975",
@@ -3155,7 +5357,23 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "none",
+    "label": "계통 조회불가",
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "생산관리지역"
+     ],
+     "zones": [
+      "가축사육제한구역",
+      "생산관리지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2023933&onbidPbancNo=893384&pbctNo=10064909&pbctCdtnNo=6058996",
@@ -3185,7 +5403,40 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 2,
+    "okLines": 0,
+    "subst": "풍산",
+    "dl": "풍호",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "준주거지역",
+      "시가지경관지구"
+     ],
+     "favorable": [],
+     "zones": [
+      "가축사육제한구역",
+      "도청이전신도시 개발예정지구",
+      "준주거지역",
+      "시가지경관지구",
+      "지구단위계획구역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2023500&onbidPbancNo=895402&pbctNo=10064909&pbctCdtnNo=6088353",
@@ -3215,7 +5466,24 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "none",
+    "label": "계통 조회불가",
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "생산관리지역"
+     ],
+     "zones": [
+      "가축사육제한구역",
+      "접도구역",
+      "생산관리지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2031731&onbidPbancNo=901246&pbctNo=10064909&pbctCdtnNo=6149019",
@@ -3245,7 +5513,23 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "none",
+    "label": "계통 조회불가",
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "생산관리지역"
+     ],
+     "zones": [
+      "가축사육제한구역",
+      "생산관리지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2023938&onbidPbancNo=893384&pbctNo=10064909&pbctCdtnNo=6058997",
@@ -3275,7 +5559,36 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 2,
+    "okLines": 0,
+    "subst": "풍산",
+    "dl": "풍호",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "가축사육제한구역",
+      "계획관리지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2010734&onbidPbancNo=889132&pbctNo=10064909&pbctCdtnNo=6010006",
@@ -3305,7 +5618,36 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 2,
+    "okLines": 0,
+    "subst": "안동",
+    "dl": "예안",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "자연녹지지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "가축사육제한구역",
+      "자연녹지지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2019551&onbidPbancNo=898521&pbctNo=10064909&pbctCdtnNo=6119383",
@@ -3335,7 +5677,37 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 3,
+    "okLines": 0,
+    "subst": "풍산",
+    "dl": "괴정",
+    "vol": [
+     0,
+     0,
+     8250
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "생산관리지역"
+     ],
+     "zones": [
+      "준보전산지",
+      "가축사육제한구역",
+      "생산관리지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2006408&onbidPbancNo=902834&pbctNo=10064909&pbctCdtnNo=6171086",
@@ -3365,7 +5737,36 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "emd",
+    "levelName": "읍면동 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 3,
+    "okLines": 0,
+    "subst": "동안동",
+    "dl": "남후",
+    "vol": [
+     36573,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "가축사육제한구역",
+      "계획관리지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2026079&onbidPbancNo=899618&pbctNo=10064909&pbctCdtnNo=6136602",
@@ -3395,7 +5796,36 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 5,
+    "okLines": 0,
+    "subst": "안동",
+    "dl": "예안",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "생산관리지역"
+     ],
+     "zones": [
+      "가축사육제한구역",
+      "생산관리지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2036760&onbidPbancNo=898521&pbctNo=10064909&pbctCdtnNo=6119407",
@@ -3425,7 +5855,36 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 1,
+    "okLines": 0,
+    "subst": "풍산",
+    "dl": "공일",
+    "vol": [
+     0,
+     0,
+     96
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "생산관리지역"
+     ],
+     "zones": [
+      "가축사육제한구역",
+      "생산관리지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2032294&onbidPbancNo=898521&pbctNo=10064909&pbctCdtnNo=6119395",
@@ -3455,7 +5914,36 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "emd",
+    "levelName": "읍면동 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 5,
+    "okLines": 0,
+    "subst": "안동",
+    "dl": "송하",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "자연녹지지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "자연녹지지역",
+      "가축사육제한구역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2012496&onbidPbancNo=895402&pbctNo=10064909&pbctCdtnNo=6088312",
@@ -3485,7 +5973,36 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 3,
+    "okLines": 0,
+    "subst": "풍산",
+    "dl": "괴정",
+    "vol": [
+     0,
+     0,
+     8250
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "생산관리지역"
+     ],
+     "zones": [
+      "가축사육제한구역",
+      "생산관리지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2025405&onbidPbancNo=895402&pbctNo=10064909&pbctCdtnNo=6088337",
@@ -3515,7 +6032,43 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 1,
+    "okLines": 0,
+    "subst": "동안동",
+    "dl": "포진",
+    "vol": [
+     36573,
+     10117,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "임업용산지",
+      "소하천구역",
+      "보전관리지역",
+      "농림지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "임업용산지",
+      "준보전산지",
+      "소하천구역",
+      "가축사육제한구역",
+      "보전관리지역",
+      "농림지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2021600&onbidPbancNo=892091&pbctNo=10064909&pbctCdtnNo=6038894",
@@ -3545,7 +6098,38 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 2,
+    "okLines": 0,
+    "subst": "동안동",
+    "dl": "남후",
+    "vol": [
+     36573,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "농업보호구역",
+      "농림지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "가축사육제한구역",
+      "농업보호구역",
+      "농림지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2024911&onbidPbancNo=894104&pbctNo=10064909&pbctCdtnNo=6066139",
@@ -3575,7 +6159,37 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 2,
+    "okLines": 0,
+    "subst": "안동",
+    "dl": "옹천",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "자연녹지지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "상대보호구역",
+      "가축사육제한구역",
+      "자연녹지지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2024916&onbidPbancNo=894104&pbctNo=10064909&pbctCdtnNo=6066140",
@@ -3635,7 +6249,38 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 1,
+    "okLines": 0,
+    "subst": "안동",
+    "dl": "북후",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "생산관리지역"
+     ],
+     "zones": [
+      "영농여건불리농지",
+      "가축사육제한구역",
+      "접도구역",
+      "생산관리지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2002550&onbidPbancNo=889969&pbctNo=10064909&pbctCdtnNo=6015646",
@@ -3665,7 +6310,36 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 1,
+    "okLines": 0,
+    "subst": "안동",
+    "dl": "북후",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "가축사육제한구역",
+      "계획관리지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2002552&onbidPbancNo=889969&pbctNo=10064909&pbctCdtnNo=6015647",
@@ -3695,7 +6369,43 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "emd",
+    "levelName": "읍면동 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 3,
+    "okLines": 0,
+    "subst": "동안동",
+    "dl": "강남",
+    "vol": [
+     36573,
+     0,
+     11870
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "임업용산지",
+      "보전관리지역",
+      "농림지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "임업용산지",
+      "준보전산지",
+      "공장설립제한지역",
+      "가축사육제한구역",
+      "중로1류(폭 20m~25m)",
+      "보전관리지역",
+      "농림지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0013&onbidCltrno=2032406&onbidPbancNo=906611&pbctNo=10103402&pbctCdtnNo=6217864",
@@ -3725,7 +6435,36 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "emd",
+    "levelName": "읍면동 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 17,
+    "okLines": 0,
+    "subst": "안동",
+    "dl": "예안",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "자연녹지지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "자연녹지지역",
+      "가축사육제한구역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=1852289&onbidPbancNo=900842&pbctNo=10090468&pbctCdtnNo=6146706",
@@ -3755,7 +6494,32 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "none",
+    "label": "계통 조회불가",
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "임업용산지",
+      "보전관리지역",
+      "농림지역"
+     ],
+     "favorable": [
+      "생산관리지역"
+     ],
+     "zones": [
+      "임업용산지",
+      "준보전산지",
+      "가축사육제한구역",
+      "농업생산기반 정비사업지역",
+      "생산관리지역",
+      "보전관리지역",
+      "농림지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0013&onbidCltrno=2043339&onbidPbancNo=902621&pbctNo=10094046&pbctCdtnNo=6166756",
@@ -3785,7 +6549,40 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 4,
+    "okLines": 0,
+    "subst": "안동",
+    "dl": "예안",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "역사문화환경보존지역"
+     ],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "준보전산지",
+      "가축사육제한구역",
+      "역사문화환경보존지역",
+      "계획관리지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2009067&onbidPbancNo=889132&pbctNo=10064908&pbctCdtnNo=6009965",
@@ -3815,7 +6612,37 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "li",
+    "levelName": "리 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 1,
+    "okLines": 0,
+    "subst": "안동",
+    "dl": "북후",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "pass",
+     "label": "1차 통과",
+     "reasons": [],
+     "favorable": [
+      "계획관리지역"
+     ],
+     "zones": [
+      "철도보호지구",
+      "가축사육제한구역",
+      "계획관리지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2014624&onbidPbancNo=891212&pbctNo=10064908&pbctCdtnNo=6032114",
@@ -3845,7 +6672,38 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "emd",
+    "levelName": "읍면동 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 2,
+    "okLines": 0,
+    "subst": "동안동",
+    "dl": "송천",
+    "vol": [
+     36573,
+     0,
+     6817
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "exclude",
+     "label": "1차 제외",
+     "reasons": [
+      "공익용산지",
+      "자연환경보전지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "공익용산지",
+      "가축사육제한구역",
+      "자연환경보전지역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0007&onbidCltrno=2024917&onbidPbancNo=894104&pbctNo=10064908&pbctCdtnNo=6066082",
@@ -3875,7 +6733,36 @@
    "firstSeen": "2026-09-29 16:42",
    "notified": false,
    "notifiedAt": null,
-   "solar": null,
+   "solar": {
+    "grade": "fail",
+    "label": "계통 부족",
+    "level": "emd",
+    "levelName": "읍면동 단위",
+    "best": 0,
+    "worst": 0,
+    "lines": 3,
+    "okLines": 0,
+    "subst": "안동",
+    "dl": "송하",
+    "vol": [
+     0,
+     0,
+     0
+    ],
+    "type": "토지",
+    "landuse": {
+     "grade": "cond",
+     "label": "조건부",
+     "reasons": [
+      "자연녹지지역"
+     ],
+     "favorable": [],
+     "zones": [
+      "자연녹지지역",
+      "가축사육제한구역"
+     ]
+    }
+   },
    "source": "onbid",
    "note": null,
    "link": "https://www.onbid.co.kr/op/cltrpbancinf/cltrdtl/CltrDtlController/mvmnCltrDtl.do?cltrPrptDivCd=0005&onbidCltrno=2017777&onbidPbancNo=906500&pbctNo=10103189&pbctCdtnNo=6216251",
@@ -3883,6 +6770,16 @@
   }
  ],
  "runs": [
+  {
+   "at": "2026-09-29 17:36",
+   "mode": "run",
+   "total": 123,
+   "new": 0,
+   "solar": 101,
+   "pass": 2,
+   "targets": 0,
+   "sent": 0
+  },
   {
    "at": "2026-09-29 17:01",
    "mode": "run",
