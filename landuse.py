@@ -72,7 +72,7 @@ class Landuse:
         params = {**params, "key": self.key, "domain": self.domain}
         self.calls += 1
         try:
-            with urllib.request.urlopen(f"{url}?{urllib.parse.urlencode(params)}", timeout=30) as r:
+            with urllib.request.urlopen(f"{url}?{urllib.parse.urlencode(params)}", timeout=15) as r:
                 return json.loads(r.read().decode("utf-8"))
         except (urllib.error.URLError, TimeoutError, ValueError) as e:
             raise LanduseError(f"브이월드 접속 실패: {e}")
