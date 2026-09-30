@@ -225,16 +225,15 @@
         <div class="chk" id="sPrpt"></div>
       </div>
       <div class="field">
-        <label class="t" for="sToken">GitHub 토큰 (저장할 때만 필요)</label>
-        <input type="password" id="sToken" autocomplete="off" placeholder="github_pat_...">
-        <div class="h">이 브라우저에만 보관됩니다. SolarAuction 저장소의 Contents(읽기·쓰기), 바로 조회하려면 Actions(읽기·쓰기) 권한이 필요합니다.
-          <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">토큰 만들기</a></div>
+        <label class="t" for="sPw">설정 비밀번호 (저장할 때만 필요)</label>
+        <input type="password" id="sPw" autocomplete="current-password">
+        <label class="h"><input type="checkbox" id="sRemember"> 이 브라우저에 기억</label>
       </div>
     </div>
     <div class="actions">
       <button class="btn" id="sSave" type="button">저장</button>
       <label class="h"><input type="checkbox" id="sRunNow" checked> 저장 후 바로 조회 실행</label>
-      <button class="btn ghost" id="sForget" type="button">토큰 지우기</button>
+      <button class="btn ghost" id="sForget" type="button">비밀번호 지우기</button>
       <span class="msg" id="sMsg"></span>
     </div>
   </details>
@@ -250,6 +249,10 @@
   </div>
 </div>
 <div id="toast" role="status" aria-live="polite"></div>
+<script>
+// 예전 주소(GitHub Pages)로 들어오면 새 주소로 이동 (2026.9.30 아이비호스팅으로 이전)
+if (location.hostname.endsWith("github.io")) location.replace("https://solarnitice.ivyro.net/");
+</script>
 <script>
 const $ = id => document.getElementById(id);
 let toastTimer;
@@ -382,19 +385,17 @@ load().then(() => {
 });
 try { if (window.matchMedia("(min-width: 1000px)").matches) $("guide").open = true; } catch (e) {}
 
-// ---------------- 설정 (GitHub API로 settings.json 수정) ----------------
-const REPO = "coldankim/SolarAuction";
+// ---------------- 설정 (서버 settings.php로 읽기/저장) ----------------
 const PRPT = [["0007","압류재산"],["0010","국유재산"],["0005","기타일반재산"],["0002","공유재산"],["0003","금융권담보재산"],
   ["0006","유입재산"],["0008","수탁재산"],["0011","공공개발재산"],["0013","파산자산"]];
-let settingsSha = null;
-const b64dec = b => new TextDecoder().decode(Uint8Array.from(atob(b.replace(/\s/g, "")), c => c.charCodeAt(0)));
-const b64enc = t => { let s = ""; new TextEncoder().encode(t).forEach(c => s += String.fromCharCode(c)); return btoa(s); };
+let settingsLoaded = false;
 const lsGet = k => { try { return localStorage.getItem(k) || ""; } catch (e) { return ""; } };
 const lsSet = (k, v) => { try { v ? localStorage.setItem(k, v) : localStorage.removeItem(k); } catch (e) {} };
 const msg = (t, cls) => { $("sMsg").textContent = t; $("sMsg").className = "msg " + (cls || ""); };
 
 $("sPrpt").innerHTML = PRPT.map(([c, n]) => `<label><input type="checkbox" value="${c}">${n}</label>`).join("");
-$("sToken").value = lsGet("ghToken");
+$("sPw").value = lsGet("settingsPw");
+$("sRemember").checked = !!$("sPw").value;
 
 function fillSettings(st) {
   $("sRegions").value = (st.REGIONS || "").split(";").filter(Boolean).map(r => r.replace(":", " ").trim()).join("\n");
@@ -408,17 +409,16 @@ function fillSettings(st) {
 
 async function loadSettings() {
   try {
-    const r = await fetch(`https://api.github.com/repos/${REPO}/contents/settings.json?ref=main&t=${Date.now()}`, { cache: "no-store" });
+    const r = await fetch(`settings.php?t=${Date.now()}`, { cache: "no-store" });
     if (!r.ok) throw new Error(r.status);
-    const j = await r.json();
-    settingsSha = j.sha;
-    fillSettings(JSON.parse(b64dec(j.content)));
+    fillSettings(await r.json());
+    settingsLoaded = true;
   } catch (e) {
     fillSettings(DATA.settings || {});
-    msg("현재 설정을 GitHub에서 읽지 못해 마지막 실행 값을 표시합니다.", "err");
+    msg("현재 설정을 읽지 못해 마지막 실행 값을 표시합니다.", "err");
   }
 }
-$("settingsBox").addEventListener("toggle", () => { if ($("settingsBox").open && !settingsSha) loadSettings(); });
+$("settingsBox").addEventListener("toggle", () => { if ($("settingsBox").open && !settingsLoaded) loadSettings(); });
 
 function readForm() {
   const lines = $("sRegions").value.split(/\n/).map(l => l.trim().replace(/\s+/g, " ")).filter(Boolean);
@@ -435,31 +435,23 @@ function readForm() {
 $("sSave").addEventListener("click", async () => {
   let st;
   try { st = readForm(); } catch (e) { return msg(e.message, "err"); }
-  const token = $("sToken").value.trim();
-  if (!token) return msg("저장하려면 GitHub 토큰을 입력하세요.", "err");
-  const H = { Authorization: `Bearer ${token}`, Accept: "application/vnd.github+json" };
+  const pw = $("sPw").value;
+  if (!pw) return msg("저장하려면 설정 비밀번호를 입력하세요.", "err");
   $("sSave").disabled = true; msg("저장 중…");
   try {
-    if (!settingsSha) await loadSettings();
-    const r = await fetch(`https://api.github.com/repos/${REPO}/contents/settings.json`, {
-      method: "PUT", headers: H,
-      body: JSON.stringify({ message: "설정 변경 (화면)", content: b64enc(JSON.stringify(st, null, 2) + "\n"), sha: settingsSha, branch: "main" }) });
+    const r = await fetch("settings.php", {
+      method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({ password: pw, settings: st, runNow: $("sRunNow").checked }) });
     const j = await r.json().catch(() => ({}));
-    if (!r.ok) throw new Error(r.status === 401 ? "토큰이 올바르지 않습니다." : (r.status === 403 || r.status === 404) ? "토큰에 이 저장소 Contents 쓰기 권한이 없습니다." : r.status === 409 ? "그 사이 설정이 바뀌었습니다. 새로고침 후 다시 시도하세요." : (j.message || r.status));
-    settingsSha = j.content && j.content.sha;
-    lsSet("ghToken", token);
-    let note = "저장했습니다. 다음 실행부터 적용됩니다.";
-    if ($("sRunNow").checked) {
-      const d = await fetch(`https://api.github.com/repos/${REPO}/actions/workflows/onbid-alert.yml/dispatches`, {
-        method: "POST", headers: H, body: JSON.stringify({ ref: "main", inputs: { mode: "run" } }) });
-      note = d.ok ? "저장하고 조회를 시작했습니다. 몇 분 뒤 새로고침하면 반영됩니다." : "저장했습니다. (바로 조회는 토큰에 Actions 권한이 없어 실행하지 못했습니다)";
-    }
-    msg(note, "ok");
+    if (!r.ok) throw new Error(j.error || r.status);
+    lsSet("settingsPw", $("sRemember").checked ? pw : "");
+    fillSettings(j.settings || st);
+    msg(j.started ? "저장하고 조회를 시작했습니다. 몇 분 뒤 새로고침하면 반영됩니다." : "저장했습니다. 다음 실행부터 적용됩니다.", "ok");
   } catch (e) {
     msg("저장 실패: " + e.message, "err");
   } finally { $("sSave").disabled = false; }
 });
-$("sForget").addEventListener("click", () => { lsSet("ghToken", ""); $("sToken").value = ""; msg("이 브라우저에서 토큰을 지웠습니다.", "ok"); });
+$("sForget").addEventListener("click", () => { lsSet("settingsPw", ""); $("sPw").value = ""; $("sRemember").checked = false; msg("이 브라우저에서 비밀번호를 지웠습니다.", "ok"); });
 </script>
 </body>
 </html>

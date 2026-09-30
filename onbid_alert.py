@@ -46,7 +46,7 @@ ENV_KEYS = [
     "REGIONS", "PVCT_TRGT_YN", "DSPS_MTHOD_CD", "PRPT_DIV_CD", "MAX_NOTIFY", "LINK_URL",
     "KAKAO_REDIRECT_URI", "KEPCO_API_KEY", "SOLAR_MIN_KW", "SOLAR_GOOD_KW",
     "VWORLD_API_KEY", "VWORLD_DOMAIN", "VWORLD_PROXY_URL", "VWORLD_PROXY_TOKEN",
-    "COURT_ENABLED", "COURT_REFRESH_HOURS", "SOLAR_TIME_BUDGET_MIN", "TELEGRAM_BOT_TOKEN", "TELEGRAM_CHAT_ID", "KAKAO_ENABLED",
+    "COURT_ENABLED", "COURT_REFRESH_HOURS", "SOLAR_TIME_BUDGET_MIN", "SOLAR_DATA_FILE", "TELEGRAM_BOT_TOKEN", "TELEGRAM_CHAT_ID", "KAKAO_ENABLED",
 ]
 KST = timezone(timedelta(hours=9))
 IN_ACTIONS = os.environ.get("GITHUB_ACTIONS") == "true"
@@ -69,16 +69,40 @@ def now_kst():
 
 def log(msg):
     line = f"[{now_kst():%Y-%m-%d %H:%M:%S}] {msg}"
-    print(line)
+    print(line, flush=True)
     if not IN_ACTIONS:
-        with open(LOG_FILE, "a", encoding="utf-8") as f:
-            f.write(line + "\n")
+        try:
+            if os.path.exists(LOG_FILE) and os.path.getsize(LOG_FILE) > 2_000_000:  # 2MB 넘으면 뒤쪽 절반만 남김
+                with open(LOG_FILE, encoding="utf-8", errors="replace") as f:
+                    keep = f.read()[-1_000_000:]
+                with open(LOG_FILE, "w", encoding="utf-8") as f:
+                    f.write(keep)
+            with open(LOG_FILE, "a", encoding="utf-8") as f:
+                f.write(line + "\n")
+        except OSError:
+            pass
+
+
+def acquire_lock():
+    """같은 서버에서 실행이 겹치지 않게 잠금 (리눅스 서버용, 윈도우에서는 생략). 이미 실행 중이면 None."""
+    try:
+        import fcntl
+    except ImportError:
+        return True
+    fh = open(os.path.join(BASE_DIR, "run.lock"), "w")
+    try:
+        fcntl.flock(fh, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except OSError:
+        fh.close()
+        return None
+    return fh
 
 
 # ---------------------------------------------------------------- 설정
 
 def find_secret_file():
-    for name in (".env", "API_key.env"):
+    # .env.php: 서버용. 첫 줄 <?php exit; ?> 덕분에 웹으로 열려도 내용이 보이지 않는다
+    for name in (".env.php", ".env", "API_key.env"):
         p = os.path.join(BASE_DIR, name)
         if os.path.exists(p):
             return p
@@ -784,6 +808,10 @@ def main():
         env, secret_path = load_settings()
     except AlertError as e:
         sys.exit(str(e))
+    # 서버(아이비호스팅)에서는 화면 데이터를 웹 폴더에 바로 쓴다 (예: SOLAR_DATA_FILE=../public_html/data.json)
+    global DATA_FILE
+    if env.get("SOLAR_DATA_FILE"):
+        DATA_FILE = os.path.normpath(os.path.join(BASE_DIR, env["SOLAR_DATA_FILE"]))
 
     try:
         if args.auth:
@@ -809,6 +837,10 @@ def main():
         sys.exit(str(e))
 
     # 일반 실행 / init: 성공이든 실패든 실행 기록을 대시보드에 남긴다
+    lock = acquire_lock()
+    if lock is None:
+        log("이미 실행 중이라 이번 실행은 건너뜀")
+        return
     mode = "init" if args.init else "run"
     run = {"at": now_kst().strftime("%Y-%m-%d %H:%M"), "mode": mode}
     found = seen = None
