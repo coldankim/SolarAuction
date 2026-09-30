@@ -661,6 +661,7 @@ def pick_targets(found, seen, solar):
     """알림 대상 결정.
     - 처음 보는 물건: 태양광 대상 + 계통 통과면 알림
     - 이미 본 물건: 알림 보낸 적 없고, 지난번엔 부족/조회불가였는데 이번에 통과로 바뀌면 알림 (여유용량 생김)
+    - 처음 봤을 때 조회가 밀려(대기) 판정을 못 했던 새 물건: 나중에 통과로 판정되면 신규로 알림
     """
     out = []
     for no, it in found.items():
@@ -670,8 +671,14 @@ def pick_targets(found, seen, solar):
         s = seen.get(no)
         if s is None:
             out.append((no, it, None))
-        elif not is_notified(s) and (s.get("solar") or {}).get("grade") in ("fail", "none"):
+            continue
+        if is_notified(s):
+            continue
+        prev = s.get("solar") or {}
+        if prev.get("grade") in ("fail", "none"):
             out.append((no, it, f"{source_name(it)} 계통 여유 생김"))
+        elif not s.get("init") and not solar_ok(prev):
+            out.append((no, it, None))
     return out
 
 

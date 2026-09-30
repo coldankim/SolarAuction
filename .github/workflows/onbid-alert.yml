@@ -68,12 +68,16 @@ jobs:
           rm -f new_refresh_token.txt
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          for f in docs/data.json seen_items.json kepco_cache.json landuse_cache.json court_cache.json state.json setback_cache.json; do [ -f "$f" ] && git add "$f"; done
-          if git diff --cached --quiet; then echo "변경 없음"; exit 0; fi
-          git commit -m "data: $(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M')"
-          # 실행 중에 화면에서 설정을 저장하는 등 원격이 바뀌었으면 받아서 합친 뒤 올린다 (결과 파일은 이번 실행 것 우선)
+          # 원격 최신 커밋 위에 '이번 실행이 만든 결과 파일'만 통째로 올린다.
+          # (JSON을 줄 단위로 합치면 기록이 섞이거나 사라질 수 있고, 화면에서 바꾼 settings.json 등은 건드리지 않기 위해)
+          FILES="docs/data.json seen_items.json kepco_cache.json landuse_cache.json court_cache.json state.json setback_cache.json"
           for i in 1 2 3; do
-            git pull --rebase -X theirs origin main && git push && exit 0
+            git fetch -q origin main
+            git reset -q --mixed origin/main
+            for f in $FILES; do [ -f "$f" ] && git add "$f"; done
+            if git diff --cached --quiet; then echo "변경 없음"; exit 0; fi
+            git commit -q -m "data: $(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M')"
+            git push -q origin HEAD:main && exit 0
             sleep 5
           done
           exit 1
