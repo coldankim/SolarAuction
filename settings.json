@@ -1,7 +1,7 @@
 {
-  "REGIONS": "경상북도:예천군;경상북도:안동시",
-  "PVCT_TRGT_YN": "N",
-  "DSPS_MTHOD_CD": "0001",
+  "REGIONS": "경상북도:예천군;경상북도:안동시;경기도:용인시",
+  "PVCT_TRGT_YN": "N,Y",
+  "DSPS_MTHOD_CD": "",
   "PRPT_DIV_CD": "",
   "SOLAR_MIN_KW": "100",
   "SOLAR_GOOD_KW": "300"
