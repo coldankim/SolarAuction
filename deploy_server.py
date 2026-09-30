@@ -114,7 +114,7 @@ def main():
 
     pub = set(os.path.basename(x) for x in f.nlst("/public_html"))
     put(open(os.path.join(BASE, "docs", "index.html"), "rb").read(), "/public_html/index.html")
-    for name in ("trigger.php", "settings.php"):
+    for name in ("trigger.php", "settings.php", "index.php"):
         put(open(os.path.join(BASE, "server", name), "rb").read(), f"/public_html/{name}")
     if with_data or "data.json" not in pub:
         put(open(os.path.join(BASE, "docs", "data.json"), "rb").read(), "/public_html/data.json")

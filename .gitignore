@@ -8,3 +8,4 @@ new_refresh_token.txt
 __pycache__/
 .claude/
 relay/
+backup_ivyro/
