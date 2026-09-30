@@ -5,249 +5,457 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>태양광 경매 공매 알림</title>
 <meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
 <style>
+  /* ── 색 토큰 ──────────────────────────────────────────────
+     포인트(차트 계열): 주황=태양광, 파랑=온비드, 연두=법원경매  (dataviz 검증 통과: 밝은/어두운 화면 각각)
+     상태색(좋음/주의/위험)은 계열색과 따로 둔다 */
   :root {
-    --bg: #f6f7f9; --card: #fff; --text: #1d2127; --muted: #6b7280; --line: #e5e7eb;
-    --accent: #2563eb; --new: #dc2626; --new-bg: #fef2f2; --ok: #16a34a; --ok-bg: #f0fdf4; --warn-bg: #fff7ed; --warn: #c2410c;
-    --sun: #a16207; --sun-bg: #fefce8;
+    color-scheme: light;
+    --sun: #E3740F; --sky: #2F7AE5; --leaf: #4FA52B;
+    --sun-soft: #fdf0e3; --sky-soft: #e8f0fd; --leaf-soft: #ebf6e5;
+    --bg: #f3f5f8; --card: #ffffff; --line: #e4e8ee; --line-2: #eef1f5;
+    --text: #1b2230; --text-2: #4b5565; --muted: #7a8494;
+    --good: #16794a; --good-bg: #e6f4ec; --warn: #a65b00; --warn-bg: #fdf1df; --bad: #c0362c; --bad-bg: #fdeaea;
+    --shadow: 0 1px 2px rgba(20, 30, 50, .06), 0 4px 14px rgba(20, 30, 50, .05);
+    /* 사이드바는 화면 테마와 상관없이 항상 어둡게 */
+    --side: #111827; --side-2: #172033; --side-line: #243049; --side-text: #e6ebf3; --side-muted: #95a1b5;
+    --brand: #F7931E;
   }
   @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #111418; --card: #1a1f25; --text: #e6e8eb; --muted: #9aa3ad; --line: #2a313a;
-      --accent: #60a5fa; --new: #f87171; --new-bg: #2a1616; --ok: #4ade80; --ok-bg: #12261a; --warn-bg: #2a1d12; --warn: #fb923c;
-      --sun: #facc15; --sun-bg: #2a2710;
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --sun: #D9731A; --sky: #3A82E6; --leaf: #52A62F;
+      --sun-soft: #33240f; --sky-soft: #14233b; --leaf-soft: #17280f;
+      --bg: #0e131b; --card: #161c27; --line: #263041; --line-2: #1d2533;
+      --text: #e8edf4; --text-2: #b8c1ce; --muted: #8b95a5;
+      --good: #4cc38a; --good-bg: #12291e; --warn: #f0a54a; --warn-bg: #2d2010; --bad: #f07a70; --bad-bg: #321715;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .4);
+      --side: #0a0f17; --side-2: #111826; --side-line: #1f2a3d;
     }
   }
-  * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--text);
-         font: 15px/1.5 -apple-system, "Segoe UI", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif; }
-  .wrap { max-width: 1320px; margin: 0 auto; padding: 16px; }
-  .layout { display: grid; grid-template-columns: 1fr; gap: 16px; align-items: start; }
-  .layout > main { min-width: 0; }
-  @media (min-width: 1000px) {
-    .layout { grid-template-columns: 300px 1fr; }
-    .guide { position: sticky; top: 12px; max-height: calc(100vh - 24px); overflow-y: auto; }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --sun: #D9731A; --sky: #3A82E6; --leaf: #52A62F;
+    --sun-soft: #33240f; --sky-soft: #14233b; --leaf-soft: #17280f;
+    --bg: #0e131b; --card: #161c27; --line: #263041; --line-2: #1d2533;
+    --text: #e8edf4; --text-2: #b8c1ce; --muted: #8b95a5;
+    --good: #4cc38a; --good-bg: #12291e; --warn: #f0a54a; --warn-bg: #2d2010; --bad: #f07a70; --bad-bg: #321715;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .4);
+    --side: #0a0f17; --side-2: #111826; --side-line: #1f2a3d;
   }
-  .guide { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; font-size: 13px; line-height: 1.55; }
-  .guide > summary { font-size: 15px; font-weight: 700; cursor: pointer; }
-  .guide h3 { font-size: 13.5px; margin: 14px 0 4px; display: flex; gap: 6px; align-items: center; }
-  .guide h3 .n { display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 50%;
-                 background: var(--accent); color: #fff; font-size: 12px; flex: none; }
-  .guide p { margin: 0 0 6px; color: var(--muted); }
-  .guide ul { margin: 0 0 4px; padding-left: 16px; }
-  .guide li { margin: 2px 0; }
-  .guide .flow { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; margin: 6px 0; font-size: 12px; }
-  .guide .flow span { background: var(--bg); border-radius: 6px; padding: 2px 6px; }
-  .guide .row { display: flex; gap: 6px; align-items: baseline; margin: 4px 0; }
-  .guide .row .tag { flex: none; }
-  .guide .tip { background: var(--bg); border-radius: 8px; padding: 8px 10px; margin-top: 12px; }
-  .guide b { color: var(--text); }
-  header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; margin-bottom: 12px; }
-  h1 { font-size: 20px; margin: 0; }
-  .meta { color: var(--muted); font-size: 13px; }
-  .stats { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0 12px; }
-  .stat { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 8px 14px; }
-  .stat b { font-size: 18px; display: block; }
-  .stat span { color: var(--muted); font-size: 12px; }
-  .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
-  .filters select, .filters input { font: inherit; padding: 7px 10px; border: 1px solid var(--line);
-         border-radius: 8px; background: var(--card); color: var(--text); min-width: 0; }
-  .filters input[type=search] { flex: 1 1 180px; }
-  .filters label { display: flex; align-items: center; gap: 6px; font-size: 14px; }
-  .list { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; }
-  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px;
-          display: flex; flex-direction: column; gap: 6px; }
-  .card.new { border-color: var(--new); }
-  .top { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; font-size: 12px; }
-  .tag { padding: 1px 8px; border-radius: 99px; background: var(--bg); color: var(--muted); }
-  .tag.new { background: var(--new-bg); color: var(--new); font-weight: 600; }
-  .tag.sun { background: var(--sun-bg); color: var(--sun); font-weight: 600; }
-  .tag.good, .tag.ok { background: var(--ok-bg); color: var(--ok); font-weight: 600; }
-  .tag.fail, .tag.cond { background: var(--warn-bg); color: var(--warn); }
-  .tag.src { background: var(--text); color: var(--bg); font-weight: 600; }
-  .tag.src.court { background: #7c3aed; color: #fff; }
-  .note { font-size: 12px; color: var(--muted); }
-  .set-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 10px; }
-  @media (min-width: 720px) { .set-grid { grid-template-columns: 1fr 1fr; } }
-  .field label.t { display: block; font-size: 13px; font-weight: 600; margin-bottom: 4px; }
-  .field .h, .h { font-size: 12px; color: var(--muted); margin-top: 3px; }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 14px/1.55 "Noto Sans KR", -apple-system, "Segoe UI", "Malgun Gothic", sans-serif; }
+  a { color: var(--sky); }
+  button, input, select, textarea { font: inherit; }
+
+  /* ── 레이아웃: 왼쪽 어두운 사이드바 + 오른쪽 작업 영역 ── */
+  .app { display: grid; grid-template-columns: 280px minmax(0, 1fr); min-height: 100vh; }
+  .side { background: linear-gradient(180deg, var(--side) 0%, var(--side-2) 100%); color: var(--side-text);
+          position: sticky; top: 0; height: 100vh; overflow-y: auto; padding: 20px 16px 28px;
+          border-right: 1px solid var(--side-line); }
+  .main { min-width: 0; }
+
+  .brand { display: flex; align-items: center; gap: 10px; padding: 4px 6px 18px; border-bottom: 1px solid var(--side-line); }
+  .brand .logo { width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; flex: none;
+                 background: radial-gradient(circle at 35% 30%, #ffd08a, var(--brand) 60%, #c65f06); box-shadow: 0 0 18px rgba(247, 147, 30, .35); }
+  .brand b { display: block; font-size: 15.5px; letter-spacing: -.2px; }
+  .brand small { color: var(--side-muted); font-size: 11.5px; letter-spacing: .6px; text-transform: uppercase; }
+
+  .nav { list-style: none; margin: 16px 0 6px; padding: 0; }
+  .nav a { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 8px; color: var(--side-text);
+           text-decoration: none; font-size: 13.5px; }
+  .nav a:hover { background: rgba(255, 255, 255, .06); }
+  .nav a.on { background: rgba(247, 147, 30, .14); color: #ffd9ad; box-shadow: inset 3px 0 0 var(--brand); }
+  .nav svg { width: 17px; height: 17px; flex: none; opacity: .9; }
+
+  .side-h { margin: 18px 6px 8px; font-size: 11px; color: var(--side-muted); letter-spacing: .8px; text-transform: uppercase; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 6px; }
+  .chip { font-size: 12px; padding: 3px 9px; border-radius: 99px; background: rgba(255, 255, 255, .07); border: 1px solid var(--side-line); }
+  .side-status { margin: 10px 6px 0; font-size: 12px; color: var(--side-muted); display: flex; gap: 8px; align-items: center; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: #6bd18f; box-shadow: 0 0 0 3px rgba(107, 209, 143, .18); flex: none; }
+  .dot.err { background: #ff8a7a; box-shadow: 0 0 0 3px rgba(255, 138, 122, .18); }
+
+  /* 사이드바 안의 선정 기준 가이드 */
+  .g { margin: 0 2px; }
+  .g details { border: 1px solid var(--side-line); border-radius: 10px; background: rgba(255, 255, 255, .03); margin-bottom: 8px; }
+  .g summary { cursor: pointer; padding: 9px 12px; font-size: 13px; font-weight: 700; list-style: none; display: flex; gap: 8px; align-items: center; }
+  .g summary::-webkit-details-marker { display: none; }
+  .g summary::after { content: "+"; margin-left: auto; color: var(--side-muted); font-weight: 400; }
+  .g details[open] summary::after { content: "–"; }
+  .g .n { width: 20px; height: 20px; border-radius: 6px; display: grid; place-items: center; font-size: 11px; flex: none; color: #111827; }
+  .g .n.o { background: #f7a24a; } .g .n.b { background: #6ea8f5; } .g .n.l { background: #8bcf63; } .g .n.w { background: #cfd6e1; }
+  .g .body { padding: 0 12px 12px; font-size: 12.5px; color: #c6cedb; }
+  .g p { margin: 0 0 6px; }
+  .g .row { display: flex; gap: 6px; align-items: baseline; margin: 5px 0; }
+  .g .row .tag { flex: none; }
+  .g .flow { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; font-size: 11.5px; margin: 6px 0; }
+  .g .flow span { background: rgba(255, 255, 255, .08); border-radius: 6px; padding: 2px 6px; }
+  .g b { color: #fff; }
+  .g ul { margin: 4px 0 0; padding-left: 16px; }
+  .g .tag { background: rgba(255, 255, 255, .08); color: #dfe5ee; }
+  .g .tag.good, .g .tag.ok, .g .tag.pass, .g .tag.sb-ok { background: rgba(76, 195, 138, .16); color: #8fe0b5; }
+  .g .tag.fail, .g .tag.cond { background: rgba(240, 165, 74, .16); color: #ffc98a; }
+  .g .tag.exclude, .g .tag.sb-violate { background: rgba(240, 122, 112, .16); color: #ffaaa2; }
+  .g .tag.sun { background: rgba(247, 147, 30, .18); color: #ffc98a; }
+  .side-foot { margin: 18px 6px 0; font-size: 11px; color: var(--side-muted); line-height: 1.6; }
+  .side-foot a { color: #9cc2ff; }
+
+  /* ── 상단 바 ── */
+  .top { position: sticky; top: 0; z-index: 5; display: flex; align-items: center; gap: 12px; padding: 14px 24px;
+         background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  .top h1 { margin: 0; font-size: 19px; letter-spacing: -.3px; }
+  .top .crumb { color: var(--muted); font-size: 12.5px; }
+  .top .sp { flex: 1; }
+  .pill { display: inline-flex; align-items: center; gap: 7px; font-size: 12.5px; padding: 5px 11px; border-radius: 99px;
+          background: var(--card); border: 1px solid var(--line); color: var(--text-2); white-space: nowrap; }
+  .icon-btn { border: 1px solid var(--line); background: var(--card); color: var(--text-2); border-radius: 8px; padding: 6px 10px;
+              cursor: pointer; display: inline-flex; gap: 6px; align-items: center; }
+  .icon-btn:hover { color: var(--text); border-color: var(--muted); }
+  .menu-btn { display: none; }
+
+  .wrap { padding: 20px 24px 40px; max-width: 1500px; }
+  .alert { background: var(--bad-bg); color: var(--bad); border: 1px solid color-mix(in srgb, var(--bad) 30%, transparent);
+           border-radius: 10px; padding: 10px 14px; margin-bottom: 16px; font-size: 13px; }
+
+  /* ── KPI 타일 ── */
+  .kpis { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; margin-bottom: 18px; }
+  .kpi { position: relative; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 16px 14px;
+         box-shadow: var(--shadow); overflow: hidden; }
+  .kpi::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px; background: var(--c, var(--sky)); }
+  .kpi .ic { width: 34px; height: 34px; border-radius: 9px; display: grid; place-items: center; background: var(--cs, var(--sky-soft)); color: var(--c, var(--sky)); }
+  .kpi .ic svg { width: 18px; height: 18px; }
+  .kpi .v { font-size: 28px; font-weight: 800; letter-spacing: -.8px; margin-top: 10px; line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .kpi .v small { font-size: 13px; font-weight: 500; color: var(--muted); margin-left: 3px; letter-spacing: 0; }
+  .kpi .l { color: var(--text-2); font-size: 12.5px; margin-top: 3px; }
+  .kpi .s { color: var(--muted); font-size: 11.5px; margin-top: 2px; }
+
+  /* ── 패널(카드) 공통 ── */
+  .panel { background: var(--card); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); }
+  .panel-h { display: flex; align-items: center; gap: 10px; padding: 13px 16px; border-bottom: 1px solid var(--line-2); }
+  .panel-h h2 { margin: 0; font-size: 14.5px; letter-spacing: -.2px; }
+  .panel-h .hint { color: var(--muted); font-size: 12px; }
+  .panel-h .sp { flex: 1; }
+  .panel-b { padding: 14px 16px 16px; }
+  .charts { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 14px; margin-bottom: 18px; }
+
+  /* ── 막대 차트 (HTML) ── */
+  .bars { display: grid; gap: 10px; }
+  .bar-row { display: grid; grid-template-columns: 118px minmax(0, 1fr) 76px; gap: 10px; align-items: center; font-size: 12.5px; }
+  .bar-row .k { color: var(--text-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .bar-row .val { text-align: right; font-variant-numeric: tabular-nums; color: var(--text); font-weight: 700; }
+  .bar-row .val small { color: var(--muted); font-weight: 400; margin-left: 3px; }
+  .track { position: relative; height: 18px; border-radius: 4px; background: var(--line-2); display: flex; gap: 2px; overflow: hidden; }
+  .seg { height: 100%; border-radius: 4px; min-width: 2px; transition: filter .15s; cursor: default; }
+  .seg:hover { filter: brightness(1.12); }
+  .legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12px; color: var(--text-2); margin-top: 12px; }
+  .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
+  .tbl-toggle { margin-top: 10px; font-size: 12px; color: var(--muted); }
+  .tbl-toggle summary { cursor: pointer; }
+  .mini-tbl { width: 100%; border-collapse: collapse; margin-top: 6px; font-size: 12px; }
+  .mini-tbl th, .mini-tbl td { text-align: left; padding: 4px 6px; border-bottom: 1px solid var(--line-2); }
+  .mini-tbl td.n { text-align: right; font-variant-numeric: tabular-nums; }
+  #tip { position: fixed; z-index: 30; pointer-events: none; background: #111827; color: #f3f6fb; font-size: 12px; padding: 7px 10px;
+         border-radius: 8px; box-shadow: 0 6px 20px rgba(0, 0, 0, .25); opacity: 0; transform: translateY(4px); transition: opacity .1s; }
+  #tip.on { opacity: 1; transform: none; }
+
+  /* ── 필터 바 ── */
+  .filters { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .filters select, .filters input[type=search] { padding: 7px 10px; border: 1px solid var(--line); border-radius: 8px;
+         background: var(--card); color: var(--text); min-width: 0; }
+  .filters input[type=search] { flex: 1 1 200px; }
+  .filters label { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-2); }
+  .count { color: var(--muted); font-size: 12.5px; margin-left: auto; }
+
+  /* ── 물건 카드 ── */
+  .list { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 12px; }
+  .card { position: relative; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px 13px 18px;
+          display: flex; flex-direction: column; gap: 6px; box-shadow: var(--shadow); transition: transform .12s, box-shadow .12s; }
+  .card:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(20, 30, 50, .10); }
+  .card::before { content: ""; position: absolute; left: 0; top: 12px; bottom: 12px; width: 4px; border-radius: 0 4px 4px 0; background: var(--line); }
+  .card.pass::before { background: var(--sun); }
+  .card.new { border-color: color-mix(in srgb, var(--sun) 55%, var(--line)); }
+  .tags { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; }
+  .tag { font-size: 11.5px; padding: 2px 8px; border-radius: 6px; background: var(--line-2); color: var(--text-2); white-space: nowrap; }
+  .tag.src { color: #fff; font-weight: 700; background: var(--sky); }
+  .tag.src.court { background: var(--leaf); }
+  .tag.new { background: var(--sun); color: #fff; font-weight: 700; }
+  .tag.sun { background: var(--sun-soft); color: var(--sun); font-weight: 700; }
+  .tag.good, .tag.ok, .tag.pass, .tag.sb-ok { background: var(--good-bg); color: var(--good); font-weight: 600; }
+  .tag.fail, .tag.cond { background: var(--warn-bg); color: var(--warn); font-weight: 600; }
+  .tag.exclude, .tag.sb-violate { background: var(--bad-bg); color: var(--bad); font-weight: 700; }
+  .name { font-weight: 700; font-size: 14.5px; word-break: keep-all; overflow-wrap: anywhere; color: var(--text); text-decoration: none; }
+  a.name:hover { color: var(--sky); }
+  a.name .ext { font-size: 11.5px; font-weight: 500; color: var(--sky); margin-left: 6px; white-space: nowrap; }
+  .price { display: flex; gap: 10px; flex-wrap: wrap; align-items: baseline; }
+  .price .low { font-size: 18px; font-weight: 800; letter-spacing: -.4px; font-variant-numeric: tabular-nums; }
+  .price .rate { font-size: 12px; font-weight: 700; color: var(--sky); background: var(--sky-soft); padding: 1px 7px; border-radius: 99px; }
+  .sub { color: var(--muted); font-size: 12.5px; }
+  .solar { font-size: 12.5px; background: var(--sun-soft); border-radius: 8px; padding: 7px 10px; color: var(--text-2); }
+  .solar b { color: var(--sun); }
+  .zones { font-size: 12px; color: var(--muted); }
+  .zones b { color: var(--warn); font-weight: 600; }
+  .zones b.ex { color: var(--bad); }
+  .note { font-size: 12px; color: var(--muted); border-left: 2px solid var(--line); padding-left: 8px; }
+  .mng { font-size: 12px; color: var(--muted); display: flex; gap: 6px; align-items: center; margin-top: 2px; }
+  .mng button { font-size: 11.5px; border: 1px solid var(--line); background: none; color: var(--sky); border-radius: 6px; padding: 0 7px; cursor: pointer; }
+  .empty { color: var(--muted); padding: 40px 0; text-align: center; grid-column: 1 / -1; }
+
+  /* ── 설정 / 실행 기록 ── */
+  .section { margin-top: 18px; }
+  .set-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .field label.t { display: block; font-size: 12.5px; font-weight: 700; margin-bottom: 5px; }
+  .field .h, .h { font-size: 12px; color: var(--muted); margin-top: 4px; }
   .field textarea, .field input[type=number], .field input[type=password], .field select {
-    width: 100%; font: inherit; padding: 7px 10px; border: 1px solid var(--line); border-radius: 8px;
-    background: var(--bg); color: var(--text); }
-  .field textarea { min-height: 84px; resize: vertical; }
+    width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--text); }
+  .field textarea { min-height: 86px; resize: vertical; }
   .chk { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; }
   .chk label { display: flex; gap: 4px; align-items: center; }
   .row2 { display: flex; gap: 8px; }
-  .actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 12px; }
-  .btn { font: inherit; font-weight: 600; padding: 8px 16px; border-radius: 8px; border: 0; background: var(--accent); color: #fff; cursor: pointer; }
-  .btn.ghost { background: none; color: var(--accent); border: 1px solid var(--line); }
-  .msg { font-size: 13px; }
-  .msg.err { color: var(--new); } .msg.ok { color: var(--ok); }
-  footer { margin: 24px 0 8px; font-size: 12px; color: var(--muted); }
-  footer a { color: var(--accent); }
-  .tag.pass { background: var(--ok-bg); color: var(--ok); font-weight: 600; }
-  .tag.exclude { background: var(--new-bg); color: var(--new); font-weight: 600; }
-  .tag.sb-ok { background: var(--ok-bg); color: var(--ok); }
-  .tag.sb-violate { background: var(--new-bg); color: var(--new); font-weight: 600; }
-  .zones { font-size: 12px; color: var(--muted); }
-  .zones b { color: var(--warn); font-weight: 600; }
-  .zones b.ex { color: var(--new); }
-  .card.pass { border-left: 4px solid var(--ok); }
-  .solar { font-size: 13px; background: var(--bg); border-radius: 8px; padding: 6px 10px; }
-  .name { font-weight: 600; word-break: keep-all; overflow-wrap: anywhere; }
-  a.name { color: var(--text); text-decoration: none; }
-  a.name:hover { color: var(--accent); text-decoration: underline; }
-  a.name .ext { font-size: 12px; font-weight: 400; color: var(--accent); margin-left: 4px; white-space: nowrap; }
-  #toast { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); max-width: calc(100% - 32px);
-           background: var(--text); color: var(--bg); padding: 10px 16px; border-radius: 10px; font-size: 14px;
-           opacity: 0; pointer-events: none; transition: opacity .2s; z-index: 10; }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 14px; }
+  .btn { font-weight: 700; padding: 9px 18px; border-radius: 8px; border: 0; background: var(--sun); color: #fff; cursor: pointer; }
+  .btn:hover { filter: brightness(1.06); }
+  .btn.ghost { background: none; color: var(--text-2); border: 1px solid var(--line); font-weight: 500; }
+  .msg { font-size: 13px; } .msg.err { color: var(--bad); } .msg.ok { color: var(--good); }
+  .runs-wrap { overflow-x: auto; }
+  table.runs { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  table.runs th { text-align: left; color: var(--muted); font-weight: 500; padding: 7px 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  table.runs td { padding: 7px 8px; border-bottom: 1px solid var(--line-2); vertical-align: top; }
+  table.runs td.n { text-align: right; font-variant-numeric: tabular-nums; }
+  table.runs td.err { color: var(--bad); overflow-wrap: anywhere; }
+  footer { margin: 22px 0 0; font-size: 12px; color: var(--muted); }
+  #toast { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); max-width: calc(100% - 32px); background: #111827; color: #f3f6fb;
+           padding: 10px 16px; border-radius: 10px; font-size: 13.5px; opacity: 0; pointer-events: none; transition: opacity .2s; z-index: 40; }
   #toast.on { opacity: 1; }
-  .price { display: flex; gap: 12px; flex-wrap: wrap; align-items: baseline; }
-  .price .low { font-size: 17px; font-weight: 700; }
-  .price .rate { color: var(--accent); font-weight: 600; }
-  .sub { color: var(--muted); font-size: 13px; }
-  .mng { font-size: 12px; color: var(--muted); display: flex; gap: 6px; align-items: center; }
-  .mng button { font: inherit; font-size: 12px; border: 1px solid var(--line); background: none; color: var(--accent);
-                border-radius: 6px; padding: 0 6px; cursor: pointer; }
-  details { margin-top: 20px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; }
-  summary { cursor: pointer; font-weight: 600; }
-  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 8px; }
-  th, td { text-align: left; padding: 5px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
-  td.err { color: var(--warn); overflow-wrap: anywhere; }
-  .alert { background: var(--warn-bg); color: var(--warn); border-radius: 10px; padding: 10px 14px; margin-bottom: 12px; }
-  .empty { color: var(--muted); padding: 30px 0; text-align: center; }
-  .table-scroll { overflow-x: auto; }
+
+  /* ── 반응형: 좁은 화면에서는 사이드바를 서랍으로 ── */
+  @media (max-width: 1180px) { .kpis { grid-template-columns: repeat(3, minmax(0, 1fr)); } .charts { grid-template-columns: 1fr; } }
+  @media (max-width: 960px) {
+    .app { grid-template-columns: 1fr; }
+    .side { position: fixed; z-index: 20; inset: 0 auto 0 0; width: min(300px, 86vw); transform: translateX(-102%); transition: transform .2s; }
+    body.side-open .side { transform: none; box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .45); }
+    .menu-btn { display: inline-flex; }
+    .top { padding: 12px 16px; } .wrap { padding: 16px 16px 32px; }
+    .set-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .kpi .v { font-size: 24px; }
+    .kpi:last-child:nth-child(odd) { grid-column: 1 / -1; }
+    .top .crumb, .pill .long { display: none; }
+    .bar-row { grid-template-columns: 84px minmax(0, 1fr) 64px; }
+    .list { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <h1>태양광 경매 공매 알림</h1>
-    <span class="meta" id="meta">불러오는 중…</span>
-  </header>
-  <div class="layout">
-  <aside>
-  <details class="guide" id="guide">
-    <summary>태양광 선정 기준 가이드</summary>
-
-    <h3><span class="n">1</span>어떤 물건을 보나</h3>
-    <div class="row"><span class="tag sun">토지</span><span>전·답·임야·대지·잡종지 등. 도로·구거·하천·묘지 같은 지목은 제외</span></div>
-    <div class="row"><span class="tag sun">지붕형</span><span>공장·창고 건물. 지붕 위에 설치하는 방식</span></div>
-
-    <h3><span class="n">2</span>전기를 보낼 길이 있나 (계통)</h3>
-    <p>발전한 전기는 한전 선로를 타고 나가야 팔 수 있습니다. 아래 세 곳 중 <b>하나라도 꽉 차면</b> 연결이 안 됩니다.</p>
-    <div class="flow"><span>발전소</span>→<span>배전선로(DL)</span>→<span>주변압기</span>→<span>변전소</span></div>
-    <p>세 곳의 남은 용량 중 <b>가장 작은 값</b>이 이 땅에 붙일 수 있는 최대치입니다.</p>
-    <div class="row"><span class="tag good" data-kw="good">계통 300kW+</span><span>여유 충분</span></div>
-    <div class="row"><span class="tag ok" data-kw="min">계통 100kW+</span><span>알림 기준 통과</span></div>
-    <div class="row"><span class="tag fail">계통 부족</span><span>지금은 연결 어려움 (여유 생기면 알림)</span></div>
-    <div class="row"><span class="tag">리 단위</span><span>지번이 아닌 <b>마을(리) 전체</b> 선로 기준 추정치</span></div>
-    <p>참고: 땅에 설치할 때 100kW에 대략 1,000~1,650㎡(300~500평)가 필요합니다 (모듈·배치에 따라 다름)</p>
-
-    <h3><span class="n">3</span>지어도 되는 땅인가 (용도지역)</h3>
-    <div class="row"><span class="tag pass">용도 1차 통과</span><span>계획관리·생산관리지역 등. 태양광 입지로 가장 무난</span></div>
-    <div class="row"><span class="tag cond">용도 조건부</span><span>임업용산지·농업보호구역·보전관리·녹지 등. 허가·협의·면적 제한 확인 필요</span></div>
-    <div class="row"><span class="tag exclude">용도 1차 제외</span><span>개발제한구역·농업진흥구역·공익용산지·자연환경보전지역 등. 사실상 불가 → 알림 안 보냄</span></div>
-
-    <h3><span class="n">4</span>마을과 떨어져 있나 (이격거리)</h3>
-    <p>2026.9.18 시행령 개정으로 <b>도로 이격은 폐지</b>, 주거지는 <b>주택 5호 이상 모인 곳에서 최대 200m</b>까지만 제한할 수 있습니다. 시군 조례가 더 엄격해도 200m가 한도입니다.</p>
-    <div class="row"><span class="tag sb-ok">이격 충족 추정</span><span>기준 거리 안에 해당 주거지 없음</span></div>
-    <div class="row"><span class="tag sb-violate">이격 미달 추정</span><span>기준 거리 안에 주거지 있음 (알림은 보냄)</span></div>
-    <div class="row"><span class="tag">이격 기준 없음</span><span>그 시군 조례에 태양광 이격 조항이 없음</span></div>
-    <p>필지 경계~주택 거리를 지도 데이터로 잰 추정치입니다. 지붕형은 이격 적용 제외.</p>
-
-    <h3><span class="n">5</span>알림이 오는 조건</h3>
-    <p><b>계통 통과</b> + <b>용도 1차 제외 아님</b>인 새 물건. 이전에 계통 부족이던 물건에 여유가 생겨도 알려드립니다.</p>
-
-    <div class="tip">
-      <b>입찰 전 꼭 직접 확인</b>
-      <ul>
-        <li>한전ON 「신재생 접속가능 용량 조회」로 실제 연결 선로 확인</li>
-        <li>시·군 조례 개정 여부와 주거지 호수 산정 방식 (하천·철도 등 다른 이격 조항이 남아 있을 수 있음)</li>
-        <li>경사도·산지전용·농지전용 가능 여부</li>
-        <li>지분·법정지상권·맹지(진입로) 등 권리관계</li>
-      </ul>
+<div class="app">
+  <!-- ── 사이드바 ── -->
+  <aside class="side" id="side" aria-label="메뉴와 선정 기준">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </div>
+      <div><b>태양광 경매 공매 알림</b><small>Solar Auction Radar</small></div>
     </div>
-  </details>
+
+    <ul class="nav">
+      <li><a href="#dash" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>대시보드</a></li>
+      <li><a href="#items"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="3.5" cy="6" r="1"/><circle cx="3.5" cy="12" r="1"/><circle cx="3.5" cy="18" r="1"/></svg>물건 목록</a></li>
+      <li><a href="#settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>설정</a></li>
+      <li><a href="#runsSec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>실행 기록</a></li>
+    </ul>
+
+    <div class="side-h">관심 지역</div>
+    <div class="chips" id="regionChips"><span class="chip">불러오는 중…</span></div>
+    <div class="side-status"><span class="dot" id="runDot"></span><span id="runText">-</span></div>
+
+    <div class="side-h">태양광 선정 기준</div>
+    <div class="g" id="guide">
+      <details open>
+        <summary><span class="n o">1</span>어떤 물건을 보나</summary>
+        <div class="body">
+          <div class="row"><span class="tag sun">토지</span><span>전·답·임야·대지·잡종지 등. 도로·구거·하천·묘지 지목은 제외</span></div>
+          <div class="row"><span class="tag sun">지붕형</span><span>공장·창고 건물 지붕에 설치</span></div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="n b">2</span>전기를 보낼 길이 있나 (계통)</summary>
+        <div class="body">
+          <p>발전한 전기는 한전 선로로 나가야 팔 수 있습니다. 아래 셋 중 <b>하나라도 꽉 차면</b> 연결이 안 됩니다.</p>
+          <div class="flow"><span>발전소</span>→<span>배전선로</span>→<span>주변압기</span>→<span>변전소</span></div>
+          <p>세 곳 남은 용량 중 <b>가장 작은 값</b>이 이 땅의 최대치입니다.</p>
+          <div class="row"><span class="tag good" data-kw="good">계통 300kW+</span><span>여유 충분</span></div>
+          <div class="row"><span class="tag ok" data-kw="min">계통 100kW+</span><span>알림 기준 통과</span></div>
+          <div class="row"><span class="tag fail">계통 부족</span><span>지금은 어려움 (여유 생기면 알림)</span></div>
+          <div class="row"><span class="tag">리 단위</span><span>마을(리) 전체 선로 기준 추정치</span></div>
+          <p>땅에 설치 시 100kW에 대략 300~500평이 필요합니다.</p>
+        </div>
+      </details>
+      <details>
+        <summary><span class="n l">3</span>지어도 되는 땅인가 (용도)</summary>
+        <div class="body">
+          <div class="row"><span class="tag pass">1차 통과</span><span>계획관리·생산관리지역 등. 가장 무난</span></div>
+          <div class="row"><span class="tag cond">조건부</span><span>임업용산지·농업보호구역·보전관리·녹지 등. 허가·협의 필요</span></div>
+          <div class="row"><span class="tag exclude">1차 제외</span><span>개발제한구역·농업진흥구역·공익용산지·자연환경보전지역. 알림 안 보냄</span></div>
+        </div>
+      </details>
+      <details>
+        <summary><span class="n o">4</span>마을과 떨어져 있나 (이격)</summary>
+        <div class="body">
+          <p>2026.9.18 시행령으로 <b>도로 이격 폐지</b>, 주거지는 <b>주택 5호 이상 모인 곳에서 최대 200m</b>까지만 제한할 수 있습니다.</p>
+          <div class="row"><span class="tag sb-ok">이격 충족 추정</span><span>기준 거리 안에 주거지 없음</span></div>
+          <div class="row"><span class="tag sb-violate">이격 미달 추정</span><span>기준 거리 안에 주거지 (알림은 보냄)</span></div>
+          <div class="row"><span class="tag">이격 기준 없음</span><span>시군 조례에 조항 없음</span></div>
+          <p>지도 데이터로 잰 추정치입니다. 지붕형은 적용 제외.</p>
+        </div>
+      </details>
+      <details>
+        <summary><span class="n w">5</span>알림 조건 · 입찰 전 확인</summary>
+        <div class="body">
+          <p><b>계통 통과</b> + <b>용도 1차 제외 아님</b>인 새 물건, 그리고 계통 부족에서 여유가 생긴 물건에 알림이 옵니다.</p>
+          <ul>
+            <li>한전ON 「신재생 접속가능 용량 조회」로 실제 선로 확인</li>
+            <li>시·군 조례 개정 여부 (하천·철도 등 다른 이격 조항)</li>
+            <li>경사도·산지전용·농지전용 가능 여부</li>
+            <li>지분·법정지상권·맹지(진입로) 등 권리관계</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+
+    <div class="side-foot">출처: <a href="https://www.onbid.co.kr" target="_blank" rel="noopener">온비드</a> ·
+      <a href="https://www.courtauction.go.kr" target="_blank" rel="noopener">법원경매정보</a> · 한전 전력데이터 개방포털 · 브이월드.
+      개인 입찰 참고용이며 최종 확인은 원문에서 하세요.</div>
   </aside>
-  <main>
-  <div id="alert"></div>
-  <div class="stats" id="stats"></div>
-  <div class="filters">
-    <input type="search" id="q" placeholder="물건명·주소·관리번호 검색">
-    <select id="region"><option value="">전체 지역</option></select>
-    <select id="solar">
-      <option value="pass">태양광 통과 (계통 + 용도)</option>
-      <option value="grid">계통 통과 (용도 제외 포함)</option>
-      <option value="target">태양광 대상 전체</option>
-      <option value="">전체 물건</option>
-    </select>
-    <select id="source">
-      <option value="">온비드 + 법원경매</option>
-      <option value="onbid">온비드만</option>
-      <option value="court">법원경매만</option>
-    </select>
-    <select id="usage"><option value="">전체 용도</option></select>
-    <select id="sort">
-      <option value="seen">최근 등록순</option>
-      <option value="begin">입찰 빠른순</option>
-      <option value="low">최저가 낮은순</option>
-      <option value="rate">감정가 대비 낮은순</option>
-    </select>
-    <label><input type="checkbox" id="onlyNew"> 최근 7일 알림만</label>
-  </div>
-  <div class="list" id="list"></div>
-  <details id="settingsBox">
-    <summary>설정 (조회 지역 · 태양광 기준)</summary>
-    <div class="set-grid">
-      <div class="field">
-        <label class="t" for="sRegions">관심 지역</label>
-        <textarea id="sRegions" placeholder="경기도 화성시&#10;경기도 평택시&#10;충청남도"></textarea>
-        <div class="h">한 줄에 한 곳. "시도 시군구" 또는 시도만. 새로 추가한 지역의 기존 물건은 알림 없이 기록되고, 이후 새 물건만 알림이 옵니다.</div>
+
+  <!-- ── 작업 영역 ── -->
+  <div class="main">
+    <header class="top">
+      <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="메뉴 열기">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <div>
+        <h1>대시보드</h1>
+        <div class="crumb" id="meta">불러오는 중…</div>
       </div>
-      <div class="field">
-        <label class="t">태양광 계통 기준 (kW)</label>
-        <div class="row2">
-          <input type="number" id="sMin" min="1" step="10" aria-label="알림 기준 kW">
-          <input type="number" id="sGood" min="1" step="10" aria-label="우수 표시 kW">
+      <span class="sp"></span>
+      <span class="pill"><span class="dot" id="pillDot"></span><span id="pillText">-</span></span>
+      <button class="icon-btn" id="reloadBtn" type="button" title="새로고침">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
+      </button>
+    </header>
+
+    <div class="wrap">
+      <div id="alert"></div>
+
+      <section id="dash" aria-label="요약">
+        <div class="kpis" id="kpis"></div>
+        <div class="charts">
+          <div class="panel">
+            <div class="panel-h"><h2>판정 단계별 물건 수</h2><span class="hint">전체에서 알림 후보까지</span></div>
+            <div class="panel-b"><div class="bars" id="funnel"></div>
+              <details class="tbl-toggle"><summary>표로 보기</summary><table class="mini-tbl" id="funnelTbl"></table></details></div>
+          </div>
+          <div class="panel">
+            <div class="panel-h"><h2>지역별 태양광 통과 물건</h2><span class="hint">출처별</span></div>
+            <div class="panel-b"><div class="bars" id="regionBars"></div>
+              <div class="legend"><span><i style="background:var(--sky)"></i>온비드</span><span><i style="background:var(--leaf)"></i>법원경매</span></div>
+              <details class="tbl-toggle"><summary>표로 보기</summary><table class="mini-tbl" id="regionTbl"></table></details></div>
+          </div>
         </div>
-        <div class="h">왼쪽: 이 값 이상이면 알림 대상 · 오른쪽: 이 값 이상이면 "○○kW+" 표시. 변전소·주변압기·배전선로 여유 중 가장 작은 값 기준.</div>
-      </div>
-      <div class="field">
-        <label class="t" for="sDsps">온비드 처분방식 · 수의계약</label>
-        <div class="row2">
-          <select id="sDsps"><option value="0001">매각</option><option value="0002">임대</option><option value="">전체</option></select>
-          <select id="sPvct"><option value="N">수의계약 불가 물건</option><option value="Y">수의계약 가능 물건</option><option value="N,Y">둘 다</option></select>
+      </section>
+
+      <section id="items" class="panel" aria-label="물건 목록">
+        <div class="panel-h"><h2>물건 목록</h2><span class="count" id="count"></span></div>
+        <div class="panel-b">
+          <div class="filters" style="margin-bottom:14px">
+            <input type="search" id="q" placeholder="물건명·주소·관리번호 검색" aria-label="검색">
+            <select id="solar" aria-label="태양광 조건">
+              <option value="pass">태양광 통과 (계통 + 용도)</option>
+              <option value="grid">계통 통과 (용도 제외 포함)</option>
+              <option value="target">태양광 대상 전체</option>
+              <option value="">전체 물건</option>
+            </select>
+            <select id="source" aria-label="출처">
+              <option value="">온비드 + 법원경매</option>
+              <option value="onbid">온비드만</option>
+              <option value="court">법원경매만</option>
+            </select>
+            <select id="region" aria-label="지역"><option value="">전체 지역</option></select>
+            <select id="usage" aria-label="용도"><option value="">전체 용도</option></select>
+            <select id="sort" aria-label="정렬">
+              <option value="seen">최근 등록순</option>
+              <option value="begin">입찰 빠른순</option>
+              <option value="low">최저가 낮은순</option>
+              <option value="rate">감정가 대비 낮은순</option>
+            </select>
+            <label><input type="checkbox" id="onlyNew"> 최근 7일 알림만</label>
+          </div>
+          <div class="list" id="list"></div>
         </div>
-      </div>
-      <div class="field">
-        <label class="t">온비드 재산유형 <span class="h">(아무것도 안 고르면 전체)</span></label>
-        <div class="chk" id="sPrpt"></div>
-      </div>
-      <div class="field">
-        <label class="t" for="sPw">설정 비밀번호 (저장할 때만 필요)</label>
-        <input type="password" id="sPw" autocomplete="current-password">
-        <label class="h"><input type="checkbox" id="sRemember"> 이 브라우저에 기억</label>
-      </div>
+      </section>
+
+      <section id="settings" class="panel section" aria-label="설정">
+        <div class="panel-h"><h2>설정</h2><span class="hint">조회 지역 · 태양광 기준</span></div>
+        <div class="panel-b">
+          <div class="set-grid">
+            <div class="field">
+              <label class="t" for="sRegions">관심 지역</label>
+              <textarea id="sRegions" placeholder="경기도 화성시&#10;경기도 평택시&#10;충청남도"></textarea>
+              <div class="h">한 줄에 한 곳. "시도 시군구" 또는 시도만. 새로 추가한 지역의 기존 물건은 알림 없이 기록되고, 이후 새 물건만 알림이 옵니다.</div>
+            </div>
+            <div class="field">
+              <label class="t">태양광 계통 기준 (kW)</label>
+              <div class="row2">
+                <input type="number" id="sMin" min="1" step="10" aria-label="알림 기준 kW">
+                <input type="number" id="sGood" min="1" step="10" aria-label="우수 표시 kW">
+              </div>
+              <div class="h">왼쪽: 이 값 이상이면 알림 대상 · 오른쪽: 이 값 이상이면 "○○kW+" 표시. 변전소·주변압기·배전선로 여유 중 가장 작은 값 기준.</div>
+            </div>
+            <div class="field">
+              <label class="t" for="sDsps">온비드 처분방식 · 수의계약</label>
+              <div class="row2">
+                <select id="sDsps"><option value="0001">매각</option><option value="0002">임대</option><option value="">전체</option></select>
+                <select id="sPvct"><option value="N">수의계약 불가 물건</option><option value="Y">수의계약 가능 물건</option><option value="N,Y">둘 다</option></select>
+              </div>
+            </div>
+            <div class="field">
+              <label class="t">온비드 재산유형 <span class="h">(아무것도 안 고르면 전체)</span></label>
+              <div class="chk" id="sPrpt"></div>
+            </div>
+            <div class="field">
+              <label class="t" for="sPw">설정 비밀번호 (저장할 때만 필요)</label>
+              <input type="password" id="sPw" autocomplete="current-password">
+              <label class="h"><input type="checkbox" id="sRemember"> 이 브라우저에 기억</label>
+            </div>
+          </div>
+          <div class="actions">
+            <button class="btn" id="sSave" type="button">저장</button>
+            <label class="h"><input type="checkbox" id="sRunNow" checked> 저장 후 바로 조회 실행</label>
+            <button class="btn ghost" id="sForget" type="button">비밀번호 지우기</button>
+            <span class="msg" id="sMsg"></span>
+          </div>
+        </div>
+      </section>
+
+      <section id="runsSec" class="panel section" aria-label="실행 기록">
+        <div class="panel-h"><h2>실행 기록</h2><span class="hint">최근 50회</span></div>
+        <div class="panel-b runs-wrap">
+          <table class="runs"><thead><tr><th>시각</th><th>방식</th><th>전체</th><th>신규</th><th>통과</th><th>전송</th><th>오류</th></tr></thead>
+          <tbody id="runs"></tbody></table>
+        </div>
+      </section>
+
+      <footer>출처: 온비드(한국자산관리공사) · 대한민국법원 법원경매정보 · 한전 전력데이터 개방포털 · 브이월드 (공공저작물, 출처 표시).</footer>
     </div>
-    <div class="actions">
-      <button class="btn" id="sSave" type="button">저장</button>
-      <label class="h"><input type="checkbox" id="sRunNow" checked> 저장 후 바로 조회 실행</label>
-      <button class="btn ghost" id="sForget" type="button">비밀번호 지우기</button>
-      <span class="msg" id="sMsg"></span>
-    </div>
-  </details>
-  <details id="runsBox">
-    <summary>실행 기록</summary>
-    <div class="table-scroll"><table><thead><tr><th>시각</th><th>방식</th><th>전체</th><th>신규</th><th>통과</th><th>전송</th><th>오류</th></tr></thead>
-    <tbody id="runs"></tbody></table></div>
-  </details>
-  <footer>출처: <a href="https://www.onbid.co.kr" target="_blank" rel="noopener">온비드(한국자산관리공사)</a> ·
-    <a href="https://www.courtauction.go.kr" target="_blank" rel="noopener">대한민국법원 법원경매정보</a> ·
-    한전 전력데이터 개방포털 · 브이월드. 개인 입찰 참고용이며 최종 확인은 원문에서 하세요.</footer>
-  </main>
   </div>
 </div>
+<div id="tip" role="tooltip"></div>
 <div id="toast" role="status" aria-live="polite"></div>
 <script>
 // 예전 주소(GitHub Pages)로 들어오면 새 주소로 이동 (2026.9.30 아이비호스팅으로 이전)
@@ -263,6 +471,7 @@ const isPass = it => gridOk(it) && ((it.solar.landuse || {}).grade !== "exclude"
 const won = n => n == null ? null : n.toLocaleString("ko-KR") + "원";
 const eok = n => n == null ? "-" : n >= 1e8 ? (n / 1e8).toFixed(n >= 1e10 ? 0 : 2).replace(/\.?0+$/, "") + "억" : Math.round(n / 1e4).toLocaleString("ko-KR") + "만";
 const dt = s => s && s.length >= 12 ? `${s.slice(2,4)}.${s.slice(4,6)}.${s.slice(6,8)} ${s.slice(8,10)}:${s.slice(10,12)}` : (s || "-");
+const num = n => (n ?? 0).toLocaleString("ko-KR");
 let DATA = { items: [], runs: [] };
 
 function daysAgo(str) {
@@ -270,6 +479,59 @@ function daysAgo(str) {
   const t = new Date(str.replace(" ", "T") + ":00+09:00");
   return (Date.now() - t) / 864e5;
 }
+
+// ── 아이콘 (KPI) ──
+const IC = {
+  sun: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',
+  bolt: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>',
+  list: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="3.5" cy="6" r="1"/><circle cx="3.5" cy="12" r="1"/><circle cx="3.5" cy="18" r="1"/></svg>',
+  bell: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>',
+  pulse: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>',
+};
+function kpi(icon, color, soft, value, unit, label, sub) {
+  return `<div class="kpi" style="--c:var(${color});--cs:var(${soft})"><div class="ic">${IC[icon]}</div>
+    <div class="v">${value}${unit ? `<small>${unit}</small>` : ""}</div><div class="l">${label}</div>${sub ? `<div class="s">${sub}</div>` : ""}</div>`;
+}
+
+// ── 막대 차트 (HTML, 값 라벨 + 마우스 올리면 툴팁) ──
+function barRow(label, segs, total, max, pctOf) {
+  const html = segs.map(s => s.v ? `<div class="seg" style="width:${(s.v / max * 100).toFixed(2)}%;background:var(${s.c})"
+      data-tip="${esc(label)} · ${esc(s.n)} ${num(s.v)}건"></div>` : "").join("");
+  const pct = pctOf ? `<small>${Math.round(total / pctOf * 100)}%</small>` : "";
+  return `<div class="bar-row"><span class="k" title="${esc(label)}">${esc(label)}</span><div class="track">${html}</div><span class="val">${num(total)}${pct}</span></div>`;
+}
+function renderCharts(items) {
+  const target = items.filter(it => it.solar), grid = items.filter(gridOk), pass = items.filter(isPass);
+  const clean = pass.filter(it => ((it.solar.setback || {}).grade) !== "violate");
+  const steps = [["전체 물건", items.length], ["태양광 대상", target.length], ["계통 통과", grid.length],
+                 ["용도 통과", pass.length], ["이격 문제 없음", clean.length]];
+  const max = Math.max(1, items.length);
+  $("funnel").innerHTML = steps.map(([k, v], i) => barRow(k, [{ v, c: "--sun", n: "" }], v, max, i ? items.length : 0)).join("");
+  $("funnelTbl").innerHTML = "<tr><th>단계</th><th>건수</th></tr>" + steps.map(([k, v]) => `<tr><td>${k}</td><td class="n">${num(v)}</td></tr>`).join("");
+
+  const by = {};
+  pass.forEach(it => {
+    const key = [it.sido, (it.sgg || "").split(" ")[0]].filter(Boolean).join(" ") || "기타";
+    by[key] = by[key] || { onbid: 0, court: 0 };
+    by[key][it.source === "court" ? "court" : "onbid"]++;
+  });
+  const rows = Object.entries(by).sort((a, b) => (b[1].onbid + b[1].court) - (a[1].onbid + a[1].court));
+  const rmax = Math.max(1, ...rows.map(([, v]) => v.onbid + v.court));
+  const short = k => k.replace(/^(경상|전라|충청)(북|남)도/, (m, a, b) => a[0] + b).replace(/특별자치도|광역시|특별시|도$/g, "").trim();
+  $("regionBars").innerHTML = rows.length ? rows.map(([k, v]) => barRow(short(k),
+      [{ v: v.onbid, c: "--sky", n: "온비드" }, { v: v.court, c: "--leaf", n: "법원경매" }], v.onbid + v.court, rmax)).join("")
+    : `<div class="sub">통과한 물건이 없습니다.</div>`;
+  $("regionTbl").innerHTML = "<tr><th>지역</th><th>온비드</th><th>법원경매</th></tr>" +
+    rows.map(([k, v]) => `<tr><td>${esc(k)}</td><td class="n">${v.onbid}</td><td class="n">${v.court}</td></tr>`).join("");
+}
+document.addEventListener("mousemove", e => {
+  const t = e.target.closest && e.target.closest("[data-tip]"), tip = $("tip");
+  if (!t) { tip.classList.remove("on"); return; }
+  tip.textContent = t.dataset.tip;
+  tip.style.left = Math.min(e.clientX + 14, innerWidth - tip.offsetWidth - 8) + "px";
+  tip.style.top = (e.clientY + 16) + "px";
+  tip.classList.add("on");
+});
 
 function render() {
   const q = $("q").value.trim().toLowerCase();
@@ -290,6 +552,7 @@ function render() {
     rate: (a, b) => rate(a) - rate(b),
   };
   rows.sort(sorters[$("sort").value]);
+  $("count").textContent = `${num(rows.length)}건`;
   $("list").innerHTML = rows.length ? rows.map(it => {
     const isNew = it.notified && daysAgo(it.notifiedAt || it.firstSeen) <= 7;
     const sol = it.solar, lu = sol && sol.landuse, sb = sol && sol.setback;
@@ -297,8 +560,8 @@ function render() {
       (lu.reasons || []).includes(z) ? `<b class="${lu.grade === "exclude" ? "ex" : ""}">${esc(z)}</b>` : esc(z)).join(" · ") : "";
     const r = it.lowest && it.apsl ? Math.round(it.lowest / it.apsl * 100) + "%" : "";
     const area = [it.land ? `토지 ${it.land}㎡` : "", it.bld ? `건물 ${it.bld}㎡` : ""].filter(Boolean).join(" · ");
-    return `<div class="card${isNew ? " new" : ""}${isPass(it) ? " pass" : ""}">
-      <div class="top">
+    return `<article class="card${isNew ? " new" : ""}${isPass(it) ? " pass" : ""}">
+      <div class="tags">
         <span class="tag src ${it.source === "court" ? "court" : ""}">${it.source === "court" ? "법원경매" : "온비드"}</span>
         ${isNew ? `<span class="tag new">알림 ${esc((it.notifiedAt || it.firstSeen).slice(5))}</span>` : ""}
         ${sol ? `<span class="tag sun">${esc(sol.type)}</span><span class="tag ${esc(sol.grade)}">${esc(sol.label)}</span>` : ""}
@@ -306,7 +569,7 @@ function render() {
         ${lu && lu.label ? `<span class="tag ${esc(lu.grade)}">용도 ${esc(lu.label)}</span>` : ""}
         ${sb && sb.label ? `<span class="tag sb-${esc(sb.grade)}">${esc(sb.label)}</span>` : ""}
         <span class="tag">${esc(it.usage || "-")}</span>
-        <span class="tag">${esc(it.prpt || "")}</span>
+        ${it.prpt ? `<span class="tag">${esc(it.prpt)}</span>` : ""}
         ${it.usbd ? `<span class="tag">유찰 ${esc(it.usbd)}회</span>` : ""}
         ${it.share ? `<span class="tag">지분</span>` : ""}
         ${it.status ? `<span class="tag">${esc(it.status)}</span>` : ""}
@@ -317,20 +580,20 @@ function render() {
         <span class="sub">감정 ${esc(eok(it.apsl))}</span>
         ${r ? `<span class="rate">${r}</span>` : ""}
       </div>
-      <div class="sub">${it.source === "court" ? `매각기일 ${esc(dt(it.begin))}` : `입찰 ${esc(dt(it.begin))} ~ ${esc(dt(it.end))}`}</div>
-      ${area ? `<div class="sub">${esc(area)}</div>` : ""}
+      <div class="sub">${it.source === "court" ? `매각기일 ${esc(dt(it.begin))}` : `입찰 ${esc(dt(it.begin))} ~ ${esc(dt(it.end))}`}${area ? ` · ${esc(area)}` : ""}</div>
       ${sol && sol.best != null ? `<div class="solar">계통 여유 최대 <b>${sol.best.toLocaleString("ko-KR")}kW</b>
-        (변전소 ${esc(sol.subst)} · DL ${esc(sol.dl)})${sol.lines > 1 ? ` · 선로 ${sol.lines}개 중 ${sol.okLines}개 통과` : ""}</div>` : ""}
+        · 변전소 ${esc(sol.subst)} · DL ${esc(sol.dl)}${sol.lines > 1 ? ` · 선로 ${sol.lines}개 중 ${sol.okLines}개 통과` : ""}</div>` : ""}
       ${zoneHtml ? `<div class="zones">용도지역·지구: ${zoneHtml}</div>` : ""}
-      ${sb && (sb.why || sb.basis) ? `<div class="zones">이격(주거지): ${esc(sb.why || "")}${sb.nearestHouse != null ? ` · 가장 가까운 주택 ${sb.nearestHouse}m` : ""}${sb.basis ? ` · <span title="적용 기준">${esc(sb.basis)}</span>` : ""}</div>` : ""}
+      ${sb && (sb.why || sb.basis) ? `<div class="zones">이격(주거지): ${esc(sb.why || "")}${sb.nearestHouse != null ? ` · 가장 가까운 주택 ${sb.nearestHouse}m` : ""}${sb.basis ? ` · ${esc(sb.basis)}` : ""}</div>` : ""}
       <div class="sub">${esc(it.org || "")}</div>
       ${it.note ? `<div class="note">${esc(it.note)}</div>` : ""}
-      <div class="mng">${it.source === "court" ? "사건번호" : "관리번호"} ${esc(it.mngNo)} <button data-copy="${esc(it.mngNo)}">복사</button></div>
-    </div>`;
+      <div class="mng">${it.source === "court" ? "사건번호" : "관리번호"} ${esc(it.mngNo)} <button type="button" data-copy="${esc(it.mngNo)}">복사</button></div>
+    </article>`;
   }).join("") : `<div class="empty">조건에 맞는 물건이 없습니다.</div>`;
 }
 
 function fillSelect(el, values) {
+  el.querySelectorAll("option:not(:first-child)").forEach(o => o.remove());
   [...new Set(values.filter(Boolean))].sort().forEach(v => el.insertAdjacentHTML("beforeend", `<option>${esc(v)}</option>`));
 }
 
@@ -346,21 +609,31 @@ async function load() {
   const items = DATA.items || [], runs = DATA.runs || [];
   const newCnt = items.filter(it => it.notified && daysAgo(it.notifiedAt || it.firstSeen) <= 7).length;
   const passCnt = items.filter(isPass).length, targetCnt = items.filter(it => it.solar).length;
-  $("meta").textContent = `관심 지역: ${(DATA.regions || "").replace(/;/g, ", ").replace(/:/g, " ")} · 계통 기준 ${DATA.solarMinKw || 100}kW 이상 · 마지막 실행 ${DATA.updated || "-"}`;
-  $("stats").innerHTML = `
-    <div class="stat"><b>${passCnt}</b><span>태양광 통과</span></div>
-    <div class="stat"><b>${targetCnt}</b><span>태양광 대상</span></div>
-    <div class="stat"><b>${items.length}</b><span>전체 물건</span></div>
-    <div class="stat"><b>${newCnt}</b><span>최근 7일 알림</span></div>
-    <div class="stat"><b>${runs[0] ? (runs[0].error ? "오류" : "정상") : "-"}</b><span>마지막 실행</span></div>`;
-  if (runs[0] && runs[0].error) {
-    $("alert").innerHTML = `<div class="alert">마지막 실행 오류 (${esc(runs[0].at)}): ${esc(runs[0].error)}</div>`;
-  }
+  const court = items.filter(it => it.source === "court").length;
+  const regions = (DATA.regions || "").split(";").filter(Boolean).map(r => r.replace(":", " "));
+  const last = runs[0], ok = last && !last.error;
+  $("meta").textContent = `계통 기준 ${DATA.solarMinKw || 100}kW 이상 · 관심 지역 ${regions.length}곳`;
+  $("regionChips").innerHTML = regions.length ? regions.map(r => `<span class="chip">${esc(r)}</span>`).join("") : `<span class="chip">없음</span>`;
+  const status = last ? (ok ? "정상" : "오류") : "-";
+  $("runText").textContent = `마지막 실행 ${DATA.updated || "-"} · ${status}`;
+  $("pillText").innerHTML = `<span class="long">마지막 실행 </span>${esc(DATA.updated || "-")}`;
+  ["runDot", "pillDot"].forEach(id => $(id).classList.toggle("err", !!(last && last.error)));
+  $("kpis").innerHTML =
+    kpi("sun", "--sun", "--sun-soft", num(passCnt), "건", "태양광 통과", `대상 ${num(targetCnt)}건 중 ${targetCnt ? Math.round(passCnt / targetCnt * 100) : 0}%`) +
+    kpi("bolt", "--leaf", "--leaf-soft", num(targetCnt), "건", "태양광 대상", "토지 · 지붕형(공장·창고)") +
+    kpi("list", "--sky", "--sky-soft", num(items.length), "건", "전체 물건", `온비드 ${num(items.length - court)} · 법원경매 ${num(court)}`) +
+    kpi("bell", "--sun", "--sun-soft", num(newCnt), "건", "최근 7일 알림", "카카오톡 · 텔레그램") +
+    kpi("pulse", ok ? "--leaf" : "--sun", ok ? "--leaf-soft" : "--sun-soft", status, "", "마지막 실행", esc(DATA.updated || "-"));
+  $("alert").innerHTML = last && last.error ? `<div class="alert">마지막 실행 오류 (${esc(last.at)}): ${esc(last.error)}</div>` : "";
   fillSelect($("region"), items.map(it => it.sgg));
   fillSelect($("usage"), items.map(it => it.usage));
   $("runs").innerHTML = runs.slice(0, 50).map(r => `<tr>
-    <td>${esc(r.at)}</td><td>${esc(r.mode)}</td><td>${esc(r.total ?? "")}</td>
-    <td>${esc(r.new ?? "")}</td><td>${esc(r.pass ?? "")}</td><td>${esc(r.sent ?? "")}</td><td class="err">${esc(r.error || "")}</td></tr>`).join("");
+    <td>${esc(r.at)}</td><td>${esc(r.mode)}</td><td class="n">${esc(r.total ?? "")}</td>
+    <td class="n">${esc(r.new ?? "")}</td><td class="n">${esc(r.pass ?? "")}</td><td class="n">${esc(r.sent ?? "")}</td><td class="err">${esc(r.error || "")}</td></tr>`).join("");
+  const min = DATA.solarMinKw || 100, good = DATA.solarGoodKw || 300;
+  document.querySelectorAll('.g [data-kw="min"]').forEach(e => e.textContent = `계통 ${min}kW+`);
+  document.querySelectorAll('.g [data-kw="good"]').forEach(e => e.textContent = `계통 ${good}kW+`);
+  renderCharts(items);
   render();
 }
 
@@ -369,26 +642,38 @@ $("list").addEventListener("click", e => {
   const a = e.target.closest && e.target.closest("a.name");
   if (a && a.dataset.court) {  // 법원경매: 상세 직접 링크가 없어 사건번호를 복사해 두고 사건검색 화면을 연다
     const m = a.dataset.court.match(/(\d{4})타경(\d+)/);
-    const num = m ? m[2] : a.dataset.court;
-    try { navigator.clipboard.writeText(num); } catch (err) {}
-    toast(`사건검색 화면에서 ${a.dataset.courtName || "법원"} · ${m ? m[1] + "년" : ""} · 번호 ${num} 입력 (번호는 복사됨)`);
+    const n = m ? m[2] : a.dataset.court;
+    try { navigator.clipboard.writeText(n); } catch (err) {}
+    toast(`사건검색 화면에서 ${a.dataset.courtName || "법원"} · ${m ? m[1] + "년" : ""} · 번호 ${n} 입력 (번호는 복사됨)`);
     return;
   }
   const v = e.target.dataset && e.target.dataset.copy;
   if (!v) return;
   navigator.clipboard.writeText(v).then(() => { e.target.textContent = "복사됨"; setTimeout(() => e.target.textContent = "복사", 1200); });
 });
-load().then(() => {
-  const min = DATA.solarMinKw || 100, good = DATA.solarGoodKw || 300;
-  document.querySelectorAll('.guide [data-kw="min"]').forEach(e => e.textContent = `계통 ${min}kW+`);
-  document.querySelectorAll('.guide [data-kw="good"]').forEach(e => e.textContent = `계통 ${good}kW+`);
+$("reloadBtn").addEventListener("click", load);
+
+// 사이드바: 좁은 화면에서는 서랍처럼 열고 닫기, 메뉴 강조는 스크롤 위치 따라
+$("menuBtn").addEventListener("click", () => document.body.classList.toggle("side-open"));
+document.addEventListener("click", e => {
+  if (!document.body.classList.contains("side-open")) return;
+  if (e.target.closest("#side") && !e.target.closest(".nav a")) return;
+  if (e.target.closest("#menuBtn")) return;
+  document.body.classList.remove("side-open");
 });
-try { if (window.matchMedia("(min-width: 1000px)").matches) $("guide").open = true; } catch (e) {}
+const navLinks = [...document.querySelectorAll(".nav a")];
+const secs = navLinks.map(a => document.querySelector(a.getAttribute("href")));
+addEventListener("scroll", () => {
+  let cur = 0;
+  secs.forEach((s, i) => { if (s && s.getBoundingClientRect().top < 140) cur = i; });
+  navLinks.forEach((a, i) => a.classList.toggle("on", i === cur));
+}, { passive: true });
+
+load();
 
 // ---------------- 설정 (서버 settings.php로 읽기/저장) ----------------
 const PRPT = [["0007","압류재산"],["0010","국유재산"],["0005","기타일반재산"],["0002","공유재산"],["0003","금융권담보재산"],
   ["0006","유입재산"],["0008","수탁재산"],["0011","공공개발재산"],["0013","파산자산"]];
-let settingsLoaded = false;
 const lsGet = k => { try { return localStorage.getItem(k) || ""; } catch (e) { return ""; } };
 const lsSet = (k, v) => { try { v ? localStorage.setItem(k, v) : localStorage.removeItem(k); } catch (e) {} };
 const msg = (t, cls) => { $("sMsg").textContent = t; $("sMsg").className = "msg " + (cls || ""); };
@@ -409,16 +694,15 @@ function fillSettings(st) {
 
 async function loadSettings() {
   try {
-    const r = await fetch(`settings.php?t=${Date.now()}`, { cache: "no-store" });
+    const r = await fetch(`settings.php?t=${Date.now()}`, { cache: "no-store", headers: { Accept: "application/json" } });
     if (!r.ok) throw new Error(r.status);
     fillSettings(await r.json());
-    settingsLoaded = true;
   } catch (e) {
     fillSettings(DATA.settings || {});
     msg("현재 설정을 읽지 못해 마지막 실행 값을 표시합니다.", "err");
   }
 }
-$("settingsBox").addEventListener("toggle", () => { if ($("settingsBox").open && !settingsLoaded) loadSettings(); });
+loadSettings();
 
 function readForm() {
   const lines = $("sRegions").value.split(/\n/).map(l => l.trim().replace(/\s+/g, " ")).filter(Boolean);
