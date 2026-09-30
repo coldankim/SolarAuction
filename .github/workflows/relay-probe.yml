@@ -11,10 +11,10 @@ jobs:
         run: |
           curl -s -m 10 https://api.ipify.org; echo
           set +e
-          for gap in 3 5; do
+          for gap in 20; do
           ok=0; bad=0
           echo "== gap $gap s"
-          for i in $(seq 1 25); do
+          for i in $(seq 1 12); do
             r=$(curl -s -o /dev/null -m 15 -H "Accept: */*" -w "%{http_code}" "https://solarnitice.ivyro.net/vworld.php?host=kepco&path=openapi/v1/commonCode.do&token=$T&codeTy=metroCd&apiKey=$K&returnType=json" 2>&1)
             echo "$i $(date +%T) $r"
             [ "$r" = "200" ] && ok=$((ok+1)) || bad=$((bad+1))
