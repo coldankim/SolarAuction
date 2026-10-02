@@ -562,24 +562,29 @@ def evaluate_all(env, found):
 
 
 def check_setback(sb, it, sol, skip):
-    """이격거리(주거지) 추정. 지붕형은 면제, 계통·용도에서 이미 탈락한 물건은 측정 생략."""
+    """이격거리(주거지) 추정 + 그 시군 조례 요약. 지붕형은 면제, 계통·용도에서 이미 탈락한 물건은 측정 생략."""
     if sol.get("type") != "토지":
         return {"grade": "exempt", "label": "이격 면제(지붕형)"}
     if not solar_ok(sol):
         return None
-    rule = setback.rule_for(sb.rules if sb else setback.load_rules(), it.get("lctnSdnm"), it.get("lctnSggnm"))
+    rules = sb.rules if sb else setback.load_rules()
+    rule = setback.rule_for(rules, it.get("lctnSdnm"), it.get("lctnSggnm"))
+    _, r = setback.find_rule(rules, it.get("lctnSdnm"), it.get("lctnSggnm"))
+    # 화면에 보여줄 조례 요약 (도로 등 다른 이격 조항, 출처)
+    ordn = {"key": rule["key"], "status": (r or {}).get("status") or "조례 미확인", "others": (r or {}).get("others", ""),
+            "note": (r or {}).get("note", ""), "url": (r or {}).get("source"), "enforce": (r or {}).get("enforce")}
     if not rule["limit"]:
-        return {"grade": "norule", "label": "이격 기준 없음", "basis": rule["basis"]}
+        return {"grade": "norule", "label": "이격 기준 없음", "basis": rule["basis"], "ord": ordn}
     pnu = (sol.get("landuse") or {}).get("pnu")
     if not sb or skip:
-        return {"grade": "error", "label": "이격 확인 대기"}
+        return {"grade": "error", "label": "이격 확인 대기", "ord": ordn}
     if not pnu:
-        return {"grade": "none", "label": "이격 측정불가", "why": "필지 번호 없음"}
+        return {"grade": "none", "label": "이격 측정불가", "why": "필지 번호 없음", "ord": ordn}
     try:
-        return sb.measure(pnu, rule)
+        return {**sb.measure(pnu, rule), "ord": ordn}
     except setback.SetbackError as e:
         log(f"이격 측정 실패: {e}")
-        return {"grade": "error", "label": "이격 확인 대기"}
+        return {"grade": "error", "label": "이격 확인 대기", "ord": ordn}
 
 
 def keep_previous(solar, seen):

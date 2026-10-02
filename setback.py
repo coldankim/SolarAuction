@@ -36,19 +36,53 @@ def load_rules():
         return json.load(f)
 
 
+# 행정구역 이름이 바뀐 곳: 물건 주소의 시도명 → 조례를 낸 시도명
+SIDO_ALIAS = {"전라남도": "전남광주통합특별시", "광주광역시": "전남광주통합특별시",
+              "강원도": "강원특별자치도", "전라북도": "전북특별자치도"}
+
+
+def find_rule(rules, sido, sgg):
+    """물건 주소(시도, 시군구) → 조례 기준표 항목. 시군 조례 → (광역시 자치구 등) 시도 조례 순."""
+    sg = (sgg or "").split(" ")[0]
+    for sd in (sido, SIDO_ALIAS.get(sido)):
+        if sd and sg and f"{sd} {sg}" in rules:
+            return f"{sd} {sg}", rules[f"{sd} {sg}"]
+    if sg:  # 시군 이름이 전국에서 하나뿐이면 시도 표기가 달라도 찾는다 (고성군처럼 겹치면 안 함)
+        hits = [k for k in rules if k.split(" ")[-1] == sg and " " in k]
+        if len(hits) == 1:
+            return hits[0], rules[hits[0]]
+    for sd in (sido, SIDO_ALIAS.get(sido)):
+        if sd in rules:  # 광역시·특별시 자치구는 시 조례를 따름
+            return sd, rules[sd]
+    return f"{sido} {sg}".strip(), None
+
+
 def rule_for(rules, sido, sgg):
-    """시군 조례 기준 → 실제 적용 기준 (시행령 상한 반영)."""
-    key = f"{sido} {(sgg or '').split(' ')[0]}".strip()
-    r = rules.get(key)
-    if r is None or r.get("residence_m") is None:
-        return {"limit": NATIONAL_MAX_M, "houses": NATIONAL_MIN_HOUSES, "basis": "조례 미확인 → 시행령 상한 적용",
-                "key": key}
-    if not r["residence_m"]:
-        return {"limit": 0, "houses": None, "basis": r.get("status") or "조례 이격 기준 없음", "key": key}
-    limit = min(int(r["residence_m"]), NATIONAL_MAX_M)
-    houses = max(int(r.get("min_houses") or NATIONAL_MIN_HOUSES), NATIONAL_MIN_HOUSES)
-    basis = f"조례 {r['residence_m']}m" + (f" → 상한 {NATIONAL_MAX_M}m" if r["residence_m"] > NATIONAL_MAX_M else "")
-    return {"limit": limit, "houses": houses, "basis": basis, "key": key}
+    """시군 조례 기준 → 실제 적용 기준(시행령 상한 반영).
+    tiers: [{houses, m}] — 'houses호 이상 모인 주거지에서 m 미만이면 미달'. 시행령: houses≥5, m≤200."""
+    key, r = find_rule(rules, sido, sgg)
+    if r is None or r.get("tiers") is None:
+        return {"limit": NATIONAL_MAX_M, "houses": NATIONAL_MIN_HOUSES,
+                "tiers": [{"houses": NATIONAL_MIN_HOUSES, "m": NATIONAL_MAX_M}],
+                "basis": "조례 미확인 → 시행령 상한(5호 이상 200m) 적용", "key": key}
+    eff = {}
+    for t in r["tiers"]:
+        h = max(int(t.get("houses") or 1), NATIONAL_MIN_HOUSES)
+        m = min(int(t["m"]), NATIONAL_MAX_M)
+        eff[h] = max(eff.get(h, 0), m)
+    # 적은 호수 기준의 거리가 더 크면, 많은 호수 무리에도 그 거리가 적용됨
+    tiers = []
+    for h in sorted(eff):
+        m = max(v for hh, v in eff.items() if hh <= h)
+        if not tiers or m > tiers[-1]["m"]:  # 거리가 같으면 앞 단계에 이미 포함
+            tiers.append({"houses": h, "m": m})
+    if not tiers:
+        return {"limit": 0, "houses": None, "tiers": [], "basis": r.get("status") or "조례에 주거 이격 기준 없음", "key": key}
+    raw = " / ".join(f"{t.get('houses') or 1}호↑ {t['m']}m" for t in r["tiers"])
+    capped = " / ".join(f"{t['houses']}호↑ {t['m']}m" for t in tiers)
+    basis = f"조례 {raw}" + ("" if raw == capped else f" → 시행령 적용 {capped}")
+    return {"limit": max(t["m"] for t in tiers), "houses": min(t["houses"] for t in tiers), "tiers": tiers,
+            "basis": basis, "key": key}
 
 
 class SetbackError(Exception):
@@ -95,7 +129,8 @@ class Setback:
 
     def measure(self, pnu, rule):
         """필지(pnu) 주변 주거지 측정. 반환: 판정 dict."""
-        key = f"{pnu}|{rule['limit']}|{rule['houses']}"
+        tiers = rule.get("tiers") or [{"houses": rule["houses"], "m": rule["limit"]}]
+        key = f"{pnu}|" + ",".join(f"{t['houses']}:{t['m']}" for t in tiers)
         hit = self.cache.get(key)
         if hit and time.time() - hit["t"] < CACHE_TTL:
             return hit["r"]
@@ -131,6 +166,7 @@ class Setback:
 
 
 def _judge(houses, rule):
+    tiers = rule.get("tiers") or [{"houses": rule["houses"], "m": rule["limit"]}]
     limit, need = rule["limit"], rule["houses"]
     # 주택 무리(주거지) 묶기: 단일 연결
     n = len(houses)
@@ -148,24 +184,28 @@ def _judge(houses, rule):
     groups = {}
     for i in range(n):
         groups.setdefault(find(i), []).append(i)
-    best = None  # (거리, 호수) : 기준 호수 이상인 주거지 중 가장 가까운 것
-    for idx in groups.values():
-        if len(idx) >= need:
-            d = min(houses[i][2] for i in idx)
-            if best is None or d < best[0]:
-                best = (d, len(idx))
+    clusters = [(min(houses[i][2] for i in idx), len(idx)) for idx in groups.values()]  # (거리, 호수)
     near_any = min((h[2] for h in houses), default=None)
     base = {"limit": limit, "houses": need, "basis": rule["basis"],
             "nearestHouse": round(near_any) if near_any is not None else None}
+    worst = None  # 기준을 가장 크게 어기는 (부족한 거리, 거리, 호수, 기준m)
+    best = None   # 기준 호수 이상인 주거지 중 가장 가까운 것 (설명용)
+    for d, cnt in clusters:
+        for t in tiers:
+            if cnt >= t["houses"]:
+                if best is None or d < best[0]:
+                    best = (d, cnt, t["m"])
+                if d < t["m"] and (worst is None or t["m"] - d > worst[0]):
+                    worst = (t["m"] - d, d, cnt, t["m"])
+    if worst:
+        _, d, cnt, m = worst
+        return {**base, "grade": "violate", "label": "이격 미달 추정", "nearest": round(d), "cluster": cnt,
+                "why": f"{cnt}호 주거지 {round(d)}m < 기준 {m}m"}
     if best is None:
-        return {**base, "grade": "ok", "label": "이격 충족 추정",
-                "why": f"주변에 {need}호 이상 주거지 없음"}
-    dist, cnt = round(best[0]), best[1]
-    if dist < limit:
-        return {**base, "grade": "violate", "label": "이격 미달 추정", "nearest": dist, "cluster": cnt,
-                "why": f"{cnt}호 주거지 {dist}m < 기준 {limit}m"}
-    return {**base, "grade": "ok", "label": "이격 충족 추정", "nearest": dist, "cluster": cnt,
-            "why": f"{cnt}호 주거지 {dist}m ≥ 기준 {limit}m"}
+        return {**base, "grade": "ok", "label": "이격 충족 추정", "why": f"주변에 {need}호 이상 주거지 없음"}
+    d, cnt, m = best
+    return {**base, "grade": "ok", "label": "이격 충족 추정", "nearest": round(d), "cluster": cnt,
+            "why": f"{cnt}호 주거지 {round(d)}m ≥ 기준 {m}m"}
 
 
 def _rings(geom):

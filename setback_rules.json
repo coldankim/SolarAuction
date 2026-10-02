@@ -1,27 +1,2873 @@
 {
-  "_시행령": {
-    "note": "2026.9.18 시행 신재생에너지법 시행령: 태양광은 주거지(주택 5호 이상)로부터 최대 200m까지만, 도로 이격은 정할 수 없음. 지붕형·자가소비·주민참여형 제외. 이보다 엄격한 조례는 완화해야 함",
-    "source": "https://mcee.go.kr/home/web/board/read.do?menuId=10598&boardId=1883230&boardMasterId=939"
-  },
-  "경기도 화성시": {
-    "residence_m": 0,
-    "min_houses": null,
-    "status": "화성시 도시계획 조례(2025.11.3 시행) 본문에 태양광 이격 조항 없음",
-    "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2087389",
-    "checked": "2026-09-29"
-  },
-  "경상북도 예천군": {
-    "residence_m": 500,
-    "min_houses": 10,
-    "status": "조례 태양광 조항: 10호 이상 주거지 500m, 10호 미만 300m, 도로 500m, 하천 300~500m, 철도 300m, 경사도 15도 → 시행령으로 도로·10호 미만 기준은 무효, 주거지는 200m로 완화 대상",
-    "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2096259",
-    "checked": "2026-09-29"
-  },
-  "경상북도 안동시": {
-    "residence_m": null,
-    "min_houses": null,
-    "status": "발전시설 허가기준이 조례 별표 28에 있으나 원문 미확인 → 시행령 상한(5호 이상 200m) 보수 적용",
-    "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2103263",
-    "checked": "2026-09-29"
-  }
+ "_시행령": {
+  "note": "2026.9.18 시행 재생에너지법 시행령: 태양광은 주거지(주택 5호 이상)로부터 최대 200m까지만, 도로 이격은 정할 수 없음. 지붕형·자가소비·주민참여형 제외. 이보다 엄격한 조례는 완화해야 함",
+  "source": "https://mcee.go.kr/home/web/board/read.do?menuId=10598&boardId=1883230&boardMasterId=939",
+  "checked": "2026-10-02"
+ },
+ "(구)광주광역시": {
+  "title": "광주광역시 도시계획 조례",
+  "enforce": "2025. 11. 11",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2084475",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "(구)전라남도": {
+  "title": "전라남도 도시계획 조례",
+  "enforce": "2025. 12. 26",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2098273",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "강원특별자치도": {
+  "title": "강원특별자치도 도시계획 조례",
+  "enforce": "2026. 7. 3",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2143463",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "강원특별자치도 강릉시": {
+  "title": "강릉시 도시계획 조례",
+  "enforce": "2025. 12. 31",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2102673",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 1,
+    "m": 200
+   }
+  ],
+  "others": "도로(왕복2차로↑) 200m · 관광지 200m · 문화유산 500m · 철도 200m",
+  "note": "주택 10호 이하 소유자 전원 동의 시 허용",
+  "status": "조례 기준"
+ },
+ "강원특별자치도 고성군": {
+  "title": "고성군 군계획 조례",
+  "enforce": "2026. 6. 29",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2136061",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 1,
+    "m": 500
+   }
+  ],
+  "others": "도로 500m · 주요관광지·국가유산 500m",
+  "note": "거주 5년+ 소유자 200kW 이하(임야 제외)는 주택 100m",
+  "status": "조례 기준"
+ },
+ "강원특별자치도 동해시": {
+  "title": "동해시 도시계획 조례",
+  "enforce": "2025. 12. 12",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2091767",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "강원특별자치도 삼척시": {
+  "title": "삼척시 도시계획 조례",
+  "enforce": "2026. 9. 1",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2165579",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "강원특별자치도 속초시": {
+  "title": "속초시 도시계획 조례",
+  "enforce": "2026. 4. 10",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2121085",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "강원특별자치도 양구군": {
+  "title": "양구군 도시계획조례",
+  "enforce": "2025. 12. 19",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2094605",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 300
+   },
+   {
+    "houses": 5,
+    "m": 200
+   },
+   {
+    "houses": 1,
+    "m": 100
+   }
+  ],
+  "others": "도로 200m",
+  "note": "해당 가구 전체 동의 시 허용",
+  "status": "조례 기준"
+ },
+ "강원특별자치도 양양군": {
+  "title": "양양군 군계획 조례",
+  "enforce": "2025. 12. 31",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2102945",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 5,
+    "m": 400
+   },
+   {
+    "houses": 1,
+    "m": 200
+   }
+  ],
+  "others": "도로(왕복2차로↑) 300m · 관광지·국가유산·공공시설 500m",
+  "note": "별표 26",
+  "status": "조례 기준"
+ },
+ "강원특별자치도 영월군": {
+  "title": "영월군 군계획 조례",
+  "enforce": "2026. 2. 6",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2109147",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 5,
+    "m": 500
+   },
+   {
+    "houses": 1,
+    "m": 200
+   }
+  ],
+  "others": "도로법 도로 500m(비가시권 300m) · 농어촌도로·도시계획도로 200m · 관광지·국가유산 500m · 집단화 농지 중앙 불가",
+  "note": "별표 24, 주민 전체 참여·동의 시 완화",
+  "status": "조례 기준"
+ },
+ "강원특별자치도 원주시": {
+  "title": "원주시 도시계획 조례",
+  "enforce": "2025. 12. 31",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2106795",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 1,
+    "m": 50
+   },
+   {
+    "houses": 10,
+    "m": 200
+   }
+  ],
+  "others": "도로(왕복2차로↑) 200m",
+  "note": "",
+  "status": "조례 기준"
+ },
+ "강원특별자치도 인제군": {
+  "title": "인제군 군계획 조례",
+  "enforce": "2025. 12. 29",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2099217",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 300
+   },
+   {
+    "houses": 5,
+    "m": 200
+   },
+   {
+    "houses": 1,
+    "m": 100
+   }
+  ],
+  "others": "도로(중심선) 100m · 자연취락지구·경관지구·관광지·자연공원 1,000m",
+  "note": "군민 100kW 이하·건축물·자가소비 예외",
+  "status": "조례 기준"
+ },
+ "강원특별자치도 정선군": {
+  "title": "정선군 군계획 조례",
+  "enforce": "2026. 9. 18",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2168855",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 5,
+    "m": 500
+   },
+   {
+    "houses": 1,
+    "m": 300
+   }
+  ],
+  "others": "도로 500m · 자연취락지구·관광지 1,000m",
+  "note": "주민 전원 참여·동의 시 완화 가능",
+  "status": "조례 기준"
+ },
+ "강원특별자치도 철원군": {
+  "title": "철원군 도시계획조례",
+  "enforce": "2026. 8. 28",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2165573",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 500
+   },
+   {
+    "houses": 1,
+    "m": 300
+   }
+  ],
+  "others": "도로(왕복2차로↑) 500m · 관광부지·문화유산 500m",
+  "note": "거주 5년+ 소유자 100kW 이하(임야 제외) 예외",
+  "status": "조례 기준"
+ },
+ "강원특별자치도 춘천시": {
+  "title": "춘천시 도시계획 조례",
+  "enforce": "2026. 8. 13",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2160495",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 1,
+    "m": 100
+   }
+  ],
+  "others": "도로 100m",
+  "note": "100kW 이하(임야 제외, 거주 5년·소유 3년) 예외",
+  "status": "조례 기준"
+ },
+ "강원특별자치도 태백시": {
+  "title": "태백시 도시계획 조례",
+  "enforce": "2026. 2. 13",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2110049",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "강원특별자치도 평창군": {
+  "title": "평창군 군계획 조례",
+  "enforce": "2024. 10. 25",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1979117",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 200
+   },
+   {
+    "houses": 1,
+    "m": 100
+   }
+  ],
+  "others": "주요도로 300m · 관광지·문화재·공공시설 500m",
+  "note": "별표 25, 반경 250m 안 10호↑면 주거밀집",
+  "status": "조례 기준"
+ },
+ "강원특별자치도 홍천군": {
+  "title": "홍천군 군계획 조례",
+  "enforce": "2026. 4. 10",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2121139",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 1,
+    "m": 200
+   }
+  ],
+  "others": "도로(왕복2차로↑) 200m · 주요관광지·국가유산·공공시설 200m",
+  "note": "주택 10호 이하 소유자 전원 동의 시 허용, 1,200㎡ 이하 소규모 예외",
+  "status": "조례 기준"
+ },
+ "강원특별자치도 화천군": {
+  "title": "화천군 군계획 조례",
+  "enforce": "2026. 9. 21",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2169501",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 5,
+    "m": 100
+   }
+  ],
+  "others": "관광지·역사문화환경보존지역·생태경관보전지역·자연취락지구 500m",
+  "note": "지붕형·자가소비 제외",
+  "status": "조례 기준"
+ },
+ "강원특별자치도 횡성군": {
+  "title": "횡성군 군계획 조례",
+  "enforce": "2026. 4. 16",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2125215",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 500
+   },
+   {
+    "houses": 5,
+    "m": 300
+   },
+   {
+    "houses": 1,
+    "m": 150
+   }
+  ],
+  "others": "주요도로 500m(비가시권 300m) · 관광지·문화유산 500m",
+  "note": "별표 26",
+  "status": "조례 기준"
+ },
+ "경기도": {
+  "title": "경기도 도시계획 조례",
+  "enforce": "2026. 6. 29",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2136213",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경기도 가평군": {
+  "title": "가평군 군계획 조례",
+  "enforce": "2026. 4. 20",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2124585",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 1,
+    "m": 500
+   }
+  ],
+  "others": "도로 300m · 관광지·자연공원 300m · 문화유산 300m · 경지정리 농지 불가",
+  "note": "500m 내 주민 동의 시 제외",
+  "status": "조례 기준"
+ },
+ "경기도 고양시": {
+  "title": "고양시 도시계획 조례",
+  "enforce": "2026. 9. 22",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2169855",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경기도 과천시": {
+  "title": "과천시 도시계획 조례",
+  "enforce": "2025. 10. 10",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2078539",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 5,
+    "m": 100
+   }
+  ],
+  "others": "",
+  "note": "",
+  "status": "조례 기준"
+ },
+ "경기도 광명시": {
+  "title": "광명시 도시계획 조례",
+  "enforce": "2026. 8. 5",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2157445",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경기도 광주시": {
+  "title": "광주시 도시계획 조례",
+  "enforce": "2026. 4. 15",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2123363",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경기도 구리시": {
+  "title": "구리시 도시계획 조례",
+  "enforce": "2025. 12. 2",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2089953",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경기도 군포시": {
+  "title": "군포시 도시계획 조례",
+  "enforce": "2025. 10. 10",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2077621",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경기도 김포시": {
+  "title": "김포시 도시계획 조례",
+  "enforce": "2025. 5. 12",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2036273",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경기도 남양주시": {
+  "title": "남양주시 도시계획 조례",
+  "enforce": "2025. 12. 29",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2099095",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경기도 동두천시": {
+  "title": "동두천시 도시계획 조례",
+  "enforce": "2026. 5. 6",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2127631",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경기도 부천시": {
+  "title": "부천시 도시계획 조례",
+  "enforce": "2026. 7. 6",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2144525",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경기도 성남시": {
+  "title": "성남시 도시계획 조례",
+  "enforce": "2026. 2. 24",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2111431",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경기도 수원시": {
+  "title": "수원시 도시계획 조례",
+  "enforce": "2025. 12. 31",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2102141",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "취락지구 100m · 국가유산 100m",
+  "note": "주택 호수 기준 없음(취락지구 기준)",
+  "status": "주거 이격 없음"
+ },
+ "경기도 시흥시": {
+  "title": "시흥시 도시계획 조례",
+  "enforce": "2026. 8. 20",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2164147",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경기도 안산시": {
+  "title": "안산시 도시계획 조례",
+  "enforce": "2025. 9. 19",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2067975",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경기도 안성시": {
+  "title": "안성시 도시계획 조례",
+  "enforce": "2026. 4. 10",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2121099",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 1,
+    "m": 200
+   },
+   {
+    "houses": 5,
+    "m": 300
+   },
+   {
+    "houses": 10,
+    "m": 500
+   }
+  ],
+  "others": "도로법 도로·관광지·공공체육시설 200m · 농어촌도로 100m · 발전설비 간 200m",
+  "note": "주민참여형 예외",
+  "status": "조례 기준"
+ },
+ "경기도 안양시": {
+  "title": "안양시 도시계획 조례",
+  "enforce": "2026. 3. 31",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2117933",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경기도 양주시": {
+  "title": "양주시 도시계획 조례",
+  "enforce": "2025. 11. 24",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2088967",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경기도 양평군": {
+  "title": "양평군 도시계획 조례",
+  "enforce": "2024. 12. 26",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2005435",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 300
+   },
+   {
+    "houses": 1,
+    "m": 200
+   }
+  ],
+  "others": "도로(왕복2차로↑) 200m · 국가유산 200m · 관광지·자연공원 200m · 경지정리 농지 불가",
+  "note": "별표 25",
+  "status": "조례 기준"
+ },
+ "경기도 여주시": {
+  "title": "여주시 도시계획 조례",
+  "enforce": "2026. 9. 28",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2171207",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경기도 연천군": {
+  "title": "연천군 군계획조례",
+  "enforce": "2026. 4. 16",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2123687",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경기도 오산시": {
+  "title": "오산시 도시계획 조례",
+  "enforce": "2026. 5. 6",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2127873",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경기도 용인시": {
+  "title": "용인시 도시계획 조례",
+  "enforce": "2025. 12. 31",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2102461",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경기도 의왕시": {
+  "title": "의왕시 도시계획 조례",
+  "enforce": "2024. 12. 30",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2002325",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경기도 의정부시": {
+  "title": "의정부시 도시계획 조례",
+  "enforce": "2025. 9. 25",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2072835",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경기도 이천시": {
+  "title": "이천시 도시계획 조례",
+  "enforce": "2026. 2. 27",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2113131",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 300
+   },
+   {
+    "houses": 1,
+    "m": 200
+   }
+  ],
+  "others": "도로(왕복2차로↑) 300m · 문화유산·유적지 300m",
+  "note": "별표 27, 에너지 조례 사업 등은 완화 기준(10호↑ 200m)",
+  "status": "조례 기준"
+ },
+ "경기도 파주시": {
+  "title": "파주시 도시계획 조례",
+  "enforce": "2025. 3. 20",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2022815",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 100
+   }
+  ],
+  "others": "도로(왕복2차로↑) 100m",
+  "note": "영농형 예외",
+  "status": "조례 기준"
+ },
+ "경기도 평택시": {
+  "title": "평택시 도시계획 조례",
+  "enforce": "2026. 5. 18",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2122835",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 5,
+    "m": 1000
+   }
+  ],
+  "others": "관광지·정온시설 1,000m · 하천 1,000m · 도로(왕복2차로↑)·도시계획도로 1,000m · 임야 평균경사 15도",
+  "note": "시가화용도지역 제외 등 단서 확인 필요",
+  "status": "조례 기준"
+ },
+ "경기도 포천시": {
+  "title": "포천시 도시계획 조례",
+  "enforce": "2026. 8. 14",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2161793",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 300
+   }
+  ],
+  "others": "도로(왕복2차로↑, 중심선) 200m · 공공시설 300m · 임야 형질변경 불가",
+  "note": "",
+  "status": "조례 기준"
+ },
+ "경기도 하남시": {
+  "title": "하남시 도시계획 조례",
+  "enforce": "2025. 8. 11",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2064475",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경기도 화성시": {
+  "title": "화성시 도시계획 조례",
+  "enforce": "2026. 3. 10",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2115001",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경상남도": {
+  "title": "경상남도 도시계획 조례",
+  "enforce": "2026. 1. 2",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2105665",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경상남도 거제시": {
+  "title": "거제시 도시계획 조례",
+  "enforce": "2026. 4. 9",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2120831",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 5,
+    "m": 300
+   }
+  ],
+  "others": "주요도로 300m · 공원·관광지·유원지 200m · 자연취락지구 500m · 평균경사 15도",
+  "note": "별표 27 표 해석 근사",
+  "status": "조례 기준"
+ },
+ "경상남도 거창군": {
+  "title": "거창군 계획조례",
+  "enforce": "2025. 12. 31",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2103751",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경상남도 고성군": {
+  "title": "고성군계획 조례",
+  "enforce": "2025. 12. 22",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2095695",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 500
+   },
+   {
+    "houses": 1,
+    "m": 200
+   }
+  ],
+  "others": "고속국도·국도·지방도·군도 500m · 면도 200m · 자연공원·관광지 500m · 평균경사 20도",
+  "note": "자가용·건축물 예외",
+  "status": "조례 기준"
+ },
+ "경상남도 김해시": {
+  "title": "김해시 도시계획 조례",
+  "enforce": "2026. 4. 1",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2118405",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경상남도 남해군": {
+  "title": "남해군 도시계획 조례",
+  "enforce": "2026. 4. 7",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2119933",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 300
+   },
+   {
+    "houses": 1,
+    "m": 200
+   }
+  ],
+  "others": "국도·지방도·군도 500m · 농어촌도로 300m · 자연취락지구 300m · 우량농지 불가",
+  "note": "지붕형 예외",
+  "status": "조례 기준"
+ },
+ "경상남도 밀양시": {
+  "title": "밀양시 도시계획 조례",
+  "enforce": "2025. 5. 8",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2035513",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 300
+   }
+  ],
+  "others": "주요도로 300m · 경지정리 우량농지 중앙 불가 · 평균경사 20도",
+  "note": "건축물·공익 예외",
+  "status": "조례 기준"
+ },
+ "경상남도 사천시": {
+  "title": "사천시 도시계획조례",
+  "enforce": "2026. 7. 2",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2138397",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 5,
+    "m": 500
+   }
+  ],
+  "others": "고속국도·국도·지방도·시도 300m · 평균경사 15도",
+  "note": "",
+  "status": "조례 기준"
+ },
+ "경상남도 산청군": {
+  "title": "산청군 군계획 조례",
+  "enforce": "2025. 11. 27",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2089703",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 5,
+    "m": 500
+   }
+  ],
+  "others": "국도·지방도·군도 500m · 면도·이도·농도 300m · 관광지·공원구역 1,000m · 평균경사 15도 · 기존 허가부지 100m",
+  "note": "공익·자가소비 예외",
+  "status": "조례 기준"
+ },
+ "경상남도 양산시": {
+  "title": "양산시 도시계획 조례",
+  "enforce": "2025. 12. 11",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2091561",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경상남도 의령군": {
+  "title": "의령군 계획 조례",
+  "enforce": "2026. 3. 25",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2116509",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 5,
+    "m": 700
+   }
+  ],
+  "others": "도로법 도로·면도 500m · 리도 300m · 관광지 1,000m · 공공시설 500m · 평균경사 15도",
+  "note": "",
+  "status": "조례 기준"
+ },
+ "경상남도 진주시": {
+  "title": "진주시 도시계획조례",
+  "enforce": "2026. 5. 4",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2127421",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 500
+   },
+   {
+    "houses": 5,
+    "m": 300
+   },
+   {
+    "houses": 1,
+    "m": 200
+   }
+  ],
+  "others": "주요도로 500m · 자연취락지구·주거개발진흥지구 500m",
+  "note": "5년 이상 소유+모든 주택 동의 시 허가 가능",
+  "status": "조례 기준"
+ },
+ "경상남도 창녕군": {
+  "title": "창녕군계획 조례",
+  "enforce": "2025. 12. 18",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2093817",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 250
+   }
+  ],
+  "others": "도로(폭 6m↑) 250m · 우포늪 보호구역 1,000m · 산지 평균경사 15도",
+  "note": "",
+  "status": "조례 기준"
+ },
+ "경상남도 창원시": {
+  "title": "창원시 도시계획 조례",
+  "enforce": "2026. 2. 13",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2110201",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경상남도 통영시": {
+  "title": "통영시 도시계획조례",
+  "enforce": "2026. 1. 2",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2105587",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경상남도 하동군": {
+  "title": "하동군 계획 조례",
+  "enforce": "2026. 9. 30",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2172877",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 5,
+    "m": 500
+   }
+  ],
+  "others": "도로(왕복2차선↑·도로법) 300m · 자연취락지구 500m · 관광지 500m",
+  "note": "지붕형·염해간척지 예외",
+  "status": "조례 기준"
+ },
+ "경상남도 함안군": {
+  "title": "함안군 계획 조례",
+  "enforce": "2026. 6. 30",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2136625",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 5,
+    "m": 500
+   }
+  ],
+  "others": "도로(왕복2차선↑·도로법) 400m",
+  "note": "주민 전체 동의 시 300m로 완화",
+  "status": "조례 기준"
+ },
+ "경상남도 함양군": {
+  "title": "함양군 군계획 조례",
+  "enforce": "2026. 8. 6",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2162351",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 5,
+    "m": 400
+   }
+  ],
+  "others": "주요도로 300m · 관광지·공공시설 400m",
+  "note": "",
+  "status": "조례 기준"
+ },
+ "경상남도 합천군": {
+  "title": "합천군 군계획 조례",
+  "enforce": "2026. 4. 16",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2123757",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 5,
+    "m": 500
+   }
+  ],
+  "others": "주요도로 300m · 관광지 1,000m · 산지 평균경사 15도",
+  "note": "일부 경우 도로 200m·주거 350m 완화 기준 있음",
+  "status": "조례 기준"
+ },
+ "경상북도": {
+  "title": "경상북도 도시계획 조례",
+  "enforce": "2024. 2. 19",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1908145",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경상북도 경산시": {
+  "title": "경산시 도시계획 조례",
+  "enforce": "2026. 1. 7",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2106343",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 300
+   },
+   {
+    "houses": 5,
+    "m": 175
+   },
+   {
+    "houses": 1,
+    "m": 75
+   }
+  ],
+  "others": "도로·도시계획도로 300m · 관광지·지정국가유산 500m",
+  "note": "10호 미만은 50m + 주택수×25m (근사)",
+  "status": "조례 기준"
+ },
+ "경상북도 경주시": {
+  "title": "경주시 도시계획 조례",
+  "enforce": "2025. 7. 15",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2057435",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 200
+   }
+  ],
+  "others": "도로(2차로↑) 300m · 관광지 500m",
+  "note": "",
+  "status": "조례 기준"
+ },
+ "경상북도 고령군": {
+  "title": "고령군 군계획 조례",
+  "enforce": "2026. 4. 14",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2122635",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 300
+   },
+   {
+    "houses": 5,
+    "m": 150
+   }
+  ],
+  "others": "도로 500m · 관광지·공공시설 500m · 평균경사 15도",
+  "note": "지형 차단 시 미적용",
+  "status": "조례 기준"
+ },
+ "경상북도 구미시": {
+  "title": "구미시 도시계획 조례",
+  "enforce": "2026. 7. 8",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2146305",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 500
+   },
+   {
+    "houses": 1,
+    "m": 320
+   }
+  ],
+  "others": "주요도로(철도 포함) 500m · 관광지 500m",
+  "note": "별표 27, 10호 미만은 300m + 주택수×20m (근사), 심의로 1/2 완화 가능",
+  "status": "조례 기준"
+ },
+ "경상북도 김천시": {
+  "title": "김천시 도시계획 조례",
+  "enforce": "2026. 2. 26",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2112719",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 300
+   },
+   {
+    "houses": 1,
+    "m": 50
+   }
+  ],
+  "others": "도로(왕복2차로↑)·농어촌도로 300m · 관광지 300m · 평균경사 15도",
+  "note": "",
+  "status": "조례 기준"
+ },
+ "경상북도 문경시": {
+  "title": "문경시 도시계획 조례",
+  "enforce": "2025. 12. 30",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2100779",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 500
+   },
+   {
+    "houses": 5,
+    "m": 200
+   },
+   {
+    "houses": 1,
+    "m": 70
+   }
+  ],
+  "others": "자연취락지구·관광지 등 500m · 경사 15도",
+  "note": "인접주택 70m는 동의 시 예외",
+  "status": "조례 기준"
+ },
+ "경상북도 봉화군": {
+  "title": "봉화군 군계획 조례",
+  "enforce": "2025. 12. 15",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2093765",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 5,
+    "m": 300
+   },
+   {
+    "houses": 1,
+    "m": 150
+   }
+  ],
+  "others": "도로 500m · 관광지 500m",
+  "note": "5호 미만은 주민 60% 동의 시 미적용",
+  "status": "조례 기준"
+ },
+ "경상북도 상주시": {
+  "title": "상주시 도시계획 조례",
+  "enforce": "2026. 3. 24",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2116275",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 500
+   },
+   {
+    "houses": 1,
+    "m": 300
+   }
+  ],
+  "others": "도로 500m · 관광지·관광휴양형 지구단위 1,000m · 국가유산·전통사찰 500m · 평균경사 15도",
+  "note": "별표 28, 독채 소유자 부지 예외",
+  "status": "조례 기준"
+ },
+ "경상북도 성주군": {
+  "title": "성주군 도시계획조례",
+  "enforce": "2026. 9. 17",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2168563",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경상북도 안동시": {
+  "title": "안동시 도시계획 조례",
+  "enforce": "2026. 1. 20",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2103263",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 500
+   },
+   {
+    "houses": 5,
+    "m": 300
+   },
+   {
+    "houses": 1,
+    "m": 100
+   }
+  ],
+  "others": "도로·철도 300m(임야 500m) · 자연취락지구·관광지 500m · 지정문화유산·자연유산 200m",
+  "note": "별표 28, 임야는 10호↑ 1,000m",
+  "status": "조례 기준"
+ },
+ "경상북도 영덕군": {
+  "title": "영덕군 군계획 조례",
+  "enforce": "2025. 12. 22",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2095663",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 200
+   },
+   {
+    "houses": 1,
+    "m": 110
+   }
+  ],
+  "others": "도로 200m · 철도 터널 출입구 300m · 관광지·공원·유원지 200m · 지정문화유산 200m",
+  "note": "10호 미만은 100m + 주택수×10m (근사)",
+  "status": "조례 기준"
+ },
+ "경상북도 영양군": {
+  "title": "영양군 군계획 조례",
+  "enforce": "2025. 12. 19",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2094775",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 200
+   }
+  ],
+  "others": "고속·일반국도 500m · 지방도 300m · 군도 200m · 관광지·공공시설 500m",
+  "note": "거주 5년+ 본인 토지 200kW 미만 1회 도로 완화",
+  "status": "조례 기준"
+ },
+ "경상북도 영주시": {
+  "title": "영주시 도시계획 조례",
+  "enforce": "2025. 12. 29",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2099533",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경상북도 영천시": {
+  "title": "영천시 도시계획 조례",
+  "enforce": "2024. 12. 27",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2000711",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 300
+   },
+   {
+    "houses": 1,
+    "m": 150
+   }
+  ],
+  "others": "도로 300m · 관광지·공공시설·국가유산 500m",
+  "note": "공익·자가소비·건축물 예외",
+  "status": "조례 기준"
+ },
+ "경상북도 예천군": {
+  "title": "예천군 군계획 조례",
+  "enforce": "2025. 12. 24",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2096259",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 500
+   },
+   {
+    "houses": 1,
+    "m": 300
+   }
+  ],
+  "others": "도로 500m · 하천 300~500m · 철도 300m · 관광지 500m · 평균경사 15도",
+  "note": "본인 소유 주택만 있는 경우 제외",
+  "status": "조례 기준"
+ },
+ "경상북도 울릉군": {
+  "title": "울릉군 군계획 조례",
+  "enforce": "2026. 4. 20",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2125271",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경상북도 울진군": {
+  "title": "울진군 군계획조례",
+  "enforce": "2023. 5. 1",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1807053",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "주요도로 1,000m · 집단화 농지 중앙 불가 · 5영급 이상 산림 불가",
+  "note": "주거 이격 조항 없음",
+  "status": "주거 이격 없음"
+ },
+ "경상북도 의성군": {
+  "title": "의성군 도시계획 조례",
+  "enforce": "2026. 4. 17",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2124091",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 500
+   },
+   {
+    "houses": 1,
+    "m": 300
+   }
+  ],
+  "others": "도로법 도로 500m · 농어촌도로 300m · 관광지·공공시설 500m",
+  "note": "마을 공동 수익 사업 등 예외",
+  "status": "조례 기준"
+ },
+ "경상북도 청도군": {
+  "title": "청도군 군계획 조례 [제명개정 2020. 10. 5.]",
+  "enforce": "2026. 9. 16",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2168389",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "경상북도 청송군": {
+  "title": "청송군 도시계획 조례",
+  "enforce": "2025. 7. 1",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2048533",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 500
+   }
+  ],
+  "others": "주요도로 1,000m",
+  "note": "",
+  "status": "조례 기준"
+ },
+ "경상북도 칠곡군": {
+  "title": "칠곡군 도시계획 조례",
+  "enforce": "2025. 12. 26",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2098119",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 300
+   }
+  ],
+  "others": "주요교통시설(철도 포함) 500m(군도 250m) · 관광지 500m · 집단화 농지 중앙 불가",
+  "note": "별표 4",
+  "status": "조례 기준"
+ },
+ "경상북도 포항시": {
+  "title": "포항시 도시계획 조례",
+  "enforce": "2026. 1. 7",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2106311",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "대구광역시": {
+  "title": "대구광역시 도시계획 조례",
+  "enforce": "2026. 5. 11",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2128915",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "대전광역시": {
+  "title": "대전광역시 도시계획 조례",
+  "enforce": "2026. 2. 13",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2110261",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "대전광역시 동구": {
+  "title": "대전광역시 동구 도시계획 조례",
+  "enforce": "2020. 10. 7",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1534435",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "대전광역시 서구": {
+  "title": "대전광역시 서구 도시계획 조례",
+  "enforce": "2026. 10. 1",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2166971",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "대전광역시 유성구": {
+  "title": "대전광역시 유성구 도시계획 조례",
+  "enforce": "2026. 9. 23",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2169185",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "대전광역시 중구": {
+  "title": "대전광역시 중구 도시계획 조례",
+  "enforce": "2023. 7. 11",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1835899",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "부산광역시": {
+  "title": "부산광역시 도시계획 조례",
+  "enforce": "2026. 4. 8",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2120465",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "부산광역시 금정구": {
+  "title": "부산광역시 금정구 도시계획 조례",
+  "enforce": "2019. 10. 28",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1411198",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "부산광역시 기장군": {
+  "title": "부산광역시 기장군 도시계획 조례",
+  "enforce": "2025. 9. 24",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2069525",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "부산광역시 동래구": {
+  "title": "부산광역시동래구 도시계획 조례",
+  "enforce": "2018. 12. 31",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1378243",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "부산광역시 사상구": {
+  "title": "부산광역시 사상구 도시계획 조례",
+  "enforce": "2023. 6. 8",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1817427",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "부산광역시 연제구": {
+  "title": "부산광역시 연제구 도시계획 조례",
+  "enforce": "2023. 8. 10",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1846391",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "부산광역시 영도구": {
+  "title": "부산광역시 영도구 도시계획 조례",
+  "enforce": "2022. 7. 6",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1715155",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "부산광역시 중구": {
+  "title": "부산광역시 중구 도시계획 조례",
+  "enforce": "2023. 6. 30",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1826469",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "서울특별시": {
+  "title": "서울특별시 도시계획 조례",
+  "enforce": "2026. 7. 13",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2149501",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "서울특별시 강남구": {
+  "title": "서울특별시 강남구 도시계획 조례",
+  "enforce": "2021. 4. 30",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1592205",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "서울특별시 강동구": {
+  "title": "서울특별시 강동구 도시계획 조례",
+  "enforce": "2026. 1. 14",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2107635",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "서울특별시 강북구": {
+  "title": "서울특별시 강북구 도시계획 조례",
+  "enforce": "2023. 9. 22",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1853663",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "서울특별시 강서구": {
+  "title": "서울특별시 강서구 도시계획 조례",
+  "enforce": "2026. 1. 1",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2084559",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "서울특별시 관악구": {
+  "title": "서울특별시 관악구 도시계획 조례",
+  "enforce": "2023. 12. 28",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1890775",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "서울특별시 광진구": {
+  "title": "서울특별시 광진구 도시계획 조례",
+  "enforce": "2025. 12. 29",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2098841",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "서울특별시 구로구": {
+  "title": "서울특별시 구로구 도시계획 조례",
+  "enforce": "2018. 2. 22",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1339404",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "서울특별시 금천구": {
+  "title": "서울특별시 금천구 도시계획 조례",
+  "enforce": "2021. 5. 13",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1595151",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "서울특별시 노원구": {
+  "title": "서울특별시 노원구 도시계획 조례",
+  "enforce": "2024. 11. 7",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1982361",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "서울특별시 도봉구": {
+  "title": "서울특별시 도봉구 도시계획 조례",
+  "enforce": "2018. 12. 27",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1376003",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "서울특별시 동대문구": {
+  "title": "서울특별시 동대문구 도시계획 조례",
+  "enforce": "2018. 7. 12",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1351535",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "서울특별시 동작구": {
+  "title": "서울특별시 동작구 도시계획 조례",
+  "enforce": "2026. 9. 3",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2166663",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "서울특별시 마포구": {
+  "title": "서울특별시 마포구 도시계획 조례",
+  "enforce": "2020. 2. 27",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1472927",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "서울특별시 서대문구": {
+  "title": "서울특별시 서대문구 도시계획 조례",
+  "enforce": "2023. 1. 9",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1767945",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "서울특별시 서초구": {
+  "title": "서울특별시 서초구 도시계획조례",
+  "enforce": "2025. 1. 1",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1989501",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "서울특별시 성동구": {
+  "title": "서울특별시 성동구 도시계획 조례",
+  "enforce": "2016. 3. 17",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1222484",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "서울특별시 성북구": {
+  "title": "서울특별시 성북구 도시계획 조례",
+  "enforce": "2023. 12. 28",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1893487",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "서울특별시 송파구": {
+  "title": "서울특별시 송파구 도시계획 조례",
+  "enforce": "2025. 7. 10",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2053833",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "서울특별시 양천구": {
+  "title": "서울특별시 양천구 도시계획 조례",
+  "enforce": "2024. 12. 19",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1993519",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "서울특별시 영등포구": {
+  "title": "서울특별시 영등포구 도시계획 조례",
+  "enforce": "2017. 12. 28",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1322034",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "서울특별시 용산구": {
+  "title": "서울특별시 용산구 도시계획 조례",
+  "enforce": "2026. 9. 28",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2170913",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "서울특별시 은평구": {
+  "title": "서울특별시 은평구 도시계획 조례",
+  "enforce": "2020. 5. 14",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1493097",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "서울특별시 종로구": {
+  "title": "서울특별시 종로구 도시계획 조례",
+  "enforce": "2022. 11. 11",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1746853",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "서울특별시 중구": {
+  "title": "서울특별시 중구 도시계획 조례",
+  "enforce": "2023. 7. 25",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1841329",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "서울특별시 중랑구": {
+  "title": "서울특별시 중랑구 도시계획 조례",
+  "enforce": "2025. 12. 31",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2101185",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "세종특별자치시": {
+  "title": "세종특별자치시 도시계획 조례",
+  "enforce": "2026. 2. 27",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2113473",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "울산광역시": {
+  "title": "울산광역시 도시계획 조례",
+  "enforce": "2026. 4. 9",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2120867",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "울산광역시 남구": {
+  "title": "울산광역시 남구 도시계획조례",
+  "enforce": "2025. 6. 27",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2046461",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "울산광역시 동구": {
+  "title": "울산광역시 동구 도시계획 조례",
+  "enforce": "2019. 10. 31",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1419513",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "울산광역시 북구": {
+  "title": "울산광역시 북구 도시계획 조례",
+  "enforce": "2024. 1. 1",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1904079",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "울산광역시 울주군": {
+  "title": "울산광역시 울주군 도시계획 조례",
+  "enforce": "2026. 7. 2",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2138197",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "울산광역시 중구": {
+  "title": "울산광역시 중구 도시계획 조례",
+  "enforce": "2024. 8. 5",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1961291",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "인천광역시": {
+  "title": "인천광역시 도시계획 조례",
+  "enforce": "2026. 7. 13",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2150257",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "전남광주통합특별시 강진군": {
+  "title": "강진군 군계획 조례",
+  "enforce": "2026. 8. 10",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2169083",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 500
+   },
+   {
+    "houses": 1,
+    "m": 100
+   }
+  ],
+  "others": "도로 500m · 문화재 500m · 관광지 500m · 산지 평균경사 15도",
+  "note": "주민참여형은 10호↑ 100m",
+  "status": "조례 기준"
+ },
+ "전남광주통합특별시 고흥군": {
+  "title": "고흥군 군계획 조례",
+  "enforce": "2026. 8. 24",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2157245",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 500
+   },
+   {
+    "houses": 1,
+    "m": 100
+   }
+  ],
+  "others": "국도·지방도·군도·면도(2차선↑) 500m · 관광지 500m · 산지 평균경사 15도",
+  "note": "주민참여형 등 완화(10호↑ 200m)",
+  "status": "조례 기준"
+ },
+ "전남광주통합특별시 곡성군": {
+  "title": "곡성군 군계획 조례",
+  "enforce": "2026. 8. 12",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2159961",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 500
+   },
+   {
+    "houses": 1,
+    "m": 300
+   }
+  ],
+  "others": "주요도로·면도(왕복2차로↑) 500m · 주요 관광지 500m",
+  "note": "자연취락지구 기준, 군 거주 5년+ 본인 토지는 1/2",
+  "status": "조례 기준"
+ },
+ "전남광주통합특별시 광양시": {
+  "title": "광양시 도시계획 조례",
+  "enforce": "2025. 12. 31",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2105463",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 200
+   }
+  ],
+  "others": "도로·철도 100m · 관광지·공공시설 200m · 평균경사 15도",
+  "note": "",
+  "status": "조례 기준"
+ },
+ "전남광주통합특별시 구례군": {
+  "title": "구례군계획 조례",
+  "enforce": "2025. 4. 23",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1931817",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 500
+   },
+   {
+    "houses": 5,
+    "m": 100
+   }
+  ],
+  "others": "도로 1,000m · 주요 관광지 500m · 저수지·집단화 농지 중앙 불가",
+  "note": "",
+  "status": "조례 기준"
+ },
+ "전남광주통합특별시 나주시": {
+  "title": "나주시 도시계획 조례",
+  "enforce": "2025. 12. 31",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2103137",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "전남광주통합특별시 담양군": {
+  "title": "담양군 계획 조례",
+  "enforce": "2026. 8. 10",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2159603",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "도로(면도↑) 500m · 취락지구·주요관광지·공공시설 500m",
+  "note": "주택 호수 기준 없음(취락지구 기준)",
+  "status": "주거 이격 없음"
+ },
+ "전남광주통합특별시 목포시": {
+  "title": "목포시 도시계획 조례",
+  "enforce": "2025. 12. 29",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2099295",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 100
+   }
+  ],
+  "others": "도로(2차선↑) 100m · 자연취락지구 100m · 관광지 100m · 문화유산 100m",
+  "note": "",
+  "status": "조례 기준"
+ },
+ "전남광주통합특별시 무안군": {
+  "title": "무안군 관리계획 조례",
+  "enforce": "2026. 8. 18",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2164393",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 200
+   },
+   {
+    "houses": 1,
+    "m": 100
+   }
+  ],
+  "others": "도로법 도로 200m · 면도 100m · 자연취락지구 200m · 관광지 500m · 산림밀집지역 불가",
+  "note": "실거주자 70% 동의 시 완화",
+  "status": "조례 기준"
+ },
+ "전남광주통합특별시 보성군": {
+  "title": "보성군 군계획 조례",
+  "enforce": "2026. 8. 4",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2157793",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 500
+   },
+   {
+    "houses": 1,
+    "m": 300
+   }
+  ],
+  "others": "도로법 도로 500m · 농어촌도로 200m · 자연취락지구 500m · 관광지 500m",
+  "note": "군민 100kW 이하는 200m(10호 미만 100m)",
+  "status": "조례 기준"
+ },
+ "전남광주통합특별시 순천시": {
+  "title": "순천시 도시계획 조례",
+  "enforce": "2026. 7. 1",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2139799",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 500
+   },
+   {
+    "houses": 5,
+    "m": 200
+   }
+  ],
+  "others": "도로 200m · 경사 15도",
+  "note": "4호 이하는 위원회 심의",
+  "status": "조례 기준"
+ },
+ "전남광주통합특별시 신안군": {
+  "title": "신안군 도시계획 조례",
+  "enforce": "2026. 8. 14",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2164649",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 100
+   },
+   {
+    "houses": 1,
+    "m": 50
+   }
+  ],
+  "others": "관광지·농어촌관광휴양단지 100m",
+  "note": "",
+  "status": "조례 기준"
+ },
+ "전남광주통합특별시 여수시": {
+  "title": "여수시 도시계획 조례",
+  "enforce": "2025. 12. 8",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2090475",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 1,
+    "m": 300
+   }
+  ],
+  "others": "도로·철도 300m · 문화재·향토문화유산 300m",
+  "note": "세대주 전체 동의 시 예외",
+  "status": "조례 기준"
+ },
+ "전남광주통합특별시 영광군": {
+  "title": "영광군 도시계획 조례",
+  "enforce": "2026. 8. 10",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2160687",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 300
+   }
+  ],
+  "others": "주요도로 100m · 관광지·공공시설·다수이용시설 300m · 농업용 저수지 수면 불가",
+  "note": "",
+  "status": "조례 기준"
+ },
+ "전남광주통합특별시 영암군": {
+  "title": "영암군 도시계획 조례",
+  "enforce": "2026. 8. 6",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2158147",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 5,
+    "m": 300
+   },
+   {
+    "houses": 1,
+    "m": 100
+   }
+  ],
+  "others": "고속국도·국도·지방도·군도 300m · 기타 2차선↑ 도로 100m · 관광지·유원지 500m · 산지 평균경사 15도",
+  "note": "군민 소규모+주민동의 시 도로 100m·주거 200m",
+  "status": "조례 기준"
+ },
+ "전남광주통합특별시 완도군": {
+  "title": "완도군 도시계획 조례",
+  "enforce": "2026. 8. 4",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2159767",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 5,
+    "m": 500
+   },
+   {
+    "houses": 1,
+    "m": 100
+   }
+  ],
+  "others": "도로(농어촌도로 포함) 1,000m · 문화재 500m · 관광지 500m · 산지 평균경사 15도",
+  "note": "주민참여형 완화",
+  "status": "조례 기준"
+ },
+ "전남광주통합특별시 장성군": {
+  "title": "장성군 도시계획 조례",
+  "enforce": "2026. 8. 18",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2163925",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "전남광주통합특별시 장흥군": {
+  "title": "장흥군 관리계획 조례",
+  "enforce": "2026. 8. 10",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2159237",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 500
+   },
+   {
+    "houses": 1,
+    "m": 300
+   }
+  ],
+  "others": "고속도로·국도 1,000m · 지방도·군도 500m · 관광지 500m · 장흥댐 500m · 경사 15도",
+  "note": "",
+  "status": "조례 기준"
+ },
+ "전남광주통합특별시 진도군": {
+  "title": "진도군계획 조례",
+  "enforce": "2026. 7. 1",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2133547",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 5,
+    "m": 300
+   },
+   {
+    "houses": 1,
+    "m": 100
+   }
+  ],
+  "others": "도로 500m(군민 300m/농어촌도로 200m) · 관광지·공공시설 500m · 산지 경사 15도",
+  "note": "",
+  "status": "조례 기준"
+ },
+ "전남광주통합특별시 함평군": {
+  "title": "함평군 군계획 조례",
+  "enforce": "2026. 7. 31",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2155805",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 300
+   },
+   {
+    "houses": 1,
+    "m": 250
+   }
+  ],
+  "others": "주요도로·관광지 500m · 해안가·공공시설 300m",
+  "note": "농촌태양광 등 예외",
+  "status": "조례 기준"
+ },
+ "전남광주통합특별시 해남군": {
+  "title": "해남군 군계획 조례",
+  "enforce": "2025. 12. 15",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2092395",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 500
+   },
+   {
+    "houses": 1,
+    "m": 100
+   }
+  ],
+  "others": "도로 100m · 자연취락지구 500m · 관광지 500m · 역사문화환경 보존지역 · 산지 평균경사 15도",
+  "note": "",
+  "status": "조례 기준"
+ },
+ "전남광주통합특별시 화순군": {
+  "title": "화순군 도시계획 조례",
+  "enforce": "2026. 9. 18",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2169565",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 5,
+    "m": 200
+   }
+  ],
+  "others": "관광지 내 숙박·상가지구 300m · 자연취락지구 내 200m",
+  "note": "시행령 기준으로 이미 개정됨, 지붕형·자가소비·보조 100kW 이하 제외",
+  "status": "조례 기준"
+ },
+ "전북특별자치도": {
+  "title": "전북특별자치도 도시계획 조례",
+  "enforce": "2025. 7. 11",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2056297",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "전북특별자치도 고창군": {
+  "title": "고창군 계획 조례",
+  "enforce": "2025. 12. 31",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2105969",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "전북특별자치도 군산시": {
+  "title": "군산시 도시계획 조례",
+  "enforce": "2025. 4. 15",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2030847",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "전북특별자치도 김제시": {
+  "title": "김제시 도시계획 조례",
+  "enforce": "2025. 12. 16",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2092743",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 200
+   },
+   {
+    "houses": 1,
+    "m": 100
+   }
+  ],
+  "others": "도로(6m↑·왕복2차선↑) 100m · 학교·어린이집·의료기관 100m · 관광지·국가유산 200m · 하천 100m",
+  "note": "연접 5천㎡ 이상이면 10호↑ 300m",
+  "status": "조례 기준"
+ },
+ "전북특별자치도 남원시": {
+  "title": "남원시 도시계획 조례",
+  "enforce": "2026. 9. 18",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2168957",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 5,
+    "m": 200
+   },
+   {
+    "houses": 1,
+    "m": 50
+   }
+  ],
+  "others": "도로(6m↑) 200m · 하천·저수지 200m · 공공시설·국가유산 300m · 경지정리 우량농지 불가",
+  "note": "별표 30",
+  "status": "조례 기준"
+ },
+ "전북특별자치도 무주군": {
+  "title": "무주군 군계획 조례",
+  "enforce": "2025. 12. 10",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2090963",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 5,
+    "m": 250
+   }
+  ],
+  "others": "주요도로·관광지·자연휴양림·공원 이격(별표 29 표) · 임야는 모든 항목 1,000m",
+  "note": "500m 내 5호↑ 마을 소유자 80% 동의 필요, 군민 200kW 미만 예외",
+  "status": "조례 기준"
+ },
+ "전북특별자치도 부안군": {
+  "title": "부안군 군계획 조례",
+  "enforce": "2025. 7. 18",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2059843",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 300
+   },
+   {
+    "houses": 1,
+    "m": 100
+   }
+  ],
+  "others": "도로(왕복2차로↑) 150m · 면도 150m · 공유수면·간석지 등",
+  "note": "별표 26",
+  "status": "조례 기준"
+ },
+ "전북특별자치도 순창군": {
+  "title": "순창군 계획 조례",
+  "enforce": "2026. 8. 18",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2163587",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 5,
+    "m": 500
+   }
+  ],
+  "others": "도로법 도로 200m · 농어촌도로(리도↑)·6m↑ 도로 100m · 문화재 300m · 취락지구·지구단위계획구역 500m",
+  "note": "군민 예외 있음",
+  "status": "조례 기준"
+ },
+ "전북특별자치도 완주군": {
+  "title": "완주군 계획 조례",
+  "enforce": "2025. 12. 18",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2093577",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 1,
+    "m": 200
+   }
+  ],
+  "others": "도로(포장폭 6m↑) 200m · 공공시설·국가유산 200m · 저수지 수면 불가",
+  "note": "별표 26",
+  "status": "조례 기준"
+ },
+ "전북특별자치도 익산시": {
+  "title": "익산시 도시계획 조례",
+  "enforce": "2025. 12. 31",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2103039",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 200
+   },
+   {
+    "houses": 1,
+    "m": 100
+   }
+  ],
+  "others": "도로(2차로↑) 200m · 하천·저수지 200m · 관광지 300m · 지정문화유산 500m · 학교·의료기관 200m · 임야 경사 15도",
+  "note": "사업면적 5천㎡↑이면 10호↑ 300m",
+  "status": "조례 기준"
+ },
+ "전북특별자치도 임실군": {
+  "title": "임실군 계획 조례",
+  "enforce": "2026. 2. 25",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2111947",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "조례 본문에 태양광 이격 조항 없음",
+  "status": "주거 이격 없음"
+ },
+ "전북특별자치도 장수군": {
+  "title": "장수군 군계획 조례",
+  "enforce": "2026. 4. 1",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2118571",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 5,
+    "m": 150
+   },
+   {
+    "houses": 1,
+    "m": 50
+   }
+  ],
+  "others": "도로 100m · 도시지역 150m · 산지 평균경사 15도",
+  "note": "5호 미만은 가옥 수×30m(최소 50m)",
+  "status": "조례 기준"
+ },
+ "전북특별자치도 전주시": {
+  "title": "전주시 도시계획 조례",
+  "enforce": "2026. 4. 13",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2122435",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "전북특별자치도 정읍시": {
+  "title": "정읍시 도시계획 조례",
+  "enforce": "2026. 4. 10",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2121657",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 100
+   }
+  ],
+  "others": "도로(왕복2차로↑) 100m · 국가유산 200m · 관광지·공공시설 이격 · 경지정리지구 불가",
+  "note": "별표 24, 이·통장 있는 마을 기준",
+  "status": "조례 기준"
+ },
+ "전북특별자치도 진안군": {
+  "title": "진안군 계획 조례",
+  "enforce": "2026. 3. 30",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2117603",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "제주특별자치도": {
+  "title": "제주특별자치도 도시계획 조례",
+  "enforce": "2025. 12. 24",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2096577",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "충청남도": {
+  "title": "충청남도 도시계획 조례",
+  "enforce": "2024. 12. 30",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2003869",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "충청남도 계룡시": {
+  "title": "계룡시 도시계획 조례",
+  "enforce": "2025. 11. 20",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2088919",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 200
+   },
+   {
+    "houses": 5,
+    "m": 100
+   },
+   {
+    "houses": 1,
+    "m": 50
+   }
+  ],
+  "others": "도로·도시계획도로 200m · 관광지 200m",
+  "note": "10호 미만은 가옥당 20m(최소 50m) 근사",
+  "status": "조례 기준"
+ },
+ "충청남도 공주시": {
+  "title": "공주시 도시계획 조례",
+  "enforce": "2025. 12. 15",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2092049",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 300
+   },
+   {
+    "houses": 1,
+    "m": 100
+   }
+  ],
+  "others": "주요도로 200m · 관광지·문화유산·공공시설 500m · 세계유산 1,000m",
+  "note": "별표 25, 10호 미만은 주택당 20m 누적(최소 100m)",
+  "status": "조례 기준"
+ },
+ "충청남도 금산군": {
+  "title": "금산군 도시계획 조례",
+  "enforce": "2025. 11. 10",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2083975",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 300
+   },
+   {
+    "houses": 5,
+    "m": 200
+   }
+  ],
+  "others": "주요도로 200m · 관광지·문화재 이격(별표 27)",
+  "note": "별표 27 표 해석 근사",
+  "status": "조례 기준"
+ },
+ "충청남도 논산시": {
+  "title": "논산시 도시계획 조례",
+  "enforce": "2025. 12. 22",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2095519",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 500
+   },
+   {
+    "houses": 5,
+    "m": 450
+   },
+   {
+    "houses": 1,
+    "m": 200
+   }
+  ],
+  "others": "주요도로(2차선↑) 200m",
+  "note": "별표 24, 5~9호는 200m + 주택당 50m (근사)",
+  "status": "조례 기준"
+ },
+ "충청남도 당진시": {
+  "title": "당진시 도시계획 조례",
+  "enforce": "2025. 12. 15",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2092539",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "충청남도 보령시": {
+  "title": "보령시 도시계획 조례",
+  "enforce": "2025. 11. 10",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2083897",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "충청남도 부여군": {
+  "title": "부여군 군계획 조례",
+  "enforce": "2026. 8. 25",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2165187",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 1000
+   },
+   {
+    "houses": 5,
+    "m": 500
+   },
+   {
+    "houses": 1,
+    "m": 200
+   }
+  ],
+  "others": "관광지·공공·문화체육시설 500m",
+  "note": "군민 100kW 미만은 5호↑ 200m, 5호 미만 100m",
+  "status": "조례 기준"
+ },
+ "충청남도 서산시": {
+  "title": "서산시 도시계획 조례",
+  "enforce": "2025. 12. 10",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2090923",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 300
+   },
+   {
+    "houses": 7,
+    "m": 240
+   },
+   {
+    "houses": 4,
+    "m": 150
+   },
+   {
+    "houses": 1,
+    "m": 100
+   }
+  ],
+  "others": "주요도로 200m · 관광지·국가유산·공공시설 200m",
+  "note": "별표 24, 사업부지 300m 안 주택 수 기준",
+  "status": "조례 기준"
+ },
+ "충청남도 서천군": {
+  "title": "서천군 도시계획 조례",
+  "enforce": "2025. 11. 28",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2089339",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "충청남도 아산시": {
+  "title": "아산시 도시계획 조례",
+  "enforce": "2026. 8. 18",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2162613",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 10,
+    "m": 500
+   },
+   {
+    "houses": 1,
+    "m": 200
+   }
+  ],
+  "others": "주요도로 200m · 관광지·문화유산·공공시설 이격(별표 26)",
+  "note": "10호 미만은 주택당 40m 누적(최소 200m)",
+  "status": "조례 기준"
+ },
+ "충청남도 예산군": {
+  "title": "예산군 군계획 조례",
+  "enforce": "2025. 11. 21",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2088757",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "충청남도 천안시": {
+  "title": "천안시 도시계획 조례",
+  "enforce": "2024. 5. 17",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1932763",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "조례 본문에 태양광 이격 조항 확인 안 됨",
+  "status": "주거 이격 없음"
+ },
+ "충청남도 청양군": {
+  "title": "청양군 군계획 조례",
+  "enforce": "2026. 8. 3",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2156897",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "충청남도 태안군": {
+  "title": "태안군 도시계획 조례",
+  "enforce": "2026. 3. 31",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2117975",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 8,
+    "m": 400
+   },
+   {
+    "houses": 5,
+    "m": 250
+   },
+   {
+    "houses": 1,
+    "m": 50
+   }
+  ],
+  "others": "주요도로 200m · 관광지·해수욕장·어항·국가유산 300m · 숙박시설 400m",
+  "note": "별표 32, 8호 미만은 주택당 50m 누적 (근사)",
+  "status": "조례 기준"
+ },
+ "충청남도 홍성군": {
+  "title": "홍성군 군계획 조례",
+  "enforce": "2026. 2. 27",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2113307",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 7,
+    "m": 300
+   },
+   {
+    "houses": 1,
+    "m": 100
+   }
+  ],
+  "others": "도로(왕복2차로↑) 50m · 자연취락지구 300m · 집단화 농지 중앙 불가 · 경사 15도 이상 산지 불가",
+  "note": "별표 26",
+  "status": "조례 기준"
+ },
+ "충청북도": {
+  "title": "충청북도 도시계획 조례",
+  "enforce": "2025. 1. 1",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2001097",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "충청북도 괴산군": {
+  "title": "괴산군 군계획 조례",
+  "enforce": "2026. 2. 6",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2109185",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 5,
+    "m": 500
+   },
+   {
+    "houses": 1,
+    "m": 300
+   }
+  ],
+  "others": "주요도로 200m · 관광지 500m · 경사 15도",
+  "note": "마을공동체 예외",
+  "status": "조례 기준"
+ },
+ "충청북도 단양군": {
+  "title": "단양군 군계획 조례",
+  "enforce": "2025. 12. 31",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=1974929",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "충청북도 보은군": {
+  "title": "보은군 군계획 조례",
+  "enforce": "2025. 11. 7",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2082909",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 5,
+    "m": 500
+   },
+   {
+    "houses": 1,
+    "m": 300
+   }
+  ],
+  "others": "도로 100m",
+  "note": "",
+  "status": "조례 기준"
+ },
+ "충청북도 영동군": {
+  "title": "영동군 군계획 조례",
+  "enforce": "2026. 9. 28",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2171073",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 5,
+    "m": 500
+   },
+   {
+    "houses": 1,
+    "m": 200
+   }
+  ],
+  "others": "도로 200m",
+  "note": "",
+  "status": "조례 기준"
+ },
+ "충청북도 옥천군": {
+  "title": "옥천군 군계획 조례",
+  "enforce": "2026. 9. 30",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2172613",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 5,
+    "m": 300
+   },
+   {
+    "houses": 1,
+    "m": 200
+   }
+  ],
+  "others": "주요도로 200m · 경사 20도 · 집단화 우량농지 중앙 불가",
+  "note": "별표 24, 형질변경 1만㎡ 초과 시 400~500m",
+  "status": "조례 기준"
+ },
+ "충청북도 음성군": {
+  "title": "음성군 군계획 조례",
+  "enforce": "2026. 6. 30",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2146217",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 5,
+    "m": 200
+   }
+  ],
+  "others": "도로 200m · 자연취락지구 200m · 국가유산·유적지 200m · 관광지·자연휴양림 이격 · 경사 20도",
+  "note": "별표 26",
+  "status": "조례 기준"
+ },
+ "충청북도 제천시": {
+  "title": "제천시 도시계획 조례",
+  "enforce": "2026. 5. 8",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2128449",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 5,
+    "m": 300
+   },
+   {
+    "houses": 1,
+    "m": 200
+   }
+  ],
+  "others": "도로 500m · 자연취락지구 200m · 충주댐 계획홍수위선 500m",
+  "note": "빈집 제외",
+  "status": "조례 기준"
+ },
+ "충청북도 증평군": {
+  "title": "증평군 군계획 조례",
+  "enforce": "2026. 5. 8",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2152413",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 1,
+    "m": 200
+   }
+  ],
+  "others": "도로 200m",
+  "note": "",
+  "status": "조례 기준"
+ },
+ "충청북도 진천군": {
+  "title": "진천군 군계획 조례",
+  "enforce": "2026. 2. 9",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2109249",
+  "checked": "2026-10-02",
+  "tiers": null,
+  "others": "",
+  "note": "기준이 별표 24에 있으나 내용 확인 못 함",
+  "status": "확인 못 함"
+ },
+ "충청북도 청주시": {
+  "title": "청주시 도시계획 조례",
+  "enforce": "2026. 9. 23",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2170309",
+  "checked": "2026-10-02",
+  "tiers": [],
+  "others": "",
+  "note": "도시·군계획 조례에 태양광 이격 조항 없음",
+  "status": "조항 없음"
+ },
+ "충청북도 충주시": {
+  "title": "충주시 도시계획 조례",
+  "enforce": "2026. 4. 30",
+  "source": "https://www.law.go.kr/LSW/ordinInfoP.do?ordinSeq=2126707",
+  "checked": "2026-10-02",
+  "tiers": [
+   {
+    "houses": 1,
+    "m": 200
+   }
+  ],
+  "others": "도로·농어촌도로 100m · 충주호·탄금호 300m",
+  "note": "200m 내 주택 세대주 동의 시 예외, 별표 27 설치기준",
+  "status": "조례 기준"
+ }
 }

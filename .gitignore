@@ -9,3 +9,12 @@ __pycache__/
 .claude/
 relay/
 backup_ivyro/
+
+# 조례 수집 원문(대용량, 다시 받을 수 있음)
+ordin/body/
+ordin/review/
+ordin/_*
+ordin/compact*.json
+ordin/extracted.json
+ordin/review_*.json
+__pycache__/

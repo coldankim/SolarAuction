@@ -311,6 +311,7 @@
           <div class="row"><span class="tag sb-ok">이격 충족 추정</span><span>기준 거리 안에 주거지 없음</span></div>
           <div class="row"><span class="tag sb-violate">이격 미달 추정</span><span>기준 거리 안에 주거지 (알림은 보냄)</span></div>
           <div class="row"><span class="tag">이격 기준 없음</span><span>시군 조례에 조항 없음</span></div>
+          <p><b>전국 209개 시군구 도시·군계획 조례</b>(2026.10.2 조사)의 태양광 기준을 반영했고, 조례가 더 엄격하면 시행령 상한으로 낮춰 적용합니다. 카드의 "원문"에서 조례를 바로 볼 수 있습니다.</p>
           <p>지도 데이터로 잰 추정치입니다. 지붕형은 적용 제외.</p>
         </div>
       </details>
@@ -585,6 +586,7 @@ function render() {
         · 변전소 ${esc(sol.subst)} · DL ${esc(sol.dl)}${sol.lines > 1 ? ` · 선로 ${sol.lines}개 중 ${sol.okLines}개 통과` : ""}</div>` : ""}
       ${zoneHtml ? `<div class="zones">용도지역·지구: ${zoneHtml}</div>` : ""}
       ${sb && (sb.why || sb.basis) ? `<div class="zones">이격(주거지): ${esc(sb.why || "")}${sb.nearestHouse != null ? ` · 가장 가까운 주택 ${sb.nearestHouse}m` : ""}${sb.basis ? ` · ${esc(sb.basis)}` : ""}</div>` : ""}
+      ${sb && sb.ord && (sb.ord.others || sb.ord.url) ? `<div class="zones">조례(${esc(sb.ord.key)}${sb.ord.enforce ? ` · ${esc(sb.ord.enforce)} 시행` : ""}): ${esc(sb.ord.others || sb.ord.status)}${/도로/.test(sb.ord.others || "") ? " <i>(도로 이격은 9.18 시행령으로 적용 안 됨)</i>" : ""}${sb.ord.note ? ` · ${esc(sb.ord.note)}` : ""}${sb.ord.url ? ` <a href="${esc(sb.ord.url)}" target="_blank" rel="noopener">원문 ↗</a>` : ""}</div>` : ""}
       <div class="sub">${esc(it.org || "")}</div>
       ${it.note ? `<div class="note">${esc(it.note)}</div>` : ""}
       <div class="mng">${it.source === "court" ? "사건번호" : "관리번호"} ${esc(it.mngNo)} <button type="button" data-copy="${esc(it.mngNo)}">복사</button></div>
