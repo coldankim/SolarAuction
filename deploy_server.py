@@ -19,7 +19,8 @@ import secrets
 import sys
 
 BASE = os.path.dirname(os.path.abspath(__file__))
-CODE = ["onbid_alert.py", "kepco.py", "landuse.py", "courtauction.py", "setback.py", "config.env", "setback_rules.json"]
+CODE = ["onbid_alert.py", "kepco.py", "landuse.py", "courtauction.py", "setback.py", "research.py", "config.env",
+        "setback_rules.json"]
 DATA = ["settings.json", "seen_items.json", "state.json", "kepco_cache.json", "landuse_cache.json",
         "court_cache.json", "setback_cache.json"]
 SECRET_KEYS = ["KAKAO_REST_API_KEY", "KAKAO_CLIENT_SECRET", "KAKAO_REFRESH_TOKEN", "ONBID_SERVICE_KEY",
@@ -113,8 +114,9 @@ def main():
     put(web_secrets.encode("utf-8"), APP + "/web_secrets.php")
 
     pub = set(os.path.basename(x) for x in f.nlst("/public_html"))
-    put(open(os.path.join(BASE, "docs", "index.html"), "rb").read(), "/public_html/index.html")
-    for name in ("trigger.php", "settings.php", "index.php"):
+    for name in ("index.html", "research.html", "style.css"):
+        put(open(os.path.join(BASE, "docs", name), "rb").read(), f"/public_html/{name}")
+    for name in ("trigger.php", "settings.php", "index.php", "research.php"):
         put(open(os.path.join(BASE, "server", name), "rb").read(), f"/public_html/{name}")
     if with_data or "data.json" not in pub:
         put(open(os.path.join(BASE, "docs", "data.json"), "rb").read(), "/public_html/data.json")

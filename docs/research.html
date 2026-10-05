@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>주소 조사 · 태양광 경매 공매 알림</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
+<link rel="stylesheet" href="style.css">
+<style>
+  .search { display: flex; gap: 8px; flex-wrap: wrap; }
+  .search input { flex: 1 1 320px; min-width: 0; font-size: 16px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px;
+                  background: var(--card); color: var(--text); }
+  .search input:focus { outline: 2px solid color-mix(in srgb, var(--sun) 45%, transparent); border-color: var(--sun); }
+  .search .btn { padding: 12px 22px; font-size: 15px; }
+  .examples { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; font-size: 12.5px; color: var(--muted); align-items: center; }
+  .examples button { font-size: 12.5px; border: 1px solid var(--line); background: var(--card); color: var(--text-2); border-radius: 99px;
+                     padding: 3px 10px; cursor: pointer; }
+  .examples button:hover { border-color: var(--sun); color: var(--sun); }
+  .verdict { display: flex; gap: 16px; align-items: center; padding: 18px 20px; border-radius: 12px; border: 1px solid var(--line);
+             background: var(--card); box-shadow: var(--shadow); margin: 18px 0 14px; position: relative; overflow: hidden; }
+  .verdict::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 6px; background: var(--vc, var(--muted)); }
+  .verdict.good { --vc: var(--good); } .verdict.cond { --vc: var(--warn); } .verdict.bad { --vc: var(--bad); }
+  .verdict .big { width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; flex: none;
+                  background: color-mix(in srgb, var(--vc) 14%, transparent); color: var(--vc); }
+  .verdict .big svg { width: 28px; height: 28px; }
+  .verdict h2 { margin: 0; font-size: 20px; letter-spacing: -.3px; color: var(--vc); }
+  .verdict .addr { font-weight: 700; font-size: 15px; }
+  .verdict .why { color: var(--text-2); font-size: 13px; margin-top: 3px; }
+  .kpis.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .detail { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; }
+  .kv { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 6px 12px; font-size: 13.5px; }
+  .kv dt { color: var(--muted); } .kv dd { margin: 0; overflow-wrap: anywhere; }
+  .line-row { display: grid; grid-template-columns: 150px minmax(0, 1fr) 90px; gap: 10px; align-items: center; font-size: 12.5px; margin: 7px 0; }
+  .line-row .k { color: var(--text-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .line-row .val { text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .line-row .track { position: relative; overflow: visible; }
+  .thr { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--text-2); border-radius: 1px; }
+  .thr-legend { font-size: 12px; color: var(--muted); margin-top: 8px; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+  .thr-legend i { display: inline-block; width: 2px; height: 12px; background: var(--text-2); margin-right: 5px; vertical-align: -2px; }
+  .ztags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .links { display: flex; gap: 8px; flex-wrap: wrap; }
+  .links a { display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px;
+             text-decoration: none; color: var(--text-2); background: var(--card); font-size: 13px; }
+  .links a:hover { border-color: var(--sky); color: var(--sky); }
+  .cands { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+  .cands button { font-size: 12.5px; border: 1px solid var(--line); background: var(--card); color: var(--text-2); border-radius: 8px; padding: 4px 10px; cursor: pointer; }
+  .cands button.on { border-color: var(--sun); color: var(--sun); font-weight: 700; }
+  .loading { display: flex; gap: 10px; align-items: center; color: var(--muted); padding: 30px 0; justify-content: center; }
+  .spin { width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--line); border-top-color: var(--sun); animation: sp 0.8s linear infinite; }
+  @keyframes sp { to { transform: rotate(360deg); } }
+  .err-box { background: var(--bad-bg); color: var(--bad); border-radius: 10px; padding: 12px 14px; margin-top: 16px; }
+  .empty-hint { color: var(--muted); text-align: center; padding: 50px 10px; }
+  .empty-hint b { color: var(--text-2); }
+  .recent { margin-top: 10px; font-size: 12.5px; color: var(--muted); display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+  .recent button { font-size: 12px; border: 0; background: var(--line-2); color: var(--text-2); border-radius: 6px; padding: 2px 8px; cursor: pointer; }
+  @media (max-width: 1180px) { .kpis.four { grid-template-columns: repeat(2, minmax(0, 1fr)); } .detail { grid-template-columns: 1fr; } }
+  @media (max-width: 560px) { .line-row { grid-template-columns: 96px minmax(0, 1fr) 70px; } .kv { grid-template-columns: 86px minmax(0, 1fr); } }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side" id="side" aria-label="메뉴">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </div>
+      <div><b>태양광 경매 공매 알림</b><small>Solar Auction Radar</small></div>
+    </div>
+    <ul class="nav">
+      <li><a href="./"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>대시보드</a></li>
+      <li><a href="research.html" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>주소 조사 (research)</a></li>
+    </ul>
+    <div class="side-h">이 페이지가 보는 것</div>
+    <div class="g">
+      <details open>
+        <summary><span class="n o">1</span>지목</summary>
+        <div class="body"><p>전·답·임야·대지·잡종지·공장용지 등은 검토 대상, 도로·하천·구거·묘지 등은 부적합으로 봅니다.</p></div>
+      </details>
+      <details open>
+        <summary><span class="n b">2</span>계통 여유</summary>
+        <div class="body"><p>한전 변전소·주변압기·배전선로 여유 중 <b>가장 작은 값</b>이 기준 이상인지. 대부분 마을(리) 단위 추정치입니다.</p></div>
+      </details>
+      <details>
+        <summary><span class="n l">3</span>용도지역</summary>
+        <div class="body"><p>개발제한구역·농업진흥구역·공익용산지 등은 1차 제외, 보전관리·임업용산지 등은 조건부.</p></div>
+      </details>
+      <details>
+        <summary><span class="n o">4</span>주거지 이격</summary>
+        <div class="body"><p>전국 시군 조례 + 9.18 시행령(5호 이상, 최대 200m). 필지 경계~주택 거리를 지도로 잰 추정치입니다.</p></div>
+      </details>
+    </div>
+    <div class="side-foot">모든 결과는 공개 데이터로 만든 <b>1차 추정</b>입니다. 입찰·매입 전 한전ON 접속가능용량, 시군 개발행위 담당 부서, 토지이음 원문으로 꼭 확인하세요.</div>
+  </aside>
+
+  <div class="main">
+    <header class="top">
+      <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="메뉴 열기">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <div><h1>주소 조사</h1><div class="crumb">주소를 넣으면 태양광 부지로 쓸 수 있는지 1차로 판정합니다</div></div>
+    </header>
+
+    <div class="wrap">
+      <section class="panel">
+        <div class="panel-b">
+          <form class="search" id="form">
+            <input id="q" type="search" placeholder="예) 경기도 화성시 송산면 고포리 191-4" autocomplete="off" aria-label="주소">
+            <button class="btn" type="submit">조사하기</button>
+          </form>
+          <div class="examples">예시
+            <button type="button" data-ex="경기도 화성시 송산면 고포리 191-4">화성 고포리 191-4</button>
+            <button type="button" data-ex="경상북도 예천군 용궁면 무지리 산43-3">예천 무지리 산43-3</button>
+            <button type="button" data-ex="충청남도 공주시 우성면 동대리 100">공주 동대리 100</button>
+          </div>
+          <div class="recent" id="recent"></div>
+        </div>
+      </section>
+
+      <div id="out"><div class="empty-hint">지번 주소(시군구 · 읍면동 · 리 · 번지)로 넣으면 가장 정확합니다.<br><b>지목 · 한전 계통 여유 · 용도지역 · 주거지 이격</b>을 한 번에 확인합니다.</div></div>
+    </div>
+  </div>
+</div>
+<div id="tip" role="tooltip"></div>
+<script>
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const num = n => (n ?? 0).toLocaleString("ko-KR");
+const lsGet = k => { try { return JSON.parse(localStorage.getItem(k) || "[]"); } catch (e) { return []; } };
+const lsSet = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };
+const IC = {
+  good: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>',
+  cond: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>',
+  bad: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg>',
+  map: '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 1 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>',
+  bolt: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>',
+  land: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 20h18M5 20V10l7-5 7 5v10"/></svg>',
+  zone: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>',
+  home: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11 12 4l9 7v9H3z"/><path d="M9 20v-6h6v6"/></svg>',
+};
+const tagCls = g => ({ good: "good", ok: "ok", fail: "fail", pass: "pass", cond: "cond", exclude: "exclude", violate: "sb-violate" }[g] || (g === "ok" ? "sb-ok" : ""));
+function kpi(icon, color, soft, value, label, sub) {
+  return `<div class="kpi" style="--c:var(${color});--cs:var(${soft})"><div class="ic">${IC[icon]}</div>
+    <div class="v" style="font-size:20px">${value}</div><div class="l">${label}</div>${sub ? `<div class="s">${sub}</div>` : ""}</div>`;
+}
+
+function render(d) {
+  const v = d.verdict || {}, g = d.grid || {}, l = d.landuse || {}, s = d.setback || {}, p = d.parcel || {}, o = s.ord || {};
+  const gridTone = g.grade === "good" || g.grade === "ok" ? ["--leaf", "--leaf-soft"] : ["--sun", "--sun-soft"];
+  const lines = g.lineList || [];
+  const lmax = Math.max(d.goodKw || 300, ...lines.map(x => x.avail), 1);
+  const kakao = d.x && d.y ? `https://map.kakao.com/link/map/${encodeURIComponent(d.addr)},${d.y},${d.x}` : null;
+  const naver = `https://map.naver.com/p/search/${encodeURIComponent(d.addr)}`;
+  const eum = `https://www.eum.go.kr/web/ar/lu/luLandDet.jsp?pnu=${encodeURIComponent(p.pnu || "")}&mode=search&isNoScr=script`;
+  $("out").innerHTML = `
+    <div class="verdict ${esc(v.grade)}">
+      <div class="big">${IC[v.grade] || IC.cond}</div>
+      <div><h2>${esc(v.label)}</h2><div class="addr">${esc(d.addr)}</div>
+        <div class="why">${esc((v.why || []).join(" · "))}</div></div>
+    </div>
+    ${(d.cands || []).length > 1 ? `<div class="sub">비슷한 주소 후보: <span class="cands">${d.cands.map(c => `<button type="button" data-pnu="${esc(c.pnu)}" class="${c.pnu === p.pnu ? "on" : ""}">${esc(c.addr)}</button>`).join("")}</span></div>` : ""}
+    <div class="kpis four" style="margin-top:14px">
+      ${kpi("land", "--sky", "--sky-soft", esc(p.jimok || "-"), "지목", p.jiga ? `공시지가 ${num(+p.jiga)}원/㎡ (${esc(p.jigaYear || "")})` : "")}
+      ${kpi("bolt", gridTone[0], gridTone[1], g.best != null ? `${num(g.best)}<small>kW</small>` : esc(g.label || "-"), "계통 여유 (최대)", esc(g.label || "") + (g.levelName ? ` · ${esc(g.levelName)}` : ""))}
+      ${kpi("zone", l.grade === "exclude" ? "--sun" : "--leaf", l.grade === "exclude" ? "--sun-soft" : "--leaf-soft", esc(l.label || "-"), "용도지역 1차", esc((l.reasons || l.favorable || []).slice(0, 2).join(", ")))}
+      ${kpi("home", s.grade === "violate" ? "--sun" : "--leaf", s.grade === "violate" ? "--sun-soft" : "--leaf-soft", esc(s.label || "-"), "주거지 이격", esc(s.why || s.basis || ""))}
+    </div>
+    <div class="detail">
+      <div class="panel">
+        <div class="panel-h"><h2>한전 계통 여유</h2><span class="hint">선로별 연결 가능 용량 = 변전소·변압기·배전선로 여유 중 최솟값</span></div>
+        <div class="panel-b">
+          ${lines.length ? lines.map(x => `<div class="line-row"><span class="k" title="${esc(x.subst)} 변전소 · ${esc(x.dl)} 선로">${esc(x.subst)} · ${esc(x.dl)}</span>
+            <div class="track"><div class="seg" style="width:${Math.max(1, x.avail / lmax * 100).toFixed(1)}%;background:var(--sky)" data-tip="변전소 ${num(x.vol[0])} · 변압기 ${num(x.vol[1])} · 선로 ${num(x.vol[2])} kW"></div>
+              <span class="thr" style="left:${Math.min(100, (d.minKw || 100) / lmax * 100).toFixed(1)}%"></span></div>
+            <span class="val">${num(x.avail)}<small style="color:var(--muted);font-weight:400"> kW</small></span></div>`).join("")
+            : `<div class="sub">${esc(g.label || "계통 정보 없음")} — 한전 데이터에 이 지역 선로 정보가 없습니다.</div>`}
+          <div class="thr-legend"><span><i></i>알림 기준 ${num(d.minKw || 100)}kW</span>${g.lines > 1 ? `<span>선로 ${g.lines}개 중 ${g.okLines}개 기준 통과</span>` : ""}</div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-h"><h2>용도지역 · 지구</h2><span class="hint">브이월드 토지이용계획</span></div>
+        <div class="panel-b">
+          <div class="ztags">${(l.zones || []).map(z => `<span class="tag ${(l.reasons || []).includes(z) ? tagCls(l.grade) : ((l.favorable || []).includes(z) ? "pass" : "")}">${esc(z)}</span>`).join("") || `<span class="sub">${esc(l.label || "-")}</span>`}</div>
+          <p class="sub" style="margin:10px 0 0">${l.grade === "exclude" ? "태양광 개발이 사실상 어려운 지역이 포함되어 있습니다." : l.grade === "cond" ? "허가·협의·면적 제한 등 확인이 필요한 지역이 포함되어 있습니다." : l.grade === "pass" ? "1차 기준상 제외 사유가 없습니다." : ""}</p>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-h"><h2>주거지 이격 · 조례</h2><span class="hint">${esc(o.key || "")}${o.enforce ? ` · ${esc(o.enforce)} 시행` : ""}</span></div>
+        <div class="panel-b">
+          <dl class="kv">
+            <dt>판정</dt><dd><span class="tag ${s.grade === "violate" ? "sb-violate" : s.grade === "ok" ? "sb-ok" : ""}">${esc(s.label || "-")}</span> ${esc(s.why || "")}</dd>
+            <dt>가장 가까운 주택</dt><dd>${s.nearestHouse != null ? `${num(s.nearestHouse)}m` : "-"}</dd>
+            <dt>적용 기준</dt><dd>${esc(s.basis || "-")}</dd>
+            <dt>조례 기타 기준</dt><dd>${esc(o.others || o.status || "-")}${/도로/.test(o.others || "") ? " <i>(도로 이격은 9.18 시행령으로 적용 안 됨)</i>" : ""}</dd>
+            ${o.note ? `<dt>비고</dt><dd>${esc(o.note)}</dd>` : ""}
+            ${o.url ? `<dt>원문</dt><dd><a href="${esc(o.url)}" target="_blank" rel="noopener">국가법령정보센터 ↗</a></dd>` : ""}
+          </dl>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-h"><h2>필지 정보 · 바로가기</h2></div>
+        <div class="panel-b">
+          <dl class="kv" style="margin-bottom:12px">
+            <dt>지번 주소</dt><dd>${esc(d.addr)}</dd>
+            ${d.road ? `<dt>도로명</dt><dd>${esc(d.road)}</dd>` : ""}
+            <dt>PNU</dt><dd>${esc(p.pnu || "-")}</dd>
+          </dl>
+          <div class="links">
+            ${kakao ? `<a href="${kakao}" target="_blank" rel="noopener">${IC.map}카카오맵</a>` : ""}
+            <a href="${naver}" target="_blank" rel="noopener">${IC.map}네이버지도</a>
+            ${p.pnu ? `<a href="${eum}" target="_blank" rel="noopener">토지이음 (토지이용계획 원문)</a>` : ""}
+            <a href="https://online.kepco.co.kr/" target="_blank" rel="noopener">한전ON (접속가능용량 조회)</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>공개 데이터(한전 전력데이터 개방포털 · 브이월드 · 국가법령정보센터)로 만든 1차 추정입니다. 최종 판단은 원문과 담당 부서 확인이 필요합니다.</footer>`;
+}
+
+async function research(q, pnu) {
+  q = (q || "").trim();
+  if (!q) return;
+  $("q").value = q;
+  $("out").innerHTML = `<div class="loading"><span class="spin"></span>조사 중… (한전·브이월드·조례 확인에 5~20초 걸릴 수 있습니다)</div>`;
+  try {
+    const r = await fetch(`research.php?q=${encodeURIComponent(q)}${pnu ? `&pnu=${encodeURIComponent(pnu)}` : ""}`, { headers: { Accept: "application/json" } });
+    const d = await r.json().catch(() => ({ ok: false, error: `서버 응답 오류 (${r.status})` }));
+    if (!d.ok) throw new Error(d.error || "조사 실패");
+    render(d);
+    const rec = [q, ...lsGet("researchRecent").filter(x => x !== q)].slice(0, 6);
+    lsSet("researchRecent", rec); showRecent();
+    history.replaceState(null, "", `?q=${encodeURIComponent(q)}`);
+  } catch (e) {
+    $("out").innerHTML = `<div class="err-box">${esc(e.message)}</div>`;
+  }
+}
+function showRecent() {
+  const rec = lsGet("researchRecent");
+  $("recent").innerHTML = rec.length ? "최근 " + rec.map(x => `<button type="button" data-ex="${esc(x)}">${esc(x)}</button>`).join("") : "";
+}
+
+$("form").addEventListener("submit", e => { e.preventDefault(); research($("q").value); });
+document.addEventListener("click", e => {
+  const ex = e.target.closest && e.target.closest("[data-ex]");
+  if (ex) return research(ex.dataset.ex);
+  const c = e.target.closest && e.target.closest("[data-pnu]");
+  if (c) research($("q").value, c.dataset.pnu);
+});
+document.addEventListener("mousemove", e => {
+  const t = e.target.closest && e.target.closest("[data-tip]"), tip = $("tip");
+  if (!t) { tip.classList.remove("on"); return; }
+  tip.textContent = t.dataset.tip;
+  tip.style.left = Math.min(e.clientX + 14, innerWidth - tip.offsetWidth - 8) + "px";
+  tip.style.top = (e.clientY + 16) + "px";
+  tip.classList.add("on");
+});
+$("menuBtn").addEventListener("click", () => document.body.classList.toggle("side-open"));
+document.addEventListener("click", e => {
+  if (document.body.classList.contains("side-open") && !e.target.closest("#side") && !e.target.closest("#menuBtn")) document.body.classList.remove("side-open");
+});
+showRecent();
+const q0 = new URLSearchParams(location.search).get("q");
+if (q0) research(q0);
+</script>
+</body>
+</html>
