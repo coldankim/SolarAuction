@@ -25,7 +25,7 @@ JIMOK = {"전": "전", "답": "답", "과": "과수원", "목": "목장용지", 
          "도": "도로", "철": "철도용지", "제": "제방", "천": "하천", "구": "구거", "유": "유지", "양": "양어장",
          "수": "수도용지", "공": "공원", "체": "체육용지", "원": "유원지", "종": "종교용지", "사": "사적지",
          "묘": "묘지", "잡": "잡종지"}
-GOOD_JIMOK = {"전", "답", "과수원", "목장용지", "임야", "대지", "공장용지", "창고용지", "잡종지", "염전"}
+GOOD_JIMOK = {"전", "답", "과수원", "목장용지", "대지", "공장용지", "창고용지", "잡종지", "염전"}
 
 
 def parcel_info(lu, pnu):
@@ -78,7 +78,9 @@ def split_addr(addr):
 def verdict(parts):
     bad, cond = [], []
     j = parts["parcel"].get("jimok")
-    if j and j != "-" and j not in GOOD_JIMOK:
+    if j == "임야":
+        bad.append("지목이 임야 (산지 규제: 20년 뒤 원상복구·지목변경 불가·REC 가중치 0.5)")
+    elif j and j != "-" and j not in GOOD_JIMOK:
         bad.append(f"지목이 {j}")
     g = parts["grid"].get("grade")
     if g == "fail":

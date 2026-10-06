@@ -464,6 +464,12 @@ def solar_ok(sol):
 NON_SOLAR_JIMOK = ("도로", "구거", "하천", "유지", "제방", "묘지", "철도용지", "수도용지", "공원", "학교용지")
 
 
+def is_forest(it):
+    """지목이 임야인 토지. 산지 규제(일시사용허가·20년 뒤 원상복구·지목변경 불가·REC 가중치 0.5)로
+    알림에서는 빼고 화면에는 태그로 남긴다."""
+    return it.get("cltrUsgMclsCtgrNm") == "토지" and (it.get("cltrUsgSclsCtgrNm") or "").strip() == "임야"
+
+
 def solar_type(it):
     """태양광 대상 여부: 토지 / 지붕형(공장·창고). 대상 아니면 None."""
     if it.get("cltrUsgMclsCtgrNm") == "토지":
@@ -648,6 +654,7 @@ def write_dashboard(env, found, seen, run):
                 "notified": is_notified(s),
                 "notifiedAt": s.get("notifiedAt"),
                 "solar": s.get("solar"),
+                "forest": is_forest(it),
                 "source": it.get("source") or "onbid",
                 "note": it.get("note"),
                 "link": detail_link(it),
@@ -691,11 +698,12 @@ def pick_targets(found, seen, solar):
     - 처음 보는 물건: 태양광 대상 + 계통 통과면 알림
     - 이미 본 물건: 알림 보낸 적 없고, 지난번엔 부족/조회불가였는데 이번에 통과로 바뀌면 알림 (여유용량 생김)
     - 처음 봤을 때 조회가 밀려(대기) 판정을 못 했던 새 물건: 나중에 통과로 판정되면 신규로 알림
+    - 임야는 계통·용도를 통과해도 알림에서 제외 (화면에는 태그로 표시)
     """
     out = []
     for no, it in found.items():
         sol = solar.get(no)
-        if not solar_ok(sol):
+        if not solar_ok(sol) or is_forest(it):
             continue
         s = seen.get(no)
         if s is None:
@@ -740,7 +748,7 @@ def run_alert(env, secret_path, mode):
     targets = [] if (mode == "init" or first_time) else pick_targets(found, seen, solar)
     log(f"전체 {len(found)}건 / 신규 {new_cnt}건 / 알림 대상(태양광 통과) {len(targets)}건")
     result = {"total": len(found), "new": new_cnt, "solar": len(solar),
-              "pass": sum(1 for r in solar.values() if solar_ok(r)),
+              "pass": sum(1 for no, r in solar.items() if solar_ok(r) and not (no in found and is_forest(found[no]))),
               "targets": len(targets), "sent": 0}
     if WARNINGS:
         result["error"] = " / ".join(WARNINGS)

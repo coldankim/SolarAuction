@@ -38,7 +38,8 @@
       <details open>
         <summary><span class="n o">1</span>어떤 물건을 보나</summary>
         <div class="body">
-          <div class="row"><span class="tag sun">토지</span><span>전·답·임야·대지·잡종지 등. 도로·구거·하천·묘지 지목은 제외</span></div>
+          <div class="row"><span class="tag sun">토지</span><span>전·답·대지·잡종지 등. 도로·구거·하천·묘지 지목은 제외</span></div>
+          <div class="row"><span class="tag">임야</span><span>알림 제외, 목록에 태그만. 20년 뒤 원상복구·지목변경 불가·경사 15도 이하·REC 가중치 0.5</span></div>
           <div class="row"><span class="tag sun">지붕형</span><span>공장·창고 건물 지붕에 설치</span></div>
         </div>
       </details>
@@ -227,7 +228,7 @@ let toastTimer;
 function toast(t) { const el = $("toast"); el.textContent = t; el.classList.add("on"); clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.remove("on"), 6000); }
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const gridOk = it => !!it.solar && (it.solar.grade === "good" || it.solar.grade === "ok");
-const isPass = it => gridOk(it) && ((it.solar.landuse || {}).grade !== "exclude");
+const isPass = it => gridOk(it) && ((it.solar.landuse || {}).grade !== "exclude") && !it.forest;
 const won = n => n == null ? null : n.toLocaleString("ko-KR") + "원";
 const eok = n => n == null ? "-" : n >= 1e8 ? (n / 1e8).toFixed(n >= 1e10 ? 0 : 2).replace(/\.?0+$/, "") + "억" : Math.round(n / 1e4).toLocaleString("ko-KR") + "만";
 const dt = s => s && s.length >= 12 ? `${s.slice(2,4)}.${s.slice(4,6)}.${s.slice(6,8)} ${s.slice(8,10)}:${s.slice(10,12)}` : (s || "-");
@@ -328,7 +329,7 @@ function render() {
         ${sol && sol.levelName ? `<span class="tag">${esc(sol.levelName)}</span>` : ""}
         ${lu && lu.label ? `<span class="tag ${esc(lu.grade)}">용도 ${esc(lu.label)}</span>` : ""}
         ${sb && sb.label ? `<span class="tag sb-${esc(sb.grade)}">${esc(sb.label)}</span>` : ""}
-        <span class="tag">${esc(it.usage || "-")}</span>
+        ${it.forest ? `<span class="tag sb-violate" title="산지일시사용허가 대상: 최대 20년 사용 후 원상복구, 지목변경 불가, 평균경사도 15도 이하, REC 가중치 0.5. 알림에서 제외됩니다.">임야(산지 규제)</span>` : `<span class="tag">${esc(it.usage || "-")}</span>`}
         ${it.prpt ? `<span class="tag">${esc(it.prpt)}</span>` : ""}
         ${it.usbd ? `<span class="tag">유찰 ${esc(it.usbd)}회</span>` : ""}
         ${it.share ? `<span class="tag">지분</span>` : ""}
