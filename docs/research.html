@@ -70,7 +70,8 @@
     </div>
     <ul class="nav">
       <li><a href="./"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>대시보드</a></li>
-      <li><a href="research.html" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>주소 조사 (research)</a></li>
+      <li><a href="research.php" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>주소 조사 (research)</a></li>
+      <li><a href="research.php?logout=1" class="ext-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>잠그기 (로그아웃)</a></li>
     </ul>
     <div class="side-h">이 페이지가 보는 것</div>
     <div class="g">
@@ -224,7 +225,8 @@ async function research(q, pnu) {
   $("q").value = q;
   $("out").innerHTML = `<div class="loading"><span class="spin"></span>조사 중… (한전·브이월드·조례 확인에 5~20초 걸릴 수 있습니다)</div>`;
   try {
-    const r = await fetch(`research.php?q=${encodeURIComponent(q)}${pnu ? `&pnu=${encodeURIComponent(pnu)}` : ""}`, { headers: { Accept: "application/json" } });
+    const r = await fetch(`research_api.php?q=${encodeURIComponent(q)}${pnu ? `&pnu=${encodeURIComponent(pnu)}` : ""}`, { headers: { Accept: "application/json" } });
+    if (r.status === 401) { location.reload(); return; }
     const d = await r.json().catch(() => ({ ok: false, error: `서버 응답 오류 (${r.status})` }));
     if (!d.ok) throw new Error(d.error || "조사 실패");
     render(d);

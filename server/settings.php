@@ -1,9 +1,11 @@
 <?php
-// 조회 조건(settings.json) 읽기/저장. 읽기는 누구나, 저장은 비밀번호가 맞을 때만.
+// 조회 조건(settings.json) 읽기/저장. 페이지 로그인(main) 필요, 저장은 설정 비밀번호도 맞아야 한다.
 // POST JSON: {"password": "...", "settings": {...}, "runNow": true}
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
-$APP = __DIR__ . '/_app';
+$APP = require __DIR__ . '/app_path.php';
+require $APP . '/auth.php';
+sa_require_api('main');
 $FILE = $APP . '/settings.json';
 $KEYS = array('REGIONS', 'PVCT_TRGT_YN', 'DSPS_MTHOD_CD', 'PRPT_DIV_CD', 'SOLAR_MIN_KW', 'SOLAR_GOOD_KW');
 

@@ -5,7 +5,7 @@
 //   ?token=...&mode=check               → 파이썬·모듈 점검 결과 바로 반환
 //   ?token=...&mode=log                 → 최근 실행 로그
 header('Content-Type: application/json; charset=utf-8');
-$APP = __DIR__ . '/_app';
+$APP = require __DIR__ . '/app_path.php';
 $S = require $APP . '/web_secrets.php';
 
 $token = isset($_REQUEST['token']) ? (string)$_REQUEST['token'] : '';
