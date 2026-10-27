@@ -137,7 +137,8 @@ def main():
 
     put(f"<?php return __DIR__ . '/{app_name}';\n".encode("utf-8"), "/public_html/app_path.php")
     put(open(os.path.join(BASE, "docs", "style.css"), "rb").read(), "/public_html/style.css")
-    for name in ("trigger.php", "settings.php", "index.php", "research.php", "research_api.php", "data.php"):
+    for name in ("trigger.php", "settings.php", "index.php", "research.php", "research_api.php", "data.php",
+                 "favorites.php", "fav_api.php"):
         put(open(os.path.join(BASE, "server", name), "rb").read(), f"/public_html/{name}")
     # 화면 데이터: 예전 공개 파일(data.json)이 있으면 앱 폴더로 옮긴다
     if with_data:

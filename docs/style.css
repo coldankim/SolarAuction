@@ -241,3 +241,20 @@
     .bar-row { grid-template-columns: 84px minmax(0, 1fr) 64px; }
     .list { grid-template-columns: 1fr; }
   }
+
+  /* ── 찜 ── */
+  .card .tags { padding-right: 34px; }
+  .fav-btn { position: absolute; top: 9px; right: 10px; width: 32px; height: 32px; display: grid; place-items: center; border: 0; border-radius: 8px;
+             background: none; color: var(--muted); cursor: pointer; }
+  .fav-btn svg { width: 20px; height: 20px; }
+  .fav-btn:hover { background: var(--sun-soft); color: var(--sun); }
+  .fav-btn.on { color: var(--sun); }
+  .fav-btn.on svg { fill: var(--sun); }
+  .fav-btn:disabled { opacity: .5; }
+  .card.gone { opacity: .78; }
+  .fav-memo { display: flex; flex-direction: column; gap: 4px; margin-top: 4px; border-top: 1px dashed var(--line); padding-top: 8px; }
+  .fav-memo textarea { font: inherit; font-size: 13px; padding: 7px 9px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); color: var(--text); resize: vertical; }
+  .nav-n { margin-left: auto; font-size: 11px; font-weight: 700; color: var(--sun); }
+  .nav-n:empty { display: none; }
+  body.fav-mode #dash, body.fav-mode #settings, body.fav-mode #runsSec { display: none; }
+  body.fav-mode .filters label { display: none; }
