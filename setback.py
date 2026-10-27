@@ -85,6 +85,31 @@ def rule_for(rules, sido, sgg):
             "basis": basis, "key": key}
 
 
+def rule_before(rules, sido, sgg):
+    """9.18 시행령 이전 기준 (조례 원문 그대로): 주거 tiers(1호부터·200m 초과 포함) + 도로 이격.
+    '이전엔 불가, 지금은 가능' 비교용. 조례를 확인 못 했으면 None."""
+    key, r = find_rule(rules, sido, sgg)
+    if r is None or r.get("tiers") is None:
+        return None
+    tiers = [{"houses": max(int(t.get("houses") or 1), 1), "m": int(t["m"])} for t in r["tiers"]]
+    roads = r.get("roads") or []
+    return {"limit": max((t["m"] for t in tiers), default=0), "houses": min((t["houses"] for t in tiers), default=None),
+            "tiers": tiers, "roads": roads, "key": key,
+            "basis": "9.18 이전 조례 원문: " + (" / ".join(f"{t['houses']}호↑ {t['m']}m" for t in tiers) or "주거 이격 없음")
+                     + ("" if not roads else " · 도로 " + ", ".join(f"{x['kind']} {x['m']}m" if x["m"] else x["kind"] for x in roads)),
+            "uncertain": bool(r.get("amendedAfterDecree"))}
+
+
+def ord_summary(rules, sido, sgg):
+    """화면용 조례 요약 (출처·기타 기준 + 9.18 시행령으로 바뀐 점)."""
+    key, r = find_rule(rules, sido, sgg)
+    r = r or {}
+    return {"key": key, "status": r.get("status") or "조례 미확인", "others": r.get("others", ""),
+            "note": r.get("note", ""), "url": r.get("source"), "enforce": r.get("enforce"),
+            "change": (r.get("change") or {}).get("items") or [], "relaxed": (r.get("change") or {}).get("relaxed"),
+            "amendedAfterDecree": bool(r.get("amendedAfterDecree"))}
+
+
 class SetbackError(Exception):
     pass
 

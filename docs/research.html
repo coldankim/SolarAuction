@@ -195,6 +195,7 @@ function render(d) {
             <dt>가장 가까운 주택</dt><dd>${s.nearestHouse != null ? `${num(s.nearestHouse)}m` : "-"}</dd>
             <dt>적용 기준</dt><dd>${esc(s.basis || "-")}</dd>
             <dt>조례 기타 기준</dt><dd>${esc(o.others || o.status || "-")}${/도로/.test(o.others || "") ? " <i>(도로 이격은 9.18 시행령으로 적용 안 됨)</i>" : ""}</dd>
+            ${o.change && o.change.length ? `<dt>9.18 시행령으로 바뀐 점</dt><dd>${esc(o.change.join(" · "))}${o.amendedAfterDecree ? ` <i>(9.18 이후 개정된 조례라 이전 기준은 직전 조례와 다를 수 있음)</i>` : ""}</dd>` : ""}
             ${o.note ? `<dt>비고</dt><dd>${esc(o.note)}</dd>` : ""}
             ${o.url ? `<dt>원문</dt><dd><a href="${esc(o.url)}" target="_blank" rel="noopener">국가법령정보센터 ↗</a></dd>` : ""}
           </dl>

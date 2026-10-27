@@ -357,7 +357,7 @@ function render() {
         · 변전소 ${esc(sol.subst)} · DL ${esc(sol.dl)}${sol.lines > 1 ? ` · 선로 ${sol.lines}개 중 ${sol.okLines}개 통과` : ""}</div>` : ""}
       ${zoneHtml ? `<div class="zones">용도지역·지구: ${zoneHtml}</div>` : ""}
       ${sb && (sb.why || sb.basis) ? `<div class="zones">이격(주거지): ${esc(sb.why || "")}${sb.nearestHouse != null ? ` · 가장 가까운 주택 ${sb.nearestHouse}m` : ""}${sb.basis ? ` · ${esc(sb.basis)}` : ""}</div>` : ""}
-      ${sb && sb.ord && (sb.ord.others || sb.ord.url) ? `<div class="zones">조례(${esc(sb.ord.key)}${sb.ord.enforce ? ` · ${esc(sb.ord.enforce)} 시행` : ""}): ${esc(sb.ord.others || sb.ord.status)}${/도로/.test(sb.ord.others || "") ? " <i>(도로 이격은 9.18 시행령으로 적용 안 됨)</i>" : ""}${sb.ord.note ? ` · ${esc(sb.ord.note)}` : ""}${sb.ord.url ? ` <a href="${esc(sb.ord.url)}" target="_blank" rel="noopener">원문 ↗</a>` : ""}</div>` : ""}
+      ${sb && sb.ord && (sb.ord.others || sb.ord.url) ? `<div class="zones">조례(${esc(sb.ord.key)}${sb.ord.enforce ? ` · ${esc(sb.ord.enforce)} 시행` : ""}): ${esc(sb.ord.others || sb.ord.status)}${/도로/.test(sb.ord.others || "") ? " <i>(도로 이격은 9.18 시행령으로 적용 안 됨)</i>" : ""}${sb.ord.note ? ` · ${esc(sb.ord.note)}` : ""}${sb.ord.change && sb.ord.change.length ? ` · <b class="chg">9.18 완화: ${esc(sb.ord.change.join(", "))}</b>` : ""}${sb.ord.url ? ` <a href="${esc(sb.ord.url)}" target="_blank" rel="noopener">원문 ↗</a>` : ""}</div>` : ""}
       <div class="sub">${esc(it.org || "")}</div>
       ${it.note ? `<div class="note">${esc(it.note)}</div>` : ""}
       <div class="mng">${it.source === "court" ? "사건번호" : "관리번호"} ${esc(it.mngNo)} <button type="button" data-copy="${esc(it.mngNo)}">복사</button></div>

@@ -144,9 +144,7 @@ def run(q, pnu_pick=None):
     # 주거지 이격 (전국 조례 + 시행령)
     sb_tool = setback.Setback(lu)
     rule = setback.rule_for(sb_tool.rules, sido, sgg)
-    _, r = setback.find_rule(sb_tool.rules, sido, sgg)
-    ordn = {"key": rule["key"], "status": (r or {}).get("status") or "조례 미확인", "others": (r or {}).get("others", ""),
-            "note": (r or {}).get("note", ""), "url": (r or {}).get("source"), "enforce": (r or {}).get("enforce")}
+    ordn = setback.ord_summary(sb_tool.rules, sido, sgg)
     if not rule["limit"]:
         sb = {"grade": "norule", "label": "이격 기준 없음", "basis": rule["basis"]}
     else:

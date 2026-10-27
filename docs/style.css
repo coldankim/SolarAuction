@@ -258,3 +258,4 @@
   .nav-n:empty { display: none; }
   body.fav-mode #dash, body.fav-mode #settings, body.fav-mode #runsSec { display: none; }
   body.fav-mode .filters label { display: none; }
+  .zones b.chg { color: var(--leaf); font-weight: 600; }

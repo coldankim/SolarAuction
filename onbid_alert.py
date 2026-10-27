@@ -575,10 +575,8 @@ def check_setback(sb, it, sol, skip):
         return None
     rules = sb.rules if sb else setback.load_rules()
     rule = setback.rule_for(rules, it.get("lctnSdnm"), it.get("lctnSggnm"))
-    _, r = setback.find_rule(rules, it.get("lctnSdnm"), it.get("lctnSggnm"))
-    # 화면에 보여줄 조례 요약 (도로 등 다른 이격 조항, 출처)
-    ordn = {"key": rule["key"], "status": (r or {}).get("status") or "조례 미확인", "others": (r or {}).get("others", ""),
-            "note": (r or {}).get("note", ""), "url": (r or {}).get("source"), "enforce": (r or {}).get("enforce")}
+    # 화면에 보여줄 조례 요약 (도로 등 다른 이격 조항, 출처, 9.18 시행령으로 바뀐 점)
+    ordn = setback.ord_summary(rules, it.get("lctnSdnm"), it.get("lctnSggnm"))
     if not rule["limit"]:
         return {"grade": "norule", "label": "이격 기준 없음", "basis": rule["basis"], "ord": ordn}
     pnu = (sol.get("landuse") or {}).get("pnu")

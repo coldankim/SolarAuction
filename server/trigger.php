@@ -13,6 +13,12 @@ if (!hash_equals($S['trigger_token'], $token)) {
     http_response_code(403); echo '{"error":"forbidden"}'; exit;
 }
 $mode = isset($_REQUEST['mode']) ? (string)$_REQUEST['mode'] : 'run';
+// 호스팅이 프로그램 실행 함수를 막으면 파이썬을 못 돌린다 → 실패로 알려서 GitHub Actions가 실패(메일)하게 한다
+$blocked = array_map('trim', explode(',', (string)ini_get('disable_functions')));
+if ($mode !== 'log' && (in_array('exec', $blocked, true) || in_array('shell_exec', $blocked, true))) {
+    http_response_code(503);
+    echo json_encode(array('ok' => false, 'error' => '호스팅에서 프로그램 실행(exec)이 막혀 파이썬을 실행할 수 없습니다'), JSON_UNESCAPED_UNICODE); exit;
+}
 $ARGS = array('run' => '', 'init' => '--init', 'test' => '--test-kakao', 'dry' => '--dry-run');
 $py = 'cd ' . escapeshellarg($APP) . ' && PYTHONIOENCODING=utf-8 LANG=ko_KR.UTF-8 python3 -u onbid_alert.py';
 
