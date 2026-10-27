@@ -553,6 +553,16 @@ def evaluate_all(env, found):
                 log(f"브이월드 조회 실패: {e}")
                 out[no]["landuse"] = {"grade": "error", "label": "용도 조회실패", "zones": []}
         out[no]["setback"] = check_setback(sb, it, out[no], over or lu_fails >= 3)
+        # 지도에 찍을 위치 (이격을 잰 물건은 그때 구한 필지 중심, 나머지는 필지 경계만 한 번 조회)
+        loc = (out[no]["setback"] or {}).get("loc")
+        if not loc and sb and not over and lu_fails < 3:
+            try:
+                pnu = out[no]["landuse"].get("pnu") or landuse.resolve_pnu(lu, it.get("ltnoPnu"), it.get("onbidCltrNm"))
+                loc = sb.locate(pnu) if pnu else None
+            except (setback.SetbackError, landuse.LanduseError) as e:
+                log(f"위치 조회 실패: {e}")
+        if loc:
+            out[no]["loc"] = loc
     kp.save()
     if lu:
         lu.save()
@@ -577,7 +587,11 @@ def check_setback(sb, it, sol, skip):
     rule = setback.rule_for(rules, it.get("lctnSdnm"), it.get("lctnSggnm"))
     # 화면에 보여줄 조례 요약 (도로 등 다른 이격 조항, 출처, 9.18 시행령으로 바뀐 점)
     ordn = setback.ord_summary(rules, it.get("lctnSdnm"), it.get("lctnSggnm"))
-    if not rule["limit"]:
+    # 9.18 이전 조례 원문 기준 (주거 1호부터·200m 초과·도로 이격) → "새로 가능" 비교용. 이전에도 기준이 없었으면 생략
+    before = setback.rule_before(rules, it.get("lctnSdnm"), it.get("lctnSggnm"))
+    if before and not before["tiers"] and not before["roads"]:
+        before = None
+    if not rule["limit"] and not before:
         return {"grade": "norule", "label": "이격 기준 없음", "basis": rule["basis"], "ord": ordn}
     pnu = (sol.get("landuse") or {}).get("pnu")
     if not sb or skip:
@@ -585,7 +599,7 @@ def check_setback(sb, it, sol, skip):
     if not pnu:
         return {"grade": "none", "label": "이격 측정불가", "why": "필지 번호 없음", "ord": ordn}
     try:
-        return {**sb.measure(pnu, rule), "ord": ordn}
+        return {**sb.measure(pnu, rule, before), "ord": ordn}
     except setback.SetbackError as e:
         log(f"이격 측정 실패: {e}")
         return {"grade": "error", "label": "이격 확인 대기", "ord": ordn}
@@ -599,6 +613,8 @@ def keep_previous(solar, seen):
             sol["setback"] = prev["setback"]
         if sol["landuse"]["grade"] == "error" and prev.get("landuse", {}).get("grade") not in (None, "error"):
             sol["landuse"] = prev["landuse"]
+        if not sol.get("loc") and prev.get("loc"):
+            sol["loc"] = prev["loc"]
 
 
 # ---------------------------------------------------------------- 기록 / 대시보드

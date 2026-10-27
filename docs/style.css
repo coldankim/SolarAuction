@@ -178,6 +178,7 @@
   .tag.sun { background: var(--sun-soft); color: var(--sun); font-weight: 700; }
   .tag.good, .tag.ok, .tag.pass, .tag.sb-ok { background: var(--good-bg); color: var(--good); font-weight: 600; }
   .tag.fail, .tag.cond { background: var(--warn-bg); color: var(--warn); font-weight: 600; }
+  .tag.sb-new { background: var(--good); color: #fff; font-weight: 700; }
   .tag.exclude, .tag.sb-violate { background: var(--bad-bg); color: var(--bad); font-weight: 700; }
   .name { font-weight: 700; font-size: 14.5px; word-break: keep-all; overflow-wrap: anywhere; color: var(--text); text-decoration: none; }
   a.name:hover { color: var(--sky); }

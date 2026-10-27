@@ -13,6 +13,7 @@
 import json
 import math
 import os
+import re
 import time
 
 import landuse
@@ -156,42 +157,154 @@ class Setback:
                 break
         return feats
 
-    def measure(self, pnu, rule):
-        """필지(pnu) 주변 주거지 측정. 반환: 판정 dict."""
-        tiers = rule.get("tiers") or [{"houses": rule["houses"], "m": rule["limit"]}]
-        key = f"{pnu}|" + ",".join(f"{t['houses']}:{t['m']}" for t in tiers)
-        hit = self.cache.get(key)
-        if hit and time.time() - hit["t"] < CACHE_TTL:
-            return hit["r"]
+    def parcel(self, pnu):
+        """필지 경계 → (외곽 링 목록, 중심 lon, lat). 중심은 지도 표시용으로 따로 캐시."""
         parcel = self._features({"data": "LP_PA_CBND_BUBUN", "attrFilter": f"pnu:=:{pnu}", "geometry": "true",
                                  "attribute": "false"})
         rings = [ring for f in parcel for ring in _rings(f.get("geometry"))]
         if not rings:
+            return [], None, None
+        lon0 = sum(p[0] for ring in rings for p in ring) / sum(len(r) for r in rings)
+        lat0 = sum(p[1] for ring in rings for p in ring) / sum(len(r) for r in rings)
+        self.cache[f"loc|{pnu}"] = {"t": time.time(), "r": [round(lat0, 6), round(lon0, 6)]}
+        return rings, lon0, lat0
+
+    def locate(self, pnu):
+        """필지 중심 [lat, lon] (지도에 물건 점 찍기용). 경계가 없으면 None."""
+        hit = self.cache.get(f"loc|{pnu}")
+        if hit and time.time() - hit["t"] < CACHE_TTL:
+            return hit["r"]
+        _, lon0, lat0 = self.parcel(pnu)
+        return [round(lat0, 6), round(lon0, 6)] if lon0 is not None else None
+
+    def _houses(self, lon0, lat0, proj, prings, buf):
+        blds = self._features({"data": "LT_C_BLDGINFO", "geomFilter": f"POINT({lon0} {lat0})",
+                               "buffer": buf, "geometry": "true", "attribute": "true"}, pages=3)
+        houses = []
+        for b in blds:
+            use = str((b.get("properties") or {}).get("usability") or "")
+            if not use.startswith(HOUSE_USE_PREFIX):
+                continue
+            pts = [proj(p) for ring in _rings(b.get("geometry")) for p in ring]
+            if not pts:
+                continue
+            cx, cy = sum(p[0] for p in pts) / len(pts), sum(p[1] for p in pts) / len(pts)
+            dist = min(_dist_to_parcel(p, prings) for p in pts)
+            houses.append((cx, cy, dist))
+        return houses, len(blds) >= 3000  # 3,000동에서 잘리면 먼 쪽 주택이 빠졌을 수 있음
+
+    def _roads(self, lon0, lat0, proj, prings, reach, roads):
+        """조례 도로 이격 항목별로 가장 가까운 해당 등급 도로까지 거리 (표준노드링크 = 도로 중심선)."""
+        want = [(r, road_match(r["kind"])) for r in roads]
+        far = max((r["m"] or 0 for r, (ok, _) in want if ok), default=0)
+        links = []
+        if far:
+            feats = self._features({"data": ROAD_LAYER, "geomFilter": f"POINT({lon0} {lat0})",
+                                    "buffer": int(min(far + reach + 50, 2000)), "geometry": "true",
+                                    "attribute": "true"}, pages=3)
+            for f in feats:
+                rank = str((f.get("properties") or {}).get("rd_rank_h") or "")
+                g = f.get("geometry") or {}
+                lines = [g.get("coordinates") or []] if g.get("type") == "LineString" else g.get("coordinates") or []
+                links.append((rank, [[proj(p) for p in ln] for ln in lines]))
+        out = []
+        for r, (ok, missing) in want:
+            row = {"kind": r["kind"], "m": r["m"]}
+            if not r["m"] or not ok:
+                row.update(d=None, grade="unknown",
+                           why="거리 확인 필요" if not r["m"] else "농어촌도로·면도 등은 지도 데이터에 없어 측정 못 함")
+                out.append(row)
+                continue
+            d = min((_line_to_parcel(ln, prings) for rank, lines in links if ok(rank) for ln in lines), default=None)
+            row["d"] = None if d is None else round(d)
+            row["grade"] = "violate" if d is not None and d < r["m"] else "ok"
+            if missing:
+                row["why"] = "농어촌도로·면도는 측정 못 함 (나머지 도로만 잼)"
+            out.append(row)
+        return out
+
+    def measure(self, pnu, rule, before=None):
+        """필지(pnu) 주변 주거지 측정. 반환: 판정 dict.
+        before(rule_before 결과)를 주면 9.18 이전 조례 원문 기준 판정(주거 1호부터·200m 초과·도로 이격)과
+        전후 비교(change.code: new 새로 가능 / ok 원래 가능 / still 여전히 미달 / unknown)도 붙인다."""
+        tiers = rule.get("tiers") or [{"houses": rule["houses"], "m": rule["limit"]}]
+        key = f"{pnu}|" + ",".join(f"{t['houses']}:{t['m']}" for t in tiers)
+        if before:
+            key += "|b" + ",".join(f"{t['houses']}:{t['m']}" for t in before["tiers"]) + "|" + \
+                   ",".join(f"{r['kind']}:{r['m']}" for r in before["roads"])
+        hit = self.cache.get(key)
+        if hit and time.time() - hit["t"] < CACHE_TTL:
+            return hit["r"]
+        rings, lon0, lat0 = self.parcel(pnu)
+        if not rings:
             res = {"grade": "none", "label": "이격 측정불가", "why": "필지 경계 없음"}
         else:
-            lon0 = sum(p[0] for ring in rings for p in ring) / sum(len(r) for r in rings)
-            lat0 = sum(p[1] for ring in rings for p in ring) / sum(len(r) for r in rings)
             proj = _projector(lon0, lat0)
             prings = [[proj(p) for p in ring] for ring in rings]
             reach = max(math.hypot(x, y) for ring in prings for x, y in ring)
             # 주거지 무리를 제대로 세려고 기준거리보다 넉넉히(＋300m) 가져온다
             buf = int(min(rule["limit"] + reach + 300, 2000))
-            blds = self._features({"data": "LT_C_BLDGINFO", "geomFilter": f"POINT({lon0} {lat0})",
-                                   "buffer": buf, "geometry": "true", "attribute": "true"}, pages=3)
-            houses = []
-            for b in blds:
-                use = str((b.get("properties") or {}).get("usability") or "")
-                if not use.startswith(HOUSE_USE_PREFIX):
-                    continue
-                pts = [proj(p) for ring in _rings(b.get("geometry")) for p in ring]
-                if not pts:
-                    continue
-                cx, cy = sum(p[0] for p in pts) / len(pts), sum(p[1] for p in pts) / len(pts)
-                dist = min(_dist_to_parcel(p, prings) for p in pts)
-                houses.append((cx, cy, dist))
-            res = _judge(houses, rule)
+            far = int(min(max(buf, ((before or {}).get("limit") or 0) + reach + 300), 2000))
+            houses, cut = self._houses(lon0, lat0, proj, prings, far)
+            near = houses
+            if cut and far > buf:  # 넓게 받다 잘렸으면 지금 기준은 가까운 범위로 다시 받아 정확히
+                near, _ = self._houses(lon0, lat0, proj, prings, buf)
+            res = _judge(near, rule) if rule["limit"] else \
+                {"grade": "norule", "label": "이격 기준 없음", "basis": rule["basis"]}
+            res["loc"] = [round(lat0, 6), round(lon0, 6)]
+            if before:
+                b = _judge(houses, before) if before["tiers"] else {"grade": "ok", "why": "주거 이격 없음"}
+                b = {k: b[k] for k in ("grade", "why", "nearest", "cluster") if k in b}
+                b["roads"] = self._roads(lon0, lat0, proj, prings, reach, before["roads"])
+                b["basis"] = before["basis"]
+                if cut:
+                    b["cut"] = True
+                res["before"] = b
+                res["change"] = change_of(res, b, before.get("uncertain"))
         self.cache[key] = {"t": time.time(), "r": res}
         return res
+
+
+ROAD_LAYER = "LT_L_MOCTLINK"  # 브이월드 표준노드링크 (rd_rank_h: 고속도로·일반국도·지방도·특별·광역시도·시·군도 …)
+
+
+def road_match(kind):
+    """조례 도로 종류 → (도로등급 판별 함수 또는 None, 측정 못 하는 종류가 섞였는지).
+    '도로', '주요도로', '도로법 도로', '2차로 이상 도로'처럼 일반적인 말은 표준노드링크 도로 전체로 본다."""
+    missing = bool(re.search(r"농어촌도로|면도|리도|농도", kind))
+    if re.search(r"(?<!농어촌)(?<!고속)도로|교통시설", kind):
+        return (lambda rank: True), missing
+    spec = []
+    if "고속" in kind:
+        spec.append("고속")
+    if re.search(r"(?<!고속)국도", kind):
+        spec.append("국도")
+    if "지방도" in kind:
+        spec += ["지방도", "광역시도"]
+    if re.search(r"군도|(?<!광역)시도", kind):
+        spec.append("군도")
+    if not spec:
+        return None, missing
+    return (lambda rank: any(s in rank for s in spec)), missing
+
+
+def change_of(now, before, uncertain=False):
+    """9.18 시행령 전후 비교 → {code, label, why}"""
+    roads_bad = [r for r in before.get("roads") or [] if r.get("grade") == "violate"]
+    roads_unk = [r for r in before.get("roads") or [] if r.get("grade") == "unknown" or r.get("why")]
+    n = now.get("grade")
+    if n not in ("ok", "violate", "norule"):
+        return {"code": "unknown", "label": "전후 비교 불가"}
+    reasons = (["주거 " + (before.get("why") or "")] if before.get("grade") == "violate" else []) + \
+        [f"{r['kind']} {r['d']}m < {r['m']}m" for r in roads_bad]
+    if n == "violate":
+        return {"code": "still", "label": "여전히 이격 미달", "why": " · ".join(reasons)}
+    if reasons:
+        return {"code": "new", "label": "9.18로 새로 가능", "why": "이전 기준 미달: " + " · ".join(reasons),
+                "uncertain": bool(uncertain)}
+    if roads_unk or before.get("cut"):
+        return {"code": "ok", "label": "원래 가능 추정", "why": "일부 도로는 측정 못 함", "partial": True}
+    return {"code": "ok", "label": "원래 가능"}
 
 
 def _judge(houses, rule):
@@ -280,3 +393,15 @@ def _dist_to_parcel(p, rings):
     if any(_inside(p, r) for r in rings):
         return 0.0
     return min(_seg_dist(p, r[i], r[(i + 1) % len(r)]) for r in rings for i in range(len(r)))
+
+
+def _line_to_parcel(line, rings):
+    """도로 선 ↔ 필지 경계 최단 거리 (선이 필지를 지나면 0에 가깝다)"""
+    if not line:
+        return float("inf")
+    d = min(_dist_to_parcel(p, rings) for p in line)
+    for r in rings:
+        for q in r:
+            for i in range(len(line) - 1):
+                d = min(d, _seg_dist(q, line[i], line[i + 1]))
+    return d

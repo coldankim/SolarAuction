@@ -54,6 +54,13 @@
   .its li { padding: 6px 0; border-bottom: 1px solid var(--line-2); }
   .its .t { color: var(--muted); }
   .leaflet-container { font-family: inherit; }
+  .pts { display: grid; gap: 4px; font-size: 12.5px; margin-top: 6px; }
+  .pts label { display: flex; align-items: center; gap: 8px; color: var(--text-2); cursor: pointer; }
+  .pts .dot { width: 12px; height: 12px; border-radius: 50%; flex: none; border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.35); }
+  .pts .n { margin-left: auto; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .it-pop { font-size: 12.5px; line-height: 1.55; max-width: 260px; }
+  .it-pop b { font-size: 13px; }
+  .it-pop .new { color: #11834a; font-weight: 700; }
   .leaflet-tooltip.sgg-tip { font-size: 12.5px; padding: 4px 8px; }
   /* 어두운 화면: 배경 지도만 어둡게 뒤집는다 */
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .leaflet-tile-pane { filter: invert(1) hue-rotate(180deg) brightness(.8) contrast(.9); } }
@@ -105,7 +112,7 @@
       <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="메뉴 열기">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
-      <div><h1>시군 지도</h1><div class="crumb">9.18 시행령으로 태양광 이격 규제가 풀린 시군</div></div>
+      <div><h1>시군 지도</h1><div class="crumb">9.18 시행령으로 태양광 이격 규제가 풀린 시군과 새로 가능해진 물건</div></div>
     </header>
     <div class="mapwrap">
       <div id="map" style="position:relative"><div class="load-msg" id="loadMsg">지도 불러오는 중…</div></div>
@@ -113,6 +120,8 @@
         <div class="views" id="views" role="group" aria-label="지도 보기"></div>
         <div class="legend" id="legend"></div>
         <div class="hint" id="viewHint"></div>
+        <div class="sec-h" style="margin-top:14px">물건 점 (지금 목록의 태양광 대상)</div>
+        <div class="pts" id="pts"><span class="hint">물건 불러오는 중…</span></div>
         <div class="find"><input id="q" type="search" placeholder="시군 이름 (예: 영암, 해남군)" aria-label="시군 찾기" list="sggList"><datalist id="sggList"></datalist></div>
         <div id="panel"></div>
       </div>
@@ -158,6 +167,47 @@ const VIEWS = {
   road:   { l: "이전 도로 이격", hint: "9.18 이전 조례의 도로 이격 거리입니다. 지금은 모두 적용되지 않습니다.",
             val: r => r && r.tiers ? Math.max(0, ...(r.roads || []).map(x => +x.m || 0)) || ((r.roads || []).length ? -1 : 0) : null },
 };
+// 물건 점: 9.18 전후 이격 판정
+const PCATS = [
+  { id: "new",   c: "#0bbf5a", r: 8, l: "9.18로 새로 가능", on: true },
+  { id: "ok",    c: "#2f7ae5", r: 6, l: "원래 가능 (이격 충족)", on: true },
+  { id: "still", c: "#e0453a", r: 6, l: "여전히 이격 미달", on: true },
+  { id: "other", c: "#8b95a5", r: 5, l: "이격 비교 안 함 (계통·용도 탈락, 지붕형 등)", on: false },
+];
+function pcatOf(it) {
+  const sb = (it.solar || {}).setback || {}, c = (sb.change || {}).code;
+  if (c === "new" || c === "still") return c;
+  if (c === "ok" || sb.grade === "ok" || sb.grade === "norule") return "ok";
+  if (sb.grade === "violate") return "still";
+  return "other";
+}
+let PTS, PON = new Set(PCATS.filter(c => c.on).map(c => c.id)), PITEMS = [];
+function itemPopup(it) {
+  const sol = it.solar || {}, sb = sol.setback || {}, ch = sb.change || {};
+  return `<div class="it-pop"><b>${esc(it.name)}</b><br>${esc(it.usage || "")} · 최저 ${num(+it.lowest)}원
+    ${sol.label ? `<br>계통: ${esc(sol.label)}` : ""}${(sol.landuse || {}).label ? ` · 용도: ${esc(sol.landuse.label)}` : ""}
+    ${sb.label ? `<br>지금: ${esc(sb.label)}${sb.why ? ` (${esc(sb.why)})` : ""}` : ""}
+    ${ch.code ? `<br><span class="${ch.code === "new" ? "new" : ""}">${esc(ch.label)}</span>${ch.why ? ` · ${esc(ch.why)}` : ""}${ch.uncertain ? " · 9.18 이후 조례 개정됨(확인 필요)" : ""}` : ""}
+    ${it.forest ? "<br>임야(산지 규제)" : ""}
+    ${it.link ? `<br><a href="${esc(it.link)}" target="_blank" rel="noopener">${it.source === "court" ? "법원경매" : "온비드"} 원문 ↗</a>` : ""}</div>`;
+}
+function drawPoints() {
+  if (!PTS) PTS = L.layerGroup().addTo(map);
+  PTS.clearLayers();
+  const cnt = {};
+  PITEMS.forEach(it => { const c = pcatOf(it); cnt[c] = (cnt[c] || 0) + 1; });
+  // 중요한 점(새로 가능)이 위에 오도록 순서대로
+  [...PCATS].reverse().forEach(pc => {
+    if (!PON.has(pc.id)) return;
+    PITEMS.filter(it => pcatOf(it) === pc.id).forEach(it => {
+      L.circleMarker(it.solar.loc, { radius: pc.r, color: "#fff", weight: 1.5, fillColor: pc.c, fillOpacity: .95, pane: "markerPane" })
+        .bindPopup(itemPopup(it)).addTo(PTS);
+    });
+  });
+  $("pts").innerHTML = PCATS.map(pc => `<label><input type="checkbox" data-pc="${pc.id}" ${PON.has(pc.id) ? "checked" : ""}>
+    <span class="dot" style="background:${pc.c}"></span>${esc(pc.l)}<span class="n">${cnt[pc.id] || 0}건</span></label>`).join("")
+    + `<div class="hint">위치가 확인된 물건만 찍힙니다. 점을 누르면 자세히 보입니다.</div>`;
+}
 let VIEW = "chg", HIDE = new Set(), DATA, LAYER, SEL = null, ITEMS = {}, map;
 
 function binOf(m) {
@@ -231,7 +281,7 @@ function detail(k) {
     </dl>
     <div class="sec-h">지금 목록에 있는 물건 ${its.length}건${its.length ? ` · 태양광 통과 ${pass}건` : ""}</div>
     ${its.length ? `<ul class="its">${its.slice(0, 15).map(it => `<li>${it.link ? `<a href="${esc(it.link)}" target="_blank" rel="noopener">${esc(it.name)}</a>` : esc(it.name)}
-        <div class="t">${esc(it.usage || "")} · 최저 ${num(+it.lowest)}원${it.solar ? ` · ${esc(it.solar.label)}` : ""}${it.forest ? " · 임야" : ""}</div></li>`).join("")}</ul>
+        <div class="t">${esc(it.usage || "")} · 최저 ${num(+it.lowest)}원${it.solar ? ` · ${esc(it.solar.label)}` : ""}${it.forest ? " · 임야" : ""}${pcatOf(it) === "new" ? ' · <b style="color:var(--good)">9.18로 새로 가능</b>' : ""}</div></li>`).join("")}</ul>
         ${its.length > 15 ? `<div class="hint">외 ${its.length - 15}건은 <a href="./">대시보드</a>에서 보세요.</div>` : ""}` : `<div class="hint">관심 지역 설정에 없는 곳이면 물건이 수집되지 않습니다.</div>`}
   </div>`;
   $("backBtn").onclick = () => select(null);
@@ -284,6 +334,8 @@ async function load() {
   // 현재 대시보드 물건 (시도 + 시군 첫 단어로 지역 묶음)
   try {
     const d = await fetch("data.php", { headers: { Accept: "application/json" } }).then(x => x.ok ? x.json() : {});
+    PITEMS = (d.items || []).filter(it => it.solar && Array.isArray(it.solar.loc));
+    drawPoints();
     (d.items || []).forEach(it => {
       const g = (SIDO_ALIAS[it.sido] || it.sido) + " " + String(it.sgg || "").split(" ")[0];
       (ITEMS[g] = ITEMS[g] || []).push(it);
@@ -296,6 +348,10 @@ $("views").addEventListener("click", e => { const b = e.target.closest("[data-vi
 $("legend").addEventListener("click", e => {
   const b = e.target.closest("[data-cat]"); if (!b) return;
   const id = b.dataset.cat; HIDE.has(id) ? HIDE.delete(id) : HIDE.add(id); redraw();
+});
+$("pts").addEventListener("change", e => {
+  const c = e.target.dataset.pc; if (!c) return;
+  e.target.checked ? PON.add(c) : PON.delete(c); drawPoints();
 });
 $("panel").addEventListener("click", e => { const li = e.target.closest("[data-k]"); if (li) select(li.dataset.k, true); });
 $("q").addEventListener("change", () => {

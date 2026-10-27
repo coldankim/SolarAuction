@@ -72,6 +72,7 @@
           <p>2026.9.18 시행령으로 <b>도로 이격 폐지</b>, 주거지는 <b>주택 5호 이상 모인 곳에서 최대 200m</b>까지만 제한할 수 있습니다.</p>
           <div class="row"><span class="tag sb-ok">이격 충족 추정</span><span>기준 거리 안에 주거지 없음</span></div>
           <div class="row"><span class="tag sb-violate">이격 미달 추정</span><span>기준 거리 안에 주거지 (알림은 보냄)</span></div>
+          <div class="row"><span class="tag sb-new">9.18로 새로 가능</span><span>예전 조례(주택 1호부터·200m 초과·도로 이격)로는 미달, 지금 기준으로는 충족. <a href="map.php" style="color:#9cc2ff">지도</a></span></div>
           <div class="row"><span class="tag">이격 기준 없음</span><span>시군 조례에 조항 없음</span></div>
           <p><b>전국 209개 시군구 도시·군계획 조례</b>(2026.10.2 조사)의 태양광 기준을 반영했고, 조례가 더 엄격하면 시행령 상한으로 낮춰 적용합니다. 카드의 "원문"에서 조례를 바로 볼 수 있습니다.</p>
           <p>지도 데이터로 잰 추정치입니다. 지붕형은 적용 제외.</p>
@@ -141,6 +142,7 @@
             <select id="solar" aria-label="태양광 조건">
               <option value="pass">태양광 통과 (계통 + 용도)</option>
               <option value="grid">계통 통과 (용도 제외 포함)</option>
+              <option value="new">9.18로 새로 가능 (이전 조례로는 이격 미달)</option>
               <option value="target">태양광 대상 전체</option>
               <option value="">전체 물건</option>
             </select>
@@ -230,6 +232,7 @@ let toastTimer;
 function toast(t) { const el = $("toast"); el.textContent = t; el.classList.add("on"); clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.remove("on"), 6000); }
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const gridOk = it => !!it.solar && (it.solar.grade === "good" || it.solar.grade === "ok");
+const chgOf = it => (((it.solar || {}).setback || {}).change || {}).code;
 const isPass = it => gridOk(it) && ((it.solar.landuse || {}).grade !== "exclude") && !it.forest;
 const won = n => n == null ? null : n.toLocaleString("ko-KR") + "원";
 const eok = n => n == null ? "-" : n >= 1e8 ? (n / 1e8).toFixed(n >= 1e10 ? 0 : 2).replace(/\.?0+$/, "") + "억" : Math.round(n / 1e4).toLocaleString("ko-KR") + "만";
@@ -306,7 +309,7 @@ function render() {
   const byNo = new Map(DATA.items.map(it => [it.no, it]));
   const base = FAV_MODE ? Object.entries(FAV).map(([no, f]) => byNo.get(no) || { ...(f.item || {}), no, gone: true }) : DATA.items;
   let rows = base.filter(it =>
-    (!solarF || (solarF === "target" ? !!it.solar : solarF === "grid" ? gridOk(it) : isPass(it))) &&
+    (!solarF || (solarF === "target" ? !!it.solar : solarF === "grid" ? gridOk(it) : solarF === "new" ? chgOf(it) === "new" : isPass(it))) &&
     (!srcF || (it.source || "onbid") === srcF) &&
     (!region || it.sgg === region) &&
     (!usage || it.usage === usage) &&
@@ -341,6 +344,7 @@ function render() {
         ${sol && sol.levelName ? `<span class="tag">${esc(sol.levelName)}</span>` : ""}
         ${lu && lu.label ? `<span class="tag ${esc(lu.grade)}">용도 ${esc(lu.label)}</span>` : ""}
         ${sb && sb.label ? `<span class="tag sb-${esc(sb.grade)}">${esc(sb.label)}</span>` : ""}
+        ${sb && sb.change && sb.change.code === "new" ? `<span class="tag sb-new" title="${esc(sb.change.why || "")}">9.18로 새로 가능${sb.change.uncertain ? "?" : ""}</span>` : ""}
         ${it.forest ? `<span class="tag sb-violate" title="산지일시사용허가 대상: 최대 20년 사용 후 원상복구, 지목변경 불가, 평균경사도 15도 이하, REC 가중치 0.5. 알림에서 제외됩니다.">임야(산지 규제)</span>` : `<span class="tag">${esc(it.usage || "-")}</span>`}
         ${it.prpt ? `<span class="tag">${esc(it.prpt)}</span>` : ""}
         ${it.usbd ? `<span class="tag">유찰 ${esc(it.usbd)}회</span>` : ""}
@@ -358,6 +362,7 @@ function render() {
         · 변전소 ${esc(sol.subst)} · DL ${esc(sol.dl)}${sol.lines > 1 ? ` · 선로 ${sol.lines}개 중 ${sol.okLines}개 통과` : ""}</div>` : ""}
       ${zoneHtml ? `<div class="zones">용도지역·지구: ${zoneHtml}</div>` : ""}
       ${sb && (sb.why || sb.basis) ? `<div class="zones">이격(주거지): ${esc(sb.why || "")}${sb.nearestHouse != null ? ` · 가장 가까운 주택 ${sb.nearestHouse}m` : ""}${sb.basis ? ` · ${esc(sb.basis)}` : ""}</div>` : ""}
+      ${sb && sb.before ? `<div class="zones">9.18 이전 기준: ${sb.change && sb.change.code === "new" ? `<b class="chg">${esc(sb.change.label)}</b> · ` : ""}주거 ${esc(sb.before.why || "-")}${(sb.before.roads || []).map(r => ` · ${esc(r.kind)} ${r.d != null ? `${r.d}m` : "측정 못 함"}${r.m ? ` (기준 ${r.m}m${r.grade === "violate" ? " 미달" : ""})` : ""}`).join("")}${sb.change && sb.change.uncertain ? " <i>(9.18 이후 조례가 개정돼 이전 기준이 다를 수 있음)</i>" : ""}</div>` : ""}
       ${sb && sb.ord && (sb.ord.others || sb.ord.url) ? `<div class="zones">조례(${esc(sb.ord.key)}${sb.ord.enforce ? ` · ${esc(sb.ord.enforce)} 시행` : ""}): ${esc(sb.ord.others || sb.ord.status)}${/도로/.test(sb.ord.others || "") ? " <i>(도로 이격은 9.18 시행령으로 적용 안 됨)</i>" : ""}${sb.ord.note ? ` · ${esc(sb.ord.note)}` : ""}${sb.ord.change && sb.ord.change.length ? ` · <b class="chg">9.18 완화: ${esc(sb.ord.change.join(", "))}</b>` : ""}${sb.ord.url ? ` <a href="${esc(sb.ord.url)}" target="_blank" rel="noopener">원문 ↗</a>` : ""}</div>` : ""}
       <div class="sub">${esc(it.org || "")}</div>
       ${it.note ? `<div class="note">${esc(it.note)}</div>` : ""}
