@@ -132,13 +132,14 @@ def main():
     put(web_secrets.encode("utf-8"), APP + "/web_secrets.php")
 
     put(open(os.path.join(BASE, "server", "auth.php"), "rb").read(), APP + "/auth.php")
-    for name in ("index.html", "research.html"):  # 화면은 앱 폴더에 두고 PHP가 비밀번호 확인 후 내보낸다
+    for name in ("index.html", "research.html", "map.html"):  # 화면은 앱 폴더에 두고 PHP가 비밀번호 확인 후 내보낸다
         put(open(os.path.join(BASE, "docs", name), "rb").read(), f"{APP}/view_{name}")
 
+    put(open(os.path.join(BASE, "sgg_map.json"), "rb").read(), APP + "/sgg_map.json")  # 시군 지도 (ordin/build_map.py)
     put(f"<?php return __DIR__ . '/{app_name}';\n".encode("utf-8"), "/public_html/app_path.php")
     put(open(os.path.join(BASE, "docs", "style.css"), "rb").read(), "/public_html/style.css")
     for name in ("trigger.php", "settings.php", "index.php", "research.php", "research_api.php", "data.php",
-                 "favorites.php", "fav_api.php"):
+                 "favorites.php", "fav_api.php", "map.php"):
         put(open(os.path.join(BASE, "server", name), "rb").read(), f"/public_html/{name}")
     # 화면 데이터: 예전 공개 파일(data.json)이 있으면 앱 폴더로 옮긴다
     if with_data:

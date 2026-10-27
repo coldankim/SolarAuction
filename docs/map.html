@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>시군 지도 · 태양광 경매 공매 알림</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* 지도 색: 바뀐 정도(범주) / 거리(한 가지 색의 진하기) */
+  :root { --m-big: #11834a; --m-road: #1f9e93; --m-small: #93c95b; --m-same: #6f86a8; --m-none: #c3c9d2; --m-unk: #ffffff; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --m-none: #5b6574; --m-unk: #2a3240; } }
+  :root[data-theme="dark"] { --m-none: #5b6574; --m-unk: #2a3240; }
+
+  .mapwrap { display: grid; grid-template-columns: minmax(0, 1fr) 380px; height: calc(100vh - 63px); }
+  #map { min-height: 300px; background: var(--bg); }
+  .mpanel { border-left: 1px solid var(--line); background: var(--card); overflow-y: auto; padding: 14px 16px 30px; }
+  .views { display: flex; flex-wrap: wrap; gap: 6px; }
+  .views button { font-size: 12.5px; border: 1px solid var(--line); background: var(--card); color: var(--text-2); border-radius: 99px;
+                  padding: 4px 11px; cursor: pointer; }
+  .views button.on { border-color: var(--sun); color: var(--sun); font-weight: 700; background: var(--sun-soft); }
+  .legend { margin: 12px 0 4px; display: grid; gap: 5px; font-size: 12.5px; }
+  .legend button { display: flex; align-items: center; gap: 8px; border: 0; background: none; color: var(--text-2); padding: 2px 0;
+                   cursor: pointer; text-align: left; }
+  .legend button.off { opacity: .35; }
+  .legend .sw { width: 16px; height: 12px; border-radius: 3px; flex: none; border: 1px solid color-mix(in srgb, var(--text) 25%, transparent); }
+  .legend .n { margin-left: auto; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .legend .dash { width: 16px; height: 0; border-top: 2px dashed var(--text); flex: none; }
+  .hint { font-size: 12px; color: var(--muted); line-height: 1.6; }
+  .find { display: flex; gap: 6px; margin: 12px 0 6px; }
+  .find input { flex: 1; min-width: 0; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--card); color: var(--text); font-size: 14px; }
+  .sec-h { font-size: 12px; color: var(--muted); margin: 16px 0 6px; font-weight: 700; letter-spacing: .3px; }
+  .rank { list-style: none; margin: 0; padding: 0; font-size: 13px; }
+  .rank li { display: flex; gap: 8px; padding: 6px 4px; border-bottom: 1px solid var(--line-2); cursor: pointer; align-items: baseline; }
+  .rank li:hover { background: var(--line-2); }
+  .rank .v { margin-left: auto; color: var(--good); font-weight: 700; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .det h2 { margin: 4px 0 2px; font-size: 18px; letter-spacing: -.3px; }
+  .det .sub { color: var(--muted); font-size: 12.5px; }
+  .det .back { border: 0; background: none; color: var(--sky); cursor: pointer; padding: 0; font-size: 12.5px; }
+  .ba { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 12px 0; }
+  .ba > div { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; }
+  .ba .k { font-size: 11.5px; color: var(--muted); }
+  .ba .v { font-size: 14px; font-weight: 700; margin-top: 3px; line-height: 1.5; }
+  .ba .now { border-color: color-mix(in srgb, var(--good) 45%, var(--line)); }
+  .chgs { margin: 6px 0; padding-left: 18px; font-size: 13px; }
+  .chgs li { margin: 3px 0; color: var(--good); font-weight: 600; }
+  .warn-box { background: var(--warn-bg); color: var(--warn); border-radius: 8px; padding: 8px 10px; font-size: 12.5px; margin: 8px 0; }
+  .kv2 { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 5px 10px; font-size: 13px; margin-top: 8px; }
+  .kv2 dt { color: var(--muted); } .kv2 dd { margin: 0; overflow-wrap: anywhere; }
+  .its { list-style: none; padding: 0; margin: 0; font-size: 12.5px; }
+  .its li { padding: 6px 0; border-bottom: 1px solid var(--line-2); }
+  .its .t { color: var(--muted); }
+  .leaflet-container { font-family: inherit; }
+  .leaflet-tooltip.sgg-tip { font-size: 12.5px; padding: 4px 8px; }
+  /* 어두운 화면: 배경 지도만 어둡게 뒤집는다 */
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .leaflet-tile-pane { filter: invert(1) hue-rotate(180deg) brightness(.8) contrast(.9); } }
+  :root[data-theme="dark"] .leaflet-tile-pane { filter: invert(1) hue-rotate(180deg) brightness(.8) contrast(.9); }
+  .load-msg { position: absolute; z-index: 500; left: 50%; top: 40%; transform: translate(-50%, -50%); background: var(--card); color: var(--text-2);
+              padding: 10px 16px; border-radius: 10px; box-shadow: var(--shadow); font-size: 13px; }
+  @media (max-width: 960px) {
+    .mapwrap { grid-template-columns: 1fr; grid-template-rows: 62vh auto; height: auto; }
+    .mpanel { border-left: 0; border-top: 1px solid var(--line); }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side" id="side" aria-label="메뉴">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </div>
+      <div><b>태양광 경매 공매 알림</b><small>Solar Auction Radar</small></div>
+    </div>
+    <ul class="nav">
+      <li><a href="./"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>대시보드</a></li>
+      <li><a href="favorites.php"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>찜 목록</a></li>
+      <li><a href="map.php" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><path d="M9 3v15M15 6v15"/></svg>시군 지도</a></li>
+      <li><a href="research.php"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>주소 조사 (research)</a></li>
+      <li><a href="map.php?logout=1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>잠그기 (로그아웃)</a></li>
+    </ul>
+    <div class="side-h">이 지도가 보여주는 것</div>
+    <div class="g">
+      <details open>
+        <summary><span class="n o">1</span>9.18 시행령</summary>
+        <div class="body"><p>2026.9.18부터 태양광 이격은 <b>주택 5호 이상 모인 주거지에서 최대 200m</b>까지만 정할 수 있고, <b>도로 이격은 정할 수 없습니다</b>. 조례가 이보다 엄격해도 시행령 기준이 적용됩니다.</p></div>
+      </details>
+      <details open>
+        <summary><span class="n l">2</span>색의 뜻</summary>
+        <div class="body"><p>시군 조례 원문(9.18 이전 기준)과 시행령 적용 후 기준을 비교해, <b>규제가 얼마나 풀렸는지</b>를 칠했습니다. 진한 초록일수록 예전엔 막혔던 땅이 새로 열렸을 가능성이 큽니다.</p></div>
+      </details>
+      <details>
+        <summary><span class="n w">3</span>주의</summary>
+        <div class="body"><p>시행령이 시행됐어도 시군이 조례를 아직 안 고쳤을 수 있습니다. 인허가 때 다툼이 생길 수 있으니 시군 개발행위 담당 부서에 꼭 확인하세요. 점선 테두리는 9.18 이후 조례를 개정한 곳으로, 원문이 이미 새 기준일 수 있습니다.</p></div>
+      </details>
+    </div>
+    <div class="side-foot">조례: 법제처 자치법규(<span id="chk">-</span> 조사) · 경계: 브이월드 시군구 · 배경: © OpenStreetMap</div>
+  </aside>
+
+  <div class="main">
+    <header class="top">
+      <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="메뉴 열기">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <div><h1>시군 지도</h1><div class="crumb">9.18 시행령으로 태양광 이격 규제가 풀린 시군</div></div>
+    </header>
+    <div class="mapwrap">
+      <div id="map" style="position:relative"><div class="load-msg" id="loadMsg">지도 불러오는 중…</div></div>
+      <div class="mpanel">
+        <div class="views" id="views" role="group" aria-label="지도 보기"></div>
+        <div class="legend" id="legend"></div>
+        <div class="hint" id="viewHint"></div>
+        <div class="find"><input id="q" type="search" placeholder="시군 이름 (예: 영암, 해남군)" aria-label="시군 찾기" list="sggList"><datalist id="sggList"></datalist></div>
+        <div id="panel"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const num = n => (n ?? 0).toLocaleString("ko-KR");
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const SIDO_ALIAS = { "전라남도": "전남광주통합특별시", "광주광역시": "전남광주통합특별시", "강원도": "강원특별자치도", "전라북도": "전북특별자치도" };
+
+// 바뀐 정도: 조례 원문(9.18 이전) → 시행령 적용 후
+const CATS = [
+  { id: "big",   v: "--m-big",   l: "주거 이격 200m 넘던 곳 → 200m로" },
+  { id: "road",  v: "--m-road",  l: "도로 이격 폐지" },
+  { id: "small", v: "--m-small", l: "1~4호 주택 이격만 폐지" },
+  { id: "same",  v: "--m-same",  l: "변화 없음 (이미 시행령 범위)" },
+  { id: "none",  v: "--m-none",  l: "원래 이격 조항 없음" },
+  { id: "unk",   v: "--m-unk",   l: "조례 확인 못 함" },
+];
+function catOf(r) {
+  if (!r || r.relaxed == null) return "unk";
+  if ((r.resBefore || 0) > 200) return "big";
+  if (r.roads && r.roads.length) return "road";
+  if (r.relaxed) return "small";
+  if (r.tiers && r.tiers.length) return "same";
+  return "none";
+}
+// 거리 보기: 한 가지 색(주황)의 진하기
+const SEQ = ["#fde3c4", "#fbbf7c", "#f2913d", "#d9661a", "#a3410b", "#5e2304"];
+const BINS = [[0, "없음", null], [100, "100m 이하", SEQ[0]], [200, "101~200m", SEQ[1]], [300, "201~300m", SEQ[2]],
+              [500, "301~500m", SEQ[3]], [1000, "501~1,000m", SEQ[4]], [Infinity, "1,000m 초과", SEQ[5]]];
+const maxM = t => (t || []).reduce((a, x) => Math.max(a, +x.m || 0), 0);
+const VIEWS = {
+  chg:    { l: "바뀐 정도", hint: "조례 원문과 9.18 시행령 적용 후를 비교했습니다. 진한 초록일수록 많이 풀렸습니다." },
+  before: { l: "이전 주거 이격", hint: "9.18 이전 조례 원문의 주거(주택) 이격 거리 최댓값입니다. 1호(집 한 채)부터 적용하던 곳이 많습니다.",
+            val: r => r && r.tiers ? maxM(r.tiers) : null },
+  after:  { l: "현재 주거 이격", hint: "시행령 적용 후: 주택 5호 이상 주거지에서 최대 200m입니다.",
+            val: r => r && r.tiersAfter ? maxM(r.tiersAfter) : null },
+  road:   { l: "이전 도로 이격", hint: "9.18 이전 조례의 도로 이격 거리입니다. 지금은 모두 적용되지 않습니다.",
+            val: r => r && r.tiers ? Math.max(0, ...(r.roads || []).map(x => +x.m || 0)) || ((r.roads || []).length ? -1 : 0) : null },
+};
+let VIEW = "chg", HIDE = new Set(), DATA, LAYER, SEL = null, ITEMS = {}, map;
+
+function binOf(m) {
+  if (m == null) return { i: -1, c: css("--m-unk"), l: "조례 확인 못 함" };
+  if (m === 0) return { i: 0, c: css("--m-none"), l: "없음" };
+  if (m === -1) return { i: "x", c: SEQ[2], l: "있음 (거리 직접 확인 필요)" };
+  const i = BINS.findIndex(b => m <= b[0]);
+  return { i, c: BINS[i][2], l: BINS[i][1] };
+}
+function classOf(f) {
+  const r = DATA.rules[f.properties.k];
+  if (VIEW === "chg") { const id = catOf(r); return { id, c: css(CATS.find(c => c.id === id).v) }; }
+  const b = binOf(VIEWS[VIEW].val(r));
+  return { id: "b" + b.i, c: b.c, l: b.l };
+}
+function styleOf(f) {
+  const k = classOf(f), r = DATA.rules[f.properties.k] || {}, sel = SEL && f.properties.k === SEL;
+  const hidden = HIDE.has(k.id);
+  return { fillColor: k.c, fillOpacity: hidden ? 0.04 : sel ? 0.9 : 0.68, color: sel ? css("--text") : r.amended ? css("--text-2") : "#ffffff",
+           weight: sel ? 2.6 : r.amended ? 1.4 : 0.6, opacity: hidden ? 0.25 : sel ? 1 : 0.8, dashArray: r.amended && !sel ? "4 3" : null };
+}
+
+function legend() {
+  const cnt = {};
+  const seen = new Set();
+  DATA.features.forEach(f => { if (seen.has(f.properties.k)) return; seen.add(f.properties.k); const id = classOf(f).id; cnt[id] = (cnt[id] || 0) + 1; });
+  let rows;
+  if (VIEW === "chg") rows = CATS.map(c => ({ id: c.id, c: css(c.v), l: c.l }));
+  else {
+    rows = [{ id: "b0", c: css("--m-none"), l: "없음" }];
+    BINS.slice(1).forEach((b, i) => { if (VIEW !== "after" || b[0] <= 200) rows.push({ id: "b" + (i + 1), c: b[2], l: b[1] }); });
+    if (VIEW === "road") rows.push({ id: "bx", c: SEQ[2], l: "있음 (거리 직접 확인 필요)" });
+    rows.push({ id: "b-1", c: css("--m-unk"), l: "조례 확인 못 함" });
+  }
+  $("legend").innerHTML = rows.map(r => `<button type="button" data-cat="${r.id}" class="${HIDE.has(r.id) ? "off" : ""}" title="눌러서 숨기기/보이기">
+      <span class="sw" style="background:${r.c}"></span>${esc(r.l)}<span class="n">${cnt[r.id] || 0}곳</span></button>`).join("")
+    + `<div style="display:flex;gap:8px;align-items:center;color:var(--text-2)"><span class="dash"></span>9.18 이후 조례 개정 (원문이 이미 새 기준일 수 있음)</div>`;
+  $("viewHint").textContent = VIEWS[VIEW].hint + " 범례를 누르면 그 색만 숨기거나 보입니다. (곳 = 조례 단위)";
+}
+function views() {
+  $("views").innerHTML = Object.entries(VIEWS).map(([k, v]) => `<button type="button" data-view="${k}" class="${k === VIEW ? "on" : ""}">${v.l}</button>`).join("");
+}
+function redraw() { LAYER.setStyle(styleOf); legend(); views(); }
+
+const fmtTiers = t => t == null ? "확인 못 함" : !t.length ? "없음" : [...t].sort((a, b) => (a.houses || 1) - (b.houses || 1)).map(x => `${x.houses || 1}호 이상 ${num(x.m)}m`).join("<br>");
+function featsOf(k) { return DATA.features.filter(f => f.properties.k === k); }
+function groupOf(name) { const p = name.split(" "); return p[0] + " " + (p[1] || ""); }
+
+function detail(k) {
+  const r = DATA.rules[k] || {}, fs = featsOf(k);
+  const names = [...new Set(fs.map(f => groupOf(f.properties.n)))];
+  const its = names.flatMap(g => ITEMS[g] || []);
+  // 대시보드의 "태양광 통과"와 같은 기준 (계통 통과 + 용도 1차 제외 아님 + 임야 아님)
+  const pass = its.filter(it => it.solar && ["good", "ok"].includes(it.solar.grade) && (it.solar.landuse || {}).grade !== "exclude" && !it.forest).length;
+  const roads = (r.roads || []).map(x => `${esc(x.kind)} ${x.m ? num(x.m) + "m" : ""}${x.extra ? ` <span class="t">(${esc(x.extra)})</span>` : ""}`).join("<br>");
+  $("panel").innerHTML = `<div class="det">
+    <button type="button" class="back" id="backBtn">← 완화 큰 순 목록</button>
+    <h2>${esc(k)}</h2>
+    <div class="sub">${esc(r.title || "")}${r.enforce ? ` · ${esc(r.enforce)} 시행` : ""}${fs.length > 1 ? ` · ${fs.length}개 구역에 적용` : ""}</div>
+    ${r.amended ? `<div class="warn-box">9.18 이후 개정·시행된 조례입니다. 아래 "이전" 값이 이미 새 기준일 수 있습니다.</div>` : ""}
+    <div class="ba">
+      <div><div class="k">9.18 이전 (조례 원문)</div><div class="v">${fmtTiers(r.tiers)}${roads ? `<div style="font-weight:500;font-size:12.5px;margin-top:4px">도로: ${roads}</div>` : ""}</div></div>
+      <div class="now"><div class="k">지금 (시행령 적용)</div><div class="v">${fmtTiers(r.tiersAfter)}${r.roads && r.roads.length ? `<div style="font-weight:500;font-size:12.5px;margin-top:4px">도로 이격 없음</div>` : ""}</div></div>
+    </div>
+    ${r.items && r.items.length ? `<div class="sec-h">바뀐 점</div><ul class="chgs">${r.items.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : `<div class="hint">${r.relaxed == null ? "조례 기준을 확인하지 못해 비교할 수 없습니다. 판정 때는 시행령 상한(5호 이상 200m)을 적용합니다." : "9.18 시행령으로 바뀐 점이 없습니다."}</div>`}
+    <dl class="kv2">
+      <dt>상태</dt><dd>${esc(r.status || "-")}</dd>
+      ${r.others ? `<dt>기타 이격</dt><dd>${esc(r.others)}</dd>` : ""}
+      ${r.note ? `<dt>비고</dt><dd>${esc(r.note)}</dd>` : ""}
+      ${r.url ? `<dt>원문</dt><dd><a href="${esc(r.url)}" target="_blank" rel="noopener">법제처 자치법규 ↗</a></dd>` : ""}
+    </dl>
+    <div class="sec-h">지금 목록에 있는 물건 ${its.length}건${its.length ? ` · 태양광 통과 ${pass}건` : ""}</div>
+    ${its.length ? `<ul class="its">${its.slice(0, 15).map(it => `<li>${it.link ? `<a href="${esc(it.link)}" target="_blank" rel="noopener">${esc(it.name)}</a>` : esc(it.name)}
+        <div class="t">${esc(it.usage || "")} · 최저 ${num(+it.lowest)}원${it.solar ? ` · ${esc(it.solar.label)}` : ""}${it.forest ? " · 임야" : ""}</div></li>`).join("")}</ul>
+        ${its.length > 15 ? `<div class="hint">외 ${its.length - 15}건은 <a href="./">대시보드</a>에서 보세요.</div>` : ""}` : `<div class="hint">관심 지역 설정에 없는 곳이면 물건이 수집되지 않습니다.</div>`}
+  </div>`;
+  $("backBtn").onclick = () => select(null);
+}
+function ranking() {
+  const rows = Object.entries(DATA.rules).filter(([, r]) => r.relaxed)
+    .map(([k, r]) => ({ k, r, d: Math.max(0, (r.resBefore || 0) - (r.resAfter || 0)), road: Math.max(r.roadBefore || 0, (r.roads || []).length ? 1 : 0) }))
+    .sort((a, b) => b.d - a.d || b.road - a.road || a.k.localeCompare(b.k));
+  const total = new Set(DATA.features.map(f => f.properties.k)).size;
+  $("panel").innerHTML = `<div class="sec-h">규제가 풀린 곳 ${rows.length}곳 / 전체 ${total}곳 · 완화 큰 순</div>
+    <ul class="rank">${rows.map(x => `<li data-k="${esc(x.k)}"><span>${esc(x.k)}</span><span class="v">${x.d ? `${num(x.r.resBefore)}→${x.r.resAfter}m` : x.road ? "도로 이격 폐지" : "소규모 주택 제외"}</span></li>`).join("")}</ul>`;
+}
+function select(k, zoom) {
+  SEL = k;
+  LAYER.setStyle(styleOf);
+  if (!k) { ranking(); return; }
+  detail(k);
+  if (zoom) {
+    const b = L.featureGroup(LAYER.getLayers().filter(l => l.feature.properties.k === k)).getBounds();
+    if (b.isValid()) map.fitBounds(b, { padding: [30, 30], maxZoom: 10 });
+  }
+  LAYER.getLayers().forEach(l => { if (l.feature.properties.k === k) l.bringToFront(); });
+  if (innerWidth <= 960) $("panel").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+async function load() {
+  map = L.map("map", { preferCanvas: true, zoomSnap: 0.5, minZoom: 6, maxZoom: 13 }).setView([36.2, 127.8], 7);
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, attribution: "© OpenStreetMap" }).addTo(map);
+  const r = await fetch("map.php?data=1", { headers: { Accept: "application/json" } });
+  if (r.status === 401) { location.reload(); return; }
+  if (!r.ok) { $("loadMsg").textContent = "지도 데이터를 불러오지 못했습니다 (" + r.status + ")"; return; }
+  DATA = await r.json();
+  $("chk").textContent = DATA.checked || "-";
+  LAYER = L.geoJSON(DATA, {
+    style: styleOf,
+    onEachFeature: (f, l) => {
+      l.bindTooltip(() => {
+        const r = DATA.rules[f.properties.k] || {}, c = classOf(f);
+        const lab = VIEW === "chg" ? CATS.find(x => x.id === c.id).l : c.l;
+        return `<b>${esc(f.properties.n)}</b><br>${esc(lab)}${f.properties.k !== f.properties.n ? `<br><span style="opacity:.7">조례: ${esc(f.properties.k)}</span>` : ""}`;
+      }, { sticky: true, className: "sgg-tip" });
+      l.on("click", () => select(f.properties.k));
+    },
+  }).addTo(map);
+  map.fitBounds(LAYER.getBounds(), { padding: [10, 10] });
+  $("loadMsg").remove();
+  $("sggList").innerHTML = [...new Set(DATA.features.map(f => f.properties.n).concat(Object.keys(DATA.rules)))].map(n => `<option value="${esc(n)}">`).join("");
+  redraw();
+  ranking();
+  // 현재 대시보드 물건 (시도 + 시군 첫 단어로 지역 묶음)
+  try {
+    const d = await fetch("data.php", { headers: { Accept: "application/json" } }).then(x => x.ok ? x.json() : {});
+    (d.items || []).forEach(it => {
+      const g = (SIDO_ALIAS[it.sido] || it.sido) + " " + String(it.sgg || "").split(" ")[0];
+      (ITEMS[g] = ITEMS[g] || []).push(it);
+    });
+    if (SEL) detail(SEL);
+  } catch (e) {}
+}
+
+$("views").addEventListener("click", e => { const b = e.target.closest("[data-view]"); if (!b) return; VIEW = b.dataset.view; HIDE.clear(); redraw(); });
+$("legend").addEventListener("click", e => {
+  const b = e.target.closest("[data-cat]"); if (!b) return;
+  const id = b.dataset.cat; HIDE.has(id) ? HIDE.delete(id) : HIDE.add(id); redraw();
+});
+$("panel").addEventListener("click", e => { const li = e.target.closest("[data-k]"); if (li) select(li.dataset.k, true); });
+$("q").addEventListener("change", () => {
+  const q = $("q").value.trim(); if (!q || !DATA) return;
+  const f = DATA.features.find(f => f.properties.n === q) || DATA.features.find(f => f.properties.k === q)
+         || DATA.features.find(f => f.properties.n.includes(q));
+  if (f) select(f.properties.k, true);
+});
+$("menuBtn").addEventListener("click", () => document.body.classList.toggle("side-open"));
+document.addEventListener("click", e => {
+  if (document.body.classList.contains("side-open") && !e.target.closest("#side") && !e.target.closest("#menuBtn")) document.body.classList.remove("side-open");
+});
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => DATA && redraw());
+load().catch(e => { const m = $("loadMsg"); if (m) m.textContent = "지도를 그리지 못했습니다: " + e.message; });
+</script>
+</body>
+</html>

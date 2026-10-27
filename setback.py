@@ -47,11 +47,15 @@ def find_rule(rules, sido, sgg):
     for sd in (sido, SIDO_ALIAS.get(sido)):
         if sd and sg and f"{sd} {sg}" in rules:
             return f"{sd} {sg}", rules[f"{sd} {sg}"]
-    if sg:  # 시군 이름이 전국에서 하나뿐이면 시도 표기가 달라도 찾는다 (고성군처럼 겹치면 안 함)
+    if sg and not sg.endswith("구"):  # 시군 이름이 전국에서 하나뿐이면 시도 표기가 달라도 찾는다
+        # (고성군처럼 겹치면 안 함. 서구·남구 같은 자치구는 다른 광역시 것과 섞이므로 제외)
         hits = [k for k in rules if k.split(" ")[-1] == sg and " " in k]
         if len(hits) == 1:
             return hits[0], rules[hits[0]]
-    for sd in (sido, SIDO_ALIAS.get(sido)):
+    sds = [sido, SIDO_ALIAS.get(sido)]
+    if SIDO_ALIAS.get(sido, sido) == "전남광주통합특별시":  # 통합 전 조례: 광주 자치구는 옛 광주광역시, 그 밖은 옛 전라남도
+        sds.append("(구)광주광역시" if sido == "광주광역시" or sg.endswith("구") else "(구)전라남도")
+    for sd in sds:
         if sd in rules:  # 광역시·특별시 자치구는 시 조례를 따름
             return sd, rules[sd]
     return f"{sido} {sg}".strip(), None
