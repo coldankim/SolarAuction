@@ -32,6 +32,10 @@ if (count($hits) >= 6) { http_response_code(429); echo '{"ok":false,"error":"잠
 $hits[] = $now;
 file_put_contents($rf, "<?php exit; ?>\n" . implode(',', $hits));
 
+if (in_array('shell_exec', array_map('trim', explode(',', (string)ini_get('disable_functions'))), true)) {
+    http_response_code(503);
+    echo '{"ok":false,"error":"호스팅 정책 변경으로 서버에서 주소 조사를 실행할 수 없어 잠시 중단했습니다. (실행 서버 이전 후 다시 열 예정)"}'; exit;
+}
 $cmd = 'cd ' . escapeshellarg($APP) . ' && PYTHONIOENCODING=utf-8 LANG=ko_KR.UTF-8 timeout 100 python3 research.py '
      . escapeshellarg($q) . ($pnu ? ' ' . escapeshellarg($pnu) : '') . ' 2>/dev/null';
 $out = shell_exec($cmd);

@@ -42,7 +42,7 @@ file_put_contents($tmp, json_encode($out, JSON_UNESCAPED_UNICODE | JSON_PRETTY_P
 rename($tmp, $FILE);
 
 $ran = false;
-if (!empty($in['runNow'])) {
+if (!empty($in['runNow']) && !in_array('exec', array_map('trim', explode(',', (string)ini_get('disable_functions'))), true)) {  // 호스팅이 실행을 막으면 PC 정기 실행 때 반영
     exec('cd ' . escapeshellarg($APP) . ' && PYTHONIOENCODING=utf-8 LANG=ko_KR.UTF-8 python3 -u onbid_alert.py >> logs/stdout.log 2>&1 &');
     $ran = true;
 }

@@ -554,7 +554,7 @@ $("sSave").addEventListener("click", async () => {
     if (!r.ok) throw new Error(j.error || r.status);
     lsSet("settingsPw", $("sRemember").checked ? pw : "");
     fillSettings(j.settings || st);
-    msg(j.started ? "저장하고 조회를 시작했습니다. 몇 분 뒤 새로고침하면 반영됩니다." : "저장했습니다. 다음 실행부터 적용됩니다.", "ok");
+    msg(j.started ? "저장하고 조회를 시작했습니다. 몇 분 뒤 새로고침하면 반영됩니다." : "저장했습니다. 다음 정기 실행(2시간 간격)부터 적용됩니다.", "ok");
   } catch (e) {
     msg("저장 실패: " + e.message, "err");
   } finally { $("sSave").disabled = false; }

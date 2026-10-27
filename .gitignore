@@ -18,3 +18,15 @@ ordin/compact*.json
 ordin/extracted.json
 ordin/review_*.json
 __pycache__/
+
+# PC 실행 (pc_run.py)
+dash_data.json
+logs/
+pc_run.lock
+seen_items.json
+state.json
+settings.json
+kepco_cache.json
+landuse_cache.json
+court_cache.json
+setback_cache.json
