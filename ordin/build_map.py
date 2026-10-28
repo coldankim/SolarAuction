@@ -3,6 +3,7 @@
   python ordin/build_map.py           경계는 ordin/sgg_raw.json 이 있으면 그대로 씀
   python ordin/build_map.py --fetch   브이월드에서 경계를 새로 받음 (행정구역이 바뀌었을 때)
 
+조례 개정 이력(ordin/history_timeline.json)이 있으면 rules[키].hist 로 붙인다.
 결과(sgg_map.json)는 서버 앱 폴더에 올리고 map.php 가 비밀번호 확인 뒤 내보낸다.
 - features: 시군구 경계(간략화) + 적용 조례 키
 - rules: 조례 키별 9.18 시행령 전후 비교 (주거 이격 이전/현재, 도로 이격, 바뀐 점)
@@ -105,6 +106,8 @@ def _capped(tiers):
 def main():
     fs = fetch() if "--fetch" in sys.argv or not os.path.exists(RAW) else json.load(open(RAW, encoding="utf-8"))
     rules = setback.load_rules()
+    hp = os.path.join(BASE, "history_timeline.json")  # 조례 개정 이력 (ordin/hist_build.py)
+    hist = json.load(open(hp, encoding="utf-8")) if os.path.exists(hp) else {}
     feats, used = [], {}
     for f in sorted(fs, key=lambda f: f["properties"]["sig_cd"]):
         p = f["properties"]
@@ -112,6 +115,8 @@ def main():
         sido, sgg = name.split(" ", 1) if " " in name else (name, "")
         key, r = setback.find_rule(rules, sido, sgg)
         used[key] = rule_info(key, r)
+        if key in hist:
+            used[key]["hist"] = hist[key]
         feats.append({"type": "Feature", "properties": {"cd": p["sig_cd"], "n": name, "k": key},
                       "geometry": simplify(f["geometry"])})
     out = {"type": "FeatureCollection", "features": feats, "rules": used,

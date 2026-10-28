@@ -33,3 +33,7 @@ setback_cache.json
 
 # 시군구 경계 원본 (브이월드에서 다시 받을 수 있음, 55MB)
 ordin/sgg_raw.json
+ordin/hist/
+ordin/hist_run.log
+ordin/hist_diff.txt
+ordin/hist_compact.txt

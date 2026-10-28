@@ -50,9 +50,17 @@
   .warn-box { background: var(--warn-bg); color: var(--warn); border-radius: 8px; padding: 8px 10px; font-size: 12.5px; margin: 8px 0; }
   .kv2 { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 5px 10px; font-size: 13px; margin-top: 8px; }
   .kv2 dt { color: var(--muted); } .kv2 dd { margin: 0; overflow-wrap: anywhere; }
+  .tl { list-style: none; margin: 4px 0 0; padding: 0 0 0 14px; border-left: 2px solid var(--line); font-size: 12.5px; }
+  .tl li { position: relative; padding: 4px 0 6px 6px; }
+  .tl li::before { content: ""; position: absolute; left: -20px; top: 9px; width: 10px; height: 10px; border-radius: 50%;
+                   background: var(--card); border: 2px solid var(--muted); }
+  .tl li.cur::before { border-color: var(--sun); background: var(--sun); }
+  .tl li.dec::before { border-color: var(--good); background: var(--good); }
+  .tl .d { color: var(--muted); font-variant-numeric: tabular-nums; margin-right: 6px; }
+  .tl .up { color: var(--bad); font-weight: 700; } .tl .down { color: var(--good); font-weight: 700; }
   .its { list-style: none; padding: 0; margin: 0; font-size: 12.5px; }
   .its li { padding: 6px 0; border-bottom: 1px solid var(--line-2); }
-  .its .t { color: var(--muted); }
+  .its .t, .tl .t, .rank .t { color: var(--muted); font-weight: 400; font-size: 12px; }
   .leaflet-container { font-family: inherit; }
   .zoom-hint { position: absolute; z-index: 500; left: 50%; bottom: 14px; transform: translateX(-50%); background: rgba(17, 24, 39, .82);
                color: #f3f6fb; padding: 6px 12px; border-radius: 99px; font-size: 12.5px; pointer-events: none; white-space: nowrap; }
@@ -164,6 +172,9 @@ const CATS = [
 ];
 function catOf(r) {
   if (!r || r.relaxed == null) return "unk";
+  const pre = r.amended && r.hist && r.hist.preDecree;  // 9.18 이후 고친 조례는 개정 전 판과 비교
+  if (pre && (pre.res || 0) > 200) return "big";
+  if (pre && pre.road) return "road";
   if ((r.resBefore || 0) > 200) return "big";
   if (r.roads && r.roads.length) return "road";
   if (r.relaxed) return "small";
@@ -179,6 +190,8 @@ const VIEWS = {
   chg:    { l: "바뀐 정도", hint: "조례 원문과 9.18 시행령 적용 후를 비교했습니다. 진한 초록일수록 많이 풀렸습니다." },
   before: { l: "이전 주거 이격", hint: "9.18 이전 조례 원문의 주거(주택) 이격 거리 최댓값입니다. 1호(집 한 채)부터 적용하던 곳이 많습니다.",
             val: r => r && r.tiers ? maxM(r.tiers) : null },
+  peak:   { l: "가장 엄격했던 주거 이격", hint: "2016년 이후 조례 개정 이력 중 주거 이격이 가장 컸던 값입니다. 지금보다 크면 그동안 완화된 곳입니다.",
+            val: r => r && r.tiers ? Math.max(maxM(r.tiers), (r.hist && r.hist.peakRes) || 0) : null },
   after:  { l: "현재 주거 이격", hint: "시행령 적용 후: 주택 5호 이상 주거지에서 최대 200m입니다.",
             val: r => r && r.tiersAfter ? maxM(r.tiersAfter) : null },
   road:   { l: "이전 도로 이격", hint: "9.18 이전 조례의 도로 이격 거리입니다. 지금은 모두 적용되지 않습니다.",
@@ -280,12 +293,20 @@ function detail(k) {
   const its = names.flatMap(g => ITEMS[g] || []);
   // 대시보드의 "태양광 통과"와 같은 기준 (계통 통과 + 용도 1차 제외 아님 + 임야 아님)
   const pass = its.filter(it => it.solar && ["good", "ok"].includes(it.solar.grade) && (it.solar.landuse || {}).grade !== "exclude" && !it.forest).length;
+  const h = r.hist, pre = r.amended && h && h.preDecree;
+  const m = v => v == null ? "확인 못 함" : v ? num(v) + "m" : "없음";
+  const arrow = (a, b) => a == null || b == null || a === b ? "" : b > a ? ' <span class="up">▲</span>' : ' <span class="down">▼</span>';
+  const tl = h ? `<div class="sec-h">조례 개정 이력 (2016년 이후, 태양광 이격이 바뀐 판)</div><ul class="tl">${h.timeline.map((x, i) => {
+      const p = h.timeline[i - 1] || {};
+      return `<li class="${x.current ? "cur" : x.date >= "2026-09-18" ? "dec" : ""}"><span class="d">${esc(x.date)}</span>${x.res === 0 && x.road === 0 ? "태양광 이격 조항 없음" :
+        `주거 ${m(x.res)}${i ? arrow(p.res, x.res) : ""} · 도로 ${m(x.road)}${i ? arrow(p.road, x.road) : ""}`}${x.note ? ` <span class="t">(${esc(x.note)})</span>` : ""}${x.url ? ` <a href="${esc(x.url)}" target="_blank" rel="noopener">원문</a>` : ""}</li>`;
+    }).join("")}</ul><div class="hint">주거·도로 이격의 가장 큰 거리만 적었습니다. 법제처 연혁 ${h.versions || "-"}개 판을 비교해 만든 것이며, 별표 표로만 정한 판은 "확인 못 함"으로 둡니다.</div>` : "";
   const roads = (r.roads || []).map(x => `${esc(x.kind)} ${x.m ? num(x.m) + "m" : ""}${x.extra ? ` <span class="t">(${esc(x.extra)})</span>` : ""}`).join("<br>");
   $("panel").innerHTML = `<div class="det">
     <button type="button" class="back" id="backBtn">← 완화 큰 순 목록</button>
     <h2>${esc(k)}</h2>
     <div class="sub">${esc(r.title || "")}${r.enforce ? ` · ${esc(r.enforce)} 시행` : ""}${fs.length > 1 ? ` · ${fs.length}개 구역에 적용` : ""}</div>
-    ${r.amended ? `<div class="warn-box">9.18 이후 개정·시행된 조례입니다. 아래 "이전" 값이 이미 새 기준일 수 있습니다.</div>` : ""}
+    ${r.amended ? `<div class="warn-box">9.18 이후 개정·시행된 조례입니다. ${pre ? `개정 전(${esc(pre.date)} 판)은 주거 ${m(pre.res)} · 도로 ${m(pre.road)}였습니다.` : `아래 "이전" 값이 이미 새 기준일 수 있습니다.`}</div>` : ""}
     <div class="ba">
       <div><div class="k">9.18 이전 (조례 원문)</div><div class="v">${fmtTiers(r.tiers)}${roads ? `<div style="font-weight:500;font-size:12.5px;margin-top:4px">도로: ${roads}</div>` : ""}</div></div>
       <div class="now"><div class="k">지금 (시행령 적용)</div><div class="v">${fmtTiers(r.tiersAfter)}${r.roads && r.roads.length ? `<div style="font-weight:500;font-size:12.5px;margin-top:4px">도로 이격 없음</div>` : ""}</div></div>
@@ -297,6 +318,7 @@ function detail(k) {
       ${r.note ? `<dt>비고</dt><dd>${esc(r.note)}</dd>` : ""}
       ${r.url ? `<dt>원문</dt><dd><a href="${esc(r.url)}" target="_blank" rel="noopener">법제처 자치법규 ↗</a></dd>` : ""}
     </dl>
+    ${tl}
     <div class="sec-h">지금 목록에 있는 물건 ${its.length}건${its.length ? ` · 태양광 통과 ${pass}건` : ""}</div>
     ${its.length ? `<ul class="its">${its.slice(0, 15).map(it => `<li>${it.link ? `<a href="${esc(it.link)}" target="_blank" rel="noopener">${esc(it.name)}</a>` : esc(it.name)}
         <div class="t">${esc(it.usage || "")} · 최저 ${num(+it.lowest)}원${it.solar ? ` · ${esc(it.solar.label)}` : ""}${it.forest ? " · 임야" : ""}${pcatOf(it) === "new" ? ' · <b style="color:var(--good)">9.18로 새로 가능</b>' : ""}</div></li>`).join("")}</ul>
@@ -310,7 +332,7 @@ function ranking() {
     .sort((a, b) => b.d - a.d || b.road - a.road || a.k.localeCompare(b.k));
   const total = new Set(DATA.features.map(f => f.properties.k)).size;
   $("panel").innerHTML = `<div class="sec-h">규제가 풀린 곳 ${rows.length}곳 / 전체 ${total}곳 · 완화 큰 순</div>
-    <ul class="rank">${rows.map(x => `<li data-k="${esc(x.k)}"><span>${esc(x.k)}</span><span class="v">${x.d ? `${num(x.r.resBefore)}→${x.r.resAfter}m` : x.road ? "도로 이격 폐지" : "소규모 주택 제외"}</span></li>`).join("")}</ul>`;
+    <ul class="rank">${rows.map(x => `<li data-k="${esc(x.k)}"><span>${esc(x.k)}${x.r.hist && x.r.hist.peakRes > (x.r.resBefore || 0) ? ` <span class="t" title="9.18 전에 스스로 완화한 적 있음">· 예전 최대 ${num(x.r.hist.peakRes)}m</span>` : ""}</span><span class="v">${x.d ? `${num(x.r.resBefore)}→${x.r.resAfter}m` : x.road ? "도로 이격 폐지" : "소규모 주택 제외"}</span></li>`).join("")}</ul>`;
 }
 function select(k, zoom) {
   SEL = k;
