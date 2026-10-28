@@ -131,7 +131,8 @@ def main():
     put(server_env.encode("utf-8"), APP + "/.env.php")
     put(web_secrets.encode("utf-8"), APP + "/web_secrets.php")
 
-    put(open(os.path.join(BASE, "server", "auth.php"), "rb").read(), APP + "/auth.php")
+    for lib in ("auth.php", "solar_lib.php"):  # 앱 폴더용 PHP (비밀번호 확인·태양광 판정 엔진)
+        put(open(os.path.join(BASE, "server", lib), "rb").read(), f"{APP}/{lib}")
     for name in ("index.html", "research.html", "map.html"):  # 화면은 앱 폴더에 두고 PHP가 비밀번호 확인 후 내보낸다
         put(open(os.path.join(BASE, "docs", name), "rb").read(), f"{APP}/view_{name}")
 

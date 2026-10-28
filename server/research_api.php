@@ -1,5 +1,5 @@
 <?php
-// research 페이지용 API: 주소 → 태양광 적합성 조사 (서버의 research.py 실행)
+// research 페이지용 API: 주소 → 태양광 적합성 조사 (solar_lib.php: research.py 를 PHP로 옮긴 것)
 //   GET q=주소 [&pnu=후보 필지번호]
 // 같은 주소는 하루 동안 결과 재사용, IP당 분당 6회 제한 (API 남용 방지). 로그인(research)한 경우에만.
 $APP = require __DIR__ . '/app_path.php';
@@ -32,15 +32,14 @@ if (count($hits) >= 6) { http_response_code(429); echo '{"ok":false,"error":"잠
 $hits[] = $now;
 file_put_contents($rf, "<?php exit; ?>\n" . implode(',', $hits));
 
-if (in_array('shell_exec', array_map('trim', explode(',', (string)ini_get('disable_functions'))), true)) {
-    http_response_code(503);
-    echo '{"ok":false,"error":"호스팅 정책 변경으로 서버에서 주소 조사를 실행할 수 없어 잠시 중단했습니다. (실행 서버 이전 후 다시 열 예정)"}'; exit;
+require $APP . '/solar_lib.php';
+try {
+    $d = sl_research($q, $pnu ?: null);
+} catch (Exception $e) {
+    http_response_code(502);
+    echo json_encode(array('ok' => false, 'error' => '조사 중 오류: ' . $e->getMessage()), JSON_UNESCAPED_UNICODE); exit;
 }
-$cmd = 'cd ' . escapeshellarg($APP) . ' && PYTHONIOENCODING=utf-8 LANG=ko_KR.UTF-8 timeout 100 python3 research.py '
-     . escapeshellarg($q) . ($pnu ? ' ' . escapeshellarg($pnu) : '') . ' 2>/dev/null';
-$out = shell_exec($cmd);
-$json = $out ? trim($out) : '';
-$d = json_decode($json, true);
-if (!is_array($d)) { http_response_code(502); echo '{"ok":false,"error":"조사 중 오류가 발생했습니다. 잠시 후 다시 시도하세요."}'; exit; }
+unset($d['rings']);
+$json = json_encode($d, JSON_UNESCAPED_UNICODE);
 if (!empty($d['ok'])) { file_put_contents($cf, "<?php exit; ?>\n" . $json); }
 echo $json;
