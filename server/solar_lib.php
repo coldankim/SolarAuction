@@ -420,8 +420,8 @@ function sl_line_parcel($line, $rings) {
 }
 
 // 주택 무리(주거지) 판정 — setback._judge 와 같음. houses: [[x, y, 필지까지 거리]...]
-function sl_judge($houses, $rule) {
-    $tiers = $rule['tiers'] ?: array(array('houses' => $rule['houses'], 'm' => $rule['limit']));
+// 주택 중심 간 70m 이내를 같은 주거지로 묶는다. houses: [[x, y, ...]...] (m) → [[번호...]...]
+function sl_groups($houses) {
     $n = count($houses);
     $parent = range(0, max(0, $n - 1));
     $find = function ($i) use (&$parent) { while ($parent[$i] != $i) { $parent[$i] = $parent[$parent[$i]]; $i = $parent[$i]; } return $i; };
@@ -437,6 +437,11 @@ function sl_judge($houses, $rule) {
     }
     $groups = array();
     for ($i = 0; $i < $n; $i++) $groups[$find($i)][] = $i;
+    return $groups;
+}
+function sl_judge($houses, $rule) {
+    $tiers = $rule['tiers'] ?: array(array('houses' => $rule['houses'], 'm' => $rule['limit']));
+    $groups = sl_groups($houses);
     $near = null;
     foreach ($houses as $h) $near = $near === null ? $h[2] : min($near, $h[2]);
     $base = array('limit' => $rule['limit'], 'houses' => $rule['houses'], 'basis' => $rule['basis'], 'nearestHouse' => $near === null ? null : round($near));
@@ -646,4 +651,211 @@ function sl_research($q, $pick = null, $pnu = null) {
         'x' => $c['x'] ?: ($loc ? $loc[1] : null), 'y' => $c['y'] ?: ($loc ? $loc[0] : null),
         'sido' => $sido, 'sgg' => $sgg, 'emd' => $emd, 'li' => $li, 'jibun' => $jibun, 'minKw' => $min, 'goodKw' => $good),
         $parts, array('verdict' => sl_verdict($parts), 'cands' => $cl, 'rings' => $parcel['rings']));
+}
+
+// ---------------------------------------------------------------- 리·동 가능 범위 (지도)
+// 리(동) 경계 안을 20m 안팎 칸으로 나눠, 칸마다 주거 이격(9.18 전후)과 9.18 이전 도로 이격을 만족하는지 칠한다.
+// 칸 값: 0 경계 밖 · 1 지금도 이격 미달 · 2 9.18로 새로 가능 · 3 원래 가능 (이전 기준을 모르면 1/3 만)
+define('SL_ZONE_BLDG', 8000);  // 리 둘레 건물이 이보다 많으면 도심으로 보고 칠하지 않음
+
+function sl_dp($pts, $tol) {  // Douglas-Peucker (반복형)
+    $n = count($pts);
+    if ($n < 4) return $pts;
+    $keep = array_fill(0, $n, false); $keep[0] = $keep[$n - 1] = true;
+    $stack = array(array(0, $n - 1));
+    while ($stack) {
+        list($a, $b) = array_pop($stack);
+        $best = 0; $bi = -1;
+        for ($i = $a + 1; $i < $b; $i++) { $d = sl_seg_dist($pts[$i], $pts[$a], $pts[$b]); if ($d > $best) { $best = $d; $bi = $i; } }
+        if ($bi > 0 && $best > $tol) { $keep[$bi] = true; $stack[] = array($a, $bi); $stack[] = array($bi, $b); }
+    }
+    $o = array(); foreach ($pts as $i => $p) if ($keep[$i]) $o[] = $p;
+    return $o;
+}
+// 리·동 경계 (0.05도 칸 단위, 화면 표시용으로 간략화). 읍·면은 리로 나뉘어 있어 동(가)만 넣는다
+function sl_areas($tx, $ty) {
+    $key = "$tx,$ty";
+    $hit = sl_cache_get('area', $key, 90 * 86400);
+    if ($hit !== null) return $hit;
+    $box = sprintf('BOX(%.2f,%.2f,%.2f,%.2f)', $tx * 0.05, $ty * 0.05, ($tx + 1) * 0.05, ($ty + 1) * 0.05);
+    $out = array();
+    foreach (array(array('LT_C_ADRI_INFO', 'li_cd'), array('LT_C_ADEMD_INFO', 'emd_cd')) as $L) {
+        list($fs) = sl_features(array('data' => $L[0], 'geomFilter' => $box, 'geometry' => 'true', 'attribute' => 'true'), 2);
+        foreach ($fs as $f) {
+            $p = $f['properties'];
+            if ($L[1] === 'emd_cd' && !preg_match('/(동|가)$/u', $p['full_nm'])) continue;
+            $rings = array();
+            foreach (sl_rings(@$f['geometry']) as $r) {
+                $r = array_map(function ($q) { return array(round($q[0], 5), round($q[1], 5)); }, sl_dp($r, 0.00003));  // 약 3m
+                if (count($r) >= 4) $rings[] = $r;
+            }
+            if ($rings) $out[] = array('c' => $p[$L[1]], 'n' => $p['full_nm'], 'r' => $rings);
+        }
+    }
+    sl_cache_put('area', $key, $out);
+    return $out;
+}
+function sl_area_geom($cd) {
+    $hit = sl_cache_get('areag', $cd, 90 * 86400);
+    if ($hit !== null) return $hit;
+    $ri = strlen($cd) == 10;
+    list($fs) = sl_features(array('data' => $ri ? 'LT_C_ADRI_INFO' : 'LT_C_ADEMD_INFO', 'geomFilter' => 'BOX(124,33,132,39)',
+        'attrFilter' => ($ri ? 'li_cd' : 'emd_cd') . ":=:$cd", 'geometry' => 'true', 'attribute' => 'true'));
+    if (!$fs) return null;
+    $res = array('n' => $fs[0]['properties']['full_nm'], 'r' => sl_rings($fs[0]['geometry']));
+    sl_cache_put('areag', $cd, $res);
+    return $res;
+}
+// 상자 범위의 건물·도로를 전부 받는다. $max 개를 넘으면 null (도심)
+function sl_box_features($data, $box, $max) {
+    $p = array('data' => $data, 'geomFilter' => $box, 'geometry' => 'true', 'attribute' => 'true');
+    list($fs, $total) = sl_features($p, 1);
+    if ($total > $max) return null;
+    for ($page = 2; ($page - 1) * 1000 < $total; $page++) {
+        $d = sl_vw(SL_DATA_URL, array_merge(array('service' => 'data', 'request' => 'GetFeature', 'format' => 'json',
+            'errorformat' => 'json', 'crs' => 'EPSG:4326', 'size' => 1000, 'page' => $page), $p));
+        $got = @$d['response']['result']['featureCollection']['features'];
+        if (!$got) break;
+        $fs = array_merge($fs, $got);
+    }
+    return $fs;
+}
+// 격자 문자열에 원(중심 cx,cy, 반지름 R 칸)을 '1'로 찍는다
+function sl_stamp(&$s, $w, $h, $cx, $cy, $R) {
+    $y0 = max(0, (int)floor($cy - $R)); $y1 = min($h - 1, (int)ceil($cy + $R));
+    for ($j = $y0; $j <= $y1; $j++) {
+        $dy = $j + 0.5 - $cy;
+        if (abs($dy) > $R) continue;
+        $hw = sqrt($R * $R - $dy * $dy);
+        $i0 = max(0, (int)ceil($cx - $hw - 0.5)); $i1 = min($w - 1, (int)floor($cx + $hw - 0.5));
+        $row = $j * $w;
+        for ($i = $i0; $i <= $i1; $i++) $s[$row + $i] = '1';
+    }
+}
+function sl_zone($cd) {
+    $a = sl_area_geom($cd);
+    if (!$a) return array('ok' => false, 'error' => '경계를 찾지 못했습니다');
+    $t = explode(' ', $a['n']);
+    $sido = $t[0]; $sgg = isset($t[1]) ? $t[1] : '';
+    if (isset($t[2]) && preg_match('/시$/u', $sgg) && preg_match('/구$/u', $t[2])) $sgg .= ' ' . $t[2];
+    $rule = sl_rule_for($sido, $sgg);
+    $before = sl_rule_before($sido, $sgg);
+    if ($before && !$before['tiers'] && !$before['roads']) $before = null;
+    $sig = function ($ts) { return implode(',', array_map(function ($t) { return "{$t['houses']}:{$t['m']}"; }, $ts)); };
+    $key = "$cd|" . $sig($rule['tiers']) . ($before ? '|' . $sig($before['tiers']) . '|' .
+        implode(',', array_map(function ($r) { return "{$r['kind']}:{$r['m']}"; }, $before['roads'])) : '');
+    $hit = sl_cache_get('zone', $key, 30 * 86400);
+    if ($hit !== null) return $hit;
+
+    $minx = INF; $miny = INF; $maxx = -INF; $maxy = -INF;
+    foreach ($a['r'] as $r) foreach ($r as $p) { $minx = min($minx, $p[0]); $maxx = max($maxx, $p[0]); $miny = min($miny, $p[1]); $maxy = max($maxy, $p[1]); }
+    $mx = 111320 * cos(deg2rad(($miny + $maxy) / 2));
+    $ext = max(($maxx - $minx) * $mx, ($maxy - $miny) * 110540);
+    $cs = max(20, (int)ceil($ext / 220 / 5) * 5);  // 칸 크기(m): 한 변 220칸 이내
+    $dlon = $cs / $mx; $dlat = $cs / 110540;
+    $w = (int)ceil(($maxx - $minx) / $dlon); $h = (int)ceil(($maxy - $miny) / $dlat);
+    $base = array('ok' => true, 'cd' => $cd, 'n' => $a['n'], 'key' => $rule['key'], 'now' => $rule['basis'],
+        'before' => $before ? $before['basis'] : null, 'uncertain' => $before ? $before['uncertain'] : false);
+    // 경계 안 (가로줄마다 경계와 만나는 점 사이를 채움)
+    $in = str_repeat('0', $w * $h);
+    for ($j = 0; $j < $h; $j++) {
+        $lat = $maxy - ($j + 0.5) * $dlat; $xs = array();
+        foreach ($a['r'] as $r) {
+            $n = count($r);
+            for ($k = 0; $k < $n; $k++) {
+                $p = $r[$k]; $q = $r[($k + 1) % $n];
+                if (($p[1] > $lat) != ($q[1] > $lat)) $xs[] = $p[0] + ($lat - $p[1]) * ($q[0] - $p[0]) / ($q[1] - $p[1]);
+            }
+        }
+        sort($xs);
+        for ($k = 0; $k + 1 < count($xs); $k += 2) {
+            $i0 = max(0, (int)ceil(($xs[$k] - $minx) / $dlon - 0.5)); $i1 = min($w - 1, (int)floor(($xs[$k + 1] - $minx) / $dlon - 0.5));
+            for ($i = $i0; $i <= $i1; $i++) $in[$j * $w + $i] = '1';
+        }
+    }
+    $toG = function ($p) use ($minx, $maxy, $dlon, $dlat) { return array(($p[0] - $minx) / $dlon, ($maxy - $p[1]) / $dlat); };
+    // 주택 (01 단독, 02 공동). 이전 기준 거리까지 넉넉히 받는다
+    $far = max($rule['limit'], $before ? $before['limit'] : 0);
+    $bn = str_repeat('0', $w * $h); $bb = $bn;
+    $nh = 0; $roadNote = null;
+    if ($far) {
+        $mg = min($far + 40, 1000);
+        $box = sprintf('BOX(%.6f,%.6f,%.6f,%.6f)', $minx - $mg / $mx, $miny - $mg / 110540, $maxx + $mg / $mx, $maxy + $mg / 110540);
+        $blds = sl_box_features('LT_C_BLDGINFO', $box, SL_ZONE_BLDG);
+        if ($blds === null) {
+            $res = array_merge($base, array('urban' => true));
+            sl_cache_put('zone', $key, $res);
+            return $res;
+        }
+        $houses = array();
+        foreach ($blds as $b) {
+            $use = substr((string)@$b['properties']['usability'], 0, 2);
+            if ($use !== '01' && $use !== '02') continue;
+            $pts = array();
+            foreach (sl_rings(@$b['geometry']) as $r) foreach ($r as $p) $pts[] = $toG($p);
+            if (!$pts) continue;
+            $cx = array_sum(array_column($pts, 0)) / count($pts); $cy = array_sum(array_column($pts, 1)) / count($pts);
+            $rad = 0; foreach ($pts as $p) $rad = max($rad, hypot($p[0] - $cx, $p[1] - $cy));
+            $houses[] = array($cx * $cs, $cy * $cs, $rad);  // 주거지 묶기는 m 단위, 건물 반지름은 칸 단위
+        }
+        $nh = count($houses);
+        $mOf = function ($tiers, $cnt) { $m = 0; foreach ($tiers as $t) if ($cnt >= $t['houses']) $m = max($m, $t['m']); return $m; };
+        foreach (sl_groups($houses) as $idx) {
+            $cnt = count($idx);
+            $m1 = $rule['limit'] ? $mOf($rule['tiers'], $cnt) : 0;
+            $m0 = $before ? $mOf($before['tiers'], $cnt) : 0;
+            foreach ($idx as $i) {
+                $hh = $houses[$i];
+                if ($m1) sl_stamp($bn, $w, $h, $hh[0] / $cs, $hh[1] / $cs, $m1 / $cs + $hh[2]);
+                if ($m0) sl_stamp($bb, $w, $h, $hh[0] / $cs, $hh[1] / $cs, $m0 / $cs + $hh[2]);
+            }
+        }
+    }
+    // 9.18 이전 도로 이격 (국도·지방도 등 표준노드링크에 있는 도로만)
+    if ($before && $before['roads']) {
+        $want = array(); $rf = 0;
+        foreach ($before['roads'] as $r) {
+            list($ok, $missing) = sl_road_match($r['kind']);
+            if ($missing || !$ok || !$r['m']) $roadNote = '농어촌도로·면도 등 지도에 없는 도로와 거리가 없는 도로 기준은 빠졌습니다';
+            if ($ok && $r['m']) { $want[] = array($ok, $r['m']); $rf = max($rf, $r['m']); }
+        }
+        if ($want) {
+            $mg = min($rf, 1000);
+            $box = sprintf('BOX(%.6f,%.6f,%.6f,%.6f)', $minx - $mg / $mx, $miny - $mg / 110540, $maxx + $mg / $mx, $maxy + $mg / 110540);
+            $links = sl_box_features('LT_L_MOCTLINK', $box, 6000) ?: array();
+            foreach ($links as $f) {
+                $rank = (string)@$f['properties']['rd_rank_h'];
+                $m = 0; foreach ($want as $wv) if (call_user_func($wv[0], $rank)) $m = max($m, $wv[1]);
+                if (!$m) continue;
+                $g = @$f['geometry'];
+                $lines = $g['type'] === 'LineString' ? array($g['coordinates']) : $g['coordinates'];
+                $R = $m / $cs; $step = max(1, $R / 8); $done = array();
+                foreach ($lines as $ln) {
+                    for ($k = 0; $k + 1 < count($ln); $k++) {
+                        $p = $toG($ln[$k]); $q = $toG($ln[$k + 1]);
+                        $ns = max(1, (int)ceil(hypot($q[0] - $p[0], $q[1] - $p[1]) / $step));
+                        for ($u = 0; $u <= $ns; $u++) {
+                            $x = $p[0] + ($q[0] - $p[0]) * $u / $ns; $y = $p[1] + ($q[1] - $p[1]) * $u / $ns;
+                            if ($x < -$R || $y < -$R || $x > $w + $R || $y > $h + $R) continue;
+                            $dk = round($x) . ',' . round($y);
+                            if (isset($done[$dk])) continue;
+                            $done[$dk] = 1;
+                            sl_stamp($bb, $w, $h, $x, $y, $R);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    $g = ''; $cnt = array(0, 0, 0, 0);
+    for ($k = 0, $N = $w * $h; $k < $N; $k++) {
+        $v = $in[$k] === '0' ? 0 : ($bn[$k] === '1' ? 1 : ($before && $bb[$k] === '1' ? 2 : 3));
+        $g .= $v; $cnt[$v]++;
+    }
+    $ha = $cs * $cs / 10000;
+    $res = array_merge($base, array('urban' => false, 'cs' => $cs, 'x0' => round($minx, 7), 'y1' => round($maxy, 7),
+        'dlon' => $dlon, 'dlat' => $dlat, 'w' => $w, 'h' => $h, 'g' => $g, 'houses' => $nh, 'roadNote' => $roadNote,
+        'ha' => array('blocked' => round($cnt[1] * $ha, 1), 'new' => round($cnt[2] * $ha, 1), 'ok' => round($cnt[3] * $ha, 1))));
+    sl_cache_put('zone', $key, $res);
+    return $res;
 }

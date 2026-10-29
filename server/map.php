@@ -3,6 +3,8 @@
 //   ?data=1            시군 지도 데이터 (sgg_map.json: 시군구 경계 + 조례 9.18 전후 비교)
 //   ?cells=x,y;x,y…    필지 경계 (0.005도 칸 단위, 한 번에 16칸까지. 1,000필지 넘는 칸은 도심으로 보고 생략)
 //   ?at=위도,경도       그 좌표의 필지 판정 (지목·계통·용도·이격·9.18 전후) — solar_lib.php
+//   ?areas=x,y;…       리·동 경계 (0.05도 칸 단위, 한 번에 8칸까지)
+//   ?zone=리·동코드      그 리(동) 안의 이격 가능 범위 격자 (9.18 전후)
 $APP = require __DIR__ . '/app_path.php';
 require $APP . '/auth.php';
 
@@ -22,7 +24,7 @@ if (isset($_GET['data'])) {
     if (is_file($f)) { readfile($f); } else { http_response_code(404); echo '{}'; }
     exit;
 }
-if (isset($_GET['cells']) || isset($_GET['at'])) {
+if (isset($_GET['cells']) || isset($_GET['at']) || isset($_GET['areas']) || isset($_GET['zone'])) {
     sa_require_api('main');
     header('Cache-Control: no-store');
     if (extension_loaded('zlib')) ob_start('ob_gzhandler');  // 필지 경계가 커서 압축 (호스팅이 자동 압축 안 함)
@@ -36,6 +38,18 @@ if (isset($_GET['cells']) || isset($_GET['at'])) {
                 $out[$c] = sl_cell(intval($m[1]), intval($m[2]));
             }
             map_json(array('ok' => true, 'cells' => $out));
+        }
+        if (isset($_GET['areas'])) {
+            $out = array();
+            foreach (array_slice(explode(';', (string)$_GET['areas']), 0, 8) as $c) {
+                if (!preg_match('/^(2\d{3}),(\d{3})$/', $c, $m)) continue;  // 경도/0.05, 위도/0.05
+                $out[$c] = sl_areas(intval($m[1]), intval($m[2]));
+            }
+            map_json(array('ok' => true, 'areas' => $out));
+        }
+        if (isset($_GET['zone'])) {
+            if (!preg_match('/^\d{8}(\d{2})?$/', (string)$_GET['zone'])) map_json(array('ok' => false, 'error' => '코드 오류'), 400);
+            map_json(sl_zone((string)$_GET['zone']));
         }
         if (!preg_match('/^(3[3-9]\.\d+),(12[4-9]\.\d+|13[0-2]\.\d+)$/', (string)$_GET['at'], $m)) map_json(array('ok' => false, 'error' => '좌표 오류'), 400);
         $pnu = sl_pnu_at(floatval($m[1]), floatval($m[2]));
