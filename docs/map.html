@@ -162,7 +162,7 @@
         <div class="hint" id="viewHint"></div>
         <div class="sec-h" style="margin-top:14px">물건 점 (지금 목록의 태양광 대상)</div>
         <div class="pts" id="pts"><span class="hint">물건 불러오는 중…</span></div>
-        <div class="hint" style="margin-top:10px">확대하면 단계별로 바뀝니다. <b>시군</b>(조례 색) → <b>리·동 경계</b> → <b>리별 가능 범위</b>(그 시군 조례의 주거·도로 이격으로 칠함) → <b>번지별 가능/불가</b>. 번지를 누르면 주소가 나오고 <b>복사</b>할 수 있으며, "자세히 판정"으로 계통·용도까지 봅니다. 오른쪽 위에서 위성사진으로 바꿀 수 있습니다.</div>
+        <div class="hint" style="margin-top:10px">확대하면 단계별로 바뀝니다. <b>시군</b>(조례 색) → <b>리·동 경계</b> → <b>리별 가능 범위</b>(그 시군 조례의 주거·도로 이격으로 칠함) → <b>번지별 가능/불가</b>. 계통은 한전 자료가 리 단위라 그 리의 여유가 부족하면 이격을 만족해도 <b>보라색</b>으로 칠합니다. 번지를 누르면 주소가 나오고 <b>복사</b>할 수 있으며, "자세히 판정"으로 계통·용도까지 봅니다. 오른쪽 위에서 위성사진으로 바꿀 수 있습니다.</div>
         <div class="find"><input id="q" type="search" placeholder="시군 이름 (예: 영암, 해남군)" aria-label="시군 찾기" list="sggList"><datalist id="sggList"></datalist></div>
         <div id="panel"></div>
       </div>
@@ -371,12 +371,13 @@ const CELL = 0.005, TILE = 0.05, AREA_Z = 13, ZONE_Z = 14, PARCEL_Z = 16;
 let PARCELS, CELLS = {}, PDRAWN = {}, LOADING = new Set(), SAT = false, PSEL;
 let ALAYER, AREAS = {}, ATILES = {}, ALOAD = new Set(), ZONES = {}, ZLOAD = new Set(), ZQ = [], ZRUN = 0, ZLEG;
 // 가능 범위 칸 색 (서버 값 1 미달 · 2 새로 가능 · 3 원래 가능) — 물건 점 색과 같게
-const ZCOL = { 1: [224, 69, 58, 80], 2: [11, 191, 90, 165], 3: [47, 122, 229, 105] };
+const ZCOL = { 1: [224, 69, 58, 80], 2: [11, 191, 90, 165], 3: [47, 122, 229, 105] }, ZGRID = [139, 92, 246, 150];  // 계통 부족 리는 가능 칸을 보라로
 const PST = {
   new:   { c: "#0bbf5a", o: 0.55, l: "9.18로 새로 가능" },
   ok:    { c: "#2f7ae5", o: 0.45, l: "원래 가능 (이격 충족)" },
   part:  { c: "#f5a524", o: 0.5,  l: "일부만 가능" },
   no:    { c: "#e0453a", o: 0.45, l: "이격 미달" },
+  grid:  { c: "#8b5cf6", o: 0.5,  l: "이격은 되나 계통 부족" },
   na:    { c: "#8b95a5", o: 0.15, l: "태양광 대상 아님 (도로·하천·구거 등)" },
   urban: { c: "#8b95a5", o: 0.06, l: "도심이라 계산 안 함" },
 };
@@ -418,8 +419,9 @@ function parcelStat(f) {
   if (!n[1] && !n[2] && !n[3]) n[at(Math.floor(((x0 + x1) / 2 - d.x0) / d.dlon), Math.floor((d.y1 - (y0 + y1) / 2) / d.dlat))]++;  // 작은 필지는 가운데 한 칸
   const tot = n[1] + n[2] + n[3];
   if (!tot) return f.st = { c: "urban" };
-  const ok = (n[2] + n[3]) / tot;
-  return f.st = { c: ok >= 0.9 ? (n[2] > n[3] ? "new" : "ok") : ok >= 0.1 ? "part" : "no", ok, nw: n[2] / tot, jm };
+  const ok = (n[2] + n[3]) / tot, c = ok >= 0.9 ? (n[2] > n[3] ? "new" : "ok") : ok >= 0.1 ? "part" : "no";
+  const gf = d.grid && d.grid.grade === "fail" && c !== "no";
+  return f.st = { c: gf ? "grid" : c, base: c, ok, nw: n[2] / tot, jm };
 }
 function pStyle(f) {
   const s = f && parcelStat(f), p = s && PST[s.c];
@@ -526,7 +528,8 @@ function drawZone(d) {
   } else {
     const cv = document.createElement("canvas"); cv.width = d.w; cv.height = d.h;
     const ctx = cv.getContext("2d"), img = ctx.createImageData(d.w, d.h);
-    for (let k = 0; k < d.g.length; k++) { const c = ZCOL[d.g.charCodeAt(k) - 48]; if (c) img.data.set(c, k * 4); }
+    const gf = d.grid && d.grid.grade === "fail";
+    for (let k = 0; k < d.g.length; k++) { const v = d.g.charCodeAt(k) - 48, c = gf && v >= 2 ? ZGRID : ZCOL[v]; if (c) img.data.set(c, k * 4); }
     ctx.putImageData(img, 0, 0);
     z.lay = L.imageOverlay(cv.toDataURL(), [[d.y1 - d.h * d.dlat, d.x0], [d.y1, d.x0 + d.w * d.dlon]], { pane: "zones", className: "zone-img" });
   }
@@ -548,9 +551,9 @@ function zLegend() {
   el.style.display = "";
   const sw = (c, o) => `<span class="sw" style="background:${c};opacity:${Math.max(o, .35) + .3}"></span>`;
   el.innerHTML = z < PARCEL_Z
-    ? `<b>리별 가능 범위</b> <span class="t">(주거·도로 이격만)</span>
-       <div>${sw("#0bbf5a", .65)}9.18로 새로 가능</div><div>${sw("#2f7ae5", .4)}원래 가능</div><div>${sw("#e0453a", .3)}지금도 이격 미달</div><div>${sw("#8b95a5", .2)}도심 (계산 안 함)</div>`
-    : `<b>번지별 판정</b> <span class="t">(주거·도로 이격만)</span>` + Object.values(PST).map(p => `<div>${sw(p.c, p.o)}${esc(p.l)}</div>`).join("") + `<div class="t">필지를 누르면 주소·복사</div>`;
+    ? `<b>리별 가능 범위</b> <span class="t">(이격 + 리 단위 계통)</span>
+       <div>${sw("#0bbf5a", .65)}9.18로 새로 가능</div><div>${sw("#2f7ae5", .4)}원래 가능</div><div>${sw("#8b5cf6", .55)}이격은 되나 계통 부족</div><div>${sw("#e0453a", .3)}지금도 이격 미달</div><div>${sw("#8b95a5", .2)}도심 (계산 안 함)</div>`
+    : `<b>번지별 판정</b> <span class="t">(이격 + 리 단위 계통)</span>` + Object.values(PST).map(p => `<div>${sw(p.c, p.o)}${esc(p.l)}</div>`).join("") + `<div class="t">필지를 누르면 주소·복사</div>`;
 }
 function hint() {
   const z = map.getZoom(), el = $("zoomHint");
@@ -588,6 +591,11 @@ function popAt(ll, html, addr) {
   const jd = el.querySelector("[data-judge]"); if (jd) jd.onclick = () => { map.closePopup(); judgeAt(ll); };
   L.popup({ maxWidth: 300, autoPanPadding: [20, 20] }).setLatLng(ll).setContent(el).openOn(map);
 }
+function gridLine(g) {
+  if (!g) return "";
+  const col = g.grade === "good" || g.grade === "ok" ? "var(--good)" : g.grade === "fail" ? "#8b5cf6" : "var(--muted)";
+  return `<div class="t">계통: <b style="color:${col}">${esc(g.label)}</b>${g.best != null ? ` · 여유 ${num(g.best)}kW` : ""}${g.subst ? ` · ${esc(g.subst)} 변전소` : ""}${g.levelName ? ` (${esc(g.levelName)})` : ""}</div>`;
+}
 function parcelPopup(f, ll) {
   if (PSEL) PSEL.remove();
   PSEL = L.polygon(ringsLL(f.r), { color: "#ffd84d", weight: 3, fill: false, interactive: false }).addTo(map);
@@ -597,6 +605,8 @@ function parcelPopup(f, ll) {
     <div class="t">지번 ${esc(f.j)}${s && s.jm ? ` · 지목 ${esc(s.jm)}` : ""}</div>
     <div class="t">면적 약 <b style="color:var(--text)">${num(Math.round(areaM2(f.r) / 3.3058))}평</b> (${num(Math.round(areaM2(f.r)))}㎡, 경계로 잰 값)</div>
     <div class="st" style="--c:${p ? p.c : "var(--muted)"}">${p ? esc(p.l) : "가능 범위 계산 중…"}</div>
+    ${s && s.c === "grid" ? `<div class="t">이격만 보면 ${esc(PST[s.base].l)}</div>` : ""}
+    ${(() => { const z = zoneOfPnu(f.p); return z && z.d ? gridLine(z.d.grid) : ""; })()}
     ${s && s.ok != null ? `<div class="t">필지 중 이격을 만족하는 면적 ${pct(s.ok)}${s.nw ? ` (그중 9.18로 새로 가능 ${pct(s.nw)})` : ""}</div>` : ""}
     <div class="btns"><button type="button" data-copy>주소 복사</button><button type="button" data-judge>자세히 판정 (계통·용도)</button></div>`, addr);
 }
@@ -604,7 +614,7 @@ function zonePopup(a, ll) {
   const z = ZONES[a.c], d = z && z.d, ha = v => num(Math.round(v)) + "ha";
   popAt(ll, `<b class="addr">${esc(a.n)}</b>
     ${!z ? `<div class="t"><span class="spin"></span>가능 범위 계산 중…</div>` : z.err ? `<div class="t">${esc(z.err)}</div>` : d.urban ? `<div class="t">건물이 많은 도심이라 가능 범위를 계산하지 않았습니다.</div>` : `
-    <div class="t">조례: ${esc(d.key || "-")}</div>
+    <div class="t">조례: ${esc(d.key || "-")}</div>${gridLine(d.grid)}
     <div class="zs"><span style="--c:#0bbf5a">새로 가능 ${ha(d.ha.new)}</span><span style="--c:#2f7ae5">원래 가능 ${ha(d.ha.ok)}</span><span style="--c:#e0453a">미달 ${ha(d.ha.blocked)}</span></div>
     <div class="t">지금: ${esc(d.now)}</div>${d.before ? `<div class="t">${esc(d.before)}</div>` : ""}
     <div class="t">주택 ${num(d.houses)}채 기준 · 칸 ${d.cs}m${d.roadNote ? ` · ${esc(d.roadNote)}` : ""}${d.uncertain ? " · 9.18 이후 조례 개정됨(이전 기준은 확인 필요)" : ""}</div>`}

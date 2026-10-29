@@ -859,3 +859,21 @@ function sl_zone($cd) {
     sl_cache_put('zone', $key, $res);
     return $res;
 }
+// 리(동)의 한전 계통 여유 (한전 자료가 대부분 리 단위라 번지마다 따로 묻지 않는다, 20시간 보관)
+function sl_zone_grid($cd, $n) {
+    $t = explode(' ', $n);
+    $last = end($t);
+    $li = preg_match('/리$/u', $last) ? $last : null;
+    $emd = $li ? $t[count($t) - 2] : $last;
+    $e = sl_env();
+    $min = intval(isset($e['SOLAR_MIN_KW']) ? $e['SOLAR_MIN_KW'] : 100) ?: 100;
+    $good = intval(isset($e['SOLAR_GOOD_KW']) ? $e['SOLAR_GOOD_KW'] : 300) ?: 300;
+    try {
+        list($level, $rows) = sl_kepco_lookup(substr($cd, 0, 2), substr($cd, 2, 3), $emd, $li, null);
+        $g = sl_kepco_summary($level, $rows, $min, $good);
+    } catch (SolarErr $ex) {
+        $g = array('grade' => 'error', 'label' => '계통 조회 실패');
+    }
+    unset($g['lineList']);
+    return array_merge($g, array('minKw' => $min, 'goodKw' => $good));
+}

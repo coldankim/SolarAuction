@@ -4,7 +4,7 @@
 //   ?cells=x,y;x,y…    필지 경계 (0.005도 칸 단위, 한 번에 16칸까지. 1,000필지 넘는 칸은 도심으로 보고 생략)
 //   ?at=위도,경도       그 좌표의 필지 판정 (지목·계통·용도·이격·9.18 전후) — solar_lib.php
 //   ?areas=x,y;…       리·동 경계 (0.05도 칸 단위, 한 번에 8칸까지)
-//   ?zone=리·동코드      그 리(동) 안의 이격 가능 범위 격자 (9.18 전후)
+//   ?zone=리·동코드      그 리(동) 안의 이격 가능 범위 격자 (9.18 전후) + 그 리의 한전 계통 여유
 $APP = require __DIR__ . '/app_path.php';
 require $APP . '/auth.php';
 
@@ -49,7 +49,9 @@ if (isset($_GET['cells']) || isset($_GET['at']) || isset($_GET['areas']) || isse
         }
         if (isset($_GET['zone'])) {
             if (!preg_match('/^\d{8}(\d{2})?$/', (string)$_GET['zone'])) map_json(array('ok' => false, 'error' => '코드 오류'), 400);
-            map_json(sl_zone((string)$_GET['zone']));
+            $z = sl_zone((string)$_GET['zone']);
+            if (!empty($z['ok'])) $z['grid'] = sl_zone_grid($z['cd'], $z['n']);  // 계통은 자주 바뀌어 가능 범위(30일)와 따로 보관
+            map_json($z);
         }
         if (!preg_match('/^(3[3-9]\.\d+),(12[4-9]\.\d+|13[0-2]\.\d+)$/', (string)$_GET['at'], $m)) map_json(array('ok' => false, 'error' => '좌표 오류'), 400);
         $pnu = sl_pnu_at(floatval($m[1]), floatval($m[2]));
