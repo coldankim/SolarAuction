@@ -368,7 +368,7 @@ function select(k, zoom) {
 
 // ── 확대 단계: 시군 색(~11) → 리·동 경계(13~) → 리별 가능 범위(14~) → 번지별 가능/불가(16~)
 const CELL = 0.005, TILE = 0.05, AREA_Z = 13, ZONE_Z = 14, PARCEL_Z = 16;
-let PARCELS, CELLS = {}, LOADING = new Set(), SAT = false, PSEL;
+let PARCELS, CELLS = {}, PDRAWN = {}, LOADING = new Set(), SAT = false, PSEL;
 let ALAYER, AREAS = {}, ATILES = {}, ALOAD = new Set(), ZONES = {}, ZLOAD = new Set(), ZQ = [], ZRUN = 0, ZLEG;
 // 가능 범위 칸 색 (서버 값 1 미달 · 2 새로 가능 · 3 원래 가능) — 물건 점 색과 같게
 const ZCOL = { 1: [224, 69, 58, 80], 2: [11, 191, 90, 165], 3: [47, 122, 229, 105] };
@@ -376,7 +376,7 @@ const PST = {
   new:   { c: "#0bbf5a", o: 0.55, l: "9.18로 새로 가능" },
   ok:    { c: "#2f7ae5", o: 0.45, l: "원래 가능 (이격 충족)" },
   part:  { c: "#f5a524", o: 0.5,  l: "일부만 가능" },
-  no:    { c: "#e0453a", o: 0.35, l: "이격 미달" },
+  no:    { c: "#e0453a", o: 0.45, l: "이격 미달" },
   na:    { c: "#8b95a5", o: 0.15, l: "태양광 대상 아님 (도로·하천·구거 등)" },
   urban: { c: "#8b95a5", o: 0.06, l: "도심이라 계산 안 함" },
 };
@@ -436,17 +436,17 @@ function drawCell(k, c) {
     const [x, y] = k.split(",").map(Number);
     L.rectangle([[y * CELL, x * CELL], [(y + 1) * CELL, (x + 1) * CELL]], { color: "#8b95a5", weight: 1, dashArray: "4 4", fillOpacity: 0.08, interactive: false }).addTo(g);
   } else {
-    (c.f || []).forEach(f => { f.layer = L.polygon(ringsLL(f.r), pStyle(f)).addTo(g); });
+    // 칸 경계에 걸친 필지는 양쪽 칸에 다 들어 있어 한 번만 그린다 (두 번 그리면 색이 진해짐)
+    (c.f || []).forEach(f => { f.layer = PDRAWN[f.p] || (PDRAWN[f.p] = L.polygon(ringsLL(f.r), pStyle(f)).addTo(g)); });
   }
   CELLS[k] = { g, dense: !!c.dense, f: c.dense ? [] : c.f || [] };
   if (map.getZoom() >= PARCEL_Z) g.addTo(PARCELS);
 }
 async function loadCells() {
   const z = map.getZoom();
-  Object.values(CELLS).forEach(c => PARCELS.removeLayer(c.g));
+  Object.values(CELLS).forEach(c => z < PARCEL_Z ? PARCELS.removeLayer(c.g) : c.g.addTo(PARCELS));  // 걸친 필지가 옆 칸 묶음에 있어 받은 칸은 다 켠다
   if (z < PARCEL_Z) return;
   const keys = cellKeys();
-  keys.forEach(k => CELLS[k] && CELLS[k].g.addTo(PARCELS));
   const need = keys.filter(k => !CELLS[k] && !LOADING.has(k));
   for (let i = 0; i < need.length; i += 16) {
     const part = need.slice(i, i + 16);
