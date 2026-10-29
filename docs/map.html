@@ -384,7 +384,13 @@ const NA_JIMOK = new Set("도천구제철수유묘공학종사".split(""));
 const inRing = (x, y, r) => { let o = false; for (let i = 0, j = r.length - 1; i < r.length; j = i++) {
   const a = r[i], b = r[j]; if ((a[1] > y) !== (b[1] > y) && x < (b[0] - a[0]) * (y - a[1]) / (b[1] - a[1]) + a[0]) o = !o; } return o; };
 const inRings = (x, y, rs) => rs.reduce((o, r) => inRing(x, y, r) ? !o : o, false);
-const ringsLL = rs => rs.map(r => r.map(p => [p[1], p[0]]));
+// 필지 면적(㎡): 경위도를 그 자리 m 로 바꿔 넓이 공식 (공부상 면적과 1~2% 차이 날 수 있음)
+const areaM2 = rs => rs.reduce((s, r) => {
+  const k = 111320 * Math.cos(r[0][1] * Math.PI / 180);
+  let a = 0; for (let i = 0, j = r.length - 1; i < r.length; j = i++) a += (r[j][0] - r[i][0]) * k * (r[j][1] + r[i][1] - 2 * r[0][1]) * 110540;
+  return s + Math.abs(a) / 2;
+}, 0);
+const ringsLL = rs =>rs.map(r => r.map(p => [p[1], p[0]]));
 
 function zoneOfPnu(pnu) { return ZONES[pnu.slice(0, 10)] || ZONES[pnu.slice(0, 8)]; }
 function areaOfPnu(pnu) { return AREAS[pnu.slice(0, 10)] || AREAS[pnu.slice(0, 8)]; }
@@ -589,6 +595,7 @@ function parcelPopup(f, ll) {
   const pct = v => Math.round(v * 100) + "%";
   popAt(ll, `<b class="addr">${esc(addr)}</b>
     <div class="t">지번 ${esc(f.j)}${s && s.jm ? ` · 지목 ${esc(s.jm)}` : ""}</div>
+    <div class="t">면적 약 <b style="color:var(--text)">${num(Math.round(areaM2(f.r) / 3.3058))}평</b> (${num(Math.round(areaM2(f.r)))}㎡, 경계로 잰 값)</div>
     <div class="st" style="--c:${p ? p.c : "var(--muted)"}">${p ? esc(p.l) : "가능 범위 계산 중…"}</div>
     ${s && s.ok != null ? `<div class="t">필지 중 이격을 만족하는 면적 ${pct(s.ok)}${s.nw ? ` (그중 9.18로 새로 가능 ${pct(s.nw)})` : ""}</div>` : ""}
     <div class="btns"><button type="button" data-copy>주소 복사</button><button type="button" data-judge>자세히 판정 (계통·용도)</button></div>`, addr);
